@@ -1,0 +1,13 @@
+Zoid commented that my last .plan update sounded like Fred Brooks "The Mythical Man-Month". He is certainly correct.
+
+When I read TMMM two years ago, I was stunned by how true and relevent it was. I have something of a prejudice against older computer books - I think "If its more than a five years old, it can't be very relevent" (sure, thats not too rational, but what prejudice is?).
+
+Then I go and read this book that is TWENTY YEARS old, that talks about experience gained IN THE SIXTIES, and I find it mirroring (and often crystalizing) my thoughts on development as my experiences have taught me.
+
+It even got me fired up about documenting my work. For about a day :)
+
+I had to fly out to CA for biz on thursday, so I decided to grab and re-read TMMM on the plane.
+
+It was just as good the second time through, and two more years of development under my belt hasn't changed any of my opinions about the contents.
+
+If you program (or even work around software development), you should read this book.

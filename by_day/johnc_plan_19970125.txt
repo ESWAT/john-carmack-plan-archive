@@ -1,0 +1,3 @@
+I fixed a couple problems in glquake with some addon stuff -- the goats demo actually showed up a crashing problem with 256*256 textures, and the rangers demos showed that players with non-player models and colormaps were all messed up.
+
+I'll make another release when 3dfx has their next driver drop finished. 

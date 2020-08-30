@@ -1,0 +1,11 @@
+Don't send any bug reports on the 3.12 release to me, I just forward them over to jcash. He is going to be managing all future work on the Quake 2 codebase through the mission packs. I'm working on trinity.
+
+3.12 answered the release question pretty decisively for me. We were in code freeze for over two weeks while the release was being professionally beta tested, and all it seemed to get us was a two week later release.
+
+Future releases are going to be of the fast/multiple release type, but clearly labeled as a "beta" release until it stabilizes. A dozen professional testers or fifty amature testers just can't compare to the thousands of players who will download a beta on the first day.
+
+I have spent a while thinking about the causes of the patches for Q2. Our original plan was to just have the contents of 3.12 as the first patch, but have it out a month earlier than we did.
+
+The first several patches were forced due to security weaknesses. Lesson learned - we need to design more security conscious to try to protect against the assholes out there.
+
+The cause for the upcoming 3.13 patch is the same thing that has caused us a fair amount of trouble through Q2's development - instability in the gamex86 code due to its decending from QC code in Q1. It turns out that there were lots of bugs in the original QC code, but because of its safe interpreted nature (specifically having a null entity reference the world) they never really bothered anyone. We basically just ported the QC code to regular C for Q2 (it shows in the code) and fixed crash bugs as they popped up. We should have taken the time to redesign more for C's strengths and weaknesses.

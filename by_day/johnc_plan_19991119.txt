@@ -1,0 +1,7 @@
+Linux version isn't going to make it tonight. We got too busy with other things. Sorry. Tomorrow.
+
+* shrink zone, grow hunk
+* flush memory on an error
+* fixed crash pasting from clipboard
+* test all compiler optimizations - 5% speedup
+* fixed major slowdown in team games with large numbers of players and location markers

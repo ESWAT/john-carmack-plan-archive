@@ -1,0 +1,28 @@
+* fixed world/entity clear allsolid flag bug
+* tracked down problem with zombies popping out of graves
+* fixed path follow when in combat mode bug
+* fixed standing on top of monster stuck bug
+* animating textures
+
++ don't report surface cache size when caching sounds
++ pick up items multiple times when on dropping plat
++ pause continues across restarts, but plaque doesn't
++ overnight lockups
++ debounce jump
++ wizard spikes start in walls
+
+overbright light palettes?
+slope auto pitch needs work
+secret area counters
+don't slide on slopes
+zombies need to be gibed by pushers
+monsters trigger plats
+trigger_notouch
+warnings on coplanar brushes in bsp?
+only disable auto center when head is under water, not feet
+debounce escape
+lightstyles in savegames
+sticky bsp corners
+wizard partical centers
+make triggers use BSP models?
+better sky management

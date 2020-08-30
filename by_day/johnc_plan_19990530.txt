@@ -1,0 +1,44 @@
+For the past couple of weeks, I have been spending some development time on linux, and for the first time on a non-NEXTSTEP unix platform, I have actually been enjoying it.
+
+While Id has been supporting linux since the Doom days, I have not personally been much of a linux user -- it was always ddt or zoid doing the actual coding and testing. Every year or so I would install a linux distribution and play around with it for a few days, but I would always leave feeling that it was still pretty crude (UI wise) compared to the NEXTSTEP UI I was used to, or even what I had used on other commercial unix workstations and windows.
+
+There have always been a ton of reasons to like linux, but the user interface was enough of an issue that I couldn't buy into it completely.
+
+The gnome user environment in Red Hat 6.0 is finally at a level that I consider it a valid alternative to commercial desktop environments. Overall, its still not as smooth, consistant, or complete as windows or the mac, but is does have its strong points, and things seem to be progressing quite rapidly.
+
+Its still not something you would give to a purely casual computer user, but I won't be surprised if even that changes in a couple years.
+
+CodeWarrior for linux is also a significant aspect of my enjoyment. Its a sort of crappy 1.0 port with a lot of little issues, but the editor works well enough, which is the important thing for me. I have never been able to stand vi or emacs for long enough to become proficient in them.
+
+The code that I have been playing with most is the matrox g200 GLX driver.
+
+Matrox is the first of the major 3D chip vendors that has had the guts to publicly release register level documentation for their 3D chips.
+
+An accelerated X windows OpenGL driver has been put together with this by building on top of the existing Mesa and GLX projects.
+
+It actually runs quake, quake2, and q3test. It doesn't run them FAST, but the quality is good, and I am impressed nonetheless. It is bordering on playable with all quality options set to the minimum on a fast computer, but it still has a ways to go before casual users should take a look at it.
+
+It is steadily improving, and I hope Matrox will be pleased enough with the progress that they will release the documentation for their setup engine to go with the rasterizer.
+
+In testing q3 on it, I noticed that with picmip set to 0, textures would get corrupted and it would never settle on a working set. The current Apple OpenGL drivers also have exactly this problem.
+
+The cool part is that this driver is completely open source. I downloaded the project code, browsed through it a bit, and changed two lines of code to fix the bug. That RULES.
+
+The next thing is sort of funny. I had been suspecting that a lot of the OpenGL drivers were clearing the entire depth buffer for each of the 3D icons on the status bar, instead of limiting it to the scissor region. I added code to the g200 driver to explicitly crop the clear region in the driver, but it never got executed. A little more investigation showed that I had been making an improper assumption for years -- scissor is not enabled by default. Doh.
+
+Ever since noticing that glquake cleared the screen borders when the view is sized down, I had been operating under the assumption that intergraph just had a bug in their drivers. I had double checked that glClear was supposed to be limited to the scissor region, so I thought they were just messing it up.
+
+Now I know that I was just being an idiot about that for the last three years... With scissor enabled, most of the cards got a few percent faster.
+
+
+* dynamic curve level of detail. r_subdivisions determines the maximum level of detail, r_lodCurveError determines how quickly polygons are pulled out with distance
+* devmap sets cheats 1, map sets cheats 0
+* change weapon item upscale to 1.5 instead of 2
+* always toss items forward, even if looking up or down
+* draw ammo in grey while weapons are reloading
+* change railgun shader while reloading
+* fixed head models not showing proper skin
+* skip all shell eject code when cg_brassTime 0
+* fixed sound memory overallocation
+* profiling and rearrangement
+* fixed dead spectator bug

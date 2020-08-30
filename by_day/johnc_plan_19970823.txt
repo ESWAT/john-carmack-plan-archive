@@ -1,0 +1,14 @@
+* cluster code
+
+- boxcontents?
++ dump rgb lightmaps for software?
++ alias model aspect ratios different in software and gl?
+
+share data between cmodel and ref
+triangulate mightsee on vis?
+malloc all cmodel arrays?
+DONT_PRECACHE flag for player weapons?
+make an ERR_DISCONNECT that doesn't print ERROR: ?
+don't load entire map twice in cmodel and ref!
+show clusterviscount for bsp time optimizations?
+server/client communication for skin overrides

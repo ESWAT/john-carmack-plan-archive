@@ -1,0 +1,26 @@
+* passage research
+* fixed static sound start with -nosound
+* optimized SV_CheckBottom for easy case
+* sound optimization
+* fixed kill coutners for world kills
+* pop blood trails up higher
+* key doors need to have touch removed
+* added volume cvar to post scale all sound
+* underscale sound
+
++ make hell knight only send one dynamic light out
++ tim6: wordtype typo
++ bmodel pvs issue in tim6
+
+shotgun sound has dead time at end
+damage amp in jrbase1 is pointless
+easy to use "is drive readahead" test
+listen server bugs
+menu sounds
+weapon offsets are wrong again
+damage amplifier bug
+check cd removal issues
+tighten muzzle flash
+phantom nail boxes in tim6
+heads get stuck in ceilings sometimes
+is lightning owner set properly? sandy got stuck using the lighting gun

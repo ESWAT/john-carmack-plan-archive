@@ -1,0 +1,62 @@
+We are going to release a new quake 2 executable that fixes the malicious server crashing problems Real Soon Now. It also fixes a ton of other problems that have been reported, so we are going to have to give it some good testing before releasing it.
+
+John Cash has two kids that would lynch him if he came in and worked on christmas, so we certainly won't be able to get a release candidate together before the weekend. I am fairly confidant we will have it released to the public on sunday.
+
+I have been spending most of my time on trinity research but I have still made quite a few fixes to Q2. John Cash has made many more (he is just finishing up the IPX coding, among other things).
+
+I have been doing a lot of testing over a proxy that gives me a very bad ping (400 - 800), so I was able to find and fix two significant errors with the prediction code.
+
+The reason why you get a jerk when running forward and firing rockets, blasters, or grenades is that the client side prediction code was blocking you on your own missiles.
+
+The jerky behavior on plats was due to a subtle error in the prediction error interpolation. A prediction error was causing oscillations as long as your latency, instead of smoothing out over just 100 ms. The plats are now smooth as long as you aren't dropping packets, and other mispredictions are also handled much better.
+
+There are still a lot of other things that will be fixed in an upcoming release, but this will definately be an executable worth grabbing.
+
+My fixes:
+
+* zombies aren't being removed properly
+* joystick not in menu
+* classname for rockets and bolts
+* no screaming when invulnerable and in lava
+* lowered water blend values
+* clear powerups when dead (no more breather sounds)
+* only play "computer updated" three times max
+* mapname serverinfo now updated properly
+* changed "rejected a connection" to "Server is full"
+* made console "rejected a connection" a developer only message
+* made WSAWOULDBLOCK warning silent
+* max 10 packets/second during connection process
+* set cl_maxfps to 90
+* increased loading plaque timeout value to 120 seconds
+* paused not default to 1
+* no savegame in deathmatch
+* fixed ; binding from menu
+* no crouch when airborne
+* removed half-baked $ macro expansion
+* pause on landing before re-jump (fixes no fall damage bug)
+* public server framework
+* no ; comment in config files
+* teleporter events
+* lower hyperblaster damage
+* don't use PORT_ANY for clients!
+* fix the entity number thing here
+* don't re-check CD after the first time
+* auto cddir from cd scan
+* dissallow kill from intermissions
+* faster rockets
+* less bfg effect damage
+* remove packet command from client
+* strip trailing spaces on cmd_args
+* added protocol to serverinfo
+* used CMD_BACKUP instead of UPDATE_BACKUP for phone jack
+* don't predict clip into your own missiles
+* good netgraph
+* validate userinfo for semicolons and quotes
+* don't copy savegames on dedicated servers
+* also check current directory for game dll loading
+* changed connect packet on client to differ from server
+* bump protocol version
+* fixed error interpolation on plats
+* only respawn with attack or jump
+* fov as a userinfo
+* show weapon icon if fov > 90

@@ -1,0 +1,43 @@
+* fixed entity numbers 512-1024
+* combined baselines and oldorgs
+* demos working again
+* MAX_SFX bug
+
+spawn invisible allways starts at 256, so visible get bytes?
+check goal counting
+any key puts away help?
+muzzle flashes
+make cl_entities dynamic?
+removed mergedemo on client
+remove all client demo playback
+finish savegame / loadgame UI
+finish cinematic sound
+check demo fopen spawning for cddir
+
+weird palette issues?
+more red
+
+minimum health
+infantry muzzle sounds?
+remove blaster hit flashes on flesh
+no savegame when dead
+mine2 dissapearing problems
+use key problems
+
+qrad: infinite styles on face
+
+allways have two secrets
+allways select new items
+do demos need a precache command?
+timegraph
+
+!!!save lightstyles in savegame!!!
+!!!save areaportal state in savegame!!!
+
+are loadgames doing 10 second prerun?
+
+move say and say_team into game
+sentity_t gentity_t
+more blood
+
+areaportals in software - bad sort keys?

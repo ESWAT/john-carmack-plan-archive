@@ -1,0 +1,73 @@
+GeForce 3 Overview
+
+I just got back from Tokyo, where I demonstrated our new engine running under MacOS-X with a GeForce 3 card. We had quite a bit of discussion about whether we should be showing anything at all, considering how far away we are from having a title on the shelves, so we probably aren't going to be showing it anywhere else for quite a while.
+
+We do run a bit better on a high end wintel system, but the Apple performance is still quite good, especially considering the short amount of time that the drivers had before the event.
+
+It is still our intention to have a simultaneous release of the next product on Windows, MacOS-X, and Linux.
+
+Here is a dump on the GeForce 3 that I have been seriously working with for a few weeks now:
+
+The short answer is that the GeForce 3 is fantastic. I haven't had such an impression of raising the performance bar since the Voodoo 2 came out, and there are a ton of new features for programmers to play with.
+
+Graphics programmers should run out and get one at the earliest possible time. For consumers, it will be a tougher call. There aren't any applications our right now that take proper advantage of it, but you should still be quite a bit faster at everything than GF2, especially with anti-aliasing. Balance that against whatever the price turns out to be.
+
+While the Radeon is a good effort in many ways, it has enough shortfalls that I still generally call the GeForce 2 ultra the best card you can buy right now, so Nvidia is basically dethroning their own product.
+
+It is somewhat unfortunate that it is labeled GeForce 3, because GeForce 2 was just a speed bump of GeForce, while GF3 is a major architectural change. I wish they had called the GF2 something else.
+
+The things that are good about it:
+
+Lots of values have additional internal precision, like texture coordinates and rasterization coordinates. There are only a few places where this matters, but it is nice to be cleaning up. Rasterization precision is about the last thing that the multi-thousand dollar workstation boards still do any better than the consumer cards.
+
+Adding more texture units and more register combiners is an obvious evolutionary step.
+
+An interesting technical aside: when I first changed something I was doing with five single or dual texture passes on a GF to something that only took two quad texture passes on a GF3, I got a surprisingly modest speedup. It turned out that the texture filtering and bandwidth was the dominant factor, not the frame buffer traffic that was saved with more texture units. When I turned off anisotropic filtering and used compressed textures, the GF3 version became twice as fast.
+
+The 8x anisotropic filtering looks really nice, but it has a 30%+ speed cost. For existing games where you have speed to burn, it is probably a nice thing to force on, but it is a bit much for me to enable on the current project. Radeon supports 16x aniso at a smaller speed cost, but not in conjunction with trilinear, and something is broken in the chip that makes the filtering jump around with triangular rasterization dependencies.
+
+The depth buffer optimizations are similar to what the Radeon provides, giving almost everything some measure of speedup, and larger ones available in some cases with some redesign.
+
+3D textures are implemented with the full, complete generality. Radeon offers 3D textures, but without mip mapping and in a non-orthogonal manner (taking up two texture units).
+
+Vertex programs are probably the most radical new feature, and, unlike most "radical new features", actually turn out to be pretty damn good. The instruction language is clear and obvious, with wonderful features like free arbitrary swizzle and negate on each operand, and the obvious things you want for graphics like dot product instructions.
+
+The vertex program instructions are what SSE should have been.
+
+A complex setup for a four-texture rendering pass is way easier to understand with a vertex program than with a ton of texgen/texture matrix calls, and it lets you do things that you just couldn't do hardware accelerated at all before. Changing the model from fixed function data like normals, colors, and texcoords to generalized attributes is very important for future progress.
+
+Here, I think Microsoft and DX8 are providing a very good benefit by forcing a single vertex program interface down all the hardware vendor's throats.
+
+This one is truly stunning: the drivers just worked for all the new features that I tried. I have tested a lot of pre-production 3D cards, and it has never been this smooth.
+
+The things that are indifferent:
+
+I'm still not a big believer in hardware accelerated curve tessellation. I'm not going to go over all the reasons again, but I would have rather seen the features left off and ended up with a cheaper part.
+
+The shadow map support is good to get in, but I am still unconvinced that a fully general engine can be produced with acceptable quality using shadow maps for point lights. I spent a while working with shadow buffers last year, and I couldn't get satisfactory results. I will revisit that work now that I have GeForce 3 cards, and directly compare it with my current approach.
+
+At high triangle rates, the index bandwidth can get to be a significant thing. Other cards that allow static index buffers as well as static vertex buffers will have situations where they provide higher application speed. Still, we do get great throughput on the GF3 using vertex array range and glDrawElements.
+
+The things that are bad about it:
+
+Vertex programs aren't invariant with the fixed function geometry paths. That means that you can't mix vertex program passes with normal passes in a multipass algorithm. This is annoying, and shouldn't have happened.
+
+Now we come to the pixel shaders, where I have the most serious issues. I can just ignore this most of the time, but the way the pixel shader functionality turned out is painfully limited, and not what it should have been.
+
+DX8 tries to pretend that pixel shaders live on hardware that is a lot more general than the reality.
+
+Nvidia's OpenGL extensions expose things much more the way they actually are: the existing register combiners functionality extended to eight stages with a couple tweaks, and the texture lookup engine is configurable to interact between textures in a list of specific ways.
+
+I'm sure it started out as a better design, but it apparently got cut and cut until it really looks like the old BumpEnvMap feature writ large: it does a few specific special effects that were deemed important, at the expense of a properly general solution.
+
+Yes, it does full bumpy cubic environment mapping, but you still can't just do some math ops and look the result up in a texture. I was disappointed on this count with the Radeon as well, which was just slightly too hardwired to the DX BumpEnvMap capabilities to allow more general dependent texture use.
+
+Enshrining the capabilities of this mess in DX8 sucks. Other companies had potentially better approaches, but they are now forced to dumb them down to the level of the GF3 for the sake of compatibility. Hopefully we can still see some of the extra flexibility in OpenGL extensions.
+
+The future:
+
+I think things are going to really clean up in the next couple years. All of my advocacy is focused on making sure that there will be a completely clean and flexible interface for me to target in the engine after DOOM, and I think it is going to happen.
+
+The market may have shrunk to just ATI and Nvidia as significant players. Matrox, 3D labs, or one of the dormant companies may surprise us all, but the pace is pretty frantic.
+
+I think I would be a little more comfortable if there was a third major player competing, but I can't fault Nvidia's path to success.

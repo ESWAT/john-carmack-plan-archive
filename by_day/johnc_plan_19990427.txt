@@ -1,0 +1,14 @@
+* cgame converted to use local buffer based lerpTag for interpretation
+* cgame converted to use local buffer based argv for interpretation
+* new sound code to remove latency
+* added drop shadow to field characters and fixed scrolling
+* fixed edge-of-bounce-pad misprediction error (server side)
+* remove broken weapon-stay dmflag
+* made menu gfx never picmip
+* cheat protect r_lightmap
+* clear sound buffer before any file IO
+* use GetOSEvent instead of WaitNextEvent on mac when fullscreen. removes hitches caused by other tasks and gives a performance boost
+* continuous scoreboard / ping update when tab is down
+* put version number on menu background
+* fixed toggle cvar bug
+* dim out behind floating menus

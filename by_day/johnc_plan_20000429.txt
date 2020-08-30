@@ -1,0 +1,37 @@
+We need more bits per color component in our 3D accelerators.
+
+I have been pushing for a couple more bits of range for several years now, but I now extend that to wanting full 16 bit floating point colors throughout the graphics pipeline. A sign bit, ten bits of mantissa, and five bits of exponent (possibly trading a bit or two between the mantissa and exponent). Even that isn't all you could want, but it is the rational step.
+
+It is turning out that I need a destination alpha channel for a lot of the new rendering algorithms, so intermediate solutions like 10/12/10 RGB formats aren't a good idea. Higher internal precision with dithering to 32 bit pixels would have some benefit, but dithered intermediate results can easily start piling up the errors when passed over many times, as we have seen with 5/6/5 rendering.
+
+Eight bits of precision isn't enough even for full range static image display. Images with a wide range usually come out fine, but restricted range images can easily show banding on a 24-bit display. Digital television specifies 10 bits of precision, and many printing operations are performed with 12 bits of precision.
+
+The situation becomes much worse when you consider the losses after multiple operations. As a trivial case, consider having multiple lights on a wall, with their contribution to a pixel determined by a texture lookup. A single light will fall off towards 0 some distance away, and if it covers a large area, it will have visible bands as the light adds one unit, two units, etc. Each additional light from the same relative distance stacks its contribution on top of the earlier ones, which magnifies the amount of the step between bands: instead of going 0,1,2, it goes 0,2,4, etc. Pile a few lights up like this and look towards the dimmer area of the falloff, and you can believe you are back in 256-color land.
+
+There are other more subtle issues, like the loss of potential result values from repeated squarings of input values, and clamping issues when you sum up multiple incident lights before modulating down by a material.
+
+Range is even more clear cut. There are some values that have intrinsic ranges of 0.0 to 1.0, like factors of reflection and filtering. Normalized vectors have a range of -1.0 to 1.0. However, the most central quantity in rendering, light, is completely unbounded. We want a LOT more than a 0.0 to 1.0 range. Q3 hacks the gamma tables to sacrifice a bit of precision to get a 0.0 to 2.0 range, but I wanted more than that for even primitive rendering techniques. To accurately model the full human sensable range of light values, you would need more than even a five bit exponent.
+
+This wasn't much of an issue even a year ago, when we were happy to just cover the screen a couple times at a high framerate, but realtime graphics is moving away from just "putting up wallpaper" to calculating complex illumination equations at each pixel. It is not at all unreasonable to consider having twenty textures contribute to the final value of a pixel. Range and precision matter.
+
+A few common responses to this pitch:
+
+"64 bits per pixel??? Are you crazy???" Remember, it is exactly the same relative step as we made from 16 bit to 32 bit, which didn't take all that long.
+
+Yes, it will be slower. That's ok. This is an important point: we can't continue to usefully use vastly greater fill rate without an increase in precision. You can always crank the resolution and multisample anti-alaising up higher, but that starts to have diminishing returns well before you use of the couple gigatexels of fill rate we are expected to have next year. The cool and interesting things to do with all that fill rate involves many passes composited into less pixels, making precision important.
+
+"Can we just put it in the texture combiners and leave the framebuffer at 32 bits?" No. There are always going to be shade trees that overflow a given number of texture units, and they are going to be the ones that need the extra precision. Scales and biases between the framebuffer and the higher precision internal calculations can get you some mileage (assuming you can bring the blend color into your combiners, which current cards can't), but its still not what you want. There are also passes which fundamentally aren't part of a single surface, but still combine to the same pixels, as with all forms of translucency, and many atmospheric effects.
+
+"Do we need it in textures as well?" Not for most image textures, but it still needs to be supported for textures that are used as function look up tables.
+
+"Do we need it in the front buffer?" Probably not. Going to a 64 bit front buffer would probably play hell with all sorts of other parts of the system. It is probably reasonable to stay with 32 bit front buffers with a blit from the 64 bit back buffer performing a lookup or scale and bias operation before dithering down to 32 bit. Dynamic light adaptation can also be done during this copy. Dithering can work quite well as long as you are only performing a single pass.
+
+I used to be pitching this in an abstract "you probably should be doing this" form, but two significant things have happened that have moved this up my hit list to something that I am fairly positive about.
+
+Mark Peercy of SGI has shown, quite surprisingly, that all Renderman surface shaders can be decomposed into multi-pass graphics operations if two extensions are provided over basic OpenGL: the existing pixel texture extension, which allows dependent texture lookups (matrox already supports a form of this, and most vendors will over the next year), and signed, floating point colors through the graphics pipeline. It also makes heavy use of the existing, but rarely optimized, copyTexSubImage2D functionality for temporaries.
+
+This is a truly striking result. In retrospect, it seems obvious that with adds, multiplies, table lookups, and stencil tests that you can perform any computation, but most people were working under the assumption that there were fundamentally different limitations for "realtime" renderers vs offline renderers. It may take hundreds or thousands of passes, but it clearly defines an approach with no fundamental limits. This is very important. I am looking forward to his Siggraph paper this year.
+
+Once I set down and started writing new renderers targeted at GeForce level performance, the precision issue has started to bite me personally. There are quite a few times where I have gotten visible banding after a set of passes, or have had to worry about ordering operations to avoid clamping. There is nothing like actually dealing with problems that were mostly theoretical before..
+
+64 bit pixels. It is The Right Thing to do. Hardware vendors: don't you be the company that is the last to make the transition.

@@ -1,0 +1,27 @@
+* 10 crosshairs to select from (cg_drawCrosshair 1 - 10)
+* cg_crosshairx / cg_crosshairy adjustment. I'm not convinced these are a good thing, because the crosshair is accurate in Q3 at the default position (unlike Q2, which had an offset firing position)
+* more packet encryption
+* join as spectator in all team games
+* cg_predictItems 0 option to not do local prediction of item pickup
+* rank players counting ties, so the third player when the lead is tied is third place, not second
+* properly stack all status elements in upper right and lower right corners so they can all be visible
+* faced q3map problem giving black corners in vertex light
+* fixed +button4 not causing footsteps
+* fixed bad groundplane clipping on angled jumppads
+* show "snc" on lagometer when g_syncronousClients
+* new shader command: rgbgen const ( )
+* new shader command: agen const
+* snap dropped item positions
+* randomized offsets of bubbles
+* fixed cgame restarts processing snapshots from 0
+* proper setup for external/predictable player events
+* fixed q3map vertex lighting bug after alphashadows
+* do personal pain sounds on health transitions so they can never be missed
+* timeout clear player events
+* fixed hang in UI_ProportionalStringWidth
+* quad event implicit on weapon fire
+* fixed gamestate not retransmitting bug
+* fixed timeout issue when paused
+* subdivide command times if <15fps, fixing low com_maxfps physics exploits
+* fixed footsteps playing when walking backwards
+* new options at start of animation.cfg file: footsteps, headoffset

@@ -1,0 +1,7 @@
+The rcon backdoor was added to help the development of QuakeWorld (It is not present in Quake 1). At the time, attacking Quake servers with spoofed packets was not the popular sport it seems to have become with Quake 2, so I didn't think much about the potential for exploitation.
+
+The many forced releases of Quake 2 due to hacker attacks has certainly taught me to be a lot more wary.
+
+It was a convenient feature for us, but it turned out to be irresponsible. Sorry.
+
+There will be new releases of QuakeWorld and Quake 2 soon.

@@ -1,0 +1,7 @@
+Technical note:
+
+Instanced brush models are not going to be well supported in the next release  of the quake engine. Instanced bmodels are models that are created as an  entirely seperate map, like the health boxes and ammo boxes. We are not going  to use any instanced bmodels in q2, but I will probably leave the drawing code  intact for backwards compatability. You will NOT be able to movement clip  against them as a bsp hull, however. You could still use a solid bounding box  if you really have to have one, though.
+
+Brush models built as part of the world, like doors and plats, will remain  with full functionality.
+
+Instanced bmodels never were lighted properly, and a lot of code gets simpler  with this decision.

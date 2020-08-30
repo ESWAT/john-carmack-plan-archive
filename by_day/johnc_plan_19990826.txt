@@ -1,0 +1,79 @@
+The current plan is that we will have another test release around the middle of next month. This version will be running game/cgame/ui with the virtual machine, and will include single player play against bots. No new maps.
+
+I will be releasing the source for all the VM modules with it, and setting the executable up so that it will allow modified modules to be used.
+
+The modified LCC and q3asm will be available both in source form and precompiled, so a professional development environment will not be requried. Using MSDEV to debug binary dll's does make exploration a lot easier than adding prints to interpreted code...
+
+Some minor porting work on the tools will be necessary to do development under linux. The effort would be greater for mac development, because the tools are inherently command line based.
+
+The map editor and tools will not be released until after the game hits store shelves. To be completely clear: you are not legally licensed to create or use addon maps with the test.
+
+I am hoping that this public review will turn up bugs before we complete the game. 50k lines of code is quite a bit to go over, but people familiar with previous games will have a good head start in the game module.
+
+The best possible situation would be if exploration of the code evolves into a tier system, with either moderated or limited access lists that I can follow without being swamped. I can't afford to be too involved in helping everyone figure out the basics. I have plenty of confidence in the mod communities ability to work that out. :-)
+
+---------
+
+Some people have been mistaking memory swapping in 1.08 for network problems.
+
+We did controlled, back to back tests against the previous versions, and the networking is identical if you have enough memory.
+
+The addition of the new character model and all the new menu code and graphics has caused the game to begin to have some swapping problems on 64mb machines if you have all the quality options up high or are running other things.
+
+I am looking into what I can do to reduce memory consumption for the next release, but in the meantime, you can turn down sound quality, geometry, or texture detail to get rid of it.
+
+If you have less than 64mb, go buy more memory! The final game will have an option to run in less memory, but the graphics and sound quality will be a lot lower.
+
+----------
+
+I made a simple change in the file management that I think is clearly a big win.
+
+Instead of scanning for pak0.pk3, pak1.pk3, ... pak9.pk3 in game directories, I now scan the entire directory for all .pk3 files, and add them to the search path in alphabetical order.
+
+This gives us the same needed functionality we have now -- overriding things in pak0.pk3 with updated data in pak1.pk3, but it also gives a signficant benefit to the user community.
+
+There has been a lot of requests to have textures inside maps like Quake1 did, but I was not willing to do that. Having the files separate saves an immense amount of duplication, and keeps the internal architecture uniform.
+
+Now, you can just add all your new art into a pk3 (zip) file along with your map and users can just drop that single file into their quake3/baseq3 directory as a single operation.
+
+This will also be nice for custom models, which require several component parts: legs, torso, head, animations, levels of detail, and skins.
+
+So, if you are strictly ADDING media (models, textures, maps, etc), then you can just drop the pk3 files in the normal directory.
+
+If you are REPLACING data (code modules, menus, etc), you should make a new game directory and put the pk3 there. Starting up with "quake3 +set game mygame" will make all the mygame pk3 files override anything in baseq3. You could do it by just naming your pk3 file "zzzstuff.pk3", but then you wouldn't have a way to run the game without the addons.
+
+A prudent person might choose to put ALL addons into a separate directory and leave baseq3 pristine for official additions.
+
+----------
+
+Other stuff that has been done lately:
+
+* don't clamp dedicated server or client times until much later -- prevents time resets under ordinary conditions
+* fixed CG_ProcessSnapshots: cg.snap->serverTime
+* only drift time on receipt of packets with a steady ping -- improve catchup after drops
+* fixed players getting stuck together
+* new pak file support
+* derez mac resource file
+* intro/loop option for music files
+* fixed lerp-through-world when changing teams
+* show ping and netgraph for spectators
+* fixed timescale off by one problem
+* tracked down player count wrong on server list
+* info_spectator_start entity
+* shader language change: clampTexCoord removed, added clampmap
+* r_debugSort cvar for working on transparency sorting problems
+* changed minimum cl_maxpackets to 15
+* fixed can't-respawn-when-someone-is-on-your-body
+* fixed dlighting over alpha tested surfaces
+* z_stats lists all blocks >= given size
+* fixed wasted model slots
+* increased com_hunkmegs
+* com_buildScript cvar to force loading all media and quit on errors
+* fixed bad playerstate interpolation across teleporters
+* converted local sounds to sfxHandle_t
+* new fog code doesn't require subdivisions
+* fixed sun positioning problem
+* added fogging of triangle objects
+* fixed devmap issue
+* make g_log a filename instead of a 0/1
+* g_logsync option to force a flush after each write must be set at time of log file creation

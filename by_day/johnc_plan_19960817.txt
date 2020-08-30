@@ -1,0 +1,15 @@
+The remote server console commands are fully implemented for  QuakeWorld.
+
+To allow remote administration, the server must set the "password"  cvar.  By default, remote administration is turned off.
+
+On a client, if you set the "password" cvar to the same value,  you can issue "rcon" commands to the remote server :
+
+rcon <server command> <arguments> ...
+
+You can go to different levels, shut the server down, change  cvars, ban people, etc.  The output from the command is redirected  over the net and will be echoed on the remote console.
+
+You can also execute commands without even connecting to the  server (if it was full) by setting the "rconadr" cvar to the full  internet address (including port) of the system you want to administer.
+
+ 2:00 in the morning:
+
+My testarossa snapped another input shaft (the third time).   damn dman damn. >1000 HP is bad for your drivetrain.

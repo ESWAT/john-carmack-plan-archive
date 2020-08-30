@@ -1,0 +1,8 @@
+* fixed steady snapshot test
+* fixed incorrect 0 ping if past client messages
+* fixed loser-disconnecting-at-tourney-intermission sorting problem
+* general purpose flood protection, limiting all user commands to one a second by stalling the client, so the commands don't actually get dropped, but are delayed as needed
+* replace headnode overflow with lastCluster
+* fixed bad extrapolation on unpausing
+* fixed player twitch on unpausing
+* print client names on loading screen

@@ -1,0 +1,23 @@
+* smart background clear
+* worked around 100% viewsize floating point bug
+* increased base surface cache size
+* unified server commands and prog commands
+* fixed same level reload bug in ref_soft
+
++ are lightmaps allways being saved, even if all black?
++ is notify box used for anything?
++ toggleconsole when connected to a net game
++ server needs to be able to send staticpics
++ draw to front buffer without swapping option
+- can game.dll register commands?
++ direct sound and keyboard restart so ref can destroy window
++ loading plaque on local system doesn't wait for hud erase
+
+frame flicker option for evaluating missed VBL?
+way to add remote commands on client side by scripts?
+check client entering during intermission
+moveable transparant bmodels
+use sneaking in shadows to let players get a good look at more monsters
+translate cinematic to greyscale instead of blanking?
+remove zombietime?
+are userinfo updates getting sent?

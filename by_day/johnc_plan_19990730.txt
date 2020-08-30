@@ -1,0 +1,22 @@
+I apologize for not getting the Mac version released this last time.
+
+All conspiracy theories aside, here is what actually happened:
+
+I had my San Jose travel scheduled a while ago, and we were expecting to have the release done before I left. We didn't quite make it, and nobody else at the office knew how to build the mac version after Cash made some last minute changes.
+
+When I got back, Graeme was taking off to move his family down here. Graeme is in charge of building all the installs for our releases.
+
+I considered just tossing new executables with the latest fixes for everything, but some data has changed, and it just isn't worth the hassle right now.
+
+We will be making proper new releases for all architectures monday night when he gets back.
+
+
+* fixed marks fading properly in fog volumes
+* show weapon in fov >90, adjusting position down as needed
+* allow run/bob variables to be changed in non-cheat games
+* update scoreboard info while at intermission
+* fixed angles on resetplayerentities, corrects twitch on players as you come through a teleporter or respawn
+* print "waiting to play" for tourney spectators
+* fixed tied rank with 0 score and spectators
+* return to roaming spectator when a followed client quits or spectates
+* release windows cursor when running windowed and the console is down

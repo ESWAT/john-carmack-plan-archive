@@ -1,0 +1,23 @@
+* fish don't leave water
+* merged new CD code
+* shambler lightning pitch correct
+* cut number of cells in half
+* beam weapon entities only on client side
+* fixed sliding death/no retart bug
+* muzzle flash for wizards
+
++ regrab gold/silver keys on sbar
++ accumulate damage over a frame
++ dissalow more than two bindings to the same action
+
+flymonster in wall test
+jump cause center?
+non-linear mouse movement reponse?
+use 3 frames of gib3
+start using pcx for all utilities
+use slight for shambler setup
+replace all item_weapon
+lava damage on monsters
+transition to intermission
+warning sound on about to drown
+don't end demo when player is in menu

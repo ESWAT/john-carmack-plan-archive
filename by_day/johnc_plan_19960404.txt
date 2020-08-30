@@ -1,0 +1,7 @@
++ teleport flash is broken
++ order of monster fall to ground
+
+multiple input drivers (hard coded)
+save cfg
+bounce head gib?
+wall scaling is step up?

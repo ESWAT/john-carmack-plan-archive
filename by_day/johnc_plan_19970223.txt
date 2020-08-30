@@ -1,0 +1,5 @@
+I took an entire day and a half off from work to spend some quality time with my F40 at Texas World Speedway. I had a lovely moment pitching my quarter million dollar car off the track backwards (no harm done), but otherwise I had a great time. Back to work now.
+
+I should have updates of both QuakeWorld and GlQuake within a week. QW is crapping out at 27 players for some reason (rather difficult to debug...), and glquake needs a fix for the hipnotic level pack to work.
+
+My next project is to define a new rendering architecture that will clean a bunch of stuff up and allow me to combine regular quake, glquake, and a windows version of vquake into a single executable. I plan on doing the development work with QW, so I won't be stepping on Michael or Cash's toes as I go hacking and slashing through the codebase. If everything goes well, that will become the new guts of Quake 2, and I will probably also release a unified Quake 1 executable.

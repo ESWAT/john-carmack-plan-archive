@@ -1,0 +1,18 @@
+*	added case insensitive key names
+*	skipped license check on dedicated servers
+*	changed prog score sorting some
+*	took out autofire
+*	fixed negative frags
+*	cleaned up connection management
+*	fixed hunk_alloc
+*	no sutch alias frame problem when leaving server
+*	"map test1" on system with enough memory
+*	flickering side crap when level restarting 
+*	added base directory to path
+*	changed heads to tosstop
+
+****** RELEASE QTEST1 ******
+
++ unupdated Z problem is still in there
++ flickering weapon icon
++ blood trail to respawn

@@ -1,0 +1,21 @@
+More graphics card notes:
+
+I need to apologize to Matrox - their implementation of hardware displacement mapping is NOT quad based. I was thinking about a certain other companies proposed approach. Matrox's implementation actually looks quite good, so even if we don't use it because of the geometry amplification issues, I think it will serve the noble purpose of killing dead any proposal to implement a quad based solution.
+
+I got a 3Dlabs P10 card in last week, and yesterday I put it through its paces. Because my time is fairly over committed, first impressions often determine how much work I devote to a given card. I didn't speak to ATI for months after they gave me a beta 8500 board last year with drivers that rendered the console incorrectly. :)
+
+I was duly impressed when the P10 just popped right up with full functional support for both the fallback ARB_ extension path (without specular highlights), and the NV10 NVidia register combiners path. I only saw two issues that were at all incorrect in any of our data, and one of them is debatable. They don't support NV_vertex_program_1_1, which I use for the NV20 path, and when I hacked my programs back to 1.0 support for testing, an issue did show up, but still, this is the best showing from a new board from any company other than Nvidia.
+
+It is too early to tell what the performance is going to be like, because they don't yet support a vertex object extension, so the CPU is hand feeding all the vertex data to the card at the moment. It was faster than I expected for those circumstances.
+
+Given the good first impression, I was willing to go ahead and write a new back end that would let the card do the entire Doom interaction rendering in a single pass. The most expedient sounding option was to just use the Nvidia extensions that they implement, NV_vertex_program and NV_register_combiners, with seven texture units instead of the four available on GF3/GF4. Instead, I decided to try using the prototype OpenGL 2.0 extensions they provide.
+
+The implementation went very smoothly, but I did run into the limits of their current prototype compiler before the full feature set could be implemented. I like it a lot. I am really looking forward to doing research work with this programming model after the compiler matures a bit. While the shading languages are the most critical aspects, and can be broken out as extensions to current OpenGL, there are a lot of other subtle-but-important things that are addressed in the full OpenGL 2.0 proposal.
+
+I am now committed to supporting an OpenGL 2.0 renderer for Doom through all the spec evolutions. If anything, I have been somewhat remiss in not pushing the issues as hard as I could with all the vendors. Now really is the critical time to start nailing things down, and the decisions may stay with us for ten years.
+
+A GL2 driver won't give any theoretical advantage over the current back ends optimized for cards with 7+ texture capability, but future research work will almost certainly be moving away from the lower level coding practices, and if some new vendor pops up (say, Rendition back from the dead) with a next-gen card, I would strongly urge them to implement GL2 instead of proprietary extensions.
+
+I have not done a detailed comparison with Cg. There are a half dozen C-like graphics languages floating around, and honestly, I don't think there is a hell of a lot of usability difference between them at the syntax level. They are all a whole lot better than the current interfaces we are using, so I hope syntax quibbles don't get too religious. It won't be too long before all real work is done in one of these, and developers that stick with the lower level interfaces will be regarded like people that write all-assembly PC applications today. (I get some amusement from the all-assembly crowd, and it can be impressive, but it is certainly not effective)
+
+I do need to get up on a soapbox for a long discourse about why the upcoming high level languages MUST NOT have fixed, queried resource limits if they are going to reach their full potential. I will go into a lot of detail when I get a chance, but drivers must have the right and responsibility to multipass arbitrarily complex inputs to hardware with smaller limits. Get over it.

@@ -1,0 +1,17 @@
+The Matrox Parhelia Report:
+
+The executive summary is that the Parhelia will run Doom, but it is not performance competitive with Nvidia or ATI.
+
+Driver issue remain, so it is not perfect yet, but I am confident that Matrox will resolve them.
+
+The performance was really disappointing for the first 256 bit DDR card. I tried to set up a "poster child" case that would stress the memory subsystem above and beyond any driver or triangle level inefficiencies, but I was unable to get it to ever approach the performance of a GF4.
+
+The basic hardware support is good, with fragment flexibility better than GF4 (but not as good as ATI 8500), but it just doesn't keep up in raw performance. With a die shrink, this chip could probably be a contender, but there are probably going to be other chips out by then that will completely eclipse this generation of products.
+
+None of the special features will be really useful for Doom:
+
+The 10 bit color framebuffer is nice, but Doom needs more than 2 bits of destination alpha when a card only has four texture units, so we can't use it.
+
+Anti aliasing features are nice, but it isn't all that fast in minimum feature mode, so nobody is going to be turning on AA. The same goes for "surround gaming". While the framerate wouldn't be 1/3 the base, it would still probably be cut in half.
+
+Displacement mapping. Sigh. I am disappointed that the industry is still pursuing any quad based approaches. Haven't we learned from the stellar success of 3DO, Saturn, and NV1 that quads really suck? In any case, we can't use any geometry amplification scheme (including ATI's truform) in conjunction with stencil shadow volumes.

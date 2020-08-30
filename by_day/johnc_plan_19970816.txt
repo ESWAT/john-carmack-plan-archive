@@ -1,0 +1,24 @@
+download static screen images?
++ how to change semi-protected variables without killing server?
++ how do demo servers progress to the next server?
++ how does the client distinguish between a demo server? parm to map command?
++ demo servers have special console behavior and don't warn on game restart
++ do not allow remote connects to a demo server
++ no loading plaque if fullcon
++ cinematic trailing pic for victory
++ demo view angles?
++ text before next level after completed
++ replace draw_beginrawscene with setpalette?
++ keys should go to game when running cinematic, not console
++ does the console key serve as a skip-demo key on real servers?
++ need to flag unit ends for stats, vs simple transfers
++ pause demos and cinematics while menu is up
+
+visible que on players when typing and when lagged?
+make sure there is never a server running if client is fullcon
+must force full graphics reload on game change
+don't require full precache of all weapons?
+demo servers won't work for remote connections, because packets can be dropped
+prevent map / demomap changes without killserver
+map demo1.dem during game messes up
+victory freeze

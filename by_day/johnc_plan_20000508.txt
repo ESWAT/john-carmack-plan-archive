@@ -1,0 +1,3 @@
+The .qc files for quake1/quakeworld are now available under the GPL in source/qw-qc.tar.gx on out ftp site. This was an oversight on my part in the original release.
+
+Thanks to the QuakeForge team for doing the grunt work of the preparation.

@@ -1,0 +1,26 @@
+*	fixed sound origins again
+*	fixed crushing stuff
+*	added "wait" to triggers
+*	added startup stuff for demo
+*	swimming direction stuff
+*	added '+' sizeup as well as =
+*	changed "unnamed" to "player"
+*	fixed skinnum clearing
+
++ gibbs need to fall after trap doored
++ ambient
++ make bubble sound while swimming forward
++ server speed
++ case insensitive on key names
++ hunk alloc
++ nans
++ better notify scrolling
++ final score dumping
++ negative frags
++ reconnect problems
+
+backpack dropping underlava
+"hostname" makes gane think it is a server
+swimming models
+weapon cycling
+dedicated server stuffcmds

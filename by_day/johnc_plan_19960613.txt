@@ -1,0 +1,42 @@
+* slider sounds in menu
+* trigger counter's don't require targets now
+* fixed blaster mismatch warning message
+* net start menu
+* enter on full key config clears
+* ogre gib
+* quad damage face
+* quad damage powerup cheat
+* all gib heads
+* removed K_ from key names
+* bind   with no parms reports the current value
+
+can't give
+try partical effect for teleporters
+remove forward to server commands, use impulse for all?
+old rule deathmatch option in menu
+head in wall again
+no cheat in coop
+connect from demo
+checksum pak directory for shareware version
+shambler, wizard, ogre, voor heads
+allow arrow key repeats?
+item respawn on bmodel bug
+pitch jerk at startup sometimes.
+stuck heads bug
+"no messages" option
+axe weaponframe switch problem
+make "dropped datagram" a developer only printf
+player thump for ogre falling?
+centerprint entering message
+variable ceterprint wait time
+double nightmare attacks
+disallow new game during multiplayer?
+no player crush to point
+sinking into plats
+coop through episode end
+allow typing in savegame comment
+fix talk message display code
+keep commands in doubly linked MRU list to avoid linear scan?
+multiplayer end of episodes hang?
+centerview doesn't work in water
+make sure all menu vars are in default.cfg

@@ -1,0 +1,29 @@
+* bringing down console auto pauses in single player
+* fixed ultra-slow motion console movement bug on bad bat file startup
+* fixed slow motion when > 72 hz framerate
+* added axe
+* never change up to grenade or rocket launcher
+* added lower sample rate and bit sound loading
+* stored the fullbright index out in the colormap lump
+* new enforcer pain frames / code
+* added alternate animation sequences for textures
+
++ still running into spikes
++ fix host_framerate
++ drop backpacks when floor removed
+
+bound ammo maxs on weapon pickup as well as ammo
+diminish sounds through walls
+partical puff and light flash from spike shooters
+do a disk icon when caching
+proper alias model bbox efrags
+allow monster hearing at farther distances
+animating texture speed control
+slipgate lightning sprite
+winking out door in tim6
+pusher problem on smotte (climbing out of water on a bmodel)
+need to allocate as large a sound cache as possible
+wizards die on top of spikes in mid air?
+doors shouldn't start move sound if blocked open
+don't slide down slopes
+cache alias models

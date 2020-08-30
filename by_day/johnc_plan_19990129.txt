@@ -1,0 +1,23 @@
+The issue of the 8192 unit map dimension limit had been nagging at me for a long time now. The reason for the limit is that coordinates are communicated over the network in 16 bit shorts divided as a sign bit, twelve unit bits, and three fractional bits. There was also another side to the representation problem, but it was rarely visible: if you timescale down, you can actually tell the fractional bit granularity in position and velocity.
+
+The rest of the system (rendering and gameplay) has never had any issues with larger maps, even in quake 1. There are some single precision floating point issues that begin to creep in if things get really huge, but maps should be able to cover many times the current limit without any other changes.
+
+A while ago I had changed Q3 so that the number of fractional bits was a compile time option, which allowed you to trade off fine grain precision for larger size. I was considering automatically optimizing this for each level based on its size, but it still didn't feel like a great solution.
+
+Another aspect of the problem that wasn't visible to the public was that the the fractional quantization of position could cause the position to actually be inside a nearby solid when used for client side prediction. The code had to check for this and try to correct the situation by jittering the position in each of the possible directions it might have been truncated from. This is a potential issue whenever there is any loss of precision whatsoever in the server to client communication.
+
+The obvious solution is to just send the full floating point value for positions, but I resisted that because the majority of our network traffic is positional updates, and I didn't want to bloat it. There have been other bandwidth savings in Q3, and LANs and LPB connections are also relevent, so I was constantly evaluating the tradeoff.
+
+Dealing with four or five players in view isn't a real problem. The big bandwidth issues arrive when multiple players start unloading with rapid fire weapons. (as an aside, I tried making 5hz fire weapons for Q3 to save bandwidth, but no matter how much damage they did, 5hz fire rates just seemed to feel slow and weak...)
+
+I finally moved to a bit-level stream encoding to save some more bandwidth and give me some more representational flexibility, and this got me thinking about the characteristics of the data that bother us.
+
+In general, the floating point coordinates have significant bits all through the mantissa. Any movement along an angle will more or less randomize the low order bits.
+
+My small little insight was that because missiles are evaluated parameterically instead of itteretively in Q3, a one-time snapping of the coordinates can be performed at their generation time, giving them fixed values with less significant bits for their lifetime without any effort outside their spawning function. It also works for doors and plats, which are also parametrically represented now. Most events will also have integral coordinates.
+
+The float encoder can check for an integral value in a certain range and send that as a smaller number of bits, say 13 or so. If the value isn't integral, it will be transmitted as a full 32 bit float.
+
+The other thing I am investigating is sub-byte delta encoding of floating point values. Even with arbitrary precision movement deltas, the sign and exponent bits change with very low frequency except when you are very near the origin. At the minimum, I should be able to cut the standard player coordinate delta reps to three bytes from four.
+
+So, the bottom line is that the bandwidth won't move much (it might even go down if I cut the integral bits below 15), the maps become unbounded in size to the point of single precision roundoff, and the client doesn't have to care about position jittering (which was visible in Q3 code that will be released).

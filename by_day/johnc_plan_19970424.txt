@@ -1,0 +1,15 @@
+The consolidated QuakeWorld client has been working pretty well. I've been playing deathmatch with it in GL mode for the past week. There are still a number of things to do on it, and I haven't been working on it for a while due to higher priority tasks. A lot of other non-graphics things have changed in the new architecture as well.
+
+It is really cool to be able to switch between software and gl without even restarting the game. We will be testing Quake 2 extensively in GL and even doing some specific development for it. My current wild guess is that about 15% of quake 2 customers will run the OpenGL version (there will be several cards coming out this year that are fast enough, besides just 3dfx), so it is definately a factor in our decisions.
+
+The verite renderer will still be supported in quake 2, but it won't have the special features of glquake. (it will still have it's own custom features like anti-aliasing, though)
+
+There is a very cool new surprise feature for you in the next gl release :)
+
+----
+
+For the past several days I have been working on a new version of qbsp that should be dramatically more robust for "crazy" maps. Raven is aproaching completion on Hexen 2, and they have a couple problems in their maps, so this is my top priority.
+
+I figured out something about CSG / BSP operations that had been kicking around in the back of my head for almost two years now. The seperate (and epsilon issue prone) CSG phase is not needed at all if you directly contruct a BSP tree from volumes instead of from polygons. I have that part working, but there is just so much work in the tools that getting the rest of the stuff working again is taking quite a lot of effort.
+
+I will make another tool release when things calm down, but understandably that is about at the bottom of my priority list.

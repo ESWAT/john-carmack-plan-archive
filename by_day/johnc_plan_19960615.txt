@@ -1,0 +1,38 @@
+* handle escape special to prevent unbinding, and pass through to menus
+* allow attack to restart as well as jump
+* copied more cmd_argv through recursion
+* boss lead player in hard mode
+* removed blaster warnings on v4 cards
+* blinking icons
+* protect all cvars and commands that could be deathmatch cheats
+* mvoed squish obit before fell to death
+* fixed static sound false combining bug
+* randomize axe swings
+* never go into pain frames during weaponframes
+* combined axe damage frames
+* prevent bmodel teleport
+* registered trigger only accepts players
+* fixed activated door beeping
+* fixed linked door messages
+
+player crushed on e1m2 bug
+make enter play slide noise on menu item adjustments
+no head bobbing when dead
+gib head look around
+sink into rising plats
+hack check for stuck
+no such frame for gibbed dog head
+bmodel dissapearing problem in e4m6
+gib by damage isntead of negative health
+option for listen servers to send out less packets?
+crank menu3 sound up in volume
+teleported monster flag
+fill sky volumes differently?
+shambler lightning hand frames
+top line of console is not clipped correctly
+door sounds / messages
+weapon change rules
+no gravity when in solid volume
+double shots for monsters in nightmare mode
+use multiple help screens
+swim bubbles on forard move as well as jump

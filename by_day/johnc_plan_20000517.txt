@@ -1,0 +1,49 @@
+I have gotten a lot of requests for comments on the latest crop of video cards, so here is my initial technical evaluation. We have played with some early versions, but this is a paper evaluation. I am not in a position to judge 2D GDI issues or TV/DVD issues, so this is just 3D commentary.
+
+Nvidia Marketing silliness: saying "seven operations on a pixel" for a dual texture chip. Yes, I like NV_register_combiners a lot, but come on..
+
+The DDR GeForce is the reigning champ of 3D cards. Of the shipping boards, it is basically better than everyone at every aspect of 3D graphics, and pioneered some features that are going to be very important: signed pixel math, dot product blending, and cubic environment maps.
+
+The GeForce2 is just a speed bumped GeForce with a few tweaks, but that's not a bad thing. Nvidia will have far and away the tightest drivers for quite some time, and that often means more than a lot of new features in the real world.
+
+The nvidia register combiners are highly programmable, and can often save a rendering pass or allow a somewhat higher quality calculation, but on the whole, I would take ATI's third texture for flexibility.
+
+Nvidia will probably continue to hit the best framerates in benchmarks at low resolution, because they have flexible hardware with geometry acceleration and well-tuned drivers.
+
+GeForce is my baseline for current rendering work, so I can wholeheartedly recommend it.
+
+ATI Marketing silliness: "charisma engine" and "pixel tapestry" are silly names for vertex and pixel processing that are straightforward improvements over existing methods. Sony is probably to blame for starting that.
+
+The Radeon has the best feature set available, with several advantages over GeForce:
+
+A third texture unit per pixel 
+Three dimensional textures 
+Dependent texture reads (bump env map) 
+Greater internal color precision. 
+User clip planes orthogonal to all rasterization modes. 
+More powerful vertex blending operations. 
+The shadow id map support may be useful, but my work with shadow buffers have shown them to have significant limitations for global use in a game.
+
+On paper, it is better than GeForce in almost every way except that it is limited to a maximum of two pixels per clock while GeForce can do four. This comes into play when the pixels don't do as much memory access, for example when just drawing shadow planes to the depth/stencil buffer, or when drawing in roughly front to back order and many of the later pixels depth fail, avoiding the color buffer writes.
+
+Depending on the application and algorithm, this can be anywhere from basically no benefit when doing 32 bit blended multi-pass, dual texture rendering to nearly double the performance for 16 bit rendering with compressed textures. In any case, a similarly clocked GeForce(2) should somewhat outperform a Radeon on today's games when fill rate limited. Future games that do a significant number of rendering passes on the entire world may go back in ATI's favor if they can use the third texture unit, but I doubt it will be all that common.
+
+The real issue is how quickly ATI can deliver fully clocked production boards, bring up stable drivers, and wring all the performance out of the hardware. This is a very different beast than the Rage128. I would definitely recommend waiting on some consumer reviews to check for teething problems before upgrading to a Radeon, but if things go well, ATI may give nvidia a serious run for their money this year.
+
+3DFX Marketing silliness: Implying that a voodoo 5 is of a different class than a voodoo 4 isn't right. Voodoo 4 max / ultra / SLI / dual / quad or something would have been more forthright.
+
+Rasterization feature wise, voodoo4 is just catching up to the original TNT. We finally have 32 bit color and stencil. Yeah.
+
+There aren't any geometry features.
+
+The T buffer is really nothing more than an accumulation buffer that is averaged together during video scanout. This same combining of separate buffers can be done by any modern graphics card if they are set up for it (although they will lose two bits of color precision in the process). At around 60 fps there is a slight performance win by doing it at video scannout time, but at 30 fps it is actually less memory traffic to do it explicitly. Video scan tricks also usually don't work in windowed modes.
+
+The real unique feature of the voodoo5 is subpixel jittering during rasterization, which can't reasonably be emulated by other hardware. This does indeed improve the quality of anti-aliasing, although I think 3dfx might be pushing it a bit by saying their 4 sample jittering is as good as 16 sample unjittered.
+
+The saving grace of the voodoo5 is the scalability. Because it only uses SDR ram, a dual chip Voodoo5 isn't all that much faster than some other single chip cards, but the quad chip card has over twice the pixel fill rate of the nearest competitor. That is a huge increment. Voodoo5 6000 should win every benchmark that becomes fill rate limited.
+
+I haven't been able to honestly recommend a voodoo3 to people for a long time, unless they had a favorite glide game or wanted early linux Xfree 4.0 3D support. Now (well, soon), a Voodoo5 6000 should make all of today's games look better than any other card. You can get over twice as many pixel samples, and have them jittered and blended together for anti-aliasing.
+
+It won't be able to hit Q3 frame rates as high as GeForce, but if you have a high end processor there really may not be all that much difference for you between 100fps and 80fps unless you are playing hardcore competitive and can't stand the occasional drop below 60fps.
+
+There are two drawbacks: it's expensive, and it won't take advantage of the new rasterization features coming in future games. It probably wouldn't be wise to buy a voodoo5 if you plan on keeping it for two years.

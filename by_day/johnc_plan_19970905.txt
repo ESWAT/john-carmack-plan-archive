@@ -1,0 +1,4 @@
+* fixed all angle clamping issues
+* allow look up / down to exactly 90 degrees
+
+red numbers on status bar

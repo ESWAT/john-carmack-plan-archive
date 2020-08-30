@@ -1,0 +1,17 @@
+(Shareware release, june 20th missing)
+
+* fish do damage
+* fixed lightning prog crash after killing boss
+* added ctrl-alt-del check in key_event
+* found problem with saving com port enabled in config files
+* drop fish hp
+* added samelevel flag for persistant servers
+* auto advance to next level in ruled deathmatch
+* deathmatch rankings show for 5 sec minimum
+
+new game should bring up loading plaque
+rewrite buggy screen management
+big t dest
+pain field on shub
+stand in in center
+turn off messages option

@@ -1,0 +1,33 @@
+I just got a production TNT board installed in my Dolch today.
+
+The riva-128 was a troublesome part. It scored well on benchmarks, but it had some pretty broken aspects to it, and I never recommended it (you are better off with an intel I740).
+
+There aren't any troublesome aspects to TNT. Its just great. Good work, Nvidia.
+
+In terms of raw speed, a 16 bit color multitexture app (like quake / quake 2) should still run a bit faster on a voodoo2, and an SLI voodoo2 should be faster for all 16 bit color rendering, but TNT has a lot of other things going for it:
+
+32 bit color and 24 bit z buffers. They cost speed, but it is usually a better quality tradeoff to go one resolution lower but with twice the color depth.
+
+More flexible multitexture combine modes. Voodoo can use its multitexture for diffuse lightmaps, but not for the specular lightmaps we offer in QuakeArena. If you want shiny surfaces, voodoo winds up leaving half of its texturing power unused (you can still run with diffuse lightmaps for max speed).
+
+Stencil buffers. There aren't any apps that use it yet, but stencil allows you to do a lot of neat tricks.
+
+More texture memory. Even more than it seems (16 vs 8 or 12), because all of the TNT's memory can be used without restrictions. Texture swapping is the voodoo's biggest problem.
+
+3D in desktop applications. There is enough memory that you don't have to worry about window and desktop size limits, even at 1280*1024 true color resolution.
+
+Better OpenGL ICD. 3dfx will probably do something about that, though.
+
+This is the shape of 3D boards to come. Professional graphics level rendering quality with great performance at a consumer price.
+
+We will be releasing preliminary QuakeArena benchmarks on all the new boards in a few weeks. Quake 2 is still a very good benchmark for moderate polygon counts, so our test scenes for QA involve very high polygon counts, which stresses driver quality a lot more. There are a few surprises in the current timings..
+
+-
+
+A few of us took a couple days off in vegas this weekend. After about ten hours at the tables over friday and saturday, I got a tap on the shoulder..
+
+Three men in dark suits introduced themselves and explained that I was welcome to play any other game in the casino, but I am not allowed to play blackjack anymore.
+
+Ah well, I guess my blackjack days are over. I was actually down a bit for the day when they booted me, but I made +$32k over five trips to vegas in the past two years or so.
+
+I knew I would get kicked out sooner or later, because I don't play "safely". I sit at the same table for several hours, and I range my bets around 10 to 1.

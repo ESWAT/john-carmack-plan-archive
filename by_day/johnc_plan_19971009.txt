@@ -1,0 +1,31 @@
+* removed MAX_PACKET_ENTITIES limit
+* used areas for beam culling
+* centerprint to non client not error
+* don't rotate roll when pushed by entities
+* areaportal fragments in software
+* F_CLIENT fix
+* KEY_ANY fix
+* save areaportals
+* save lightstyles
+* fixed secret double counting
+* up as jump
+
+color 0 on NT
+water wading speed
+water jump out
+
+centerview
+no savegame when dead
+mroe damage blend
+putclient in server shouldn't reference weaponmodel
+userinfo issues
+IP cvar for servers
+IP userinfo for clients
+remove sv.viewpos?
+make max_entitites a noset cvar
+don't use PHS?
+up / down issues
+broadcast centerprint
+intermissions
+flickery lights
+free mouse when paused

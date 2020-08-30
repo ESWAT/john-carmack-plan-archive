@@ -1,0 +1,16 @@
+* fix 8 bit palette in NS
+* modified modelgen to allow multiple models in one file
+* fixed qbsp to detect cases of no entities placed and skip fill outside
+* new wizard spike attacks
+fix corrected palette at mode change
+make dos utility tree
+make QuakeEd's menu commands variable length
+debounce console
+debounce jump
+remote slist
+slist with user names
+fall out of world when dead
+s_releasesound: s->refcount < 0
+sound cache parameters
+clear pause on restart
+check pak file overriding

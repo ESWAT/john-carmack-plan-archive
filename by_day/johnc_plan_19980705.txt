@@ -1,0 +1,5 @@
+I am not opposed to adding a flag to control the movement styles. I was rather expecting it to be made optional in 3.17, but I haven't been directly involved in the last few releases.
+
+The way this played out in public is a bit unfortunate. Everyone at Id is busy full time with the new product, so we just weren't paying enough attention to the Quake 2 modifications. Some people managed to read into my last update that we were blaming Zoid for things. Uh, no. I think he was acting within his charter (catering to the community) very well, it just interfered with an aspect of the game that shouldn't have been modified. We just never made it explicitly clear that it shouldn't have been modified.
+
+It is a bit amusing how after the QuakeArena anouncement, I got flamed by lots of people for abandoning single player play (even though we aren't, really) but after I say that Quake 2 can't forget that it is a single player game, I get flamed by a different set of people who think it is stupid to care about single player anymore when all "everyone" plays is multiplayer. The joy of having a wide audience that knows your email address.

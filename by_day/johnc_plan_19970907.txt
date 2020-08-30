@@ -1,0 +1,18 @@
+* timedemo attract flag bug
+* multiple model entities
+* 8/16 bit updates
+* merged delta with baseline
+
++ destroy windows on each ref start
++ server time clamping issues
++ client light level different between refs
++ remove version command
++ animating textures
++ run from cd option
++ toast mergedemos
+
+flags not used in entity-state?
+airborne frames for everything?
+don't send player entity to owner in most cases
+client quit dropping prints extra messages?
+trinity: track and field style extra fast running?

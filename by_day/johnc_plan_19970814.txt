@@ -1,0 +1,10 @@
+* qe4 project dialog fix
+* intermission spots and movement
+* hud transfer framework
+
++ micro levels that just play cinematics?
++ BUTTON_ANY option
+
+remove oldorigin
+use static arrays for map elements in renderers?
+unit level statistics

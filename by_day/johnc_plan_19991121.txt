@@ -1,0 +1,12 @@
+* fixed not-telefragging bug
+* disabled flood protection with local clients
+* fixed headoffset and gender on some model changes
+* init cg_autoswitch cvars in cl
+* fixed clearing of vm bss on restart
+* fixed hang when looped part of song isn't found
+* fixed two NAT clients connecting to same server
+* fixed warning on random once only triggers
+* added "g_allowVote 0"
+* added developer background sound underrun warning
+* move sound loading before clients so low memory defer works across maps
+* changed cgame load failure to a drop

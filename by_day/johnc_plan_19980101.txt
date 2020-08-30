@@ -1,0 +1,24 @@
+Some of the things I have changed recently:
+
+* fixed the cinematics
+* don't clear config after dedicated server
+* don't reallocate sockets unless needed
+* don't process channel packets while connecting
+* rate variable for modem bandwidth choking
+* delta compress client usercmds
+* fixed sound quality changing after intermissions
+* fixed PVS problem when head was directly under solid in GL
+* added r_drawflat and cl_testlights to cheats
+
+There are a few problems that I am still trying to track down:
+
+WSAEADDRNOTAVAIL errors
+Map versions differ error
+Sometimes connecting and seeing messages but not getting in
+Decompression read overrun.
+
+Of course, we don't actually get any of those errors on any of our systems here, so I am having to work remotely with other users to try and fix them, which is a bit tougher.
+
+My new years resolution is to improve my coding style by bracing all single line statements and consistantly using following caps on multi word variable names.
+
+Actually, I am currently trying on the full sun coding style, but I'm not so sure about some of the comment conventions: don't use multiple lines of // comments, and don't use rows of seperating characters in comments. I'm not convinced those are good guidelines.

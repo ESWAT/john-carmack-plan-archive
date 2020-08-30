@@ -1,0 +1,48 @@
+* fixed divide by zero in kickback
+* fixed overflow
+* fixed walkmap up slopes
+* bumped versions
+* grabbed all cinematics
+* fixed abort intro issues
+* kill command
+* fixed server status command
+* more weapon precaches
+* noexit by default
+* autoremove some stuff in deathmatch
+* make game initialization like - sound -
+* pumped message loop during caching
+* client persistant data
+
++ no drop weapons without ammo
++ no footsteps when walking
++ saved across kills
++ saved across levels in single player
++ client levelstate
++ clear client times on level change
++ shouldn't be dumping unreliable messages
++ palette changes on cinematic
+
+laod game should throw loading plaque immediately
+not pausing when menu is up!
+"don't need" sound for no pickup?
+min_intermission cvar?
+run key should be a toggle
+dropped items respawn
+auto use items
+powerup sounds
+print sound precache pacifiers
+sendkeyevents during loading?
+better pingservers
+alias models are lit outside ofdlight ball
+sv_shownet
+"killed by" icon on scores?
+don't allow dedicated without deathmatch
+map transitions, but gamemap doesn't?
+intermission spots with deathmatch
+blinking health indicator
+blinking computer indicator
+move swapbuffers and add flush to glquake?
+chaingun sounds off on NT?
+test ping on serial port to serial port connection on win95
+console prog commands
+lower the scoreboard readout so you can read the obituary bessage

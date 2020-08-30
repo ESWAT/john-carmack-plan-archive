@@ -1,0 +1,18 @@
+* fixed soundlist
+* explosion through walls doesn't damage
+* monsters don't melee through walls
+* fixed memory trash from restarts
+* changed signon messages to more client requests, removed buffers
+* invisible clip solids
+
++ wake up monsters through walls
++ is vid palette setting fixed?
++ remove up/down movement from non-noclip 
++ entity bsp clipping for shots and monster moves
++ make QuakeEd center on start position
++ climb out of water
++ light switches?
+
+bsp sticking point
+no aim key
+don't include trigger and clip mip textures in files?

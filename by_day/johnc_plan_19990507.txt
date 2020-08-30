@@ -1,0 +1,15 @@
+* changed grabbed items to SVF_NOCLIENT instead of EF_NODRAW now that the pickup event is on the player
+* clear event flags with event on reset
+* move playerstate to netfield bit communication
+* fixed configstring delta sequencing issue after initial gamestate
+* extended the netgraph: short red lines are missing client to server packets (need to drop 3 in a row)
+* extended cg_debugevents
+* increased cl_maxpackets to 30
+* fixed bug with console field not getting drawwidth set
+* fastsky implies noportals
+* changed fastsky color
+* q3map now fixes tjunctions at fog boundaries
+* build optimized tree with visible hulls of sides
+* adjusted plane culling to avoid some cracks
+* r_facePlaneCull
+* fixed too-lax colinear collapse to avoid some cracks

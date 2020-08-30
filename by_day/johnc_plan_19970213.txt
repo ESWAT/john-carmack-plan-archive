@@ -1,0 +1,11 @@
+There will be a new QuakeWorld release soon with a very different interface and several improvements.
+
+On the topic of network gaming, I have a couple questions that I would like answered by anyone with the required technical knowledge:
+
+If I understand correctly, UDP headers are currently not compressed over PPP links like TCP headers commonly are. During a network game (or internet phone or videoconference), all the packets are just between two addresses, but tons of bandwidth (and corresponding latency) is eaten by sending full headers. Has anyone developed UDP header compression extensions, and if so, how common are they?
+
+On a lower hardware level, have any modem manufacturers considered optimizing interfaces or protocols for lower packet latency? Once again, if I understand correctly, modem transmission involves a level of packetizing for modulation/protocol/compression work that is underneath the serial interface seen by a computer. Do partially filled buffers sit idle for a time if there isn't a continuous stream of data, or do they immediately flush when a byte failes to clock in? It would be nice to be able to explicitly syncronize with UDP packets, because a realtime game running within bandwidth limits is going to send and receive discrete packets interspersed with idle time, which is not really what modems are optimized for now. I know that modem data compression is generally a bad thing for low latency connections right now, but if the modem could be signaled to flush at UDP boundaries, it would probably become a positive thing. I'm sure there are also things that could be done at the modulation/protocol layer to improve latency at some cost in bandwidth or error rate, but I have no idea if it could be done compatably.
+
+It would be an interesting point of differentiation for ISP's or modem manufacturers if an "optimize for games" checkbox was available somewhere. Even at the os level, a "max packets buffered" option would be valuable to keep packets from piling up when bandwidth is overcommited.
+
+Comments?

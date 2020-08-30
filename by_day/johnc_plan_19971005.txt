@@ -1,0 +1,16 @@
+Developing for windows is not fun. We are having a lot of trouble getting good solid compatability across all the systems we are testing on.
+
+When it works right, it just pops right into full screen mode with sound and network just like the dos version, but we are still chasing problems on several systems. Sigh.
+
+* !!! autolooped entity sounds !!!
+
+make all tools into 5.0 projects
+combine SZ_ and MSG_
+allways mkdir gamedir?
+pause dumps packets?
+clear all background all the time flag
+player physics
+MD4 each map file?
+print version number on console bottom
+select a different cd track if all goals accomplished
+get rid of alphalight

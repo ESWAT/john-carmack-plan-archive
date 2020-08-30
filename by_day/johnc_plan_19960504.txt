@@ -1,0 +1,27 @@
+* allow "quake f:\quake\id1" for better ISDN development
+* dynamic caching of alias models
+* fix the surface cache size instead of letting it fluctuate
+* explosion cores for boxes and ogre grenades
+* transfer monster anger from button press
+* fix trigger message printing for secret level
+* added notouch flag for triggers
+* added nomessage flag for counter triggers
+* fixed secret counter triggers that are fired instead of touched
+* fixed fired button activator handling
+* fixed wizard path following
+
++ alias model torches...
++ don't spawn triggers for key doors, just use touch
++ make sound channel 0 never match
++ jrbase1: don't put guard inside ammo box, superhealth at end is no good,
+        bridge delay is wrong, can still fall into slime
++ debug the stdio library problems!
+
+tim5 armor drop on ogre fucks up
+remove UPDATE_BINARY and pushmove
+make +_ key commands pass source as second parameter
+cace console background?
+more alert monsters?
+demo cycling breaks netgames
+automatic treading water
+squish to bloody paste on interference

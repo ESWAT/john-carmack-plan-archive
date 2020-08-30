@@ -1,0 +1,13 @@
+Over the weekend, I ported Quake to open-gl / win32. It is a complete port with all features supported. Its not really practical right now on most consumer level equipment, but it runs ok on my intergraph glz-13t. It will work on the 3dlabs cards with their next driver release, but it really isn't very optimized yet, so don't expect anything really fast.
+
+If you have high end hardware (intergraph realizm or dec powerstorm), it is pretty cool.
+
+It is interesting to look at quake with hires 24 bit trilinear texture mapping. Sometimes you just don't even notice anything is different, but sometimes you can just stare at a scene for quite a while apreciating it.
+
+Throwing bits and pixels at a static design certainly doesn't hurt, but it really doesn't bring it to a new level. I think I know where the next level is, but I'm just at the very beginning of the work on the next game architecture.
+
+We have three mostly-done things to release: winquake, glquake, and quakeworld. No, I don't know when any of them are actually going to be released. Sorry.
+
+QuakeWorld will actually download a new level for you now if you want to wait for it. Little models and sounds are a lot more practical to customize a server with, though.
+
+Today I got cornered by the three level designers and an artist and they jumped all over me for working on new research instead of polishing the quake 2 tools. I guess the rest of my week is spoken for...

@@ -1,0 +1,25 @@
+* dropping ammo
+* zombie gib non-solid
+* all zombie attacks
+* scrolling notify text
+* shooters that fire superspikes
+* keys
+* increased monster sight distance
+* fixed noclip in water
+
++ fix sound code
++ item only in dm flags
++ shoot through complex bmodels
++ NaN stuff
++ change impulse over to impule # instead of impulse1
++ dog frames
++ demos!
+
+fix noclip underwater
+all zombie pain issues
+duplicate impulse events
+status bar art needs work
+jrbase3 teleporter can be hit behind dmonly
+do pain well on all monsters
+don't blit the entire screen when sized down!
+clean up headers

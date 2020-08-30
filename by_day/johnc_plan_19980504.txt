@@ -1,0 +1,37 @@
+Here are some notes on a few of the technologies that I researched in preparing for the Quake3/trinity engine. I got a couple months of pretty much wide open research done at the start, but it turned out that none of the early research actually had any bearing on the directions I finally decided on. Ah well, I learned a lot, and it will probably pay off at some later time.
+
+I spent a little while doing some basic research with lummigraphs, which are sort of a digital hologram. The space requirements are IMMENSE, on the order of several gigs uncompressed for even a single full sized room. I was considering the possibility of using very small lumigraph fragments (I called them "lumigraphlets") as imposters for large clusters of areas, similar to aproximating an area with a texture map, but it would effectively be a view dependent texture.
+
+The results were interesting, but transitioning seamlessly would be difficult, the memory was still large, and it has all the same caching issues that any impostor scheme has.
+
+Another aproach I worked on was basically extending the sky box code style of rendering from quake 2 into a complete rendering system. Take a large number of environment map snapshots, and render a view by interpolating between up to four maps (if in a tetrahedral arangement) based on the view position.
+
+A simple image based interpolating doesn't convey a sense of motion, because it basically just ghosts between seperate points unless the maps are VERY close together reletive to the nearest point visible in the images.
+
+If the images that make up the environment map cube also contain depth values at some (generally lower) resolution, instead of rendering the environment map as six big flat squares at infinity, you can render it as a lot of little triangles at the proper world coordinates for the individual texture points. A single environment map like this can be walked around in and gives a sense of motion. If you have multiple maps from nearby locations, they can be easily blended together. Some effort should be made to nudge the mesh samples so that as many points are common between the maps as possible, but even a regular grid works ok.
+
+You get texture smearing when occluded detail should be revealed, and if you move too far from the original camera point the textures blur out a lot, but it is still a very good effect, is completely complexity insensitive, and is aliasing free except when the view position causes a silhouette crease in the depth data.
+
+Even with low res environment maps like in Quake2, each snapshot would consume 700k, so taking several hundred environment images throughout a level would generate too much data. Obviously there is a great deal of redundancy - you will have several environment maps that contain the same wall image, for instance. I had an interesting idea for compressing it all. If you ignore specular lighting and atmospheric effects, any surface that is visible in multiple environment maps can be represented by a single copy of it and perspective transformation of that image. Single image, transformations, sounds like.. fractal compression. Normal fractal compression only deals with affine maps, but the extension to projective maps seems logical.
+
+I think that a certain type of game could be done with a technology like that, but in the end, I didn't think it was the right direction for a first person shooter.
+
+There is a tie in between lummigraphs, multiple environment maps, specularity, convolution, and dynamic indirect lighting. Its nagging at me, but it hasn't come completely clear.
+
+Other topics for when I get the time to write more:
+
+Micro environment map based model lighting. Convolutions of environment maps by phong exponent, exponent of one with normal vector is diffuse lighting.
+
+Full surface texture representation. Interior antaliasing with edge matched texels.
+
+Octree represented surface voxels. Drawing and tracing.
+
+Bump mapping, and why most of the aproaches being suggested for hardware are bogus.
+
+Parametric patches vs implicit functions vs subdivision surfaces.
+
+Why all analytical boundary representations basically suck.
+
+Finite element radiosity vs photon tracing.
+
+etc.

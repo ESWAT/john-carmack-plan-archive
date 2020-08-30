@@ -1,0 +1,11 @@
+* teamplay menu comment
+* shrank and moved "RECORDING demo:" text
+* identified and worked around Apple input queue issue
+* properly send configstring resets on map_restart
+* don't clip sound buffer on file writes
+* don't draw scoreboard during warmup
+* auto load added bots in single player
+* swapped order of map_restart and warmup configstring
+* disable dynamic lights on riva128 due to lack of blend mode
+* put frags left warning back in all gametypes
+* removed joystick button debug prints

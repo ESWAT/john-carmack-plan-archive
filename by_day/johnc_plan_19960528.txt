@@ -1,0 +1,22 @@
+* QuakeEd: forbid dragging position / direction when textured
+* constrained all file writes to the game directory to close security
+holes
+* allow multiple pak files intermixed with directory trees in the search
+path
+* full specification with: -basedir, -game, -cachepath, or -path
+* moved demo list to cls, fixed efrag bug on second demo playback
+
++ bring up menu on any input during demos
++ do "loading" plaque from demo to demo
++ demo transition problem
++ automatic pak grabbing frame game dir
++ saving while in a trigger field kills it?
+
+bump edicts again
+acknowledge all - command line parms as they are accepted?
+QuakeEd: don't explode if /qcache isn't present
+qcc option to re-bsp models and maps
+shambler lightning needs to be exactly positioned
+joysticks
+keybinding saving isn't right
+claim all args from command line, or print warnings?

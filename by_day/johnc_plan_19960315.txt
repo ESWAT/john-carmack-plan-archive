@@ -1,0 +1,10 @@
+* made an execution stack for progs 
+* spawn flags
+
++ fix NaNs!
++ proper level changing
+
+door no backup option
+PVS for net update
+check entity relinking for excess
+good tempents.

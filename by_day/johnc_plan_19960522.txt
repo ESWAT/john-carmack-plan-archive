@@ -1,0 +1,31 @@
+* complete mouse configuration: m_pitch, m_yaw, m_forward, m_side
+* m_filter sample smoothing option
+* split non clearable parts of client_state_t into client_static_t
+* clear items at level exit
+* make hell knight only send one dynamic light out
+* fix klook
+* smooth centerview
+* properly handle multiple inputs on a button, got rid of +forward2, +attack2
+* exit game text screen
+* gave name to unconnected clients
+
++ make torch animation client side!!!
+
+is near Z clipping of alias models a bad idea?
+allow multiple packfiles to override one another
+better ideal pitch on slopes
+mouse pitch/strafe combo
+look at redbook audio
+restart shouldn't drop console.
+check for reloading the same level.
+noambient flag for low memory systems
+check zone memory allocation for bindings
+differentiate reconnect
+allow up/down in water
+swimming frames
+print bindings option
+more edge friction?
+reletive volumes for each ambient sound
+explicit bindings for key up / key down?
+teamplay totals
+level name in solo scoreboard

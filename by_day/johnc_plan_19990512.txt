@@ -1,0 +1,32 @@
+We had to upgrade the crashtest machine to NT sp 5, because some people were attacking it with windows crashers. Those don't count.
+
+Crashtest #3 from [iBO]QWhAX0R was a combination of two problems:
+
+The symptom was disconnecting all clients with an illegible server message. This turned out to be caused by the fact that I was parsing strings out of my net buffers with a MSG_ReadChar() function, and I was checking for EOF as a negative one return value. I had to change this to a MSG_ReadByte() call, because -1 was showing up in the messages, which then caused a parse error because it wasn't really the end of the message.
+
+The actual root of that issue was code like this:
+[code]
+{
+	char buffer[MAX_STRING_CHARS];
+	...
+	strncpy( buffer, input, sizeof(buffer) - 1 );
+	...
+}
+[/code]
+
+No buffer overruns are possible, but buffer is not forced to be zero terminated if on the stack. I'm pretty sure this was a result of copy-and-paste code where buffer used to be a static with a guaranteed zero, but it made me find several other places where similar things were happening.
+
+I had started using a Q_strncpyz() function a while ago that guarantees a trailing zero and doesn't require the -1, but it turned out that between code I had written a long time ago, and code that either Cash or Brian had added, there were still a lot of normal strncpy calls around. A lot of them were wrong, too. Either missing the -1, or missing the dedicated 0 fill in.
+
+Crashtest #4 from Jim Paris was a variation on the first part of #3.
+
+Only one of these attacks so far has been a server crasher, but I have been giving the bounty for anything that immediately kicks all the players. I probably won't give it for attacks that only overflow some lagged clients, but I'll evaluate as they happen.
+
+I am off to E3 now for a bunch of PR silliness, so if crashtest goes down, it won't be back up for a while...
+
+* fixed crashtest 4
+* fixed crashtest 3
+* fixed jumping-over-item pickup prediction error
+* made "Couldn't load sound" a developer only warning
+* fixed demo recording not including portal surface entities
+* precache grenade bounce sounds

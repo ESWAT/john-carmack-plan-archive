@@ -1,0 +1,5 @@
+I had a good time at the New York event -- it was fun to meet a lot of the web and clan guys, and there was some good fierce deathmatch action.
+
+The QuakeWorld beta has revved a couple more times. When things work right, its great, but it seems like it only works right on about half the windows machines we try it on.
+
+We have at least a week of beating on it before a public release. 

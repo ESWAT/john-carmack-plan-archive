@@ -1,0 +1,17 @@
+* QE4: bug with texture attributes on non-visible surfaces
+* stack bug for initial light maps
+
++ pink lightmaps?
++ alt-tab should only minimize if full screen
++ version as command and var?
+
+splashing sound when swimming at surface?
+brains make view roll around
+wasted polygons outside maps
+vis decompression overruns?
+INVISIBLE_TO_OWNER INVISIBLE_TO_OTHER
+make * model names visible
+GL_MipMap overwriting?
+trinity: proper biped walking
+increase range of mouse slider
+gun shock based on damage source

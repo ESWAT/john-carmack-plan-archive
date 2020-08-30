@@ -1,0 +1,17 @@
+* fixed backpack dropping in deathmatch
+* fixed monster sighting PVS problem
+
++ fix dos qcc
++ demon landing frame
++ trigger activated train
++ enforcer
++ dog
++ -1 ammo, 1 ammo on super shotgun, etc
++ invisible brushes for clip hull
++ grenade launcher shouldn't aim move
+
+update ammo when picked up grenade launcher with rocket running
+damage value on trains and secret doors
+player stayed on console after leaving
+jctest1 door fuckups
+grenade open secret doors

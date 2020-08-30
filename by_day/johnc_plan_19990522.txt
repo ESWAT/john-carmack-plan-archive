@@ -1,0 +1,35 @@
+The SMP support is solid enough to play with now. The only feature that is still broken is light flares.
+
+As a happy consequence, some of the cleanup work I did for SMP gave a couple percent speedup even when running without the separate thread.
+
+On my development system, a dual 300 mhz intergraph realizm II, the low res timedemo scores went from 27.8 to 37.8 with "r_smp 1". This is only a 35% average speedup, but at some times (lots of dynamic lights in complex scenes) the speedup is 90%+. Gameplay is noticably smoother.
+
+The rendering thread is almost always the blocking factor, so the faster the card and OpenGL driver, the larger the speedup will be.
+
+This is explicitly a two thread producer / consumer, so there is no benefit to more than two processors. The app is well behaved, using sleeping syncronization so that you usually still have half a processor free for other operating system functions.
+
+Hopefully we will be able to test with some fast consumer cards sometime soon.
+
+------
+
+A lot of people asked what was done differently this time vs the last time I tried (without benefit) to use SMP.
+
+My original attempt was to make a DLL that intercepted all OpenGL calls and let a separate processor execute them. The benefit would have been that all OpenGL applications could have gone faster. The problem was that the bandwidth required to encode all the commands was enough that the processor overhead was as much as it would have taken to just do the geometry on the main processor.
+
+It would have still been a win if the geometry side was doing lots of work, like multiple lights, user clip planes, and texgens, but for the vast majority of geometry, it didn't balance out. If someone wanted to try that using the PIII or AltiVec streaming memory operations, it could probably still work.
+
+The current SMP code is implemented directly into the renderer, and a lot of things were moved around and double buffered to allow it to use data in place, instead of having to copy it off.
+
+------
+
+Some people expressed surprise that Quake3 wasn't threaded already.
+
+Threading has been presented so often as the "high tech" "cool" way to program, that many people aren't aware of the downsides.
+
+A multi-threaded program will always have somewhat lower throughput when running on a single CPU than a single threaded program that polls in explicit places. The cost of a context switch at the cpu level is negligible, but the damage that it can do to the cache hierarchy can add up to a noticeable amount in bad cases.
+
+The much larger problem is that you lose tight control over when things occur. If the framerates are low enough, it isn't a huge issue, but for applications running at 30+ fps, you really don't want to trust the OS scheduler to coordinate multiple threads and have them all get in every frame. Yes, with explicit sleep() calls you can sort of get it working, but at that point, you might as well not be using threads.
+
+A good example of not-quite-in-sync issues in the windows mouse performance. A PS/2 mouse only samples 40 times a second, so when you get an app updating at around that speed, you will get 0/1/2 scheduling variances.
+
+They are also not terribly portable, and a pain in the ass to debug.

@@ -1,0 +1,9 @@
+I put together a document on optimizing OpenGL drivers for Q3 that should be helpfull to the various linux 3D teams.
+
+http://www.quake3arena.com/news/glopt.html
+
+
+-------
+* vmtest framework, q3asm work
+* converted scene building to procedural style. allows better error checking, better performance characteristics when interpreted, and is a setup stage for SMP optimizations in the renderer if I get around to it
+* protected some potential div by 0 areas in cgame

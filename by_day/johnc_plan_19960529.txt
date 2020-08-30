@@ -1,0 +1,33 @@
+* any key in demos brings up menu
+* demo transitions bring up loading plaque
+* added timeout for loading plaque
+* forced console away with loading plaque
+* regular restart uses loading plaque
+* disabled triggers now work properly after a savegame
+* cleared edict before parsing to fix door beeping bug
+* testing if(string) in qcc is not reliable, change to if (string != "")
+* fixed loadgame cursor problem after saving a typed in name
+* fixed dos savegame crash bug
+* automatic pak0.pak pak1.pak etc loading from game directories
+
+back to start after finishing each episode
+episode finished items
+ogre jumping frames
+load bmodels by lumps for less memory damage?
+does quake.qpr have to be in the root of the development directory?
+crosshair option
+wait on jump triggers?
+drowning warning
+cmd line load
+reformat text on vid mode change
+deathmatch level crossing
+nightmare mode
+death restart needs loading plaque
+map name on savegame comment line
+regular restart after a load game doesn't work
+bound load pointer
+swing up weapons
+lightning gun
+safe edict allocation failure
+remove view model in wide FOV modes
+give 9 faults

@@ -1,0 +1,23 @@
+I wrote this in answer to a question on the mac opengl programming list, but it is of general enough interest to programmers that I am repeating it here.
+
+>You also mentioned display lists... Can you explain what some of the
+>major things that should be rendered using a display list are? I see
+>the importance of using them for characters (animation) and objects, but
+>what about using them for the rest of the world, particles, and other
+>things that are nifty.
+
+This is not yet a big issue, although even pure software OpenGL's could perform some optimizations with display lists that aren't possible with vertex arrays. With hardware geometry acceleration, it can be an honest 4x improvement in throughput.
+
+The important point is that once geometry acceleration becomes a primary target, practically everything will have to be rendered with display lists, or you will run into a nasty case of Amdahl's law.
+
+In a busy Q3 battle, the triangle count may be split roughly evenly between character models and world geometry. Going from an empty scene to a pitched battle can result in a 50% performance drop if you are triangle limited. Not great, but livable.
+
+If we kept the same ratios and designed for geometry acceleration with all the static world geometry in display lists, then the empty scene could have 4x the geometry and still be running the same speed. However, current OpenGL display lists can't really accelerate high quality skinned characters, so when an equal number of character polygons was in scene and passed through normal direct rendering, the performance would drop to 20% of the original. Unacceptable.
+
+So, either you would have to use significantly different polygon counts in characters and the world, or some new API features would need to be defined. Nvidia has a skinning extension that gives some benefit, but still requires a character to be broken up into one static list per bone pair, instead of a single list for the entire character.
+
+Rendering a few thousand particles or other procedurally generated triangles directly isn't going to be a big issue, but the bulk of the work is going to move towards static vertex data.
+
+My advice for display lists is to use them for just raw vertex/color/texcoord data, and keep your state changes done with direct commands. This allows you to still sort display lists to minimze state changes, and prevents drivers from ever having to check state internally. Some hardware architectures can nicely encapsulate all state changes in a single dma buffer, but register sharing among different fields sometimes requires the driver to do manual masks, negating much of the async display list benefits. Texture swapping also complicates state changes inside display lists.
+
+You want to make the display lists as big as practical, but there is a tradeoff betwen culling tightness and display list size.

@@ -1,0 +1,25 @@
+* catch overbackoff in movement sliding code
+* extended key/value size in utils
+* added flame alias model
+* \n in epair text
+* fixed slope by wall false step in movement code
+* hacked around sticky corner problem
+* weapon/item flashing on inventory bar
+* fixed soundinfo exploded on a no sound card system
+* optimized snd paint and transfer
+
++ change weapon
++ jrstart: no fall in water by medium
++ demo loops
++ player stats on frag bar
++ nail gun alternating
++ cycle edict allocations
++ jrstart: light up black corners
++ clear center print when console drops
+
+axe view tilt
+better underwater bubble control
+track killer
+kick monsters off edges in pain/death
+jump landing frames
+new explosions

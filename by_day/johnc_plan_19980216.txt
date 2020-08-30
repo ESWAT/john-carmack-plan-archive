@@ -1,0 +1,9 @@
+8 mb or 12 mb voodoo 2?
+
+An 8mb v2 has 2 mb of texture memory on each TMU. That is not as general as the current 6mb v1 cards that have 4 mb of texture memory on a single TMU. To use the multitexture capability, textures are restricted to being on one or the other TMU (simplifying a bit here). There is some benefit over only having 2 mb of memory, but it isn't double. You will see more texture swapping in quake on an 8mb voodoo 2 than you would on a 6mb voodoo 1. However, the texture swapping is several times faster, so it isn't necessarily all that bad.
+
+If you use the 8 bit palettized textures, there will probably not be any noticable speed improvement with a 12 mb voodoo 2 vs an 8 mb one. The situation that would most stress it would be an active deathmatch that had players using every skin. You might see a difference there.
+
+A game that uses multitexture and 16 bit textures for everything will stress a 4/2/2 voodoo layout. Several of the Quake engine licensees are using full 16 bit textures, and should perform better on a 4/4/4 card.
+
+The differences probably won't show as significant on timedemo numbers, but they will be felt as little one frame hitches here and there.

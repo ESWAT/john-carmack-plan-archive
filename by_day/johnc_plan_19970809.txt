@@ -1,0 +1,28 @@
+* combined bsp tools into a single vc project
+* new texture animation solution
+* make any com_error drop the loading plaque
+* tools and quake2 work with new bsp format
+
++ combine project files of bsp tools
++ anything translucent is automatically a detail contents
+- duplicate texinfo for animations?
++ store out contents from trace!
++ arbitrary visleafs mappings
++ scanmaps option for pak file building of textures
++ delta lightstyle controls from server
++ max moveleafs problem
++ make r_dowarp a server passed variable?
++ why is hunk_begin different in software?
+
+don't forget to set SURF_NOSUBDIV on warps and sky!
+compress ff in visdata as well as 0?
+trinity idea: model light haze around every emiter
+trinity idea: allways model volumetric lights by rendering back sides
+CONTENTS_VOLUME
+do a wavy specular water novelty
+allow arbitrary chained lightmaps on a surface?
+game.dll controlable particles
+get rid of SURF_PLANEBACK
+player sounds when moving? (breathing / footsteps / hitting walls)
+rename .bsp to .bs2 ?
+high frame rate run turn chunkiness

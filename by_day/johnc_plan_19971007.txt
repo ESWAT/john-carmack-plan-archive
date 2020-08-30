@@ -1,0 +1,35 @@
+* pitch snap clamping
+* clamp at 89
+* kill sounds when loading plaque
+* no fov or null pic problem during prep refresh
+* wounded faces
+
+die then bring down console over menu bug
+death
+windows key
+make sprite files text format?
+all explodables and breakables should be pre-broken in dm
+flash stats on change?
+send email to j sturges
+inventory names
+super tank skin
+variable delay on centerprint
+timedemo
+demo tests
+flies as entity sound
+release mouse when paused?
+centerview
+peak to peak view bobbing
+counter items
+infantry skins
+
+menu sounds
+secret sound
+goal sound
+
+sound when low on health?
+respawn muzzle flash event still wrong
+falling damage
+rotating sky in software
+color 0 on NT
+transparent water insides

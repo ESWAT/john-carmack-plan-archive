@@ -1,0 +1,17 @@
+I haven't even seen the "BeOS port of Quake". Stop emailing me about aproving it. I told one of the Lion developers he could port it to BeOS in his spare time, but I haven't seen any results from it.
+
+-
+
+There is a public discussion / compilation going on at openquake for suggestions to improve technical aspects of quake 3:
+
+http://www.openquake.org/q3suggest/
+
+This is sooo much better than just dropping me an email when a thought hits you. There are many, many thousands of you out there, and there needs to be some filtering process so we can get the information efficiently.
+
+We will read and evaluate everything that makes it through the discussion process. There are two possible reasons why features don't make it into our games - either we decide that the effort is better spent elsewhere, or we just don't think about it. Sometimes the great ideas are completely obvious when suggested, but were just missed. That is what I most hope to see.
+
+When the suggestions involve engineering tradeoffs and we have to consider the implementation effort of a feature vs its benefits, the best way to convince us to pursue it is to specify EXACTLY what benefits would be gained by undertaking the work, and specifying a clean interface to the feature from the file system data and the gamex86 code.
+
+We hack where necessary, but I am much more willing to spend my time on an elegant extension that has multiple uses, rather than adding api bulk for specific features. Point out things that are clunky and inelegant in the current implementation. Even if it doesn't make any user visible difference, restructuring api for cleanliness is still a worthwhile goal.
+
+We have our own ideas about game play features, so we may just disagree with you. Even if you-and-all-your-friends are SURE that your suggestions will make the game a ton better, we may not think it fits with our overall direction. We aren't going to be all things to all people, and we don't design by committee.

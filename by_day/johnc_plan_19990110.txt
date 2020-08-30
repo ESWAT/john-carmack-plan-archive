@@ -1,0 +1,97 @@
+Ok, many of you have probably heard that I spoke at the macworld keynote on tuesday. Some information is probably going to get distorted in the spinning and retelling, so here is an info dump straight from me:
+
+Q3test, and later the full commercial Quake3: Arena, will be simultaniously released on windows, mac, and linux platforms.
+
+I think Apple is doing a lot of things right. A lot of what they are doing now is catch-up to wintel, but if they can keep it up for the next year, they may start making a really significant impact.
+
+I still can't give the mac an enthusiastic recommendation for sophisticated users right now because of the operating system issues, but they are working towards correcting that with MacOS X.
+
+The scoop on the new G3 mac hardware:
+
+Basically, its a great system, but Apple has oversold its performance reletive to intel systems. In terms of timedemo scores, the new G3 systems should be near the head of the pack, but there will be intel systems outperforming them to some degree. The mac has not instantly become a "better" platform for games than wintel, it has just made a giant leap from the back of the pack to near the front.
+
+I wish Apple would stop quoting "Bytemarks". I need to actually look at the contents of that benchmark and see how it can be so misleading. It is pretty funny listening to mac evangelist types try to say that an iMac is faster than a pentium II-400. Nope. Not even close.
+
+From all of my tests and experiments, the new mac systems are basically as fast as the latest pentium II systems for general cpu and memory performance. This is plenty good, but it doesn't make the intel processors look like slugs.
+
+Sure, an in-cache, single precision, multiply-accumulate loop could run twice as fast as a pentium II of the same clock rate, but conversly, a double precision add loop would run twice as fast on the pentium II.
+
+Spec95 is a set of valid benchmarks in my opinion, and I doubt the PPC systems significantly (if at all) outperform the intel systems.
+
+The IO system gets mixed marks. The 66 mhz video slot is a good step up from 33 mhz pci in previous products, but that's still half the bandwidth of AGP 2X, and it can't texture from main memory. This will have a small effect on 3D gaming, but not enough to push it out of its class.
+
+The 64 bit pci slots are a good thing for network and storage cards, but the memory controller doesn't come close to getting peak utilization out of it. Better than normal pci, though.
+
+The video card is almost exactly what you will be able to get on the pc side: a 16 mb rage-128. Running on a 66mhz pci bus, it's theoretical peak performance will be midway between the pci and agp models on pc systems for command traffic limited scenes. Note that current games are not actually command traffic limited, so the effect will be significantly smaller. The fill rates will be identical.
+
+The early systems are running the card at 75 mhz, which does put it at a slight disadvantage to the TNT, but faster versions are expected later. As far as I can tell, the rage-128 is as perfect as the TNT feature-wise. The 32 mb option is a feature ATI can hold over TNT.
+
+Firewire is cool.
+
+Its a simple thing, but the aspect of the new G3 systems that struck me the most was the new case design. Not the flashy plastic exterior, but the functional structure of it. The side of the system just pops open, even with the power on, and lays the motherboard and cards down flat while the disks and power supply stay in the encloser. It really is a great design, and the benefits were driven home yesterday when I had to scavenge some ram out of old wintel systems yesterday - most case designs suck really bad.
+
+-
+
+I could gripe a bit about the story of our (lack of) involvement with Apple over the last four years or so, but I'm calling that water under the bridge now.
+
+After all the past fiascos, I had been basically planning on ignoring Apple until MacOS X (rhapsody) shipped, which would then turn it into a platform that I was actually interested in.
+
+Recently, Apple made a strategic corporate decision that games were a fundamental part of a consumer oriented product line (duh). To help that out, Apple began an evaluation of what it needed to do to help game developers.
+
+My first thought was "throw out MacOS", but they are already in the process of doing that, and its just not going to be completed overnight.
+
+Apple has decent APIs for 2D graphics, input, sound, and networking, but they didn't have a solid 3D graphics strategy.
+
+Rave was sort of ok. Underspecified and with no growth path, but sort of ok. Pursuing a proprietary api that wasn't competetive with other offerings would have been a Very Bad Idea. They could have tried to make it better, or even invent a brand new api, but Apple doesn't have much credebility in 3D programming.
+
+For a while, it was looking like Apple might do something stupid, like license DirectX from microsoft and be put into a guaranteed trailing edge position behind wintel.
+
+OpenGL was an obvious direction, but there were significant issues with the licensing and implementation that would need to be resolved.
+
+I spent a day at apple with the various engineering teams and executives, laying out all the issues.
+
+The first meeting didn't seem like it went all that well, and there wasn't a clear direction visible for the next two months. Finally, I got the all clear signal that OpenGL was a go and that apple would be getting both the sgi codebase and the conix codebease and team (the best possible arrangement).
+
+So, I got a mac and started developing on it. My first weekend of effort had QuakeArena limping along while held together with duct tape, but weekend number two had it properly playable, and weekend number three had it brought up to full feature compatability. I still need to do some platform specific things with odd configurations like multi monitor and addon controlers, but basically now its just a matter of compiling on the mac to bring it up to date.
+
+This was important to me, because I felt that Quake2 had slipped a bit in portability because it had been natively developed on windows. I like the discipline of simultanious portable development.
+
+After 150 hours or so of concentrated mac development, I learned a lot about the platform.
+
+CodeWarrior is pretty good. I was comfortable devloping there almost immediately. I would definately say VC++ 6.0 is a more powerful overall tool, but CW has some nice little aspects that I like. I am definately looking forward to CW for linux. Unix purists may be aghast, but I have allways liked gui dev environments more than a bunch of xterms running vi and gdb.
+
+The hardware (even the previous generation stuff) is pretty good.
+
+The OpenGL performance is pretty good. There is a lot of work underway to bring the OpenGL performance to the head of the pack, but the existing stuff works fine for development.
+
+The low level operating systems SUCKS SO BAD it is hard to believe.
+
+The first order problem is lack of memory management / protection.
+
+It took me a while to figure out that the zen of mac development is "be at peace while rebooting". I rebooted my mac system more times the first weekend than I have rebooted all the WinNT systems I have ever owned. True, it has gotten better now that I know my way around a bit more, and the codebase is fully stable, but there is just no excuse for an operating system in this day and age to act like it doesn't have access to memory protection.
+
+The first thing that bit me was the static memory allocation for the program. Modern operating systems just figure out how much memory you need, but because the mac was originally designed for systems without memory management, significant things have to be laid out ahead of time.
+
+Porting a win32 game to the mac will probably involve more work dealing with memory than any other aspect. Graphics, sound, and networking have reasonable analogues, but you just can't rely on being able to malloc() whatever you want on the mac.
+
+Sure, game developers can manage their own memory, but an operating system that has proper virtual memory will let you develop a lot faster.
+
+The lack of memory protection is the worst aspect of mac development. You can just merrily write all over other programs, the development environment, and the operating system from any application.
+
+I remember that. From dos 3.3 in 1990.
+
+Guard pages will help catch simple overruns, but it won't do anything for all sorts of other problems.
+
+The second order problem is lack of preemptive multitasking.
+
+The general responsiveness while working with multiple apps is significantly worse than windows, and you often run into completely modal dialogs that don't let you do anything else at all.
+
+A third order problem is that a lot of the interfaces are fairly clunky.
+
+There are still many aspects of the mac that clearly show design decisions based on a 128k 68000 based machine. Wintel has grown a lot more than the mac platform did. It may have been because the intel architecture didn't evolve gracefully and that forced the software to reevaluate itself more fully, or it may just be that microsoft pushed harder.
+
+Carbon sanitizes the worst of the crap, but it doesn't turn it into anything particularly good looking.
+
+MacOS X nails all these problems, but thats still a ways away.
+
+I did figure one thing out - I was always a little curious why the early BeOS advocates were so enthusiastic. Coming from a NEXTSTEP background, BeOS looked to me like a fairly interesting little system, but nothing special. To a mac developer, it must have looked like the promised land..

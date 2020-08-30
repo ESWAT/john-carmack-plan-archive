@@ -1,0 +1,12 @@
+* fixed cells dropping below 0 with new lightning gun animation
+* tighteneed teleport particals
+* big hack to catch rare stuck occasions
+* prevent save in intermission
+* unbindall command
+* fixed strip makefile
+
+solo scoreboard not centered
+jump out window while looking down looses auto-centering?
+drop zombie, then crush it = unkillable zombie
+changelevel with a dead server can take away shotgun/axe
+knight first damage is too early

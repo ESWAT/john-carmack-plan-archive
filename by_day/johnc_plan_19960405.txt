@@ -1,0 +1,7 @@
++ sound loop points
+
+multi life / level demos
+precache_sound return string value
+make jump buffered edge triggered
+clipping hull lips
+hang after sitting overnight on dos

@@ -1,0 +1,22 @@
+* make sure video is shutfown for errors on startup
+* automatic fallback to vm if dll load fails
+* compressed jump tables for qvm
+* removed common qfiles.h and surfaceflags.h from utils and game
+* don't load qvm symbols if not running with developer
+* "quake3 safe" will run the game without loading q3config.cfg
+* ignore network packets when in single player mode
+* dedicated server memory optimizations. Tips:
+com_hunkMegs 4
+sv_maxclients 3
+bot_enable 0
+* fixed logfile on mac
+* new time drifting code
+* fixed file handle leak with compressed pk3 files
+* q3data changed to remove shader references from player models
+* throw a fatal error if drop errors are streaming in
+* fixed com_hunkMegs as command line parm
+* spawn spectators at intermission point (info_spectator_start has been removed)
+* new sound channel for local sounds
+* fixed follow toggle on bots
+* don't write to games.log in single player
+* fixed improper case sensitivity in S_FindName

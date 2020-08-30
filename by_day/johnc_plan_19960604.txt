@@ -1,0 +1,27 @@
+* allowed host_framerate to explicitly exceed the normal bounds
+* reduced cls.state to ca_dedicated, ca_disconnected, ca_connected
+* got consistant on when memory is dumped -- only at start, not end
+* increaded MAX_VALUE to 1024 for longer text messages in entities
+
++ dlight bmodels
++ escape with console down brings up menu in addition to removing the
+console
++ s_init should not be called on dedicated server
++ sound channel droppoff when lots going? combine torch sounds?
++ only allow two bindings to an action from menu
++ delete in options menu to unbind all
++ carry serverflags from level to level
++ make all items fire triggers
++ coop respawn
+
+check dedicated, listen, loadgame, recorddemo, restarting, timedemo, and
+demoloops with new server setup
+make hit ground sound entity reletive
+filling sky volumes causes rockets to explode on sky.  fix somehow
+make all teleporters have an "inactive" flag so an event makes them active
+QuakeEd: top trace for shearing is at 2048, increase to 8192
+remove relight for quad damage
+remove leading K_ from keynames
+player swimming frames
+flash ammo counts after picking up bonus items?
+shalrath doesn't attack zombies?

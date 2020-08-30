@@ -1,0 +1,48 @@
+** Dec 31: 4:40 AM: **
+
+A user just reported having their net quake problems go away when they killed ICQ. I suppose it has never been stated directly, so here goes:
+
+Quake needs all the bandwidth that a modem connection provides to play well. Any other program accessing the internet is going to cause a degredation in gameplay, sometimes severe.
+
+So quit IRC, ICQ, email, and web browsers before setting out for serious net play unless you have ISDN or better.
+
+
+** Dec 31: 12:41 PM CST: **
+
+I just spent a few hours working with a quake player that still couldn't net quake with 3.09.
+
+It took a while, but I finally understand what is going on.
+
+He could play net games on his local lan, but when he tried to connect to remote servers, it would always fail and timeout midway through the connection process, or at most a few seconds into the game.
+
+The situation was that there was a small network of computers connected to an ISDN router that did address translation.
+
+Address translation allows multiple computers to use the internet through a single TCP/IP address. This is accomplished by having the router perform some "invisible" port and ip renaming on everything that goes out.
+
+I think that is a rather evil thing for a router to do, but I suppose I can see the incentive from an address pressure viewpoint.
+
+Routers know when TCP streams begin and end, so they make sure the port mappings stay constant through the entire thing, but quake uses UDP packets (anyone who suggests using TCP for a realtime game does not understand how the error recovery works), and the router apears to be making the incorrect assumption that UDP is only used for simple request / response protocols.
+
+The router changes the UDP port while you are playing.
+
+Grrrr.
+
+Now, a smarter router would only change the port numbers when it was actually forced to by a collision, which would only be when a connection was first opened, and everything would work out ok.
+
+After I understood what was happening, I could devise a fix for it. My simple fix was to make the server simply ignore the port number for client comparisons, and assume that if a packet came from the same IP address, then it is the same player even if the port number changed. That worked, and he was able to connect in to my modified server.
+
+That has the distinct drawback of making translating routers or proxies that do the port mapping correctly unusable by more than one player at a time.
+
+I could fix it completely by including a sort of port number in each message, and having the servers match and update UDP ports based on that. That would work fine, but at the cost of adding a byte or two to everyone's packets to help out people with bad routers. You wouldn't be able to tell a difference, but its the principle of it...
+
+I could make a server side cvar to force port fixing on, but that would still not work for one class of users or the other.
+
+I could make it client settable and have the client tell the server on connect that it needs port fixing. That would work with no bandwidth cost to anyone, but it would require users to know that if they can't connect to servers, then they should try to use the fix translation option. Unfortunately, I bet that there are some routers that exhibit this problem much less often. A drop every ten minutes would be hard to attribute.
+
+I could make port fixing on by default, but if anyone is on a translated lan and another person tries to start a net quake game to the same server then they will both collide and crash and burn.
+
+I am probably going to add the extra bytes to every packet. Being automatically robust on more people's systems is probably worth a microscopic loss of bandwidth. Two bytes is under one millisecond of ping on a modem.
+
+If there is some magic range of port values that I can use to make these routers act better, let me know.
+
+These changes will break the connection protocol again, so I am going to hold off on the patch for a while.

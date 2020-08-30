@@ -1,0 +1,47 @@
+* muzzle flashes
+* eat keys between levels
+* added new pain frames for soldiers
+* fix savegames with PVS update
+* new status bar updates
+* fixed packet overflow and noclip with PVS update
+* synced zombie throws from exact position
+* put in new ogre grenade
+* no span lighting in subdivided triangle code
+* better gibbing code
+* vid_size for nextstep
+* determined the hang is in the sound mixing loop never exiting
+
++ auto pause with console
++ more time for ogres before launching grenades
++ is restart doing a progrestart?
++ fix gib head bbox
++ head outside level
++ backpacks don't drop when floor is pulled out
++ movetype_missiles need to be intangible against owners
++ gib dogs
++ teleport flashes aren't in the pvs
++ soldier3 new pain frames
++ fix high framerate bug
+
+minimum ambient light field for bmodels
+make it easier to jump out of water
+default water treading
+better discrimination of slime and water
+need to cycle allocations of temporary entities to prevent false reuse
+repeating bounce sound on dropping plats
+crush monsters extremely by plats
+about to drown warning noise
+load last savegame by default
+monsters burn in lava
+float particals from tport pads
+don't switch to frag bar on single player death
+slope lookup
+got stuck in a downed zombie
+make an error message in qcc for function calls inside a parm list
+polygon torches
+need to make impulses reliable, or looping sounds may not be killed
+restart game with entrance spawn parms
+allways test demos and savegames after a net change!
+option to match ping times for fair deathmatches?
+get bonus items on top of doors spawning deterministically
+selective cheat for testing

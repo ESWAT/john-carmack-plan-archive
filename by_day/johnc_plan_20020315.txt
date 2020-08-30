@@ -1,0 +1,3 @@
+Mark Kilgard and Cass Everitt at Nvidia have released a paper on shadow volume rendering with several interesting bits in it. They also include a small document that I wrote a couple years ago about my discovery process during the development of some of the early Doom technology.
+
+http://developer.nvidia.com/view.asp?IO=robust_shadow_volumes

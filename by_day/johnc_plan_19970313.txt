@@ -1,0 +1,17 @@
+Here is a technical issue to be discussed:
+
+I am strongly considering dropping qc in Quake 2 in favor of exporting most of the game logic to a seperate .dll file. This wasn't an option when we had to support dos, but I think it is the correct choice now.
+
+There are a lot of issues involved with this.
+
+As everyone who has tried to do anything serious with qc knows, it has its limitations (ahem). I could improve the language, or just adopt a real language like java, but the simplest thing to do would be just use native code.
+
+It would definately be more efficient as a dll. As we do more sophisticated game logic, efficiency becomes more and more important. For simple deathmatch modifications this wouldn't be a big deal, but for full size game levels it will likely be at least a 5% to 10% overall speed improvement.
+
+It would be non-portable. I am dreading the reaction to this from the linux community. Game modifications would have to be compiled seperately for each target architecture (windows, linux, irix, etc). I do still intend to have the client be generic to all mods (but more flexible than Q1), so it is really only an issue for servers.
+
+There are security concerns. I suppose to a world that embraces Active-X, this isn't really an issue, but binary code patches still spook me.
+
+You would actually need a compiler to hack quake. For the serious people, this isn't an issue, but it would cut out a number of people that currently enjoy hacking quake. I have a strange mixture of pride and shame when I think about the people that have actually started learning programming in my crappy little qc language.
+
+You could debug your patch in a real debugger! Yipee!

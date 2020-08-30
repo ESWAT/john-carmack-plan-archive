@@ -1,0 +1,7 @@
+The Q3 game source code is getting pushed back a bit because we had to do some rearranging in the current codebase to facilitate the release, and we don't want to release in-progress code before the official binary point release.
+
+We still have a Christmas present for the coders, though:
+
+http://www.idsoftware.com/q1source/
+
+Happy holidays!

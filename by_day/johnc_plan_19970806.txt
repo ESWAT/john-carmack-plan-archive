@@ -1,0 +1,5 @@
+* qe4 texture directories
+* fixed vid_restart
+* hacked alpha colors for cards without src*dst
+* fixed qdata vc compiler bug in arg parsing
+* qe4 surface inspector

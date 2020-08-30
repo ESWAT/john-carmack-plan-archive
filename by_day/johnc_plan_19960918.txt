@@ -1,0 +1,9 @@
+We are now beta testing the first release of QuakeWorld.
+
+It seems to be going well. The latency reductions are very real, and significantly improve control and responsiveness. There is some loss of smoothness in some cases, but you can tune the tradeoff to your liking.
+
+I don't want everyone to think that it will instantly turn their 28.8 modem into a lan connection, but it should be solidly better than what we have in all circumstances.
+
+On an internet connection that provides a stable flow of packets at a reasonably predictable rate, the gameplay is very good. Single packet drops are not even noticable, but dropping several packets at once or having a large variability in latency can still mess up a game.
+
+The really cool ISPs will run QuakeWorld servers right at their pops, which should give 28.8 modem players 200 ms or less pings, providing a nearly flawless game. 

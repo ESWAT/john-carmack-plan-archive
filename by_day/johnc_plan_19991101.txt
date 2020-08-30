@@ -1,0 +1,24 @@
+* play chat sound during votes
+* draw 2D icon for ammo if cg_draw3dicons 0
+* fixed losing input on menu vid_restart
+* made "vote" and "callvote" completable
+* remove mac about dialog
+* fixed demos skipping inital time due to loading
+* fixed timing on timedemo startup
+* don't flash attacker when damaging self
+* display capturelimit instead of fraglimit on score tabs in ctf
+* recursive mirror/portal changed to a developer warning
+* fixed bug with follow mode spectators
+* battle suit shader
+* notsingle spawn option
+* separated torso and legs priority animation coutners so gesture doesn't mess with legs
+* adjusted value to prevent missed launch sound on accelerator pads
+* setviewpos x y z yaw, same parms as viewpos command
+* stop sound on file access
+* fixed developer prints from renderer
+* defered client media loading, only load models and sounds for new players when you die or bring up the scoreboard
+* fix for double colliding against same plane and getting stuck
+* dropped LG damage to 160 pts / sec
+* don't snap predicted player entity, smooths deaths and movers
+* all sine movers are instant kill on block
+* fixed items riding on bobbers

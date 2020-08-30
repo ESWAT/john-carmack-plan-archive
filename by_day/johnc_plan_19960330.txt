@@ -1,0 +1,12 @@
++ dynamic lights....
++ grenade activation size
++ entnum optimization
++ make progs use pointers for edicts?
++ sideways spikes
+
+esc = floating menus, with console option
+remove avelocity?
+track down the _SCR_UpdateScreen <cycle 2> [23] from profile
+clean up search path syntax
+fix style lighting on alias models
+more #ifdef PARANOID

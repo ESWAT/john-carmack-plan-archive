@@ -1,0 +1,31 @@
+* removed MOUSE1, MOUSE2, MOUSE3, added K_MOUSE1, etc for binding
+* check for spurious mouse buttons
+* fixed stair climbing underwater
+* trigger_onlyregistered
+* fixed door sound loopinhg problems
+* button configuration
+* made monsters stand still at point blank range
+* idle view motion
+* monsters get mad at each other on any damage
+
++ cache movement on hunk allocs
++ hi res modes with new code are broken
++ dead guy still firing / pushed into floor
++ fake pause causes problems when map from console
++ zombie shouldn't go into pain frame when down
++ change weapon command
++ is DMA left enambled in sound code?
+
+respawning of items that dropped down with a plat
+rocket points block plats
+don't clear text on vid mode change
+grenade bounced off ogre
+bind # option for weird controllers
+key sticking
+investigate the vis problems
+make monsters head for their spawn points after they kill the player
+camera follow killer
+destroy backpacks when doors close on them
+lightning gun model
+lightning gun no damage to shambler
+does shambler bolt hurt monsters?

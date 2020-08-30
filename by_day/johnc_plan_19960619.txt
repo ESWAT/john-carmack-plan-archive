@@ -1,0 +1,28 @@
+* fixed "no such frame" invis bug
+* coop target tradeoff
+* boss target tradeoff
+* moved knight damage frames by one state each
+* cl_signon messages are now developer only
+* changed hell knight hit sound to sw data
+* allow onolyregistered triggers to be used as killtriggers
+* fencepost bug on name lengths
+* added S_ExtraUpdate to Draw_FadeScreen
+* ignore nointermission in deathmatch
+* notifications for quit and new game
+* created 0.9 SW RC distribution
+
+tilde key doesn't type (unbindall)
+monster counting bug
+net can fuck up with a join
+don't let demos change while in a menu
+menu sounds still don't work in all cases
+play menu sound on escape from menu
+stuck spawn
+disallow angle change during demo
+nail messages say "fell to death"
+rewrite buggy centering code
+rewrite buggy point squashing code
+color coded backpacks
+no finale when deathmatching
+fish
+credits

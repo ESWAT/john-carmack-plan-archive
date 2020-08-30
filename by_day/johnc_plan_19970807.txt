@@ -1,0 +1,14 @@
++ add animation frames to bsp file texinfos
+- make bmodel frames just add to texinfo?
+- should msurface flags hold the texinfo flags?
++ make window content implicit if any surfaces are trans
++ CONTENTS_ORIGIN flag
++ nodetail bsp
++ select face option in qe4
++ use monsterclips!
++ gl fullbright textures are still 2x brightness
+
+moveable alpha surfaces
+merge find texture dialog into surface inspector
+fix qdata unix directory stuff
+get rid of mod->skins, use mod->images

@@ -1,0 +1,17 @@
+* removed player entity from own entity set
+* fixed memory trash bug from not flushing surface cache before
+changelevel
+* use all memory between the hunks as dynamic cache
+
++ dump time between levels
++ sticky bsp corner
++ fix wall jump scaling
++ better backpack messages
+
+QuakeEd is doing something over the net on NXPings
+bloody face health indicator?
+crosshair?
+don't pass angles, frame, etc on viewentity
+rockets spawn past point blank
+Single player names on qsockets are backwards
+make dead player still solid to monsters to prevent seeing inside models?

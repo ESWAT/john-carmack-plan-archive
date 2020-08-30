@@ -1,0 +1,15 @@
+*	emit bsp files
+
++ idle loop on disconnect
++ key sticking
++ fix noclip in the water
++ modelgen scale option
++ run a single level for a long time, then connect hangs
++ grenade radius check
+
+gibs stuck in walls in low G
+flash blinding
+turbulent texture direction
+space in smiley talk message
+talk sounds
+full chat mode

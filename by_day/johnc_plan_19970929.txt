@@ -1,0 +1,34 @@
+* texpaint: backup files
+* texpaint: size dialog on new skin
+* texpaint: auto save
+* normailized translucency level in gl
+* fixed func_group entity miscount
+* fixed target_changelevel use clearing
+* fixed pointcontents with moving entities
+* fixed spawnpoint storage
+* use areas in multicast
+* removed ambient sound calls
+
++ >512 entities
++ view kick even without move kick
++ blaster spawn point
+- include sky, skyaxis as player_state variables?
++ transfer player health on each spawn and level exit
+
+set spawntemp strings to "" instead of null?
+alias save sequence number issues in qdata and texpaint
+client userinfo
+different blaster flash against flesh
+rename edict_t to entity_t
+init without IP
+never same pain animation twice in a row?
+map during loading bug
+remove old_origin
+makeuserinfo / makeserverinfo?
+makeclientcommand?
+auto-loop entitystate sounds?
+!!! must include full path of predicted positions in fatpvs !!!
+muzzle flash effect in entity_state?
+jail4a iris door problem
+MOTD console variable
+QE4: scrub out partial detail brushes

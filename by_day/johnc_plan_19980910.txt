@@ -1,0 +1,39 @@
+I recently set out to start implementing the dual-processor acceleration for QA, which I have been planning for a while. The idea is to have one processor doing all the game processing, database traversal, and lighting, while the other processor does absolutely nothing but issue OpenGL calls.
+
+This effectively treats the second processor as a dedicated geometry accelerator for the 3D card. This can only improve performance if the card isn't the bottleneck, but voodoo2 and TNT cards aren't hitting their limits at 640*480 on even very fast processors right now.
+
+For single player games where there is a lot of cpu time spent running the server, there could conceivably be up to an 80% speed improvement, but for network games and timedemos a more realistic goal is a 40% or so speed increase. I will be very satisfied if I can makes a dual pentium-pro 200 system perform like a pII-300.
+
+I started on the specialized code in the renderer, but it struck me that it might be possible to implement SMP acceleration with a generic OpenGL driver, which would allow Quake2 / sin / halflife to take advantage of it well before QuakeArena ships.
+
+It took a day of hacking to get the basic framework set up: an smpgl.dll that spawns another thread that loads the original oepngl32.dll or 3dfxgl.dll, and watches a work que for all the functions to call.
+
+I get it basically working, then start doing some timings. Its 20% slower than the single processor version.
+
+I go in and optimize all the queing and working functions, tune the communications facilities, check for SMP cache collisions, etc.
+
+After a day of optimizing, I finally squeak out some performance gains on my tests, but they aren't very impressive: 3% to 15% on one test scene, but still slower on the another one.
+
+This was fairly depressing. I had always been able to get pretty much linear speedups out of the multithreaded utilities I wrote, even up to sixteen processors. The difference is that the utilities just split up the work ahead of time, then don't talk to each other until they are done, while here the two threads work in a high bandwidth producer / consumer relationship.
+
+I finally got around to timing the actual communication overhead, and I was appalled: it was taking 12 msec to fill the que, and 17 msec to read it out on a single frame, even with nothing else going on. I'm surprised things got faster at all with that much overhead.
+
+The test scene I was using created about 1.5 megs of data to relay all the function calls and vertex data for a frame. That data had to go to main memory from one processor, then back out of main memory to the other. Admitedly, it is a bitch of a scene, but that is where you want the acceleration..
+
+The write times could be made over twice as fast if I could turn on the PII's write combining feature on a range of memory, but the reads (which were the gating factor) can't really be helped much.
+
+Streaming large amounts of data to and from main memory can be really grim. The next write may force a cache writeback to make room for it, then the read from memory to fill the cacheline (even if you are going to write over the entire thing), then eventually the writeback from the cache to main memory where you wanted it in the first place. You also tend to eat one more read when your program wants to use the original data that got evicted at the start.
+
+What is really needed for this type of interface is a streaming read cache protocol that performs similarly to the write combining: three dedicated cachelines that let you read or write from a range without evicting other things from the cache, and automatically prefetching the next cacheline as you read.
+
+Intel's write combining modes work great, but they can't be set directly from user mode. All drivers that fill DMA buffers (like OpenGL ICDs..) should definately be using them, though.
+
+Prefetch instructions can help with the stalls, but they still don't prevent all the wasted cache evictions.
+
+It might be possible to avoid main memory alltogether by arranging things so that the sending processor ping-pongs between buffers that fit in L2, but I'm not sure if a cache coherent read on PIIs just goes from one L2 to the other, or if it becomes a forced memory transaction (or worse, two memory transactions). It would also limit the maximum amount of overlap in some situations. You would also get cache invalidation bus traffic.
+
+I could probably trim 30% of my data by going to a byte level encoding of all the function calls, instead of the explicit function pointer / parameter count / all-parms-are-32-bits that I have now, but half of the data is just raw vertex data, which isn't going to shrink unless I did evil things like quantize floats to shorts.
+
+Too much effort for what looks like a reletively minor speedup. I'm giving up on this aproach, and going back to explicit threading in the renderer so I can make most of the communicated data implicit.
+
+Oh well. It was amusing work, and I learned a few things along the way.

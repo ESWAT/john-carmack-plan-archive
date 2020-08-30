@@ -1,0 +1,40 @@
+* fixed point / point missile interactions
+* don't change weapons on pickup in deathmatch
+* made vis 30% faster
+* fixed falling in floor
+* fixed and armor plated the jump out of water code
+* fixed jump monkey climbing
+* dissalow "kill" when allready dead
+* all hell knight actions
+* COM_LoadStackFile
+* cache movement
+* fixed shambler pain frame
+
++ stair climbing clipping against walls is messed up a bit
++ monsters need to drop to floor after teleport
++ menu01
++ loading on stack causes errors on dos
++ flashing disk icon
++ make caching perfect
++ monsters not fight each other if not seen player yet
++ make lighting gun consume cells
++ falling into floor bug
++ zombie clipping
++ cycling channel allocation
++ no Host_Error: for valid disconnect
++ body que isn't working
+
+shooting rockets at point blank
+deathmatch switch to better weapon again
+lightning needs to pitch
+control animating texture speed
+need to cut the update message size
+sfx volume option
+player only checkbox for doors and triggers
+launch lightning from exact spots
+finalize HMD interface
+repeating grenade bounce on some slopes
+jump out of water automatically when swim up to an edge, no need to jump
+new ground explosions
+auto pitch went into look down for no reason
+gib velocity reletive to damage?

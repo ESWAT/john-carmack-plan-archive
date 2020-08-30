@@ -1,0 +1,17 @@
+* don't set qe4 texture unless notexture
+* don't set qe4 texture on cancel unless changed
+* grabbed new menu and console
+* invert mouse off in default.cfg
+* all software flags
+* mist contents
+
++ imagelist command in software
+
+trinity: save out projection outlines from editor for textures
+add a 5th control axis (and 6th?) for spaceorb ducking
+gl: don't keep lightmap blocks around in main memory?
+entities not visible (or only visible) to owners
+look in direction other than motion for hmd
+quake as root directory problem
+dir command
+software surface / edge allocation issues

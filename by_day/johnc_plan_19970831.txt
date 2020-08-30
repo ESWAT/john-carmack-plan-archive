@@ -1,0 +1,19 @@
+* fixed trigger_always
+* game dll by search path
+* cinematic NULL bug
+* help computer
+
++ get rid of datablocks?
++ dll init must clear the persistant data
+- savegame needs to save game.dll name
++ save directory?
++ put pcx_t into qfiles.h?
++ unify all hud work into g_hud.c
+
+set command with flags?
+should "path" be renamed to pathlist?
+trigger_allways should be fixed size
+gameversion
+somehow don't resend big deltas (scoreboard hud) until ack?
+client side feedback
+glgentextures

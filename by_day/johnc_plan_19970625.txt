@@ -1,0 +1,57 @@
+We got the new processors running in our big compute server today.
+
+We are now running 16 180mhz r10000 processors in an origin2000. Six months ago, that would have been on the list of the top 500 supercomputing systems in the world. I bet they weren't expecting many game companies. :)
+
+Some comparative timings (in seconds):
+
+[code]
+mips = 180 mhz R10000, 1meg secondary cache
+intel = 200 mhz ppro, 512k secondary cache
+alpha = 433 mhz 21164a, 2meg secondary cache
+
+qvis3 on cashspace:
+
+cpus    mips    intel   alpha
+----    ----    ----    ----
+   1     608     905     470
+   2     309     459
+   3     208     308
+   4     158     233
+   8      81
+  12      57
+  16      43
+[/code]
+
+(14 to 1 scalability on 16 cpus, and that's including the IO!)
+
+The timings vary somewhat on other tools - qrad3 stresses the main memory a lot harder, and the intel system doesn't scale as well, but I have found these times to be fairly representative. Alpha is almost twice as fast as intel, and mips is in between.
+
+None of these processors are absolutely top of the line - you can get 195 mhz r10k with 4meg L2, 300 mhz PII, and 600 mhz 21164a. Because my codes are highly scalable, we were better off buing more processors at a lower price, rather than the absolute fastest available.
+
+Some comments on the cost of speed:
+
+A 4 cpu pentium pro with plenty of memory can be had for around $20k from bargain integrators. Most of our Quake licensees have one of these.
+
+For about $60k you can get a 4 cpu, 466 mhz alphaserver 4100. Ion Storm has one of these, and it is twice as fast as a quad intel, and a bit faster than six of our mips processors.
+
+That level of performance is where you run into a wall in terms of cost.
+
+To go beyond that with intel processors, you need to go to one of the "enterprise" systems from sequent, data general, ncr, tandem, etc. There are several 8 and 16 processor systems available, and the NUMA systems from sequent and DG theoretically scale to very large numbers of CPUS (32+). The prices are totally fucked. Up to $40k PER CPU! Absolutely stupid.
+
+The only larger alpha systems are the 8200/8400 series from dec, which go up to 12 processors at around $30k per cpu. We almost bought an 8400 over a year ago when there was talk of being able to run NT on it.
+
+Other options are the high end sun servers (but sparc's aren't much faster than intel) and the convex/hp systems (which wasn't shipping when we purchased).
+
+We settled on the SGI origin systems because it ran my codes well, is scalable to very large numbers of processors (128), and the cost was only about $20k per cpu. We can also add Infinite Reality graphics systems if we want to.
+
+Within a couple years, I'm sure that someone will make a plug-in SCI board for intel systems, and you will be able to cobble together NUMA systems for under $10k a cpu, but right now the SGI is the most suitable thing for us.
+
+I have been asked a few times if Quake will ever use multiple processors. You can allways run a dedicated server on one cpu and connect to it to gain some benefit, but that's not very convenient, doesn't help much, and is useless for internet play.
+
+It's waaaay down on the priority list, but I have a cool scheme that would let me make multiple copies of the software rendering dll and frame pipeline the renderers. Response is cut by half and the frame rate would double for two cpus, but pipelining more than a frame would be a bad idea (you would get lag on your own system).
+
+I wouldn't count on it, but some day I might take a break from serious work and hack it in.
+
+There is no convenient way to use multiple processors with the hardware accelerated versions, except to run the server on a seperate cpu.
+
+That will probably be an issue that needs to be addressed in the lifespan of the next generation technology. Eventually people are going to start sticking multiple cpus (or multiple thread issue systems sharing resources) on a single chip, and it will become a consumer level item. I'm looking forward to it.

@@ -1,0 +1,20 @@
+*	rewrote sound packet communication
+*	fixed multiple pains from a single shotgun
+*	qcc -copy option for sounds and models
+*	fixed up pak file support
+*	removed .rc files
+*	screen size over status bar
+
++ monsters need to be pushed into teleporters
++ blue frag pieces
++ NaN impact time is a crasher
++ looking down on weapon bounces away from bottom
++ timing preventing attacks at startup
+
+fix hardwired vid_uopdate
+remove redundant death sounds
+teleport warp
+torches
+cpuid?
+monsterblock entity
+multiple sky textures in a level

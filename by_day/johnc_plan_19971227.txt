@@ -1,0 +1,11 @@
+The 1.07 patch is out:
+
+ftp://ftp.idsoftware.com/idstuff/quake2/patch_07.zip
+
+Please mirror and distribute this.
+
+When submitting bugs, make sure you say that you already have the 3.07 patch.
+
+Christian will go through and update the bug page when he gets back from vacation next week.
+
+This release does not fix all known problems. We intend to have another release in a few weeks.

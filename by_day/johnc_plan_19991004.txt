@@ -1,0 +1,14 @@
+* allow cg_thirdPerson and cg_thirdPersonRange in games
+* added execed .cfg files to journal file
+* single pass plasma explosion effect to save overdraw
+* rescaled and sized gib and mark blood to save a lot of overdraw
+* fixed cg.time < snapshot time on vid_restart
+* cl_showSend network debugging tool
+* back to requiring a before commands on the console to distinguish them from chat messages. Tab completion automatically adds the slash.
+* new tab command completion with complete to longest common, multiple match listing, complete first token, etc
+* separate version check for game/cgame in addition to system
+* show r_finish in gfxinfo
+* never show self as attacker icon
+* callvote vote - Caller automatically votes yes vote has a 30 second timeout each client can only call 3 votes a level vote is displayed on screen with totals
+* renamed cg_gun to cg_drawGun
+* box cull triangle soup models

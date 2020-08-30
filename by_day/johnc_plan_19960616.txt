@@ -1,0 +1,54 @@
+* removed hard coded number order for sbar
+* moved palette and colormap to discrete lumps
+* all help screens
+* delay enter sound until after menu frame drawn
+* delated recursive spawn death
+* changed sound override rules to prevent monsters from eclipsing player
+snds
+* delay monster use reaction to guarantee sound after teleport
+* added reliable_datagram
+* fixed powerup respawning
+* clear all of sv in spawn server
+* heads bounce from telefrag
+* fixed sizing bug with telefragging
+* fixed force retouch bug
+* bodyque objects get movetypes
+
+player lightning source 16+ higher
+check dead player coop transition
+talk message needs to clear background
+dissallow save from intermission
+different default player colors?
+kick clients off if unsent message gets too big
+powerup flashes
+demon and shambler rethink between claws
+make boss face direction of throw
+deathmatch weapon switching
+double shots for monsters in nightmare mode
+hot key menus should return to game with a single escape
+item respawn with no pickup problem
+floating heads
+view center snapping
+deathmatch intermission screen
+directory checks
+no frame bug with eyes
+head floating in air
+reliable broadcast
+no exit option for persistant deathmatch servers
+statue monsters
+change pak files to pakS0 pakR0 
+triggered teleporters aren't working reliably
+play sound when menu goes away
+local sounds die sometimes
+teleport effect
+sounds on locked doors
+pops at end of sound buffer: not mixing entire thing?
+exp.tri spawn explosion frame
+func_episodegate print messages
+teleporter articles
+fix "load failed" message
+coop savegames
+lightning gun on secret doors.
+
+explain "kill" in manual
+explain dedicated servers for large coop games in manual

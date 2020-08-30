@@ -1,0 +1,19 @@
+* s_testsound 1
+* fixed streaming sound on 95
+* streaming sound at full volume
+* removed multiply from mixing
+* khz change for cinematics
+* blaster precaches
+* fixed cinematic from pak streaming
+* don't use primary sound buffer option
+
++ precache blaster
++ dropped grenades on death shouldn't respawn there..
+
+set hostname by ip hostname
+timegraph not right
+rename map to start
+check entire game without asm code
+no mouse cursor when fullscreen
+die with grenades needs to stop ticking sound
+high quality sound directories

@@ -1,0 +1,17 @@
+* enable scissor test properly
+* archive r_lodBias
+* cg_draw3dIcons 0 option
+* data cheating protection
+* userinfo renamed to clientinfo, added state and current server address
+* don't forward commands to a server when playing demos
+* fixed NULL extension on dir command
+* added one more shotgun pellet
+* added CG_Shutdown for cgame cleanup
+* fixed jitter in rising smoke
+* increase minimum time before reusing an entity slot
+* soundinfo reports current background streaming file
+* changed IPX separator to . from :, moved port processing to system independant code
+* auto port scan wasn't updating the net_port cvar
+* attack button presses reset inactivity timer now
+* increased the forced respawn time from 10 to 20 seconds
+* show smp on gfxinfo, slight reformat

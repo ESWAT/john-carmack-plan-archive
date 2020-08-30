@@ -1,0 +1,26 @@
+* background noise track code
+* fixed swimming nan bug
+* fixed Sandy's quakeed crahser
+* QuakeEd: turn region off when going to new map
+* automatic sound decimation based on available memory
+* explosion sprite cores
+* QuakeEd: don't go to worldspawn
+* qcc is now fully recursive
+* buttons only pressable by player
+
++ the explosion cores are still MOVETYPE_TOSS, not MOVETYPE_NONE
++ set gravity on secret level
++ host_framerate cvar is broken
++ shootable buttons
++ wizards on paths go to wrong heights
++ make knights not move when in melee range
++ light styles in savegames
++ QuakeEd: filter world
++ QuakeEd: remove check for filtered brush
+
+fish fly out of water
+make door triggers not box sized
+check respawning on tim5 armor that drops down
+make an end of frame call for each player
+allow sprites to have a faked forward Z value?  allways?
+key alias models

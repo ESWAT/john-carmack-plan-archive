@@ -1,0 +1,13 @@
+* r_primitives 3 path for non-vertex array testing
+* specify sex in model animation.cfg file
+* proper dropping of failed bot inits
+* removed identical pain sounds
+* serverTime strictly increasing across levels
+* added GL_DECAL multitexture collapse
+* windowed mouse on mac
+* fixed byte order issue with curve clipping on mac
+* made com_defaultextension buffer safe
+* fixed levelshot and added antialiasing to image
+* don't clear bot names before kick message
+* made servercommand sequences strictly increasing across level changes
+* unpause on vid_restart

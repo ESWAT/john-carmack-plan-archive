@@ -1,0 +1,8 @@
+* fullsend headnode done properly
+
++ animating textures
++ must check all cluster areas for doors
+
+-1 cluster issues?
+more dramatic railgun spray
+check all the trace flags to see if they are still needed

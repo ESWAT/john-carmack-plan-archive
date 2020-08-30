@@ -1,0 +1,31 @@
+The next release will be the full "demo" release for quake 3. It will include bots and a new, simple level that is suitable for complete beginners to play, as well as the existing q3test maps.
+
+The timing just didn't work out right for another test before we complete the game.
+
+We plan on releasing the demo after code freeze, when the entire game is in final testing, which will give us a few days time to fix any last minute problems that show up before golden master.
+
+No, I don't have an actual date when that will be.
+
+-
+
+I got an iBook in on friday. It is sort of neat (I need to go buy an AirPort, then it will definately be neat), but it is currently way too slow to play Q3 on.
+
+Apple's high end G3 and G4 systems with rage128/rage128pro cards and latest drivers are just about as fast as equivelant wintel systems, but the rest of the product line is still suffering a noticable speed disadvantage.
+
+The new iMac has a rage128, but it is only an 8mb/64bit version. Still, with agp texturing it is a solid platform with performance that is certainly good enough to play the game well on.
+
+Existing iMacs have 6mb ragePro video. ATI's windows drivers for the pro have come a long ways, and Q3 is plenty playbale on windows with a rage pro (ugly, but playable). On apple systems (iMacs and beige G3's), the performance is sometimes as low as HALF the windows platform. The lack of AGP contributes some to this, but it is mostly just a case of the drivers not being optimzed yet. The focus has been on the rage128 so far.
+
+The iBook is also ragePro based, but it is an ultra-cheap 32 bit version. It does texture over AGP, but it is slooooow. I suspect it is still driver issues, because it is still very slow even at 320x240, so that leaves hope that it can be improved.
+
+Another issue with the Apple systems is that Apple 16 bit color is actually 15 bit. I never used to think it made much difference, but I have been doing a lot of side by side comparying, and it does turn out to be a noticable loss of quality.
+
+* new lg splash
+* added channel number for local sounds so feedbacks don't override announcers
+* removed scoreup feedback sound
+* expand score tabs as needed for large scores
+* fixed bfg obit
+* fixed swimming off floors
+* fixed swim animation when jumping in shallow water
+* fixed first weapopn switch problem
+* convert all joystick axis to button events (twist is now bindable)

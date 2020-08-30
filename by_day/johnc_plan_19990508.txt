@@ -1,0 +1,20 @@
+There is one must-fix issue and a couple smaller issues remaining before the release candidate build, then we have to do a lot of testing on it. I made a lot of significant changes in the last week, and I'm sure there are some things we still need to sort out before we inflict it on the general public.
+
+We are aiming for sunday, but understand that that means sunday evening, not sunday morning.
+
+If saturday night / sunday morning testing on the release candidate turns up significant problems, we will put off the release until they are fixed. That could be later sunday night, or it might not make it until monday night.
+
+The previous release delays for win32 were issues out of our control, but this release rests squarely on me. The content and other issues are ready, but we still need to make sure all the new code is solid.
+
+* fixed give item bug
+* new first snapshot timing
+* moved sun drawing outside of sky shader to fix showtris
+* r_drawSun
+* handle all shader tesselations in q3map with tjunc fixups
+* different flatness epsilons for edge vs border grids
+* reorganize sound directories
+* removed footsteps on non-metalic and non-water surfaces
+* fixed bug with multiple looping sounds
+* client side predict teleporters, go to "hyperspace"
+* precache remaining liquid sounds
+* don't fire jumppad events if upward velocity

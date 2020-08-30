@@ -1,0 +1,15 @@
+* changed snapnormal
+* fixed BUTTON_ANY
+* unix makefile
+* pic server
+* runcinematic call
+* console over cinematic fix
+
++ console key during game cinematics
++ version number for quake 2?
++ cinematic set palette needs to clear screen
+
+use cluster level leafs for sound radiosity
+jittered texel centers?
+trinity: continuous textures, surface cache on all
+make net, pause, and drawcenterstring HUDs

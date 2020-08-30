@@ -1,0 +1,11 @@
+* fixed savegame / phantom box bug
+* fixed underwater
+* allow monsters to sight other just-damaged monsters as clients
+* fixed lookspring
+
++ secrets and kills are backwards
+
+tighten dlight radius/attenuation
+copy center prints to console
+the portal bug
+cue music on completion

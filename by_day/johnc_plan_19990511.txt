@@ -1,0 +1,83 @@
+I am offering a bounty for server crashing bugs. Q2 had several releases forced out because of malicious attacks on all the public servers, so I want to try and flush out what I can during Q3's testing phase.
+
+There is a server running in the debugger here at crashtest.idsoftware.com (192.246.40.68). Anyone that can repeatably hang or crash this system can have a $100 prize and some misc bit of Q3A paraphenalia that I can dig up.
+
+Operating system level attacks don't count -- only things that I can actually fix or protect against in my code.
+
+Denial of service attacks don't count if they require upkeep, but if there is a fire-and-forget DOS attack, it will still count.
+
+Any actions you can perform with the released client are fair game. Crashing the client isn't good for a bounty, but I would still like to know about it.
+
+Custom attack programs are also fair game. These are actually what I am most concerned about -- malicious programs that goes through and crash all listed servers.
+
+Ideally, you would practice on a private server under your control and only hit crashtest when you think you can repeat it.
+
+If you find one, email me the instructions so I can reproduce it. Include "CRASHTEST" in the subject so I won't miss it.
+
+First come, first served, one bounty per bug. I will update crashtest with our internal builds, so it will certainly be possible that an attack on the released servers no longer functions on crashtest.
+
+-------------
+
+Now that the first win32 test is out, here is The Plan for going forward:
+
+All future releases should be same-day for all architectures.
+
+There may be an exe-only update to the current distributions if there are significant problems, but it isn't scheduled.
+
+The next major test release will include a new one on one map designed for tournement play, and new executables with server and game modifications, but will not require downloading a new pak0.pk3.
+
+The release after that will introduce various teamplay rules on the original two maps. This version will likely be another full download, because I know that I still have a couple things to change in the map format. This will probably be the first test running with the virtual machine.
+
+The final major test release will introduce the single player game with bots and ranks.
+
+After any bugs are shaken out of that, it will be the "Q3 Demo" instead of the "Q3 Test", and we should be ready to release the full game to stores.
+
+In an ideal world, people that aren't prepared to deal with in-development software would wait until then to form an opinion of the product.
+
+-------
+
+Everyone should realize that many popular net links are going to be clogged up with q3test downloads for a while, so net play may be a bit patchy to a lot of servers.
+
+-------
+
+BigImp wins the first prize. It doesn't crash the server, but fmtspec names will crash all clients that try to log on. Technically that would be an upkeep required DOS attack, but I'll let this one go.
+
+I even had a "FIXME: make vsprintf safe" comment by the offending line...
+
+I am going to update the server to filter out all % chars that come in over the net to prevent any other similar things.
+
+------
+
+Sami Tammilehto wins the second prize. Some large connectionless packets can cause crashes.
+
+This one was a result of me having the maximum token size defined lower than the maximum string size.
+
+-------
+
+Do NOT send bug reports and game comments directly to me! If I have to filter through hundreds of emails a day, I won't get any more work done... Only crashtest related problems should come to me, everything else should go to q3feedback@idsoftware.com.
+
+-------
+
+You can bias the level of detail lower than allowed in the menu with "r_lodbias 2", which will force all models to the lowest lod. The view weapon will look very ugly.
+
+Another little speedup option that isn't offered in the menus is: "cg_simpleitems 1" this removes the extra rings and spheres around some items.
+
+You can also turn off all the gibs with "cg_gibs 0".
+
+
+* clear game memory at init, which fixes the stuck-at-intermission problem on mac servers
+* fixed mismatched free / Z_Free in demo menu
+* removed unused reference to sprites/plama.md3
+* automatically get sounds from model name
+* scale sensitivity by zoom
+* immediately archive changes to latched cvars
+* cheat protect r_portalonly
+* don't print "XXX connected" on level restarts
+* fixed "give item" on levels where 0,0,0 is in solid
+* fixed timedemo
+* don't play pain falling sound if dead
+* fixed falling damage sound not snd specific
+* fixed crashtest 2
+* fixed crashtest 1
+* q3map_backshader
+* q3map_globaltexture

@@ -1,0 +1,28 @@
+This little note was issued to a lot of magazines by microsoft recently. Just for the record, they have NOT contacted us about any meetings.
+
+All the various dramas in this skit haven't quite settled down, but it looks like microsoft is going to consciously do The Wrong Thing, because of politcal issues. Sigh.
+
+Our goal was to get the NT OpenGL MCD driver model released for win-95, so IHVs could easily make robust, high performance, fully compliant OpenGL implementations. Microsoft has squashed that. Flushed their own (good) work down the toilet.
+
+The two remaining options are to have vendors create full ICD opengl implementations, or game specific mini-drivers.
+
+Full ICD drivers are provided by intergraph, 3dlabs, real3d, and others, and can run on both NT and 95 (with code changes). Microsoft still supports this, and any vendor can create one, but it is a lot of work to get the provided ICD code up to par, and bug prone. On the plus side, non-game tools like level editors can take full advantage of them.
+
+Minidrivers certainly work fine - we have functional ones for 3dfx and powerVR, and they have the possibility of providing slightly better performance than fully compliant drivers, but partial implementations are going to cause problems in the future.
+
+We will see some of both types of drivers over the next year, and Quake 2 should work fine with either. We also intend to have Quake 2 show up on several unix systems that supports OpenGL, and I still hope that rhapsody will include OpenGL support (we'll probably port a mini-drivers if we can't get real support).
+
+Once again, we won't be idiotic and crusade off a cliff, but we don't have to blindly follow microsoft every time they make a bad call.
+
+Subject: Microsoft D3D vs. OpenGL
+Author: Julie Whitehead at Internet
+Date: 6/23/97 10:01 AM
+
+Dear Editor,
+You may be aware of a press release that was issued On June 12, by Chris Hecker, former MS employee and developer of D3D [sic]. The statement asks Microsoft to develop a stonger link between D3D and OGL.The press release, was signed by several game developers representing the top tier 3-D game developers. Microsoft is dedicated to maintaining an active relationship with its DirectX developers. In response to this request Microsoft will host the developers included in the statement at a developers roundtable in July. The purpose of the roundtable is to openly consolidate input and feedback from developers. Tentative date for the roundtable is immediately following Meltdown, July 18.
+
+Direct3D is Microsoft's recommended API for game developers with more than 100 developers using Direct3D as the defacto consumer API. OGL is widely regarded as a professional API designed for high precision applications such as CAD, CAM, etc. Our hope is that this round table will provide Microsoft with the feedback required to evolve our 3D APIs in a way that delivers the best platform for our developers.
+
+If you have any questions or wish to speak with a Microsoft spokesperson, please let me know.
+
+Julie Whitehead

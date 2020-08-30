@@ -1,0 +1,33 @@
+I spent quite a while investigating the limits of input under windows recently. I foudn out a few interesting things:
+
+Mouse sampling on win95 only happens every 25ms. It doesn't matter if you check the cursor or use DirectInput, the values will only change 40 times a second.
+
+This means that with normal checking, the mouse control will feel slightly stuttery whenever the framerate is over 20 fps, because on some frames you will be getting one input sample, and on other frames you will be getting two. The difference between two samples and three isn't very noticable, so it isn't much of an issue below 20 fps. Above 40 fps it is a HUGE issue, because the frames will be bobbing between one sample and zero samples.
+
+I knew there were some sampling quantization issues early on, so I added the "m_filter 1" variable, but it really wasn't an optimal solution. It averaged together the samples collected at the last two frames, which worked out ok if the framerate stayed consistantly high and you were only averaging together one to three samples, but when the framerate dropped to 10 fps or so, you wound up averaging together a dozen more samples than were really needed, giving the "rubber stick" feel to the mouse control.
+
+I now have three modes of mouse control:
+
+in_mouse 1: Mouse control with standard win-32 cursor calls, just like Quake 2.
+
+in_mouse 2: Mouse control using DirectInput to sample the mouse relative counters each frame. This behaves like winquake with -dinput. There isn't a lot of difference between this and 1, but you get a little more precision, and you never run into window clamping issues. If at some point in the future microsoft changes the implementation of DirectInput so that it processes all pending mouse events exactly when the getState call happens, this will be the ideal input mode.
+
+in_mouse 3: Processes DirectInput mouse movement events, and filters the amount of movement over the next 25 milliseconds. This effectively adds about 12 ms of latency to the mouse control, but the movement is smooth and consistant at any variable frame rate. This will be the default for Quake 3, but some people may want the 12ms faster (but rougher) response time of mode 2.
+
+It takes a pretty intense player to even notice the difference in most cases, but if you have a setup that can run a very consistant 30 fps you will probably apreciate the smoothness. At 60 fps, anyone can tell the difference, but rendering speeds will tend to cause a fair amount of jitter at those rates no matter what the mouse is doing.
+
+DirectInput on WindowsNT does not log mouse events as they happen, but seems to just do a poll when called, so they can't be filtered properly.
+
+Keyboard sampling appears to be millisecond precise on both OS, though.
+
+In doing this testing, it has become a little bit more tempting to try to put in more leveling optimizations to allow 60 hz framerates on the highest end hardware, but I have always shied away from targeting very high framerates as a goal, because when you miss by a tiny little bit, the drop from 60 to 30 ( 1 to 2 vertical retraces ) fps is extremely noticable.
+
+-
+
+I have also concluded that the networking architecture for Quake 2 was just not the right thing. The interpolating 10 hz server made a lot of animation easier, which fit with the single player focus, but it just wasn't a good thing for internet play.
+
+Quake 3 will have an all new entity communication mechanism that should be solidly better than any previous system. I have some new ideas that go well beyond the previous work that I did on QuakeWorld.
+
+Its tempting to try to roll the new changes back into Quake 2, but a lot of them are pretty fundamental, and I'm sure we would bust a lot of important single player stuff while gutting the network code.
+
+(Yes, we made some direction changes in Quake 3 since the original announcement when it was to be based on the Quake 2 game and networking with just a new graphics engine)

@@ -1,0 +1,14 @@
+* remove grapple from give all
+* fixed pick-up-two-healths-even-if-you-don't-need-the-second bug
+* moved wrap/clamp to image generation function and added to imagelist, fixed an improper clamp on macs
+* different menuback for ragepro
+* fixed mac button problems with OS9 and wheel mice
+* teamplay rule mods:
+less MG damage (5 instead of 7)
+weapons always have a full load of ammo
+don't drop powerups
+* changed low detail r_subdivisions to 25 to prevent poke through
+* removed warning on empty servercommand when systeminfo changes
+* g_debugDamage
+* when a vote is tied with all votes in, immediately fail it
+* haste smoke puffs

@@ -1,0 +1,5 @@
+I'm sure you have all heard about the 3drealms / quake deal by now. It took a long time to get everything nailed down, but it should be worth it.
+
+The "quake 2" terminology is a little confusing. They have all the quake / glquake / quakeworld stuff right now, but they will be picking up the quake 2 codebase after we finish it.
+
+I'm quite excited about this - it should be a very complimentary arrangement. We would never have done a game like Duke at id, but there are many valid styles of design that are mutually exclusive. Todd and the rest of the Duke team are hard working developers with a pretty clear vision of what they want. It happens to be different than our vision, but the market is plenty big enough for both of them.

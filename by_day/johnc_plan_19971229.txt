@@ -1,0 +1,35 @@
+** Dec 29, 2:25 AM CST **
+
+new version:
+
+ftp://ftp.idsoftware.com/idstuff/quake2/q2-309.exe
+
+This one has an install that makes sure things get where they need to...
+
+
+** Dec 29: 2:30 PM CST **
+
+The only widely reported problem with 3.09 is that the video playback is choppy. The fix for the modem connections reduced video playback to 10 fps. Its a one line fix, but I'll hold off on another version until a few more things accumulate.
+
+I am curious what the breakdown of opinion is on the rapid patch releases. If one of the polling websites would pose the question, I would apreciate it.
+
+A more liesurely patch release would allow us more testing time, and some problems (like this cinematic bug) would certainly be killed before the public saw it, but I definately found a couple things from the public that no amount of testing on our machines would have found. Some things only showed up with 48 people playing on our servers for several hours.
+
+Once again, we really didn't have a choice this time because of the server crashers, but we are planning another release in two to three weeks.
+
+I am happy to produce new versions fairly rapidly, rather than at monthly intervals, but I know that many people are getting a little irate at having to download new patches. There is a simple solution -- if you don't want to be on the bleeding edge, wait a week after a patch is announced and see how it is working for other people.
+
+What finally helped me get to the bottom of some things was just getting people with problems we couldn't reproduce to call me and let me send them executables by email until I figured out what was going on. From now on, if you send a detailed problem to me, include a phone number and times when you can be reached. I'm not tech support, so you certainly can't count on a response, but if you have a nice repeatable case of a problem that is high priority for us that we can't reproduce otherwise, your personal help may be usefull.
+
+BTW, does anyone know why Quake 2 became a hacker target? I can keep fighting attacks, but spending my time there doesn't help anyones game, and there are a bunch of things that fundamentally can't be stopped if people really set their mind to messing up the servers.
+
+
+** Dec 29: 8:00 PM CST **
+
+Please cool it a bit with the email to me unless it is really important. I'll never get trinity done with the email pouring in the way it is right now...
+
+We have rebuilt the 3.09 patch with a new version of the install program. Some people were not able to run the installer because a temp directory wasn't setup correctly. There are NO OTHER CHANGES in this, so if you were able to install the last 3.09, don't bother getting this one.
+
+ftp://ftp.idsoftware.com/idstuff/quake2/q2-309-2.exe
+
+

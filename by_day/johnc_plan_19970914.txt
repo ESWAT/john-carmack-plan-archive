@@ -1,0 +1,44 @@
+* qdata grab alias numeric suffix
+* menu architecture
+
++ make a portal entity
++ connect doors to portal entities
++ treat portal contents like windows
++ flood fill leafs, but stop at portals to count areas
++ if actual leaf with portal contents should chose any area next + to it
++ each portal brush should have exactly two areas bordering it
++ server sends over a bit vector of areas visible to player
++ use area visibility as fast reject for line testing?
+
++ should portal entities remain seperate, or just add a portal + field
++ to doors?
++ builtin: SetPortalState (int pnum, qboolean open);
++ portals MUST go in the structural bsp!
++ each leaf has an area field
++ each portal has two areas it connects
++ all other data can be derived
++ areas have the list of portals
++ area * area * 2^portals == too large!
++ must do dynamic flood fill
++ most portals will be closed, so flood fill is fast
+
++ game pause
++ no status bar after death
+
+allow higher precision bmodel angle specification?
+put v_idle back in?
+super crouch jump?
+establish a client connection at startup to avoid localconnects?
+more bright areas in the game for contrast?
+throbbing health status pic
+weapon cycle command
+bigger font?
+allways have visible blood particles by face when hit?
+bounce health status around when hit?
+radius of alias model dlighting is greater than surface dlighting
+
+trinity: use mouse curssors for ui stuff?
+
+menu_move, menu_down, menu_up, menu_change, menu_slide
+
+trinity: software trilinear with second pass? only works if vertex lighting

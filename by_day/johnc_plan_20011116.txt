@@ -1,0 +1,31 @@
+Driver optimizations have been discussed a lot lately because of the quake3 name checking in ATI's recent drivers, so I am going to lay out my position on the subject.
+
+There are many driver optimizations that are pure improvements in all cases, with no negative effects. The difficult decisions come up when it comes to "trades" of various kinds, where a change will give an increase in performance, but at a cost.
+
+Relative performance trades. Part of being a driver writer is being able to say "I don't care if stippled, anti-aliased points with texturing go slow", and optimizing accordingly. Some hardware features, like caches and hierarchical buffers, may be advantages on some apps, and disadvantages on others. Command buffer sizes often tune differently for different applications.
+
+Quality trades. There is a small amount of wiggle room in the specs for pixel level variability, and some performance gains can be had by leaning towards the minimums. Most quality trades would actually be conformance trades, because the results are not exactly conformant, but they still do "roughly" the right thing from a visual standpoint. Compressing textures automatically, avoiding blending of very faint transparent pixels, using a 16 bit depth buffer, etc. A good application will allow the user to make most of these choices directly, but there is good call for having driver preference panels to enable these types of changes on naive applications. Many drivers now allow you to quality trade in an opposite manner - slowing application performance by turning on anti-aliasing or anisotropic texture filtering.
+
+Conformance trades. Most conformance trades that happen with drivers are unintentional, where the slower, more general fallback case just didn't get called when it was supposed to, because the driver didn't check for a certain combination to exit some specially optimized path. However, there are optimizations that can give performance improvements in ways that make it impossible to remain conformant. For example, a driver could choose to skip storing of a color value before it is passed on to the hardware, which would save a few cycles, but make it impossible to correctly answer glGetFloatv( GL_CURRENT_COLOR, buffer ).
+
+Normally, driver writers will just pick their priorities and make the trades, but sometimes there will be a desire to make different trades in different circumstances, so as to get the best of both worlds.
+
+Explicit application hints are a nice way to offer different performance characteristics, but that requires cooperation from the application, so it doesn't help in an ongoing benchmark battle. OpenGL's glHint() call is the right thought, but not really set up as flexibly as you would like. Explicit extensions are probably the right way to expose performance trades, but it isn't clear to me that any conformant trade will be a big enough difference to add code for.
+
+End-user selectable optimizations. Put a selection option in the driver properties window to allow the user to choose which application class they would like to be favored in some way. This has been done many times, and is a reasonable way to do things. Most users would never touch the setting, so some applications may be slightly faster or slower than in their "optimal benchmark mode".
+
+Attempt to guess the application from app names, window strings, etc. Drivers are sometimes forced to do this to work around bugs in established software, and occasionally they will try to use this as a cue for certain optimizations.
+
+My positions:
+
+Making any automatic optimization based on a benchmark name is wrong. It subverts the purpose of benchmarking, which is to gauge how a similar class of applications will perform on a tested configuration, not just how the single application chosen as representative performs.
+
+It is never acceptable to have the driver automatically make a conformance tradeoff, even if they are positive that it won't make any difference. The reason is that applications evolve, and there is no guarantee that a future release won't have different assumptions, causing the upgrade to misbehave. We have seen this in practice with Quake3 and derivatives, where vendors assumed something about what may or may not be enabled during a compiled vertex array call. Most of these are just mistakes, or, occasionally, laziness.
+
+Allowing a driver to present a non-conformant option for the user to select is an interesting question. I know that as a developer, I would get hate mail from users when a point release breaks on their whiz-bang optimized driver, just like I do with overclocked CPUs, and I would get the same "but it works with everything else!" response when I tell them to put it back to normal. On the other hand, being able to tweak around with that sort of think is fun for technically inclined users. I lean towards frowning on it, because it is a slippery slope from there down in to "cheating drivers" of the see-through- walls variety.
+
+Quality trades are here to stay, with anti-aliasing, anisotropic texture filtering, and other options being positive trades that a user can make, and allowing various texture memory optimizations can be a very nice thing for a user trying to get some games to work well. However, it is still important that it start from a completely conformant state by default. This is one area where application naming can be used reasonably by the driver, to maintain user selected per-application modifiers.
+
+I'm not fanatical on any of this, because the overriding purpose of software is to be useful, rather than correct, but the days of game-specific mini- drivers that can just barely cut it are past, and we should demand more from the remaining vendors.
+
+Also, excessive optimization is the cause of quite a bit of ill user experience with computers. Byzantine code paths extract costs as long as they exist, not just as they are written.

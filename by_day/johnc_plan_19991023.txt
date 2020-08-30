@@ -1,0 +1,36 @@
+An announcement:
+
+We have hired Robert Duffy as a full time employee, starting in December.
+
+He has been maintaining the level editor since the release of Q2, but a number of things have convinced me it is time to have a full time tool-guy at id.
+
+The original QE4 editor was my very first ever Win32 program, and while Robert has done a good job of keeping it on life support through necessary extensions and evolutions, it really is past its designated lifespan.
+
+I want to take a shot at making the level editor cross platform, so it can be used on linux and mac systems. I'm not exactly confident that it will work out, but I want to try.
+
+Many of the content creation tasks seem to be fairly stabilized over the last several years, and our next product is going to be pretty content directed, so I can justify more engineering effort on writing better tools.
+
+It is time for a re-think of the relationships between editor, utilities, and game. I am still an opponent of in-game editors, but I want to rearrange a lot of things so that some subsystems can be shared.
+
+All of that added up to more than I was going to be able to do in the time left after the various research, graphics, and networking things I want to pursue.
+
+* added r_speeds timing info to cinematic texture uploads
+* fixed loop sounds on movers
+* new bfg sound
+* "sv_pure 1" as default, requires clients to only get data from pk3 files the server is using
+* fixed fog pass on inside of textured fog surfaces
+* properly fog sprites
+* graphics for scoreboard headers
+* show colored names on attacker display and scoreboard
+* made "no such frame" a developer only warning
+* count a disconnect while losing in tournement mode as a win for the other player
+* fixed running with jump held down runs slow
+* draw "connection problems" in center of screen in addition to phone jack icon
+* cut marks properly on non-convex faces
+* fixed bug with command completion partial match and case sensitivity
+* fixed console dropping on level start
+* fixed frags left feedback after restarts
+* fog after dlight
+* removed fogged stages from shader, dynamically generate
+* removed fogonly shader keyword, infer from surfaceparm
+* removed uneeded reinit of shader system on vid_restart

@@ -1,0 +1,19 @@
+* handle window close events properly
+* enable r_displayRefresh selection and feedback on mac
+* avoid AGEN_IDENTITY when CGEN_DIFFUSE_LIGHTING
+* colorized railgun muzzle flash, impact flash, and mark
+* exactly synced animating textures with waveforms and collapsed all explosion sequences into single shaders
+* removed unneeded black pass on hell skies
+* fixed grenades sticking to steep slopes
+* scan for next highest fullscreen resolution when exact mode fails (fixes SGI flat panel failing to init)
+* all cgame cvars now have a cg_ prefix (crosshair, fov, etc)
+* clear clientinfo before parsing configstring
+* make all feedback voiceovers share the same channel
+* fixed nodraw curves
+* fixed obits from shooter entities
+* fixed chat char issue
+* separate gentity_t fields into sharedEntity_t
+* reintegrated q_mathsys with q_math
+* cg_forcemodel also forces player sounds
+* unknown cmd commands don't chat
+* fixed strip order on text quads

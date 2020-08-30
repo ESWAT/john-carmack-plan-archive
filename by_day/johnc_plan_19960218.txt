@@ -1,0 +1,22 @@
+*	page flip crap
+*	stretch console
+*	faster swimming speed
+*	damage direction protocol
+*	armor color flash
+*	gib death
+*	grenade tweaking
+*	brightened alias models
+*	nail gun lag
+*	dedicated server quit at game end
+
++ scoreboard
++ optional full size
++ view centering key
++ vid mode 15 crap
++ change ammo box on sbar
++ allow "restart" after a program error
++ respawn blood trail?
++ -1 ammo value on rockets
++ light up characters
+
+vsync on high framerates

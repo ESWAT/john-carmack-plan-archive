@@ -1,0 +1,23 @@
+QuakeWorld: there is one physics problem that is preventing me from releasing: you get stuck sometimes in moving plats. I am having a hard time tracking it down, and I only get to work on it sporadically. I will spend a bit more time this weekend.
+
+I have given the source for the master server to the QSpy guys and Disruptor to do with as they will (rankings, queries, etc). I know I won't have the time to support it like it deserves.
+
+WinQuake: Michael is almost done.... We only have one reported serious problem, but there are still a list of little issues. We are finally feeling stable on windows. Not everyone may be able to get optimal settings, but SOMETHING should work almost everywhere.
+
+I have an NT alpha machine on order, so we will be compiling for that as well. We aren't going to be able to spend time writing assembly language for it like the intel version has, but it should still run at a pretty decent clip. IBM was talking about getting us a power-PC machine, but I haven't heard back from them in a while. If one shows up, we will compile for that as well.
+
+GLQuake: 3DFX is writing a mini-gl driver that will run glquake. We exepect very high performance. 3Dlabs is also working with me on improving some aspects of their open-GL performance. DynamicPictures sent me an Oxygen board, but glquake did a horrible crash and burn with their beta drivers. They are looking into it. DEC is sending me a powerstorm to work with, which should perform in the same ballpark as the intergraph realizm I did the development work on.
+
+I do expect the 3dfx version to outperform the $5k+ professional gl cards, due to its higher fill rate and the fact that they can tune directly for quake. There are certainly valid reasons to buy $5k cards (24+ bit z buffers, 24 bit color, 1280 res, etc), but don't cry when a $300 card eats their lunch :-).
+
+Because of the very fill-rate intensive nature of the way I implemented this version of glquake (using a blend pass to do the light maps), performance is not likely to be very good on any current generation consumer level board except 3dfx. The next generation of most vendors cards should have sufficient fill rate, if claims are to be believed. I may do a surface cached version just for the experience, in any case.
+
+One little public rant: if you are a 3d chip designer, don't even THINK about not supporting true alpha blending. Screen door transparency is not a valid replacement. (this means YOU, matrox!)
+
+IRIX-GLQuake: In two weeks, Ed Hutchins from SGI is coming down and we are going to port glQuake to irix. This will only run (reasonably) on systems with hardware texture mapping: O2, impact, RE2, and IR. No indys, extremes, etc. You could probably use them as dedicated servers, though.
+
+D3DQuake: I started bringing up glquake on direct-3d a couple days ago. We are going to have a very nice, apples-to-apples api comparison here. It takes four times as much code to do anything in D3D as it does in OpenGL, but I will tune both to the best of my abilities and we shall see if there is any performance advantage to either API. We should be able to do comparisons on both 3DFX and 3DLabs hardware with both apis.
+
+Quake utilities: I have split qbsp into two programs: qcsg and qbsp2. The processing is more robust, faster, and more memory frugal, but it currently generates rathar unoptimized maps. I will be writing a seperate map optimizer program soon to get the counts and size back to what they should be. I will probably do a new tool release after we get some more testing time on them. All of the utilities except qbsp now automatically use as many processors as you have if you are running on NT.
+
+New stuff: The outline of the next generation game engine is beginning to take a bit of shape... I'm applying the lessons learned from quake and I have a long list of new things to try. I want to polish off all the outstanding quake stuff, then just go into hermit mode and work on the future while the other guys do Quake 2.

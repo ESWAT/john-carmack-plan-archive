@@ -1,0 +1,9 @@
+* debuggraph on top
+* better bobtime / bobcycle
+* face seperation overrun bug
+* fast surface dialog
+* show detail on camera title
+
++ link commands for playing from the cd
+
+qe4: view menu checkboxes are wrong

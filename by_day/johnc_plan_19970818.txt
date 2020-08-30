@@ -1,0 +1,22 @@
+I get asked about the DOOM source code every once in a while, so here is a full status update:
+
+The Wolfenstein code wasn't much of a service to release - it was 16 bit dos code, and there wasn't much you could do with it. Hell, I don't think it even compiled as released.
+
+The DOOM code should be a lot more interesting. It is better written, 32 bit, and portable. There are several interesting projects that immediately present themselves for working with the code. GLDOOM and a packet server based internet DOOM spring to mind. Even a client/server based DOOM server wouldn't be too hard to do.
+
+I originally intended to just dump the code on the net quite some time ago, but Bernd Kreimeier offered to write a book to explain the way the game works. There have been a ton of issues holding it up, but that is still the plan. If things aren't worked out by the end of the year, I will just release things in a raw form, though.
+
+My best case situation would be to release code that cleanly builds for win32 and linux. Bernd is doing some cleanup on the code, and some of the Ritual guys may lend a hand.
+
+One of the big issues is that we used someone else's sound code in dos DOOM (ohmygod was that a big mistake!), so we can't just release the full code directory. We will probably build something off of the quake sound code for the release.
+
+I think I am going to be able to get away with just making all the code public domain. No license, no copyleft, nothing. If you apreciate it, try to get a pirate or two to buy some of our stuff legit..
+
+* lightmap building errors
+
++ qe4: build in detail mode
++ animating textures
++ no different quantities on items?
++ target_secretcounter
+
+the inherent problems of simplicity by complexity

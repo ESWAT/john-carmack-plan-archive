@@ -1,0 +1,17 @@
+* mcd alphatest workaround
+* gl_finish
+* gl_dynamic
+* fixed crash without basedir
+
++ savegame harness
++ loading plaque
++ proper alias bbox in gl
++ light feedback for server
++ 3dfx vid_mode problem
++ remove MAX_SCRAPS
+- arbitrary skin support needed for power armor
+
+sort entities by texture
+segment skies up more to get better caching?
+circle monsters pvs
+are gl sprites double bright?

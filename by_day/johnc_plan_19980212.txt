@@ -1,0 +1,116 @@
+I have been getting a lot of mail with questions about the intel i740 today, so here is a general update on the state of 3D cards as they relate to quake engine games.
+
+ATI rage pro
+----
+On paper, this chip looks like it should run almost decently - about the performance of a permedia II, but with per-pixel mip mapping and colored lighting. With the currently shipping MCD GL driver on NT, it just doesn't run well at all. The performance is well below acceptable, and there are some strange mip map selection errors. We have been hearing for quite some time that ATI is working on an OpenGL ICD for both '95 and NT, but we haven't seen it yet. The rage pro supposedly has multitexture capability, which would help out quite a bit if they implement the multitexture extension. If they do a very good driver, the rage pro may get up to the performance of the rendition cards. Supports up to 16MB, which would make it good for development work if the rest of it was up to par.
+
+
+3DLabs permedia II
+------
+Good throughput, poor fillrate, fair quality, fair features.
+
+No colored lighting blend mode, currently no mip mapping at all.
+
+Supports up to 8MB.
+
+The only currently shipping production full ICD for '95, but a little flaky.
+
+If 3dlabs implemented per-polygon mip mapping, they would get both a quality and a slight fillrate boost.
+
+Drivers available for WinNT on the DEC Alpha (but the alpha drivers are very flaky).
+
+
+Power VR PCX2
+-----
+Poor throughput, good fillrate, fair quality, poor features, low price.
+
+No WinNT support.
+
+Almost no blend modes at all, low alpha precision.
+
+Even though the hardware doesn't support multitexture, they could implement the multi-texture extension just to save on polygon setup costs. That might get them a 10% to 15% performance boost.
+
+They could implement the point parameters extension for a significant boost in the speed of particle rendering. That wouldn't affect benchmark scores very much, but it would help out in hectic deathmatches.
+
+Their opengl minidriver is already a fairly heroic effort - the current PVR takes a lot of beating about the head to make it act like an OpenGL accelerator.
+
+
+Rendition v2100 / v2200
+--------
+Good throughput, good fillrate, very good quality, good features.
+
+A good all around chip. Not quite voodoo1 performance, but close.
+
+v2100 is simply better than everything else in the $99 price range.
+
+Can render 24 bit color for the best possible quality, but their current drivers don't support it. Future ones probably will.
+
+Can do 3D on the desktop.
+
+Rendition should be shipping a full ICD OpenGL, which will make an 8mb v2200 a very good board for people doing 3D development work.
+
+
+NVidia Riva 128
+-----
+Very good throughput, very good fillrate, fair quality, fair features.
+
+The fastest fill rate currently shipping, but it varies quite a bit based on texture size. On large textures it is slightly slower than voodoo, but on smaller textures it is over twice as fast.
+
+On paper, their triangle throughput rate should be three times what voodoo gives, but in practice we are only seeing a slight advantage on very fast machines, and worse performance on pentium class machines. They probably have a lot of room to improve that in their drivers.
+
+In general, it is fair to say that riva is somewhat faster than voodoo 1, but it has a few strikes against it.
+
+The feature implementation is not complete. They have the blend mode for colored lighting, but they still don't have them all. That may hurt them in future games. Textures can only be 1 to 1 aspect ratio. In practice, that just means that non-square textures waste memory.
+
+The rendering quality isn't quite as high as voodoo or rendition. It looks like some of their iterators don't have enough precision.
+
+Nvidia is serious and committed to OpenGL. I am confident that their driver will continue to improve in both performance and robustness.
+
+While they can do good 3D in a window, they are limited to a max of 4MB of framebuffer, which means that they can't run at a high enough resolution to do serious work.
+
+
+3DFX Voodoo 1
+-----
+The benchmark against which everything else is measured.
+
+Good throughput, good fillrate, good quality, good features.
+
+It has a couple faults, but damn few: max texture size limited to 256*256 and 8 to 1 aspect ratio. Slow texture swapping. No 24 bit rendering.
+
+Because of the slow texture swapping, anyone buying a voodoo should get a six mb board (e.g. Canopus Pure3D). The extra ram prevents some sizable jerks when textures need to be swapped.
+
+Highly tuned minidriver. They have a full ICD in alpha, but they are being slow about moving it into production. Because of the add-in board nature of the 3dfx, the ICD won't be useful for things like running level editors, but it would at least guarantee that any new features added to quake engine games won't require revving the minidriver to add new functionality.
+
+
+3DFX Voodoo 2
+-----
+Not shipping yet, but we were given permission to talk about the benchmarks on their preproduction boards.
+
+Excellent throughput, excellent fillrate, good quality, excellent features.
+
+The numbers were far and away the best ever recorded, and they are going to get significantly better. On quake 2, voodoo 2 is setup limited, not fill rate limited. Voodoo 2 can do triangle strip and fan setup in hardware, but their opengl can't take advantage of it until the next revision of glide. When that happens, the number of vertexes being sent to the card will drop by HALF. At 640*480, they will probably become fill rate bound again (unless you interleave two boards), but at 512*384, they will probably exceed 100 fps on a timedemo. In practice, that means that you will play the game at 60 fps with hardly ever a dropped frame.
+
+The texture swapping rate is greatly improved, addressing the only significant problem with voodoo.
+
+I expect that for games that heavily use multitexture (all quake engine games), voodoo 2 will remain the highest performer for all of '98. All you other chip companies, feel free to prove me wrong. :)
+
+Lack of 24 bit rendering is the only visual negative.
+
+As with any voodoo solution, you also give up the ability to run 3D applications on your desktop. For pure gamers, that isn't an issue, but for hobbyists that may be interested in using 3D tools it may have some weight.
+
+
+Intel i740
+----
+Good throughput, good fillrate, good quality, good features.
+
+A very competent chip. I wish intel great success with the 740. I think that it firmly establishes the baseline that other companies (especially the ones that didn't even make this list) will be forced to come up to.
+
+Voodoo rendering quality, better than voodoo1 performance, good 3D on a desktop integration, and all textures come from AGP memory so there is no texture swapping at all.
+
+Lack of 24 bit rendering is the only negative of any kind I can think of.
+
+Their current MCD OpenGL on NT runs quake 2 pretty well. I have seen their ICD driver on '95 running quake 2, and it seems to be progressing well. The chip has the potential to outperform voodoo 1 across the board, but 3DFX has more highly tuned drivers right now, giving it a performance edge. I expect intel will get the performance up before releasing the ICD.
+
+It is worth mentioning that of all the drivers we have tested, intel's MCD was the only driver that did absolutely everything flawlessly. I hope that their ICD has a similar level of quality (it's a MUCH bigger job).
+
+An 8mb i740 will be a very good setup for 3D development work.

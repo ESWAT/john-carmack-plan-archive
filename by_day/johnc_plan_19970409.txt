@@ -1,0 +1,3 @@
+Would anyone complain if I took out lookstrafe and keyboard look modifier? I'm  cleaning up code, and I don't know of anyone that ever uses those features.
+
+update: ok, +klook has it's supporters. Anyone for lookstrafe?

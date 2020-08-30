@@ -1,0 +1,3 @@
+Several people have mentioned an existing anti-cheat QW proxy that should also be applicable to modified versions:
+
+http://www.students.tut.fi/~zibbo/qizmo/

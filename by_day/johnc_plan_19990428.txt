@@ -1,0 +1,6 @@
+* converted sound positioning away from callback method
+* increased mac memory zone by 5 megs
+* new memory allocator for temporary render use during init
+* converted cmodel references to handles and range checked
+* converted sound references to handles and range checked
+* converted file references to handles and range checked

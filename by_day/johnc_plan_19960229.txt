@@ -1,0 +1,4 @@
+*	increased air acceleration
+
++ don't allow up/down move at all without noclip
++ weird fall out of level in sbad

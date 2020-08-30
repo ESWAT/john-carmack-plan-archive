@@ -1,0 +1,23 @@
+Ok, I'm back on QuakeWorld.
+
+While working on the new chat console, I fixed up a few little things with the regular console:
+The pgup/pgdn keys now autorepeat.
+The display does not pop down to the bottom when a new line is printed.
+If you aren't at the bottom, a few ^ ^ ^ are printed on the last line.
+
+There is now a message level you can set to cut down on the number of messages you get from the server (it saves a bit of bandwidth, too).
+Level 0 gives everything.
+Level 1 does not print item pickup messages.
+Level 2 does not print player obituaries.
+Level 3 does not print any messages from the server.
+Level 4 does not print chat messages.
+
+Player skin support is much nicer in QuakeWorld. There is a qw\skins directory, where you can just put a .pcx files for each skin. This will scale properly to hundreds of skins if you want to download them all.
+
+I am still unsure of how much freedom I want to give with the skins.
+
+One school of thought is that you just set the "skin" value to any name you want. If the other players don't have it, they fall back to the default.
+
+The other school of thought is that skins are the restricted property of a specific clan, and only clan members get custom skins.
+
+We have the ability to delegate specific information setting abilities to clan leaders. To join a clan, you have to get the leader to add the clan field to your user account. It is in the protected masterdata, so you can't edit it yourself.

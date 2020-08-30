@@ -1,0 +1,9 @@
+On the issue of railgun firing rates -- we played with it for a while at the slower speed, but it has been put back to exactly Q2's rate of fire.
+
+I do agree with Thresh that the way we had it initially (faster than Q2, but with the same damage) made it an overpowered weapon in the hands of highly skilled players, which is exactly what we should try to avoid.
+
+An ideal game should give scores as close to directly proportional to the players reletive skills as possible. The better player should win in almost all cases, but the game will be more entertaining if the inferior players are not completely dominated.
+
+Quake 1 had really bad characteristics that way -- Thresh can play extremely talented players and often prevent them from scoring a single point. We wouldn't put up with a conventional sport that commonly game scores of 20 to 1 in championship matches, and I don't think we should encourage it in our games.
+
+Eliminating health items is probably the clearest way to prevent blowout games, but that has never been popular. Still, we should try to avoid weapon decisions that allow the hyper-skilled to pull even farther away from the rest of the crowd. They will still win, no matter what the weapons are, just not by as wide a margin.

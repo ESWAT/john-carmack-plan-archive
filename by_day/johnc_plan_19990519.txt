@@ -1,0 +1,27 @@
+Now that all the E3 stuff is done with, I can get back to work...
+
+I was stuck in a room the entire time doing press interviews, but it seemed to have gone well. It was mentioned to me that there were a few people on the show floor with forged badges that read "John Carmack -- Id Software". As if forged email / irc / icq isn't enough of a problem. Sigh.
+
+The "download" crashtest was first reported by Rick Hammerstone. That was a pure dumbass mistake on my part.
+
+I should be sending the accumulated crashtest bounties off tomorrow.
+
+The plan right now is to have an update release next week that will have lots of bug fixes and cheat protections, but not too many new user visible features.
+
+I finally got around to implementing dual processor acceleration today. I still have a couple issues to resolve and some more rearranging to do, but it is giving 20%+ speedup right now in a worst-case situation for it.
+
+When completed, I expect the average speedup to be in the 40% to 80% range, depending on what is going on and the video configuration. Scenes with lots of dynamic lighting and lots of sounds and other client processing going will show the largest speedups. It helps the slow scenes more than the fast scenes, which is basically what you want.
+
+I am going to shake this out with the Windows (NT) code first, but it should definately make its way to the linux port eventually.
+
+I know SMP is a que for all the BeOS folks to ask about ports, so I'm going to head that off: Be has all the code for Q3 (and Q2, for that matter), and a version of Q3test should be available by the time they ship a release OS with OpenGL hardware acceleration.
+
+There will probably also be an SGI-irix port.
+
+Regarding both of those ports: they are not supported ports, and will be maintained by volenteers (like the current MacOS X port). Update releases will lag the official ones, and we won't committ to ANY dates.
+
+I am doing all of my development on intergraph and sgi-NT hardware, but when I have everything rock solid, I will give Nvidia and ATI's NT drivers a try. I would be somewhat shocked if they didn't explode -- I doubt multiple threads playing occasional tag team on a context has been well tested.
+
+True, only a tiny fraction of our players (probably less than 1%) will be able to take advantage of this, but I consider SMP usage to be an important technology to nurture over the coming years.
+
+The top of the benchmark chart should be an SMP system (assuming the NT drivers have all the optimizations of the '98 drivers), and it will also be possible to build a reletively cheap SMP system (say, dual 400's) that outperforms the best single processor system.

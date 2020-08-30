@@ -1,0 +1,5 @@
+We now have someone officially in charge of quake/quakeworld unix ports:
+
+Dave 'Zoid' Kirsch. (zoid@threewave.com)
+
+Direct any correspondance about the linux ports of quake to him.  If any other unix vendors would like to have quake ported to their environments, set up an equipment loan with him.   This is a volenteer position, so don't give him a hard time.

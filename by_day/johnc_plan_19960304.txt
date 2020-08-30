@@ -1,0 +1,19 @@
+* got new internet code running
+* server protocol number
+* stopped printing name change message for first message
+* put usleep back in
+
++ an entity model is being cleared out from underneath it
++ rotating body parts
++ binary bit fields
++ damage in datagrams
++ push back at edges when moving slow?
++ twirling gibs
++ bit fields for binary objects
++ never reuse binary object slots
++ fix connect to a bad map
++ noticed water to dm only clipping prob in tim13
++ no sutch alias frame problem
+
+magic8ball.rogue-ent.com = 38.252.190.8
+ability to make custom plat activation triggers

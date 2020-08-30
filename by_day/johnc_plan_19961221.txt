@@ -1,0 +1,5 @@
+Wow. Apple bought NeXT. That really brightened my day.
+
+I haven't generally been unhappy developing on NT, but I had been carrying a bit of sadness over several of the things we left behind when we moved from NEXTSTEP.
+
+I wouldn't touch a mac for development right now, but if apple does The Right Thing with NeXT... 

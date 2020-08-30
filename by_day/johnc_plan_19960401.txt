@@ -1,0 +1,13 @@
+* added $flags to models for client side stuff (rotations, trails)
+* allowed coop play
+* started using Host_Error for client errors
+* lint
+
++ animating textures
++ NULL connect
++ connect while in a game crashes
+
+different sfx cache size for client only?
+frame chnaging while paused?
+item targets
+respawn in coop

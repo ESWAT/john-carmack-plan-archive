@@ -1,0 +1,8 @@
+* qe4 bad class parse bug
+* grenade bounce generates two sounds
+* playerstate delta
+* qdata variable sound rates
+
+check the replace mode alpha bug
+replace all muzzle flashes with events
+lower railgun

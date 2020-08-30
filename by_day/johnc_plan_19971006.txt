@@ -1,0 +1,15 @@
+* larger bsp token length
+
+goal sound, secret sound, help sound
+remove pushmatrix/popmatrix
+less shademodels
+sound mixaheads
+flies should be a sound field
+trinity: two pass texture checking to avoid thrashing?
+lose links and $ macro expansio?
+lose Com_SetServerState
+blinking flags on huds (blink F1)
+!!! rotating object view changes not in yaw !!!
+save configstrings in level to get lightstyles
+better armor feedback
+armor sounnd?

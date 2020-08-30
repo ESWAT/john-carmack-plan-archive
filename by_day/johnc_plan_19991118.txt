@@ -1,0 +1,56 @@
+The mac version is out. Go to www.quake3arena.com for links.
+
+The mac version going out has the executable fixes that we have made in the last couple days, but most of the fixes have been in code that runs in the virtual machine, and we can't update that without making it incomptable with the pc version.
+
+The game remains very marginal in playability on 266mhz imacs and iBooks.
+
+A 333mhz imac should be playable for a casual gamer if the graphics options are turned down to the "fastest" setting.
+
+There is still a lot of room for improvement on ATI's side with the RagePro drivers. Almost all the effort so far has been on the Rage128 drivers.
+
+The G3 systems run fine, but a little slower than a pc of equal mhz
+
+The rage128 cards in the G3s are only clocked at 75mhz, so you can't run too high of a resolution, but you can get very nice image quality. I usually play with these settings: 
+
+[code]
+r_mode 2 // 512*284 res 
+r_colorbits 32 // 32 bit color 
+r_texturemode gl_linear_mipmap_linear // trilinear filtering
+[/code]
+
+I haven't played on one of the new iMacs or G4's but they both use the rage128 driver, which is fairly high quality now, so they should perform well.
+
+We found a fairly significant problem with inputSprockets and mouse control (motion is dropped after 40msec). I have done a little working around it, so mouse control should be somewhat better in this version, but it will hopefully be fixed properly by Apple in the next IS rev. It isn't an issue if your framerate is high enough, but iMacs never see that framerate on their very best days..
+
+Linux version tomorrow night, if nothing horrible happens.
+
+Some advance warning about something that is sure to stir up some argument:
+
+We should be handing off the masters for all three platforms within a day or two of each other, but they aren't going to show up in stores at the same time. Publishers, distributers, and stores are willing to go out of their way to expedite the arrival of the pc version, but they just won't go to the same amount of trouble for mac and linux boxes.
+
+THE EXECUTABLES FOR ALL PLATFORMS WILL NOT BE AVAILABLE FOR DOWNLOAD UNTIL AFTER CHRISTMAS. This means that if you want to play on the mac or linux, don't pick up a copy of the pc version and expect to download the other executables.
+
+Our first update to the game will be for all platforms, and will allow any version to be converted into any other, but we intend to hold that off for a little while.
+
+We are doing this at the request of the distributors. The fear is that everyone will just grab a windows version, and the separate boxes will be ignored.
+
+A lot of companies are going to be watching the sales figures for the mac and linux versions of Q3 to see if the platforms are actually worth supporting. If everyone bought a windows version and the other boxes sold like crap in comparison, that would be plenty of evidence for most executives to can any cross platform development.
+
+I know there are a lot of people that play in both windows and linux, and this may be a bit of an inconvenience in the short term, but this is an ideal time to cast a vote as a consumer.
+
+Its all the same to Id (I like hybrid CD's), and our continued support of linux and mac (OS X for the next title) is basically a foregone conclusion, but the results will probably influence other companies.
+
+
+* fixed getting your own dropped / kicked message
+* added developer print for all file open write's
+* fixed occasional bad color on connecting background
+* fixed occasional telefrag at start of skirmish game
+* fix not being able to ready at intermission if you were following a bot
+* never timelimit during tourney warmup
+* fixed local timer on map_restart
+* offset sorlag's head model for status bar
+* added g_gametype to the votable commands: map, map_restart, kick, g_gametype
+* changed sound registration sequence to fix losing default sound
+* "sv_floodProtect 0" to turn off flood protection
+* converted sequenced messages to static arrays
+* fixed custom skin reassignment on all LOD

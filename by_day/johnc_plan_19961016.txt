@@ -1,0 +1,1 @@
+The latest windows drivers from rendition fix the lousy GUI performance I had been complaining about to several people. While it may not be state-of-the-art 2d acceleration, it doesn't get in your way anymore. I do not consider windows performance to be a negative for rendition anymore.

@@ -1,0 +1,2 @@
+* fixed tfog
+* fixed removal of entities over net

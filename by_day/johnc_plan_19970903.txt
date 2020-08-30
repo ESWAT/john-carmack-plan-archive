@@ -1,0 +1,50 @@
+* fixed scalloc size 0
+* box on planeside fix
+* remove 0 and 255 colormap references
+* don't allocate texinfos for empty texture names
+* fix the initial teleport spawn timing bug
+* sinking into plats
+* exaggerate stepping when crouched?
+
++ allow pics off screen (status bar off bottom of screen)
++ check control configuration
++ make moveup jump
++ animating textures
++ base window not very noticable
++ any flowing?
++ fix deltaangle hack in putclientinserver
++ move copytooldorg to prepworldframe
++ demos
++ r_speeds include particles
++ escape should pause demos
+
+reduce acceleration on low grav levels
+moving translucent objects
+timedemo leaves console in attract key mode
+
+underwater speed is too great
+flex legs intentionally on plats?
+forward when facing an obstruction directly should not slide
+clip brush fragments in base
+exit button clip stuck problem
+no such oldframe -1
+melee attacks out of range
+rename g_client to p_client
+merge cl_fx and cl_tent
+deal with oldorgs better
+software menu black screen flickers
+rethink scrap allocation
+crouchwalk up slopes is fucked up (stair uping)
+r_stats include bind counts
+change lightmaps into images
+make gl_bind() take an image, so it can reference sizes
+script parsing should take /* */ and  line continuation
+reduce skies?
+3dfx opengl: detect thrashing and split the cache?
+
+demos don't read from pak files??????
+
+muzzle flashes
+forward / backwards airlocks
+better button representations
+brighter primary colors

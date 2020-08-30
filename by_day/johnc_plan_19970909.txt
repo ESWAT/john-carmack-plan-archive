@@ -1,0 +1,18 @@
+* freed textures on gl shutdown
+* fixed pitch bounds check merge bug
+* cleanup sound code
+* cut default maxclients
+* cut update_backup
+
++ soft fullscreen failure on ingr
++ error not closing window
++ cds window set on top of taskbar
++ fullscreen in mode 0, set mode 1 = crash
++ alt stuck down after alt-tab
+
+fix vis expansion problem
+trinity: shimmering heat atmospheric effects
+need a remove command builtin for game logic
+get all texture extension numbers into gl_image
+vis decompression overrun
+window doesn't offset in non-fullscreen modes

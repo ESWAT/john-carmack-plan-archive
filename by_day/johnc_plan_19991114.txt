@@ -1,0 +1,11 @@
+The demo test is built. It should go up in a couple hours if nothing explodes.
+
+Mac and linux builds won't be out tonight.
+
+* clear SVF_BOT when exiting follow mode
+* render temp memory
+* new mac GL initialization code
+* no zone memory use in music thread
+* added check for trash past zone block
+* explicitly flush journal data file after a write
+* added FS_Flush

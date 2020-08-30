@@ -1,0 +1,28 @@
+* fixed stray rocket trails
+* fixed coordinate integralization problem
+* identified the Aim() time sink
+* fixed smooth step up
+* got new clipping code running
+
++ sound looping prob is due to decimation
++ expand numtextures to a word from a byte
++ remove FL_ONGROUND after being pushed
++ still damage through walls
++ counting trigger
++ paused graphic
++ demon freeze jump
+
+add s and t vectors to the plane description in .map files
+remove the pad around bmodels bounds
+make pushmove area check instead of linear search
+server pass full pathnames to client
+dos crashes overnight (timing wraparound bug?)
+quake logo screen needs filtering
+shoot all the way through walls with objects
+wizard fireball
+plat problem in tim17
+shambler lightning
+weird grenade launch spot
+auto pause on console
+hold "other" on delay triggers
+gib stuff

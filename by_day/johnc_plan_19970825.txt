@@ -1,0 +1,33 @@
+I want to apologize for some of the posturing that has taken place in .plan files.
+
+I have asked that attacks on our competition no longer apear in .plan files here. I don't think it is proper or dignified.
+
+If everyone clearly understood that an individual's opinion is only that - the opinion of a single individual, I wouldn't have bothered. Unfortunately, opinions tend to be spread over the entire group, and I am not confortable with how this makes me perceived.
+
+Building up animosity between developers is not a very worthwhile thing.
+
+A little chest-beating doesn't really hurt anything, but putting down other developers has negative consequences.
+
+I think that we have a track record that we can be proud of here at id, but we are far from perfect, and I would prefer to cast no stones.
+
+The user community often exerts a lot of pressure towards confrontation, though. People like to pick a "side", and there are plenty of people interested in fighting over it. There are a lot of people that dislike id software for no reason other than they have chosen another "side". I don't want to encourage that.
+
+Magazine articles are usually the trigger for someone getting upset here. Its annoying to have something you are directly involved in misrepresented in some way for all the world to see. However, I have been misquoted enough by the press to make me assume that many inflamatory comments are taken out of context or otherwise massaged. It makes a good story, after all.
+
+Sure, there ARE developers that really do think they are going to wipe us off the face of the earth with their next product, and don't mind telling everyone all about it. Its always possible. They can give it their best shot, and we'll give it ours. If they do anything better, we'll learn from it.
+
+
+* fixed water bsp bug! yeah!
+* new tools in production
+* view pitching with running
+* weapon turn lagging
+* debug graph
+
++ screen sizedown is not clearing again
++ animating textures
++ weapon change sounds should be server side
++ QE4: surface inspector apply is slow
+
+qe4: seperate "make current texture" from "make and set all"
+currentmodel name problem in gl_model
+userinfo changes

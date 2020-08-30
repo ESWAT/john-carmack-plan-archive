@@ -1,0 +1,9 @@
+Here is an example of some bad programming in quake:
+
+There are three places where text input is handled in the game: the console, the chat line, and the menu fields. They all used completely different code to manage the input line and display the output. Some allowed pasting from the system clipboard, some allowed scrolling, some accepted unix control character commands, etc. A big mess.
+
+Quake 3 will finally have full support for international keyboards and character sets. This turned out to be a bit more trouble than expected because of the way Quake treated keys and characters, and it led to a rewrite of a lot of the keyboard handling, including the full cleanup and improvement of text fields.
+
+A similar cleanup of the text printing hapened when Cash implemented general colored text: we had at least a half dozen different little loops to print strings with slightly different attributes, but now we have a generalized one that handles embedded color commands or force-to-color printing.
+
+Amidst all the high end graphics work, sometimes it is nice to just fix up something elementary.

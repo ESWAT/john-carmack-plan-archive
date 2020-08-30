@@ -1,0 +1,17 @@
+* fixed spinning barrel on respawn issue
+* clear eflags before intermission
+* shutdown menu on starting a cinematic
+* mask name colors to 0-7 range
+* fixed jpeg loading alpha channel
+* try for not-nearest spawn twice instead of once
+* made unzoomed exactly identity mouse modifier
+* cl_debugmove [1/2]
+* m_filter
+* fixed time warnings
+* allow timelimits to hit with only a single player
+* filter local games with different protocol versions
+* fixed bad arg 0 after sysinfo configstring
+* removed unneeded svc_servercommand at start of command strings
+* fixed redundantly loaded level bug
+* fixed journal playback from demo build
+* removed background image from viewlog window

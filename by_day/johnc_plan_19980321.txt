@@ -1,0 +1,37 @@
+I just shut down the last of the NEXTSTEP systems running at id.
+
+We hadn't really used them for much of anything in the past year, so it was just easier to turn them off than to continue to administer them.
+
+Most of the intel systems had already been converted to NT or 95, and Onethumb gets all of our old black NeXT hardware, but we have four nice HP 712/80 workstations that can't be used for much of anything.
+
+If someone can put these systems to good use (a dallas area unix hacker), you can have them for free. As soon as they are spoken for, I will update my .plan, so check immediately before sending me email.
+
+You have to come by our office (in Mesquite) and do a fresh OS install here before you can take one. There may still be junk on the HD, and I can't spend the time to clean them myself. You can run either NEXTSTEP 3.3 or HP/UX. These are NOT intel machines, so you can't run dos or windows. I have NS CD's here, but I can't find the original HP/UX CDs. Bring your own if that's what you want.
+
+I'm a bit nostalgic about the NeXT systems -- the story in the Id Anthology is absolutely true: I walked through a mile of snow to the bank to pay for our first workstation. For several years, I considered it the best development environment around. It still has advantages today, but you can't do any accelerated 3D work on it.
+
+I had high hopes for rhapsody, but even on a top of the line PPC, it felt painfully sluggish compared to the NT workstations I use normally, and apple doesn't have their 3D act together at all.
+
+Its kind of funny, but even through all the D3D/OpenGL animosity, I think Windows NT is the best place to do 3D graphics development.
+
+All gone!
+--------------
+
+Paul Magyar gets the last (slightly broken) one.
+
+Bob Farmer gets the third.
+
+Philip Kizer gets the second one.
+
+Kyle Bousquet gets the first one.
+
+
+3/21 pt 2
+---------
+I haven't given up on rhapsody yet. I will certainly be experimenting with the release version when it ships, but I have had a number of discouraging things happen. Twice I was going to go do meetings at apple with all relevent people, but the people setting it up would get laid off before the meetings happened. Several times I would hear encouraging rumors about various things, but they never panned out. We had some biz discussions with apple about rhapsody, but they were so incredibly cautious about targeting rhapsody for consumer apps at the expense of macos that I doubted their resolve.
+
+I WANT to help. Maybe post-E3 we can put something together.
+
+The SGI/microsoft deal fucked up a lot of the 3D options. The codebase that everyone was using to develop OpenGL ICDs is now owned by microsoft, so it is unlikely any of them will ever be allowed to port to rhapsody (or linux, or BeOS).
+
+That is one of the things I stress over -- The Right Thing is clear, but its not going to happen because of biz moves. It would be great if ATI, which has video drivers for win, rhapsody, linux, and BeOS, could run the same ICD on all those platforms.

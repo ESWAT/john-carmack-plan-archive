@@ -1,0 +1,21 @@
+Quake is out. Finally.
+
+I think the end product is damn good, and I am proud of my 18+ months of sweating over it. I hope lots of you enjoy the shareware levels enough to register :-)
+
+While there will probably not be any about-faces in technical decisions, Quake will definately be growing and expanding over the next year or so as we gauge the user community reaction and release updates and the inevitable sequal.
+
+Some work that will be going on in the near future:
+
+Fixing any serious problems with Quake 0.91. 
+Release of tools and source code for user prog coding and level building. 
+Writing a new map editor for win/NT + open GL Porting Quake to native win32 + DirectX 
+Porting Quake on the metal to some 3D accelerator boards. 
+Writing a proper full radiosity replacement for the light utility. 
+Reasonable user suggested improvements 	(keep it in the discussion groups please, I get enough mail as it is) 
+Speed enhancements in the polygon model path. 
+Adding support for various gadgets -- HMDs, controllers, maybe other sound cards, etc.
+And of course...  The Next Generation Technology.  (no, I won't give you a code name to talk about!)
+
+Vacation?  I don't need a vacation!
+
+John Carmack Id Software

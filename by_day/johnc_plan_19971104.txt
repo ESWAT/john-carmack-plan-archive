@@ -1,0 +1,41 @@
+* allowed bad sky textures
+* cinematic tweaks in gl
+* high res skins
+* fixed duck speed issues
+
++ names are messed up
++ not disconnecting cleanly?
++ cinematic GL wrapping problem
++ cinematic quality issues
++ cinematic sound
++ cinematic end frame marker
++ switch sound to high quality for cinematic
++ is idlog aborting early on menu?
++ dropping items makes them respawn in deathmatch
++ crouch strafe is faster than forward
++ sink in plats bug
++ lower paused icon on screen
++ min firing ammo for dropping weapons
++ spawn explosions with a random yaw
+
+gun puff animations wrong?
+no status bar during intermission
+sv_showcmds
+are sky images freed properly?
+wading sound
+use 16 to 8 table is ref_soft for tga loading?
+savegame off pak file
+demo file parsing from pak?
+check replace alpha value for mcd hack
+screen update timer for software opengl?
+instant items
+item sounds
+include texture source size in texinfo so other scaled versions can be made?
+are cinematics using color 0?
+send pak checksum to server?
+fix dedicated_start
+print dm rules on connect?
+blink f1 and play sound
+skill values!
+loadgame from console
+input based demos for profiling

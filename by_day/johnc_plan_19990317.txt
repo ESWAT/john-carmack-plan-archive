@@ -1,0 +1,39 @@
+First impressions of the SGI visual workstation 320:
+
+I placed an order for a loaded system ($11k) from their web site two months ago. It still hasn't arrived (bad impression), but SGI did bring a loaner system by for us to work with.
+
+The system tower is better than standard pc fare, but I still think Apple's new G3 has the best designed computer case.
+
+The wide aspect LCD panel is very nice. A while ago I had been using a dual monitor LCD setup on a previous intergraph, but the analog syncing LCD screens had some fringing problems, and the gamma range was fairly different from a CRT. The SGI display is perfectly crisp (digital interface), and has great color. The lighting is a little bit uneven top to bottom on this unit -- I am interested to see how the next unit looks for comparison.
+
+Unfortunately, the card that they bundle with the LCD if you buy it separately is NOT a good 3D accelerator, so if you care about 3D and want this LCD screen, you need to buy an sgi visual workstation. Several of the next generation consumer cards are going to support digital flat panel outputs, so hopefully soon you will be able to run a TNT2 or something out to one of these.
+
+The super memory system does not appear to have provided ANY benefit to the CPU. My memory benchmarking tests showed it running about the same as a standard intel design.
+
+Our first graphics testing looked very grim -- Quake3 didn't draw the world at all. I spent a while trying to coax some output by disabling various things, but to no avail. We reported it to SGI, and they got us a fix the next day. Some bug with depthRange(). Even with the fix, 16 bit rendering doesn't seem to work. I expect they will address this.
+
+Other than that, there haven't been any driver anomolies, and both the game and editor run flawlessly.
+
+For single pass, top quality rendering (32 bit framebuffer, 32 bit depth buffer, 32 bit trilinear textures, high res screen), the SGI has a higher fill rate than any other card we have ever tested on a pc, but not by too wide of a margin.
+
+If your application can take advantage of multitexture, a TNT or rage128 will deliver slightly greater fill performance. It is likely that the next speed bump of both chips will be just plain faster than the SGI on all fill modes.
+
+A serious flaw is that the LCD display can't support ANY other resolutions except the native 1600*1024. The game chunks along at ten to fifteen fps at that resolution (but it looks cool!). They desperately need to support a pixel doubled 800*512 mode to make any kind of full screen work possible. I expect they will address this.
+
+Vsync disable is implemented wrong. Disabling sync causes it to continue rendering, but the flip still doesn't happen until the next frame. This gives repeatable (and faster) benchmark numbers, but with a flashing screen that is unusable. The right way is to just cause the flip to happen on the next scan line, like several consumer cards do, or blit. It gives tearing artifacts, but it is still completely usable, and avoids temporal nyquist issues between 30 and 60 hz. I expect they will address this.
+
+Total throughput for games is only fair, about like an intergraph. Any of the fast consumer cards will run a quake engine game faster than the sgi in its current form. I'm sure some effort will be made to improve this, but I doubt it will be a serious focus, unless some SGI engineers develop unhealthy quake addictions. :-)
+
+The unified memory system allows nearly a gig of textures, and individual textures can by up to 4k by 4k. AGP texturing provides some of this benefit for consumer cards, but not to the same degree or level of performance.
+
+The video stream support looks good, but I haven't tried using it yet.
+
+Very high interpolater accuracy. All the consumer cards start to break up a bit with high magnification, weird aspects, or long edges. The professional cards (intergraph, glint, E&S, SGI) still do a better job.
+
+SGI exports quite a few more useful OpenGL extensions than intergraph does, but multisample antialiasing (as claimed in their literature) doesn't seem to be one of them.
+
+Overall, it looks pretty good, and I am probably going to move over to using the SGI workstation full time when my real system arrives.
+
+I was very happy with the previous two generations of intergraph workstations, but this last batch (GT1) has been a bunch of lemons, and the wildcat graphics has been delayed too long. The current realizm-II systems just don't have enough fill rate for high end development.
+
+For developers that don't have tons of money, the decision right now is an absolute no-brainer -- buy a TNT and stick it in a cheap system. Its a better "professional" 3D accelerator than you could buy at any price not too long ago.

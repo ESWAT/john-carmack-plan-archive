@@ -1,0 +1,27 @@
+I added support for HDTV style wide screen displays in QuakeArena, so 24" and 28" monitors can now cover the entire screen with game graphics.
+
+On a normal 4:3 aspect ratio screen, a 90 degree horizontal field of view gives a 75 degree vertical field of view. If you keep the vertical fov constant and run on a wide screen, you get a 106 degree horizontal fov.
+
+Because we specify fov with the horizontal measurement, you need to change fov when going into or out of a wide screen mode. I am considering changing fov to be the vertical measurement, but it would probably cause a lot of confusion if "fov 90" becomes a big fisheye.
+
+Many video card drivers are supporting the ultra high res settings like 1920 * 1080, but hopefully they will also add support for lower settings that can be good for games, like 856 * 480.
+
+I spent a day out at apple last week going over technical issues.
+
+I'm feeling a lot better about MacOS X. Almost everything I like about rhapsody will be there, plus some solid additions.
+
+I presented the OpenGL case directly to Steve Jobs as strongly as possible.
+
+If Apple embraces OpenGL, I will be strongly behind them. I like OpenGL more than I dislike MacOS. :)
+
+-
+
+Last friday I got a phone call: "want to make some exhibition runs at the import / domestic drag wars this sunday?". It wasn't particularly good timing, because the TR had a slipping clutch and the F50 still hasn't gotten its computer mapping sorted out, but we got everything functional in time.
+
+The tech inspector said that my cars weren't allowed to run in the 11s at the event because they didn't have roll cages, so I was supposed to go easy.
+
+The TR wasn't running its best, only doing low 130 mph runs. The F50 was making its first sorting out passes at the event, but it was doing ok. My last pass was an 11.8(oops) @ 128, but we still have a ways to go to get the best times out of it.
+
+I'm getting some racing tires on the F50 before I go back. It sucked watching a tiny honda race car jump ahead of me off the line. :)
+
+I think ESPN took some footage at the event.

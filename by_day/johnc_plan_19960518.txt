@@ -1,0 +1,20 @@
+* make func_wall toggle frame on use
+* QuakeEd: remove bsp->leaktest
+* QuakeEd: filter world
+* QuakeEd: remove clicked on regioned brush message
+* QuakeEd: don't allow retexture in wireframe mode
+* QuakeEd: new brush heights are now snapped to grid
+* default .bsp extension to bspinfo
+
++ enforcer bolts
++ sound for all monsters hitting ground
++ 64 bit clean qcc
++ parms for all + commands to identify source
++ body que isn't working
+
+teleport effect
+global sfx volume option
+frag bar highlight
+permanently shifted view angle on restart
+goddamn dos \r text shit in output from NT tools messes up NeXT tools
+check for small area polygons and portals

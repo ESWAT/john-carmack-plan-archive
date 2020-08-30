@@ -1,0 +1,71 @@
+Here is The New Plan:
+
+I copied off the quake codebase and set about doing some major improvements. The old v1.01 codebase will still be updated to fix bugs with the current version, but I didn't want to hold back from fixing things properly even if it involves some major changes.
+
+I am focusing on the internet play aspect of the game. While I can lay out a grand clean-sheet-of-paper design, I have chosen to pursue something of a limited enough scope that I can expect to start testing it around the end of the month (august). I still have my grand plans for the future, but I want to get some stuff going NOW.
+
+QuakeWorld.
+
+The code I am developing right now is EXCLUSIVELY for internet play. It will be rolled back into the single player game sometime along the road to Quake 2 (or whatever it turns out to be called), but the experimental QuakeWorld release will consist of seperate programs for the client and the server. They will use the same data as the current registered quake, so the only thing that will be distributed is new executables (they will peacefully coexist with current quake).
+
+There will be a single master server running here at id. Whenever anyone starts up a server, it will register itself with the master server, and whenever a client wants to start a game, it will inquire with the master to find out which servers are available.
+
+Users will have a persistant account, and all frags on the entire internet will be logged. I want us to be able to give a global ranking order of everyone playing the game. You should be able to say, "I am one of the ten best QuakeWorld players in existance", and have the record to back it up. There are all sorts of other cool stats that we could mine out of the data: greatest frags/minute, longest uninterrupted quake game, cruelest to newbies, etc, etc.
+
+For the time being, this is just my pet research project. The new exes will only work with registered Quake, so I can justify it as a registration incentive (don't pirate!).
+
+If it looks feasable, I would like to see internet focused gaming become a justifiable biz direction for us. Its definately cool, but it is uncertain if people can actually make money at it. My halfway thought out proposal for a biz plan is that we let anyone play the game as an anonymous newbie to see if they like it, but to get their name registered and get on the ranking list, they need to pay $10 or so. Newbies would be automatically kicked from servers if a paying customer wants to get on. Sound reasonable?
+
+Technical improvements.
+
+The game physics is being reworked to make it faster and more uniform. Currently, a p90 dedicated server is about 50% loaded with eight players. The new network code causes a higher cpu load, so I am trying to at least overbalance that, and maybe make a little headway. A single p6-200 system should be able to run around ten simultanious eight player servers. Multiple servers running on a single machine will work a lot better with the master server automatically dealing with different port adresses behind the client's back.
+
+A couple subtle features are actually going away. The automatic view tilting on slopes and stairs is buggy in v1.01, and over a couple hundred millisecond latancy connection, it doesn't usually start tilting until you are allready on a different surface, so I just ripped it out entirely. A few other non-crucial game behaviors are also being cut in the interest of making the physics easier to match on the client side.
+
+I'm going to do a good chat mode.
+
+Servers will have good access control lists. If somebody manages to piss off the entire community, we could even ban them at the master server.
+
+The big difference is in the net code. While I can remember and justify all of my decisions about networking from DOOM through Quake, the bottom line is that I was working with the wrong basic assumptions for doing a good internet game. My original design was targeted at <200ms connection latencies. People that have a digital connection to the internet through a good provider get a pretty good game experience. Unfortunately, 99% of the world gets on with a slip or ppp connection over a modem, often through a crappy overcrowded ISP. This gives 300+ ms latencies, minimum. Client. User's modem. ISP's modem. Server. ISP's modem. User's modem. Client. God, that sucks.
+
+Ok, I made a bad call. I have a T1 to my house, so I just wasn't familliar with PPP life. I'm adressing it now.
+
+The first move was to scrap the current net code. It was based on a reliable stream as its original primitive (way back in qtest), then was retrofited to have an unreliable sideband to make internet play feasable. It was a big mess, so I took it out and shot it. The new code has the unreliable packet as its basic primitive, and all the complexities that entails is now visible to the main code instead of hidden under the net api. This is A Good Thing. Goodbye phantom unconnected players, messages not getting through, etc.
+
+The next move was a straightforward attack on latency. The communications channel is not the only thing that contributes to a latent response, and there was some good ground to improve on.
+
+In a perfect environment, the instant you provided any input (pressed a key, moved a mouse, etc) you would have feedback on the screen (or speaker) from the action.
+
+In the real world, even single player games have latency.
+
+A typical game loop goes something like: Read user input. Simulate the world. Render a new graphics scene. Repeat.
+
+If the game is running 15 frames a second, that is 66 ms each frame. The user input will arive at a random point in the frame, so it will be an average of 33 ms before the input is even looked at. The input is then read, and 66 more ms pass before the result is actually displayed to the user, for a total of nearly 100 ms of latency, right on your desktop. (you can even count another 8 ms or so for raster refresh if you want to get picky).
+
+The best way to adress that latency is to just make the game run faster if possible. If the screen was sized down so that the game ran 25 fps, the latency would be down to 60ms. There are a few other things that can be done to shave a bit more off, like short circuiting some late braeking information (like view angles) directly into the refresh stage, bypassing the simulation stage.
+
+The bearing that this all has on net play, aside from setting an upper limit on performance, is that the current Quake servers have a similar frame cycle. They had to, to provide -listen server support. Even when you run a dedicated server, the model is still: fetch all input, process the world, send updates out to all clients. The default server framerate is 20 fps (50 ms). You can change this by adjusting the sys_ticrate cvar, but there are problems either way. If you ask for more fps from the server, you may get less latency, but you would almost certainly overcommit the bandwidth of a dialup link, resulting in all sorts of unwanted buffering in the routers and huge multi thousand ms latency times as things unclog (if they ever do).
+
+The proper way to address this is by changing the server model from a game style loop to a fileserver/database style loop.
+
+Instead of expecting everyone's messages to be dealt with at once, I now deal with each packet as it comes in. That player alone is moved forward in time, and a custom response is sent out in very short order. The rest of the objects in the world are spread out between the incoming packets. There are a lot of issues that that brings up. Time is no longer advancing uniformly for all objects in the world, which can cause a lot of problems.
+
+It works, though! The average time from a packet ariving at the system to the time a response is sent back is down to under 4ms, as opposed to over 50 with the old dedicated servers.
+
+Another side benefit is that the server never blindly sends packets out into the void, they must be specifically asked for (note that this is NOT a strict request/reply, because the client is streaming request without waiting for the replies).
+
+I am going to be adding bandwidth estimation to help out modem links. If quake knows that a link is clogged up, it can choose not to send anything else, which is far, far better than letting the network buffer everything up or randomly drop packets. A dialup line can just say "never send more than 2000 bytes a second in datagrams", and while the update rate may drop in an overcommited situation, the latency will never pile up like it can with the current version of quake.
+
+The biggest difference is the addition of client side movement simulation.
+
+I am now allowing the client to guess at the results of the users movement until the authoritative response from the server comes through. This is a biiiig architectural change. The client now needs to know about solidity of objects, friction, gravity, etc. I am sad to see the elegent client-as-terminal setup go away, but I am practical above idealistic.
+
+The server is still the final word, so the client is allways repredicting it's movement based off of the last known good message from the server.
+
+There are still a lot of things I need to work out, but the basic results are as hoped for: even playing over a 200+ ms latency link, the player movement feels exactly like you are playing a single player game (under the right circumstances -- you can also get it to act rather weird at the moment).
+
+The latency isn't gone, though. The client doesn't simulate other objects in the world, so you apear to run a lot closer to doors before they open, and most noticably, projectiles from your weapons seem to come out from where you were, instead of where you are, if you are strafing sideways while you shoot.
+
+An interesting issue to watch when this gets out is that you won't be able to tell how long the latency to the server is based on your movement, but you will need to lead your opponents differently when shooting at them.
+
+In a clean sheet of paper redesign, I would try to correct more of the discrepencies, but I think I am going to have a big enough improvement coming out of my current work to make a lot of people very happy.

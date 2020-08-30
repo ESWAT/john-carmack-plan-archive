@@ -1,0 +1,19 @@
+There are a number of people upset about the Quake 1 source code release, because it is allowing cheating in existing games.
+
+There will be a sorting out period as people figure out what directions the Quake1 world is going to go in with the new capabilities, but it will still be possible to have cheat free games after a few things get worked out.
+
+Here's what needs to be done:
+
+You have to assume the server is trusted. Because of the way quake mods work, It has always been possible to have server side cheats along the lines of "if name == mine, scale damage by 75%". You have to trust the server operator.
+
+So, the problem then becomes a matter of making sure the clients are all playing with an acceptable version before allowing them to connect to the server. You obviously can't just ask the client, because if it is hacked it can just tell you what you want to hear. Because of the nature of the GPL, you can't just have a hidden part of the code to do verification.
+
+What needs to be done is to create two closed source programs that act as executable loaders / verifiers and communication proxies for the client and server. These would need to be produced for each platform the game runs on. Some modifications will need to be done to the open source code to allow it to (optionally) communicate with these proxies.
+
+These programs would perform a robust binary digest of the programs they are loading and communicate with their peer in a complex encrypted protocol before allowing the game connection to start. It may be possible to bypass the proxy for normal packets to avoid adding any scheduling or latency issues, but it will need to be involved to some degree to prevent a cheater from hijacking the connection once it is created.
+
+The server operator would determine which versions of the game are to be allowed to connect to their server if they wish to enforce proxy protection. The part of the community that wants to be competetive will have to agree to some reasonable schedule of adoption of new versions.
+
+Nothing in online games is cheat-proof (there is allways the device driver level of things to hack on), but that would actually be more secure than the game as it originally shipped, because hex edited patches wouldn't work any more. Someone could still in theory hack the closed source programs, but that is the same situation everyone was in with the original game.
+
+People can start working on this immediately. There is some prior art in various unix games that would probably be helpfull. It would also be a good idea to find some crypto hackers to review proposed proxy communication strategies.

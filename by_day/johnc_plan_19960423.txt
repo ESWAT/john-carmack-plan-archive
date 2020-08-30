@@ -1,0 +1,26 @@
+* changed network update to client PVS specific
+* fixed broadcast svc_setangle on player connect
+* fixed "Message was extranious" connection bug
+* partical fields
+* invisibility model switching
+* effects passing from server
+* invincibility
+
++ self.modified is no longer needed with PVS updates
++ empty space back fill Z buffer bug
+
+vertical aiming sometimes shoots at a farther object
+over long latency lines, should shots come from the position the player
+was
+        viewing, or the true position?
+combine client->active and client->spawned into a client->state
+backpack message should include weapon gainsed
+throw monsters around from explosions
+drop wizard by half gravity
+make tri subdividing rasterizer based on screen size! (huge models go
+slow)
+american got a prog to crash
+allow listen servers to have a sys_ticrate?
+cut back on use of global host_client
+new teleport surface warp
+body que is broken

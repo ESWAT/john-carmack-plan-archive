@@ -1,0 +1,3 @@
+I got several vague comments about being able to read "stuff" from shared memory, but no concrete examples of security problems.
+
+However, Gregory Maxwell pointed out that it wouldn't work cross platform with 64 bit pointer environments like linux alpha. That is a killer, so I will be forced to do everything the hard way. Its probably for the best, from a design standpoint anyway, but it will take a little more effort.

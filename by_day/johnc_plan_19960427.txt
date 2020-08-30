@@ -1,0 +1,18 @@
+* alternate texture animation sequences for depressed buttons
+* dropped knight and ogre melee damage
+* arbitrary texture axis on surfaces through all the utilities
+
++ remove .modified
++ need to make qbsp do 256 subdivision based on texture axis
++ monsters still hit pathcorners when hostile
++ demon jumps don't do damage
+
+triggering an open door still makes a noise
+allow turning off styled lights
+QuakeEd texture x size field is clamping at 64 min
+faster mouse forward/backward?
+is it jumping higher when running?
+gun puffs still hit sky
+get all visible entities into the low 256 or 128 edicts
+force low quality sounds on low memory machines
+still have some light edge blobs

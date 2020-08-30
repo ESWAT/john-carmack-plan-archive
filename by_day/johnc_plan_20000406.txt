@@ -1,0 +1,13 @@
+Whenever I start a new graphics engine, I always spend a fair amount of time flipping back through older graphics books. It is always interesting to see how your changed perspective with new experience impacts your appreciation of a given article.
+
+I was skimming through Jim Blinn's "A Trip Down The Graphics Pipeline" tonight, and I wound up laughing out loud twice.
+
+From the book:
+
+P73: I then empirically found that I had to scale by -1 in x instead of in z, and also to scale the xa and xf values by -1. (Basically I just put in enough minus signs after the fact to make it work.) Al Barr refers to this technique as "making sure you have made an even number of sign errors."
+
+P131: The only lines that generate w=0 after clipping are those that pass through the z axis, the valley of the trough. These lines are lines that pass exactly through the eyepoint. After which you are dead and don't care about divide-by-zero errors.
+
+If you laughed, you are a graphics geek.
+
+My first recollection of a Jim Blinn article many years ago was my skimming over it and thinking "My god, what ridiculously picky minutia." Over the last couple years, I found myself haranguing people over some fairly picky issues, like the LSB errors with cpu vs rasterizer face culling and screen edge clipping with guard band bit tests. After one of those pitches, I quite distinctly thought to myself "My god, I'm turning into Jim Blinn!" :)

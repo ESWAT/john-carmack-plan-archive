@@ -1,0 +1,10 @@
+* made no-light levels auto fullbright
+* finished second clipping hull
+
++ zombies on the ground can't be gibbed
++ listen servers not working?
+
+error check all strcpy in QuakeEd
+slow slide clipping with ogre hull?
+grenades should trigger shootable triggers / objects
+looping sound that didn't stop

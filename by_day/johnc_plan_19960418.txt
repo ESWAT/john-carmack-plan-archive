@@ -1,0 +1,30 @@
+* finished new bsp portalization process: 20% faster, 1/5 the memory
+* fixed monster repeat teleport
+* klook and mlook
+* fixed monster stepping up into mid air
+* what breaks switchable lights is a bsp->entities without running light
+* changed network startup to use signon ready flags
+* added extra face-on wall friction
+
++ fix ammo between levels
++ dark knight
++ message wasn't a nop
++ schurch zombie graves
++ sandy's bug1
++ slow drifting spikes
++ kill wizard spikes after their death
++ s_refcount bug still exists
++ wizard spike starters spawn inside walls
++ plat dmg fields
++ longer pause for ogre first shot
+
+should demons step up before leaping?
+shooting spikes out of rockets
+need mouse configuration in the menus
+try removing bounding pad on bmodels
+add fadable light switches
+ability to bind specifically to key up / down ?
+bound ammo on weapon pickup
+lava damage for monsters
+error check add to reliable messages
+less accurate ogre tossing

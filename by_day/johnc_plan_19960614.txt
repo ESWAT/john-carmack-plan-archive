@@ -1,0 +1,24 @@
+* removed all use of ai_dead in progs
+* fixed nailgun fire order
+* fixed double press to exit intermission
+* fixed sliding dead player bug
+* fix bonus item respawn on dropping plat
+* zombies don't go down again if already on the way down
+* fixed ambient sound looping problem
+* show looping sounds lin soundlist
+* combined rocket impact and explositon damage for reliable gibs
+* fixed stuttering on dropped packets
+* set teleport death size properly
+
+easier gib from rockets for players
+check telefrag for multi players stuck
+is sound buffer not being properly cleared?
+menu sounds
+dissallow some server forward messages
+internet reliable messages getting backed up?
+check for hard packet overflows
+flash items on status bar
+stop using gfx.wad?
+pickup rules
+teleport into monsters bug
+change away from axe bug

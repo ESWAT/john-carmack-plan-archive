@@ -1,0 +1,37 @@
+I was in San Jose for the past week. The original idea was to go into "hermit mode" holed up in a hotel room and get a lot of work done without any phone calls, email, or coworkers to distract me, but I wound up with meetings scheduled every day with various valley companies. Next time I want to try that, I'll pick some state like Montana... :-)
+
+The top priority was getting the virtual machine done, but I hoped to also get some more of the map data optimizations completed. I definately underestimated how big of a hole daily meetings would punch in the amount of work I could accomplish.
+
+On wednesday I was sweating a bit, not sure if I would have the VM finished in time, but it all came together in the last two days.
+
+The virtual machine interpreter is now completely functional, and cgame can switch between being loaded as a binary .dll or an interpreted .qvm at the change of a cvar.
+
+The basic setup is that I have a modified version of the lcc compiler that generates assembly files that are processed by a new tool "q3asm" into a .qvm file that can be interpreted by q3. You can still use normal dll's for debugging, then release interpreted code. You can release a binary dll if you need some native system services (some networking stuff, for example) or are doing very compute intensive work, but I strongly encourage everyone to try to use the virtual machine.
+
+The interpreted code has two prime benefits: portability and security.
+
+User mods done with qvms will automatically work on mac, linux, and any other oddball ports that get released.
+
+A qvm program cannot modify anything outside its private address space, and the "system calls" to the game strictly limit what can be touched. I was scared about the binary dll's in Q2, but rationalized it to myself that people running public servers should be aware of the dangers. With Q3 allowing client side programming, it just needs to be safe for everyone.
+
+Packaging is also improved somewhat, because the virtual machine programs can be included in pak files and are automatically handled through the search path.
+
+Unfortunately, even after doing most of the straightforward optimizations, the interpreter is causing a 20% slowdown in timedemos right now.
+
+I am pretty committed to running cgame interpreted, but if I don't get a significant speedup, we may have to leave the server side game module as a native dll. The ui module can obviously be interpreted.
+
+There are lots of paths I can take to get the performance up:
+
+Write more efficient cgame code. I will definately be looking at this. A lot of things that just didn't matter at all when in native code now add up enough that they should be fixed. I want to avoid flexibility tradeoffs if possible.
+
+Move more calculation from the cgame to system calls. I have already done this for the obvious things like memset, matrixmultiply, etc. Any future work will involve restructuring cgame code to focus lots of work into simple stateless functions. The trick is to leave all the flexibility in the cgame while moving the work.
+
+Implement LCC compiler optimizations. I doubt I will pursue this, unless there are existing optimization projects based on LCC with minimal backend changes required.
+
+Implement more complex interpreted instructions and peephole combine the bytecodes into the new instructions. I think this has some promise.
+
+Assembly code the interpreter loop. The compiler is generating good code, but there is still room for gain. I don't want to pursue this until the high level optimizations are wrung out.
+
+Load time compilation from bytecode to native code. This would bloat a lot, especially on RISC cpus. I'm not sure that a straightforward implementation would have significant speed benefits over an assembly interpreter loop, and I won't have time for writing an aggressive native optimizer.
+
+Deal with the performance cost and optimize the renderer some more to compensate.

@@ -1,0 +1,3 @@
+I haven't been able to work on QuakeWorld for a week, and am unlikely to for a couple more days.
+
+I've been working with the utilities and editor most of the time, but there has been a lot of other stuff going on lately that has kept me from being very productive. 

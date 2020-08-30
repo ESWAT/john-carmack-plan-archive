@@ -1,0 +1,15 @@
+* fuxed button triggered delays
+* added classname to light error message
+* demon more damage
+* sounder objects
+* light_switchable
+
++ grenade proximity explosions
++ fix jumping off edges
++ wizard fast shots
++ target lights for controling them
++ plat hit on head bug
++ ambient light
+
+spiral the view when gibbed
+level based gravity

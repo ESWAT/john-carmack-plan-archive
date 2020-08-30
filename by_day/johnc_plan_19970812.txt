@@ -1,0 +1,15 @@
+* qe4 project on command line
+* qe4 rshcmd replacement
+* qe4 select face
+* qe4 avoid multiple autosaves
+* qe4 region selected brushes
+* bindlist command
+* imagelist command in ref_soft
+
++ leaktest
++ load game.dll from gamedir
+
+pendulum motion
+no jump on lava floor?
+-game
+16 bit wall textures

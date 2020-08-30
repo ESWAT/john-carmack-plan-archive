@@ -1,0 +1,15 @@
+* added precache_file qcc option for -copy files
+* capped health at 250
+
++ solid, invisible brushes
++ don't send linear entities in signon message
++ write a message trace printing mode
++ is 256 angle quantization from client hurting us?
++ sky animations use the wrong time base
++ centralize the connection process
+
+weapon switching is wrong
+no twitch in god mode
+if a linear update entity doesn't get an update in a packet, remove it
+bound upper client message sends properly
+RELEASE: bump protocol version numbers just before releasing

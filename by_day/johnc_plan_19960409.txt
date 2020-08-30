@@ -1,0 +1,14 @@
+* fixed crash when -NXHost on quake
+* added +precache 0 option to speed up WAN loading
+* fixed sound loading bug
+* added loop lengths to sound loading
+* increased MAX_MAP_ENTSTING
+
++ quakeEd filter brushes
++ 16 bit looping sounds hang the dos game
+
+QuakeEd showed "Helvetica-Bold" in entity comment field.  Scary.
+maake treading water better
+trigger to turn off spikeshooters
+save the entity string memory
+blocked bmodels are conveyors?

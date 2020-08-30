@@ -1,0 +1,36 @@
+* automatic setting of the registered cvar
+* demos play from pak file
+* delay SCR_EndLoadingPlaque until after cache report
+* added -minmemory parm for testing entry case
+* stopped demo loop on demo load error
+* stopped demo loop on connect and map
+* zbuffer torch dropout bug fixed
+* changed all remaining I_ functions to Sys_
+* chase network issues
+* colored light gel demo
+
+remove bspleaktest from quake.qpr
+can trigger_changelevel stuff two commands sometimes?
+remove powerup shifts before intermission
+gib code for the big monsters
+give wizards (hknights?) need a muzzle flash
+last_damage on zombie for cumulative gibs
+new explosion
+check min memory with large number of clients
+better treading water
+escape at a fulls creen console to restart demos?
+allways run checkbox in options
+instructions on configuration screen
+fish attack
+fish not leave water
+finish invisibility
+conditional registration message in jrstart
+monsters die in slime
+longer message triggers in jrstart
+take dogs by ramp out in jrbase1
+easier jump out of water
+remove jsilly rbase1 bonus items
+smotte light at start
+loadgame from pulldown menu
+amlev98 shambler needs red armor on easy level
+for release: don't forget to remove "developer 1" cvar and bound cheats

@@ -1,0 +1,34 @@
+* fixed body que
+* Michael's client side alias animations
+* Cash's fix for net connects
+* fixed bobbing pvs problem
+* fixed on-edge water grey problem
+* fixed console keys generating double release events
+* fix new pitching recenter
+* changed powerup effect to dim light
+
+partial screen updates
+bloody face?
+player induced meat chunks
+seperate soudntrack files into seperate download?
+check sighting into water
+scroll water textures?
+accumulate shotgun damage for powerup gibbing
+override help/sell and finale in registered pak
+victory music
+append sample rate to music filenames to match best
+rename jrstart to start
+rename the last I_ functions to sys_
+cache textures?
+dim out screen when menus are up?
+comment line on menu screens
+del in save field
+scan for all id1*.pak at startup
+reclaim entity string space after spawning
+change mins/maxs from floats to shorts in bspfile
+cut vertex numbers to shorts?
+marksurfaces to shorts?
+remove view model in weird FOVs
+ammo boxes not vanishing after reload
+change dynamic light attenuations for tighter spheres
+prog def for shareware only version?

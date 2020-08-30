@@ -1,0 +1,19 @@
+quake2 +set maxclients 200
+
+:)
+
+The stage is set for ultra-large servers. Imagine everyone at QuakeCon in one gigantic level! A single T1 could run 80 internet players if it wasn't doing anything else, a switched ethernet should be able to run as many as we are ever likely to have together in one place.
+
+There will be a number of issues that will need to be resolved when this becomes a reality, but the fundamentals are there.
+
+There will probably be issues with UDP packet dropping at the ethernet card level that will need to be worked around with a seperate qued thread.
+
+Quake 2 isn't as cpu intensive as QuakeWorld, but I'm not sure even a Pentium-II 300 could run 200 users. An alpha 21264 could certainly deal with it, though.
+
+The new .bsp format has greatly increased size limits, but you could still make a map that hits them. The first one to be hit will probably be 64k brush sides. Ten thousand brushes can make a really big level if you don't make it incredibly detailed. Loading a monster map like that will probably take over a minute, and require 32+ megs of ram.
+
+I should probably make an option for death messages to only be multicast to people that are in the potentially hearable set, otherwise death messages would dominate the bandwidth.
+
+Everyone should start thinking about interesting rules for huge games. A QuakeArmies dll has immense potential. Enemy lines, conquering teritory, multiple clan bases, etc.
+
+Cooperating servers will be possible with modified dlls, but I probably won't include any specific code for it in the default game.dll.

@@ -1,0 +1,13 @@
+* map_noareas
+* target_speaker
+
+handle bmodel origins on client side, search for good area
+check localsound pos starts
+make the server read the demo configstrings and baselines
+and spit back to the client like normal
+water wading sounds
+sound streaming option
+remove cl_mapentity
+sync camera pain motion to sound length?
+give all sounds a max volume area isntead of instant diminish
+quakeworld style shotgun handling

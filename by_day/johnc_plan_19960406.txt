@@ -1,0 +1,7 @@
+use PVS to speed line of sight checks?  Is that any faster than doing
+	the line check, because it involves two point checks?
+swooping ai movement by checking distance to impact with forward trace?
+make minimum frame time a cvar, so you could clamp to 10fps
+runmove() builtin for progs?
+draw triggers debugging option (z buffer it)?
+look towards killer when dead

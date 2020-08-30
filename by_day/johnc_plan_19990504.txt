@@ -1,0 +1,13 @@
+* seeded random numbers differently on tourney restarts
+* fixed events on initial snapshots
+* removed g_maxentities configuration, set by G_ENTITY_BITS
+* cl_motd 0 to allow never sending request packets
+* fixed map cache clearing bug
+* cg_drawFPS 1 for running fps counter in corner
+* remove all teleport destination pads
+* moved checkmap out of cgame
+* moved time positioning out of cgame
+* made usercmd overrun freeze in place instead of snapping back
+* slightly increased shotgun spread
+* protected against using a cleared clientinfo
+* use snapped origin from players for linking to prevent slight prediction errors during player collisions

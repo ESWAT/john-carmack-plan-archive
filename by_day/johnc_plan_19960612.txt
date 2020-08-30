@@ -1,0 +1,46 @@
+* limit sound buffers to 4k, add extra mix points and mix full buffer
+* fixed only registered trigger messages
+* boss shouldn't spawn in deathmatch
+* cleared move commands across level transitions
+* 8 bit sound output volume scaling
+* key configuration didn't work for changeweapon "impulse 10"
+* options menu now resets string values of cvars
+* talk drawing properly updates with sized down screen
+* clear net connection ques on new connection
+* f5 cheat or's in items
+* removed error for unconnected buttons
+* power up status bar faces
+* armor number
+* increased surface cache size
+* end of game text
+* menu up/down wrapping
+* Sandy's menu suggestions
+* jrstart alternate start point if returning
+* play track 3 on intermission
+* drop backpacks in coop
+* got deathmatch invisibility working
+
+clip into sky problem
+demon smashed a player stuck into a sloping wall
+no cheat in coop
+automatic listen 2
+talk message printing code
+door sounds
+check fly/float move code
+check weapon changing while firing
+check messagemode bound keys
+"restart" on a client of a net game crashes
+serverflag only trigger
+gib head positioning
+ability to specify cd track on demo recording
+coop use solo scoreboard
+two presses to exit intermission
+deathmatch intermission screen
+harder nightmare
+name and color should be saved as cvars
+undead players?  fixed with new death code?
+QuakeEd: trigger texture setting should be automatic
+add colors to dm scoreboard
+forward changelevel commands?
+good POP
+add "serial/modem configuration" menu

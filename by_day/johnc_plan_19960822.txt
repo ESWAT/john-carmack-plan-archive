@@ -1,0 +1,7 @@
+The rendition 3d accelerated version of Quake looks very good.
+
+The image quality is significantly better than software - dithered, bilinear interpolated textures, and subpixel, subtexel polygon  models.
+
+It is faster than software even at 320*200, and at 512*384 it is  almost twice as fast.
+
+We do take a bit of a hit when we have to generate a lot of 16 bit  surfaces, so occasionally the framerate gets a bit uneven, but  overall it is a very solid improvement.

@@ -1,0 +1,25 @@
+It looks like we are going to go to a skeletal model system. Jim Dose of Ritual had already started on an exporter from character studio, so we decided to just meet in the middle.
+
+I implemented the loading and rendering support this weekend and tested it with a couple hand-inserted bones, so now we just need to write the glue between character studio and the new .md4 format.
+
+The new format is bone based, but it is NOT hierarchial. Each vertex just has an arbitrary weighted list of the bones that influence it. Bones are just 4x3 matricies of floats.
+
+A hierarchial skeleton has some advantages (angles instead of matricies, ability to do IK, etc), but this is a direct and simple replacement for our existing infrastructure that doesn't require any cached state per model instance.
+
+A single .md4 file holds multiple level of detail surface sets, which all share the same bone frames.
+
+In use, it is exactly like the existing models (interpolate between two frame numbers), it just saves a huge amount of space.
+
+I used perl to generate my test data, and it was definately faster than having a separate msdev open and doing it in C.
+
+I am trying to use parenthesis on all perl functions, but when I type "print", my fingers seem to have a flashback to applesoft basic fifteen years ago, and I wind up with bare quotes on prints and parens on everything else...
+
+Does anyone know if there is an existing msdev syntax coloring file for perl? (no, I don't want to switch to a different editor!)
+
+
+* md4 model loading and displaying
+* removed clip models from cgame, use renderer models instead
+* fixed mover pushing again
+* fixed bug with culling of mirrors made of multiple faces
+* fixed quad on spinning machinegun
+* surfaceparm alphashadow - This causes q3map -light to check individual texture pixels on transparant surfaces for light shadowing instead of making the entire surface either cast or not cast shadows

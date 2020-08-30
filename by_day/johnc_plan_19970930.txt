@@ -1,0 +1,43 @@
+* better host_speeds
+* fixed bsp slowdown bug
+* made Draw_Pic: bad coords not an error
+* avoided double game init on loadgame
+* moved serverflags into game
+* fixed pause on initial connect from dumped loopback
+* inventory rate bug
+* client view rolling bug on level change
+* RF_GLOW
+* texture animation
+
++ more barrel explosion damage
++ archive all sensitive server cvars
++ fix inventory system
++ target_goalcounter
++ get rid of packet_entities_t as a structure
++ cinematic message name bug
++ up as jump?
++ more light!
++ weapons need to be more obvious in the world. light pulsing?
++ make first backtrack into an area with known landmarks
+
+fade center printed text
+still have color 0 problems under NT
+allow game to select a client slot for connections?
+combine g_player with something else
+save view angles in savegame somehow
+more function pointer checks in loadgame
+watch out for different maxclients on loadgames
+increase alias model shading level?
+use userinfo_sequence
+HUD strings need to be tag_game, not level
+make ping time available to game?
+different faces on status bar for male/female characters?
+save health across levels
+stuck in water currents in base2?
+clamp max fly velocity
+fish in ait on base3
+guys shooting through force field sometimes in bunk
+rename gl_mesh to gl_alias? or r_alias to r_mesh?
+jump / crouch key placement
+auto view centering
+more edge on mipmapping in software?

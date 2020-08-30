@@ -1,0 +1,3 @@
+The new glquake is on ftp.idsoftware.com. It should work for both the hipnotic pack and the upcoming rogue pack.
+
+/idstuff/unsup/glq3_11.zip

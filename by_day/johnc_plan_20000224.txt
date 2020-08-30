@@ -1,0 +1,3 @@
+Some people took it upon themselves to remotely wreck Slade's development system. That is no more defensible than breaking into Id and smashing something.
+
+The idea isn't to punish anyone, it is to have them comply with the license and continue to contribute. QuakeLives has quite a few happy users, and it is in everyone's best interest to have development continue. It just has to be by the rules.

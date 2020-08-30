@@ -1,0 +1,15 @@
+As some of you may know, a port of Quake was demod at apple's WWDC. Here is the full info:
+
+A couple weeks ago, I got an email saying: "Hey! We heard you are porting quake for WWDC!". I replied: "Uh, first I've heard of it.. I was planning on supporting Quake 2 on it late this year.."
+
+Well, I stole some time and went ahead and did it (mostly last weekend - running tight!). I'm quite happy with how it turned out, and I'm glad it made it for the demos.
+
+It is actually a port of the current research QuakeWorld-merging-into-Quake2 codebase, so it only plays network games at the moment.
+
+It is running through 24 bit display postscript, and doesn't have the assembly language compiled in, so don't believe anyone that says it was running faster than under windows. It was a fast demo system. There is a good chance that it will be a bit faster then win32 when I am done with it, because the direct-to-screen API doesn't require all the locks and unlocks of Direct Draw, and the sound access will avoid the DirectSound penalties, but basically they should be the same.
+
+98% of the support I need for games is present in rhapsody, and now that there is an existing game for it, the remaining decisions can be rationally guided.
+
+I am still going to press the OpenGL issue, which is going to be crucial for future generations of games.
+
+I am definately going to support Quake 2 on rhapsody. I may make a public release of the QuakeWorld demo, but I will probably wait until we get the full screen api working. Omnigroup has a little qspy-like openstep program that we can use with it.

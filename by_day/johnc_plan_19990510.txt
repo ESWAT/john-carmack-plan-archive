@@ -1,0 +1,18 @@
+A good day of work. I just finished a long test game with all three architectures, and everything looks solid.
+
+As far as I can tell, these are ready to go after making installers and such, but everyone else has an oportunity to find bugs while I sleep...
+
+We won't hold up for minor gameplay issues, but if anyone turns up a repeatable crasher I will rebuild everything.
+
+Barring problems, we should start rolling the releases out tonight.
+
+* fixed crash case on fallback from an unsupported fullscreen
+* fixed overrun with very fast system connecting to a very lagged server
+* fixed bad Z_Free on sounds not found
+* fixed autoswitch with sync clients
+* fixed losing console field on positive histories
+* fixed demo recording and playback with new net code
+* handle signed bit fields in msg code
+* fixed playerstate event bit loss on encoding
+* fixed "bad clientnum on player entity"
+* reenabled corpses sinking into ground

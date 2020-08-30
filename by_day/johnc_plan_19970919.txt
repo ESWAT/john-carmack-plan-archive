@@ -1,0 +1,17 @@
+* basedir / cddir exec problem
+* moved edict allocation into game
+
++ only change yaw on riding bmodels
++ city3 software crash
++ odd pause before connecting to map
++ !!!SV_PointContents needs to check entities!!!
++ areaportal numbers
++ move spawn/free into game logic?
+
+are sound starts lagged by 0.1? only lag offsets?
+get all cvars for game into one place
+send objects only to owner or vs versa flag
+loading plaque from post cinematic "you win!" screen
+QE4: fix the idle redraw problem
+vis decompress overrun
+get rid of zombie state?

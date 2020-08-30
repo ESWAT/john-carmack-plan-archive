@@ -1,0 +1,105 @@
+As I mentioned at quakecon, I decided to go ahead and try a dynamic code generator to speed up the game interpreters. I was uneasy about it, but the current performance was far enough off of my targets that I didn't see any other way.
+
+After getting over being sick the start of the week (someone from QC must have brought me a flu present), I decided to dive in to it.
+
+At first, I was surprised at how quickly it was going. The first day, I worked out my system calling conventions and execution environment and implemented enough opcode translations to get "hello world" executing.
+
+The second day I just plowed through opcode translations, tediously generating a lot of code like this:
+
+[code]
+case OP_NEGI:
+    EmitString( "F7 1F" );      // neg dword ptr [edi]
+    break;
+
+case OP_ADD:
+    EmitString( "8B 07" );     // mov eax, dword ptr [edi]
+    EmitString( "01 47 FC" );  // add dword ptr [edi-4],eax
+    EmitString( "83 EF 04" );  // sub edi,4
+    break;
+
+case OP_SUB:
+    EmitString( "8B 07" );     // mov eax, dword ptr [edi]
+    EmitString( "29 47 FC" );  // sub dword ptr [edi-4],eax
+    EmitString( "83 EF 04" );  // sub edi,4
+    break;
+
+case OP_DIVI:
+    EmitString( "8B 47 FC" );  // mov eax,dword ptr [edi-4]
+    EmitString( "99" );        // cdq
+    EmitString( "F7 3F" );     // idiv dword ptr [edi]
+    EmitString( "89 47 FC" );  // mov dword ptr [edi-4],eax
+    EmitString( "83 EF 04" );  // sub edi,4
+    break;
+[/code]
+
+(yes, I could save a few bytes in those opcodes by moving the sub edi, but I am trying to leave the subs at the bottom and the adds at the top, in case I want to add a peephole optimizer)
+
+I was writing test programs as I went, so I thought it was still going quite well. I quit for the day with only six opcodes left to write.
+
+Today I got in, wrote the last opcodes, and started running the full cgame module.
+
+The first problem was obvious: the loading screen graphics came up with the default image instead of the text font. I quickly found and fixed a problem with system call return values.
+
+It was then able to get into the game, but the FOV was clamped out to 160, and it crashed when you fired your gun. That turned out to be my failure to fix the operand stack correctly in the rarely used structure copy opcode.
+
+The next problem was a little more distressing. You could run around the level, but all the items had an X coordinate of 0. This took a little while to find, and turned out to be a twitchy case of sometimes getting an extra value on the operand stack.
+
+At that point everything looked like it was working perfectly. I was ecstatic. I started running timedemos to see what the performance looked like. Then I ran a demo without timedemo on, and near the end of the demo it crashed. Then I found out that if you play in a level for a few minutes, it either gets an error of some kind, or crashes.
+
+I was quite unhappy about that. Debugging a non-deterministic crash in generated code. Joy.
+
+What I wound up eventually doing was to make gigantic log files of all system call interactions and compare the compiled code against identical runs with the interpreter. I had to tweak a few things to make the processing exactly the same between them, but it let me find where things first started to diverge. It turns out I was letting the top of my compiled code's local stack creep down a bit with each call. Let it run long enough, and it started hitting important things. If I had logged stack pointers instead of parameter values, I would have found it a whole lot quicker...
+
+Now, I am pretty confident that it is correct.
+
+The generated code is pretty grim if you look at it, in part due to the security measures (mask and add for each load/store), and in part due to the fact that it is a straight bytecode translation:
+
+[code]
+06214DD0 83 C7 04             add         edi,4
+06214DD3 C7 07 00 4D 0A 00    mov         dword ptr [edi],0A4D00h
+06214DD9 8B 1F                mov         ebx,dword ptr [edi]
+06214DDB 81 E3 FF FF 1F 00    and         ebx,1FFFFFh
+06214DE1 8B 83 30 00 DC 05    mov         eax,dword ptr [ebx+5DC0030h]
+06214DE7 89 07                mov         dword ptr [edi],eax
+06214DE9 83 C7 04             add         edi,4
+06214DEC C7 07 2C 00 00 00    mov         dword ptr [edi],2Ch
+06214DF2 8B 07                mov         eax,dword ptr [edi]
+06214DF4 01 47 FC             add         dword ptr [edi-4],eax
+06214DF7 83 EF 04             sub         edi,4
+06214DFA 8B 1F                mov         ebx,dword ptr [edi]
+06214DFC 81 E3 FF FF 1F 00    and         ebx,1FFFFFh
+06214E02 8B 83 30 00 DC 05    mov         eax,dword ptr [ebx+5DC0030h]
+06214E08 89 07                mov         dword ptr [edi],eax
+06214E0A 8B 07                mov         eax,dword ptr [edi]
+06214E0C 29 47 FC             sub         dword ptr [edi-4],eax
+06214E0F 83 EF 04             sub         edi,4
+06214E12 83 C7 04             add         edi,4
+06214E15 C7 07 40 00 00 00    mov         dword ptr [edi],40h
+[/code]
+
+Code bulk is also up there, at about 5x the bytecode version. There is definately some savings to be had with better opcode selection, but no more than 30% or so at best.
+
+Performance is within my tolerance now:
+
+Q3demo1 dll: 52.9
+Compiled: 50.2
+Interpreted: 43.9
+
+Q3demo2 dll: 50.1
+Compiled: 46.5
+Interpreted: 38.7
+
+
+I will probably work a bit more on performance, but that is the ballpark that it will be in. 5% speed hit in most levels, somewhat more in the big open arenas. Next week I will be getting the other modules set up for running in the virtual machine and see how their performance is.
+
+It is a pretty cool setup - you can have some modules as dlls, some as interpreted bytecodes, and some as compiled bytecodes. We will leave the user interface interpreted to save memory.
+
+Tomorrow I am going to get all the byte order issues worked out for powerPC. The interpreter doesn't even work there yet because of inline constant byte order issues. Fixing that will slow the interpreter a little more, but that shouldn't be any problem, with the performance oriented stuff being compiled.
+
+Doing the PPC compiler will be a bit messier because the tools aren't as nice, and the fact that it will involve a whole lot of Mac crash/reboot cycles before it stabilizes, but I think I know what to watch out for now.
+
+VC6 crashed on me about a dozen times in the last few days, probably due to my having show-code-bytes on in the dissassembly window, but it was still pretty damn useful through the whole process.
+
+I am curious to see how the RISC code bulk turns out. The instructions are going to be longer, but all the constants can be held in registers. Should be interesting.
+
+I don't think I am going to be in any hurry to do MIPS/ALPHA/SPARC code generators. One or two code generators and execution environments is educational, but that will be more than enough for me. If we do port to other architectures, they can still run with the interpreter or binary modules until someone else gets up the inclination to do a code generator.

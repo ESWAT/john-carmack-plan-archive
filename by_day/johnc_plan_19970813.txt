@@ -1,0 +1,23 @@
+* cls.fixedimage support
+* no frame before cinematic fix
+* menu during cinematic fix
+
++ ingame cinematic state
++ indemo cinematic state
+- move fraglogfile into game dll
++ layout language beyond simple centerprint
++ killserver needs to kill demos as well
++ must kill cinematic after menu, or restart palette
++ disconnected can be either at a console or running the demo + intro cinematic
+needs to be part of the game
+
+force nolerp lag?
+put ip filtering in game dll
+handle localmodels explicitly, rather than as *num
+don't send heartbeats if not running a network game?
+move viewmodel for all accelerations, including jumping and landing
+fade out centerprints
+design quit screen to allow addons to get credits
+be consistant with window title bars
+mp3 audio
+qe4: downsample option, nomipmap option

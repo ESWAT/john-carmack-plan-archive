@@ -1,0 +1,58 @@
+* interpolate prediction error
+* fixed farthest respawn
+* removed backspeed
+* no pickup weapons when dead!
+* multiple crosshair pics
+* fixed dropping items in wall
+* disabled auto weapon switching in deathmatch
+* respawn_time
+* mroe precaches
+* removed doubles
+
++ pitch around bug
++ ping calculation
++ are demos broken with prediction?
++ no footsteps if moving slow?
++ kill self command
++ no toss weapons in wall
++ footstep doubletap
++ clear gib flag on respawn
++ faster weapon deop times
+
+precache talk wav
+qbsp: MAX_MAP_AREAS when leaking?
+flies effect on hyperblaster???
+no slide under staircase
+make blaster bolt move faster
+BECOME_FLASH effect?
+make dedicated server sleep
+connect to other server while playing bug
+bit code net messages?
+win95 joining
+changeweapon work better when out of ammo
+pop in maps?
+highlighted numbers
+sort image_t lists?
+switching rules
+brain effect
+monsters source shots before testing line of sight
+secret doors
+obituaries from monsters
+warp gate effect
+teleporter effect
+increase max switched lights
+max lightstyles bug
+shorter wav latency
+beep beep on pc icon
+blood jets from pain skins
+gibs shoot up out of lava
+savegame in water bug
+font outlines not sharp in gl
+weapons vanishing on toss?
+longer pause after death before respawn
+temp invulnerability after respawn?
+telefrag not always working?
+step up in water?
+clear powerups on death
+don't hold a grenade when none left
+l_health item precache?

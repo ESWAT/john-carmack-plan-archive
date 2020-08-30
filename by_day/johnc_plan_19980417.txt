@@ -1,0 +1,51 @@
+Yes, I bought an F50. No, I don't want a McLaren.
+
+We will be going back to the dragstrip in a couple weeks, and I will be exercising both the F50 and the TR there. Cash's supercharged M3 will probably show some of the porsches a thing or two, as well.
+
+I'll probably rent a road coarse sometime soon, but I'm not in too much of a hurry to run the F50 into the weeds.
+
+My TR finally got put back together after a terrific nitrous explosion just before the last dragstrip. It now makes 1000.0 hp at the rear wheels. Contrast that with the 415 rear wheel hp that the F40 made. Of course, a loaded testarossa does weigh about 4000 lbs..
+
+My project car is somewhat nearing completion. My mechanic says it will be running in six weeks, but mechanics can be even more optimistic than software developers. :) I'm betting on fall. It should really be something when completed: a carbon fiber bodied ferrari GTO with a custom, one-of-a kind billet alluminum 4 valve DOHC 5.2L V12 with twin turbos running around 30 lbs of boost. It should be good for quite a bit more hp than my TR, and the entire car will only weigh 2400 lbs.
+
+---
+
+The distance between a cool demo and production code is vast. Two months ago, I had some functional demos of several pieces of the Quake 3 rendering tech, but today it still isn't usable as a full replacement for ref_gl yet.
+
+Writing a modern game engine is a lot of work.
+
+The new architecture is turning out very elegent. Not having to support software rendering or color index images is helping a lot, but it is also nice to reflect on just how much I have learned in the couple years since the original Quake renderer was written.
+
+My C coding style has changed for Quake 3, which is going to give me a nice way of telling at a glance which code I have or haven't touched since Quake 2. In fact, there have been enough evolutions in my style that you can usually tell what year I wrote a piece of code by just looking at a single function:
+
+[code]
+/*
+=============
+=
+= Function headers like this are DOOM or earlier
+=
+=============
+*/
+
+/*
+=============
+Function Headers like this are Quake or later
+=============
+*/
+
+{
+// comments not indented were written on NEXTSTEP
+// (quake 1)
+
+    // indented comments were written on
+    // Visual C++ (glquake / quakeworld, quake2)
+}
+
+for (testnum=0 ; testnum<4 ; testnum++)
+{   // older coding style
+}
+
+for (testNumber = 0 ; testNumber < 4 ; testNumber++) {
+    // quake 3 coding style
+}
+[/code]

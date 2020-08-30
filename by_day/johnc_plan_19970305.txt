@@ -1,0 +1,13 @@
+I have been soooo busy lately. (yes, thats my excuse for not having new glquake and quakeworld release yet)
+
+Glquake works on the hipnotic pak now, but I still need to make a couple more changes. 3dfx has a new opengl.dll nearing completion.
+
+QuakeWorld should be released soon, synced with a new version of qspy and CTF progs. I thought I was in feature freeze a week ago, but day before yesterday I couldn't help myself and I started implementing the last big thing I know how to do to improve the net play. I might as well get all the incompatible stuff done in one release, rather than breaking things again later. This release should make a lot of people happy.
+
+We got our new SGI Origin-2000 server, and I have been tuning all the tools to work better on eight processors. I really wanted to buy an intel system running NT, but all of the big (8-16 processor) systems from Sequent, Data General, and NCR have incredibly brain damaged price tags assigned to them (in the neighborhood of $40,000 PER PROCESSOR).
+
+I finally broke down and wrote a 3D model painting program for our artists. We have tried four seperate commercial programs, and none of them really do what we want. If you want something done right... The models in Quake2 are looking better in a lot of ways -- more polygons, more texels, more exacting texture work, smoother movement, etc.
+
+I have been doing some cleanup work on our map editor, because we may wind up bundling it with an OpenGL accelerator card in the reletively near future. The terms aren't worked out yet, so I can't say much more.
+
+Aaron Seeler from midway is coming down in a few days and we are going to start thrashing out the architecture for Quake on the N64. I'm really looking forward to that -- I have some clever things in mind that should really leverage the N64 hardware and deliver an awesome game. All of our previous cart ports have been just trying (and failing sometimes...) to equal a mid range PC game experience, but Quake on the N64 should be a lot closer to the vquake / glquake versions than the vanilla software version that most people are fammiliar with.

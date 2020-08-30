@@ -1,0 +1,27 @@
+* check for bad weapon number in non-3d ammo icon on death
+* fixed plane catagorization
+* error command does an ERR_DROP if given a parm
+* don't load high LOD models if r_lodbias
+* nobots/nohumans options for player spawn spots
+* prevent voice rewards on frag that enters intermission
+* dissallow native dll loading if sv_pure
+* loaddefered cgame command, issued on addbot
+* drop the weapon you are changing TO if you only had a MG or gauntlet
+* fixed bounce pad event prediction for all angles
+* allow empty tokens in map files
+* fixed infos exceeded warning on bot parse
+* warning on mismatched mipmap/picmip/wrapclamp image reuse
+* fixed pain echo sound after predicted falling damage
+* move sound to hunk
+* move vm to hunk
+* restart game vm in place for map_restarts
+* avoid all lightmaps entirely when using vertex light
+* pretouch all images after registration
+* pretouch all known in-use memory before starting a game
+* on error, shutdown client before server, to be more likely to get out of fullscreen before a recursive error
+* new pre-allocated memmory manager to crutch up mac
+* meminfo command replaces hunk_stats and z_stats
+* adjusted scoreboard titles
+* no guantlet reward on corpses
+* fixed snd_restart when paused
+* PRE_RELEASE_DEMO hack

@@ -1,0 +1,29 @@
+* wizard death frames
+* dog leaping
+* make key doors touches
+* increased air time by two seconds
+* new keyboard pitch aiming aids
+* crucified zombies
+* cemter printing
+
++ tally monster deaths at end instead of counting at kills (monster on
+monster)
++ parse \n out of messages
++ status bar feedback
++ klook
+
+weapon dropping
+weapon jumping
+mess with configuration screen
+move all messages into a language qc file
+fix frag bar
+some side velocity on death
+check monster full turn before firing
+check exit hang on beta machine
+puff+light for spike shooters
+tim5 armor fall on ogre bug
+view track killer
+enforcer bolts
+less monster alertness when high or low
+blob spawn ceiling
+fix coop

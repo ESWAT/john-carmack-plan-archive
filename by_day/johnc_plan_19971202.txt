@@ -1,0 +1,25 @@
+A couple things I forgot to mention:
+
+DOOM source. Still planned to be released Real Soon Now, but there is some work that needs to be done on it first to remove the sound engine, which was written by someone else.
+
+Our Quake editor. It will be released with the tools, but it really isn't going to be all that usefull to many people. Most people will be better off with one of the actively supported editors designed for normal machines.
+
+There is no documentation (Steve Tietze at Rogue has talked about writing something, though). It is designed to run at 1280*1024 resolution on a fast, fully-compliant OpenGL driver. It was designed for high-end boards like intergraph realizm, 3DPro, and Glint boards, but it also runs ok on 8 mb consumer boards like the permedia II and rendition V2200. It will NOT work with voodoo or powerVR. It is unlikely to work with voodoo rush, because of framebuffer size limits, but it might work at a low screen resolution. It might be workable on RIVA cards if they do some fancy work disposing buffers between window renderings (they are a 4mb card, but the textures can stay in AGP memory, so it will almost be enough). I'll work with them if they want to give it a try.
+
+Right now, only 3Dlabs has a full opengl driver on win-95 (and it is a little flaky). All the other cards would require you to run NT. Over the next several months, most of the major vendors should be releasing full OpenGL drivers that work in '95, but there are no firm release dates.
+
+A comment to the people complaining about the release not having Their-Favorite-Feature:
+
+A software project is never, ever completely finished. If you wait until EVERYTHING is done, you won't ship at all.
+
+Would it have been the right thing to delay releasing Quake 1 until I had written the glquake code and the QuakeWorld code? Or we had gotten Paul to build us all new models? Or we had made all new maps that hang together thematically?
+
+If we had, we would be releasing Quake right about now. It would be a much better game (it would be Quake 2), but all of the enjoyment that everyone has gotten from Quake would have been lost. It would have been the wrong decision.
+
+Quake 2 is great, and it will get better yet after its release.
+
+A reminder about "John Carmacks":
+
+Anyone claiming to be me on IRC is lying. I have never been on IRC, and if I ever choose to, I will mention it here first.
+
+If you get an unsolicited email from "John Carmack", the odds are high that it was spoofed. Every couple days, I get a mail bounce from someone who messed up on a spoofed mail, and I often get confused responses from people that I have never mailed.

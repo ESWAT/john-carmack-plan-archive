@@ -1,0 +1,47 @@
+AMD K7 cpus are very fast.
+
+Some timedemo numbers (a new demo, not comparable to previous scores):
+
+Run at 640*480*16 bit color to emphasise the cpu/driver performance rather than the hardware fill rate.
+
+[code]
+                    K7-600  K7-550  PIII-500
+TNT2 ultra 16 bit     73.9    68.5      53.8
+Voodoo3 3000 16 bit    70.5   65.2      46.0
+[/code]
+
+This is with K7 optimized drivers vs seperate PIII optimized drivers.
+
+There is still wiggle room there in that it is possible that more effort was expended to make the AMD drivers perform better. That is perfectly valid from a consumer's point of view, but muddies the technical CPU comparison.
+
+On identical code run on the systems, there was some more interesting data:
+
+On my map processing tools, the K7 was faster than the PIII, but only slightly more so than the reletive clock rate increase. I would guess that this is due to larger data sets that don't fit in cache as well.
+
+On the matrox OpenGL drivers, which have not been optimized very much and (to my knowledge) contain no PIII specific code, the K7 was a LOT faster.
+
+The bottom line is that I feel comfortable standing behind the statement that the K7 is faster than the PIII. I will have to wait for some stuff to come out of NDA to provide a more detailed technical analysis.
+
+Architectural cleverness is all well and good, but if AMD can't keep the clock speed up with intel, they will still fall behind. A 700 mhz PIII would probably find a lot of applications (especially integer apps) where it would outperform a 600 mhz K7.
+
+
+
+* stabilized cg_showfps
+* added append support to module file opening
+* automatic logging of game scores to games.log
+* fixed guantlet firing action
+* force a vid_restart on WM_DISPLAYCHANGE messages
+* fixed sticking on stairs on very fast framerates
+* fixed sticking on stair when jumping
+* fixed sticking in corner while falling physics bug
+* fixed slide down steep slope physics bug
+* r_showimages texture use debugging tool
+* cg_freezeDemo cvar
+* cg_drawSnapshot cvar
+* fixed warnings after demo playback
+* changed "stopdemo" to "stoprecord"
+* fixed phantom windows on task bar after exit
+* check for unset player animation
+* fixed the snap-down-look-up bug with very high sensitivities
+* reduce inflicted damage by handicap
+* all pmove results as events for proper demo playback

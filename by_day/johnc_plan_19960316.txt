@@ -1,0 +1,21 @@
+* made -1 wait doors not return when blocked
+* made secret doors and trains do damage
+* added edge friction
+* fixed reset self bug that caused jrbase3 not to load
+* loading pacifiers
+* split out some of the physics code
+
++ do from-the-beginning demos
++ why are NeXT fullbright colors still bad?
++ not starting up at american's house?
++ move the if(deathmatch) remove (self) statements before monster
+precaches
++ trigger start trains
+
+shambler and wizard need idle frames
+bump all version numbers before final release, so no maps work with
+qtests!
+general sound objects?
+mouse button sticking
+win95 startup with map
+eliminate MAX_FACES from qbsp? (johncm1.map)

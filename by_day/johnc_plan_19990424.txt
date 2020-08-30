@@ -1,0 +1,47 @@
+We are finally closing in on the first release of Q3test.
+
+As you have probably heard by now, the first release in going to be the mac version, probably followed by the linux version, and only then the windows version.
+
+Some of you are busy getting all bent out of shape about this.
+
+We want to get a lot of people playing with the test to find bugs and offer well thought out suggestions, but there are classes of bugs and suggestions that emerge in each order of magnitude of exposed testers.
+
+If a given bug is going to show up when a thousand people have looked at it, but we had released it to a hundred thousand people, then we are going to have a lot of duplication to wade through.
+
+The mac testers will find some obvious problems. We will fix them. The later releases will be better.
+
+Even if we had the windows distribution ready to go right now, I would still seriously consider releasing one of the mac or linux versions first because it will make our tracking a lot easier.
+
+The holdup on the windows side are the issues with updated driver distribution. The game itself doesn't have any holdups.
+
+We could do a windows release for just, say, voodoo2 owners and get some of the benefit of a controlled release, but it wouldn't really work out, because everyone would figure out that it can be made to (almost) work on lots of other cards by tweaking some values. That type of feedback would not be useful, because we KNOW that there are problems with most of the current drivers. We have been working with all of the vendors for the past year to get them all straightened out.
+
+Glsetup is going to be slick -- just run it and it will Do The Right Thing for your video configuration.
+
+We hope it will be done soon, but there are factors out of our direct control involved.
+
+Don't be spiteful. This is just the beginning of the testing and release process.
+
+ One conspiracy theory suggests that Apple is somehow getting us to do this.
+
+What we have "gotten" from Apple is a few development machines. No cash payoff. No bundling deal. No marketing contract.
+
+I am looking at this long term. I want to see OS X become a top notch platform for graphics development. I think highly of the NEXTSTEP heritage and I might move my development from NT if it turns out well. There is a lot of groundwork that needs to be laid with apple for this to happen, and my working on the mac right now is part of that. Plus a lot of complaining to various apple engineers and executives. :-)
+
+To be clear:
+
+At this time, there is no mac that is as fast for gaming (or just about anything, actually) as a pentium III with a top of the line 3D card. Period. I have been misquoted by some mac evangelists as saying otherwise.
+
+The new (blue and white) G3 systems are very good systems in many ways, and make a perfectly good gaming platform. However, a high end wintel machine just has more horsepower on both the CPU and the 3D card.
+
+A 400 mhz G3 performs about the same as a 400 mhz PII if they aren't fill rate limited, where the faster cards on the PC will give about a 25% advantage. A 500 mhz PIII with an appropriate card in 30% faster than the best mac you can buy.
+
+The multi colored iMacs, old G3 desktops, and powerbooks can play Quake3, but the RagePro 3D acceleration defines the absolute bottom end of our supported platforms. A serious gamer will not be satisfied with it.
+
+Voodoo cards are not currently supported by the OpenGL driver, which is very unfortunate because many serious mac gamers own voodoo cards. I hope Apple and 3dfx will be able to correct this soon, but I certainly understand Apple's prioritization -- obviously, good support for the OEM video options is of primary importance.
+
+The voodoo performance will still lag the windows platform by some amount, but some strides have been made in that area recently, so I expect good performance,
+
+Gaming is not a reason to buy a mac, but Apple is taking steps so that it may not be a reason to avoid a mac if you have other reasons for wanting one.
+
+MacOS still sucks.

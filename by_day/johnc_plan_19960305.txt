@@ -1,0 +1,12 @@
+* basic zombie actions
+* added dog
+* fixed bug in QuakeEd that caused a crash when setting a bad classname
+* changed health stat to a short to fix negative numbers
+* added binary object bit update
+
++ zonbies need to change size when down
++ secret doors need to crush damage, and return to open
+
+negative health
+fish have problems
+cycle general updates in wasted badnwidth

@@ -1,0 +1,3 @@
++ pain sounds?
+
+window crunching on win95, due to order of DX operation?

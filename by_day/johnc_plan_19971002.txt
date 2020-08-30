@@ -1,0 +1,28 @@
+* don't lerp blends
+* sum damages for end of frame
+* damage kicks scaled by health
+* don't run more than one frame at a time
+* fixed alias model brightness in software
+* equalized light feedback value between refs
+
+different console background
+infantry melee attack?
+still get stuck sometimes
+mono lighting should not color alias models
+put away restart game menu
+rename qmenu and menu.c to something common
+numeric keypad controls?
+monster hearing not right?
+walk into player = allways attack
+are infantry fullbright flashes not working?
+level to level health
+lighting feedback still different in software and gl
+player pain sounds
+animate translucent textures
+better monster sight / hearing
+make sure switches are animating
+echo center prints to console
+PHS or PVS activated guards?
+rotate with textures option in QE4 for crates
+do mynoise entities leak on level transitions?
+crouch strafe is still full speed

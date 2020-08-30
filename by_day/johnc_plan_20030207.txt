@@ -1,0 +1,5 @@
+The machinima music video that Fountainhead Entertainment (my wife's company) produced with Quake based tools is available for viewing and voting on at: http://www.mtv.com/music/viewers_pick/ ("In the waiting line")
+
+I thought they did an excellent job of catering to the strengths of the medium, and not attempting to make a game engine compete (poorly) as a general purpose renderer.  In watching the video, I did beat myself up a bit over the visible popping artifacts on the environment mapping, which are a direct result of the normal vector quantization in the md3 format.  While it isn't the same issue (normals are full floating point already in Doom), it was the final factor that pushed me to do the per-pixel environment mapping for the new cards in the current engine.
+
+The neat thing about the machinima aspect of the video is that they also have a little game you can play with the same media assets used to create the video.  Not sure when it will be made available publicly.

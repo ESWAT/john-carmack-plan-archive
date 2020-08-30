@@ -1,0 +1,7 @@
+* qe4 slow startup
+* qrad
+
++ detail clip brushes?
++ extra brush clip planes
+
+change qdata colormap to not use 0 and 255 for win palette

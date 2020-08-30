@@ -1,0 +1,22 @@
+*	fixed vanished bmodels at startup
+*	fixed getting stuck problem
+*	fixed the sound out of range problem
+*	hack patched the dissapearing under water
+
++ remove look spring
++ fix radius damage
++ too many people on status bar
++ invis in water
++ multiple pain sounds started
++ shift jumps while in console
++ less blood time
++ gone armor icon
++ look up/down keyboard modifier
+
+clamp velocity on respawn
+clear damage flash on respawn
+bad changeup 
+bob speed kept on restart
+no puffs in sky volumes
+id copyright seal
+teleport screen warp

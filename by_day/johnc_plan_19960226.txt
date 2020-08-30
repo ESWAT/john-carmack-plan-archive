@@ -1,0 +1,11 @@
+*	ogre sounds
+*	made 180 turns go left for better ogre dragging
+*	error checked and extended qbsp
+
++ drop green slime percentage
++ ram chip overlapps turtle
++ do DEC quote
++ nolerp update
+
+caps-lock = full speed
+no particle effects on sky

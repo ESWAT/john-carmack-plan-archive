@@ -1,0 +1,65 @@
+The quality of Quake's software has been a topic of some discussion lately. I avoid IRC like the plague, but I usually hear about the big issues.
+
+Quake has bugs. I freely acknowledge it, and I regret them. However, Quake 1 is no longer being actively developed, and any remaining bugs are unlikely to be fixed. We would still like to be aware of all the problems, so we can try to avoid them in Quake 2.
+
+At last year's #quakecon, there was talk about setting up a bug list maintained by a member of the user community. That would have been great. Maybe it will happen for Quake 2.
+
+The idea of some cover up or active deception regarding software quality is insulting.
+
+To state my life .plan in a single sentance: "I want to write the best software I can". There isn't even a close second place. My judgement and my work are up for open criticism (I welcome insightfull commentary), but I do get offended when ulterior motives are implied.
+
+Some cynical people think that every activity must revolve around the mighty dollar, and anyone saying otherwise is just attempting to delude the public. I will probably never be able to convince them that isn't allways the case, but I do have the satisfaction of knowing that I live in a less dingy world than they do.
+
+I want bug free software. I also want software that runs at infinite speed, takes no bandwidth, is flexible enough to do anything, and was finished yesterday.
+
+Every day I make decisions to let something stand and move on, rather than continuing until it is "perfect". Often, I really WANT to keep working on it, but other things have risen to the top of the priority que, and demand my attention.
+
+"Good software" is a complex metric of many, many dimensions. There are sweet spots of functionality, quality, efficiancy and timeliness that I aim for, but fundamentally YOU CAN'T HAVE EVERYTHING.
+
+A common thought is that if we just hired more programmers, we could make the product "better".
+
+It's possible we aren't at our exactly optimal team size, but I'm pretty confidant we are close.
+
+For any given project, there is some team size beyond which adding more people will actually cause things to take LONGER. This is due to loss of efficiency from chopping up problems, communication overhead, and just plain entropy. It's even easier to reduce quality by adding people.
+
+I contend that the max programming team size for Id is very small.
+
+For instance, sometimes I need to make a change in the editor, the utilities, and the game all at once to get a new feature in. If we had the task split up among three seperate programmers, it would take FAR longer to go through a few new revs to debug a feature. As it is, I just go do it all myself. I originated all the code in every aspect of the project, so I have a global scope of knowledge that just wouldn't be possible with an army of programmers dicing up the problems. One global insight is worth a half dozen local ones.
+
+Cash and Brian assist me quite a lot, but there is a definite, very small, limit to how many assistants are worthwhile. I think we are pretty close to optimal with the current team.
+
+In the end, things will be done when the are done, and they should be pretty good. :)
+
+A related topic from recent experience:
+
+Anatomy of a mis-feature:
+----
+ As anyone who has ever disected it knows, Quake's triangle model format is a mess. Any time during Quake's development that I had to go back and work with it, I allways walked over to Michael and said "Ohmygod I hate our model format!'. I didn't have time to change it, though. After quake's release, I WANTED to change it, especially when I was doing glquake, but we were then the proud owners of a legacy data situation.
+
+The principle reason for the mess is a feature.
+
+Automatic animation is a feature that I trace all the way back to our side-scroller days, when we wanted simple ways to get tile graphics to automatically cycle through animations without having to programatically each object through its frames.
+
+I thought, "Hmm. That should be a great feature for Quake, because it will allow more motion without any network bandwidth."
+
+So, we added groups of frames and groups of skins, and a couple ways to control the timing and syncronization. It all works as designed, but parsing the file format and determining the current frames was gross.
+
+In the end, we only used auto-frame-animation for torches, and we didn't use auto-skin-animation at all (Rogue did in mission pak 2, though).
+
+Ah well, someone might use the feature for something, and its allready finished, so no harm done, right?
+
+Wrong. There are a half dozen or so good features that are apropriate to add to the triangle models in a quake technology framework, but the couple times that I started doing the research for some of them, I allways balked at having to work with the existing model format.
+
+The addition of a feature early on caused other (more important) features to not be developed.
+
+Well, we have a new model format for Quake 2 now. Its a ton simpler, manages more bits of precision, includes the gl data, and is easy to extend for a couple new features I am considering. It doesn't have auto-animation.
+
+This seems like an easy case - almost anyone would ditch auto-animation for, say, mesh level of detail, or multi-part models. The important point is that the cost of adding a feature isn't just the time it takes to code it. The cost also includes the addition of an obsticle to future expansion.
+
+Sure, any given feature list can be implemented, given enough coding time. But in addition to coming out late, you will usually wind up with a codebase that is so fragile that new ideas that should be dead-simple wind up taking longer and longer to work into the tangled existing web.
+
+The trick is to pick the features that don't fight each other. The problem is that the feature that you pass on will allways be SOMEONE's pet feature, and they will think you are cruel and uncaring, and say nasty things about you.
+
+Sigh.
+
+Sometimes the decisions are REALLY hard, like making head to head modem play suffer to enable persistant internet servers.

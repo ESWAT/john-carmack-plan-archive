@@ -1,0 +1,53 @@
+* reduced bodies to points on squash
+* turned off onground when pushed
+* new demon jumping
+* fixed zombie stand ups
+* fixed zombie standing off floor
+* fixed uninitialized vector in movestep
+* fixed scr_ofs cheat
+* fixed upjump cheat
+* _field names are ignored by quake
+* fixed bottom checking
+* fixed up fov
+* moved icons into view screen
+* added pause icon and showpause cvar
+* renamed SOLID_EDGE to SOLID_TRIGGER
+* delayed monster drop to floor
+
++ mbug.map texture toastage
++ save / loadgame start view angle
++ fix demon popjump
++ flickering ammo box on restart
++ weapons not following to next level?
++ knights not coming off paths when angered
++ load / save games are broken
++ pause veloicty spin
++ reset lightstyles on level load
+
+more screen turbulent warps
+default fields in /*QuakeEd header
+is draworder working in deathmatch?
+enforcer no melee attack, side step
+triangle transition size
+open secret doors with area effects
+alias model racing stripe
+shoot over grounded zombies
+activatable trigger
+wizard altitude changes
+enforcers need to drop ammo
+player torso gib shouldn't be used for most monsters
+teleportation issues
+some keyboard keys make it in while changing levels
+make a base directory variable for all util scripts?
+invisibility (remove weapon)
+flyjumping up slopes
+better polygon lighting
+track killer when dead
+allocate cl_entities on the hunk
+start dead zombies
+cvar changing buttons
+invulnerability powerup
+raise / lower weapons
+is qc pausetime needed?
+delay item drop to floor?
+run first second of game before entering player

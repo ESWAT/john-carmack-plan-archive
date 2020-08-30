@@ -1,0 +1,31 @@
+* fixed light sample determination for all rotations and scales
+* pulled wizard shot starts inside bounding box
+* fixed demon jump damage
+* objects never clip against their owner, and vice versa
+* ogre pain frames
+* fix pathcorner bug
+* don't let monsters see into water
+* don't allow dead monsters to be used by triggers
+* reset player's gib head to proper bounding box
+* gib dogs
+* killed avelocity when bounce objects stop
+* toss objects drop with plats now
+* remove progrestart
+* wizard spikes don't fire if dead
+* make wizard drop altitude
+* better stereo seperation
+
++ check message triggers
+
+alpha qlumpy still has wrong type numbers
+help screen?
+auto reload savegame
+add pak building to qcc
+let doors target other items
+guys gibbed by boxes go to no such frame?
+is axe view skipping frames?
+do player pain frames cause weapon frame skipping?
+highlight current weapon in status bar
+dynamically light bmodels
+swimming motion
+explosions need to reveal secrets

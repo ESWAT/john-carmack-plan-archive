@@ -1,0 +1,57 @@
+I went to siggraph last monday to give a talk about realtime graphics for entertainment.
+
+The only real reason I agreed to the talk (I have turned down all other offers in the past) was because Shigeru Miyamoto was supposed to be on the panel representing console software. Id software was really conceived when me, Tom, and Romero made a Super Mario 3 clone after I figured out how to do smooth scrolling EGA games. We actually sent it to nintendo to see if they wanted to publish a PC game, but the interest wasn't there. We wound up doing the Commander Keen games for Apogee instead, and the rest is history.
+
+I was looking forward to meeting Mr. Miyamoto, but he wound up canceling at the last minute. :(
+
+Oh well. I hope everyone that went enjoyed my talk. All the other speakers had powerpoint presentations and detailed discussion plans, but I just rambled for an hour..
+
+I notced that there was a report about my discussion of model level of detail that was in error. I have an experimental harness, an algorithm, and a data structure for doing progressive mesh style LOD rendereing in the quake engine, but I suspect it won't make it into the production Quake 2. Other things are higher priority for us. I may assist some of the quake licensees if they want to pursue it later.
+
+-
+
+A couple data / feature changes going into the latest (and I hope final) revision of the Quake bsp file format:
+
+Back in my update a month ago where I discussed losing automatic frame animation in models to clean up the format and logic, I mentioned that I still supported automatic texture animation.
+
+Not anymore. There were several obnoxious internal details to dealing with it, especially now with textures outside the bsp file, so I changed the aproach.
+
+When a texture is grabbed, you can now specify another texture name as the next animation in a chain. Much better than the implicit-by-name specification from Quake1.
+
+No animation is automatic now. A bmodel's frame number determines how far along the animation chain to go to find the frame. Textures without animation chains just stay in the original frame.
+
+There is a slight cost in network traffic required to update frame numbers on otherwise unmoving objects, but due to the QuakeWorld style delta compression it is still less than a Quake 1 scene with no motion at all.
+
+The benefit, aside from internal code cleanliness, is that a game can precisely control any sequence of animation on a surface. You could have cycles that go forward and backwards through a sequence, you could make slide projectors that only change on specific inputs, etc.
+
+You could not independantly animate two sides of a bmodel that were not syncronized with the same number of frames, but you could allways split it into multiple models if your really needed to.
+
+Everything is simple when its done, but I actually agonized over animation specification for HOURS yesterday..
+
+The last significant thing that I am working on in the map format is leaf clustering for vis operations. You can specify some map brushes as "detail" brushes, and others as "structural" brushes. The BSP and portal list is built for just the structural brushes, then the detail brushes are filtered in later.
+
+This saves a bit of space, but is primarily for allowing complex levels to vis in a reasonable amount of time. The vis operation is very sensitive to complexity in open areas, and usually has an exponentially bad falloff time. Most of the complexity is in the form of small brushes that never really occlude anything. A box room with ten torch holders on the walls would consist of several dozen mostly open leafs. If the torch holders were made detail brushes, the room would just be a single leaf.
+
+A detail / structural seperation is also, I believe, key to making a portal renderer workable. I had a version of Quake that used portals at the convex volume level, and the performance characteristics had considerably worse-than-linear falloff with complexity. By reducing the leaf count considerably, it probably becomes very workable. I will certainly be reevaluating it for trinity.
+
+
+* trans33, trans66, flow flags in gl
+* damped warp modulation in gl
+* ref_soft running with new data
+
++ shots are exploding on the sky again
++ auto set window contents if translucent
++ don't set qe4 texture unless notexture
++ try new console background
++ finish animation cycling
+
+detail brushes could be extended to be destroyable
+new texture specification by three points?
+check -tmpin -tmpout in bsp utils
+rename texinfo to surfinfo?
+pitch change during jumping
+minimized window notification when a new client joins?
+should origin brushes be included in bsp file for completeness?
+use nodraw flag
+pitch change when ducking
+qrad light bleeds

@@ -1,0 +1,9 @@
+* fixed qe4 texturepath bug
+* qe4: show in use textures even when showing a wad
+* utils: fixed gamedir to allow nested quake2 directories
+* moved env out of gfx, so gfx is all source files
+
+malloc tags for game and level
+clone detail brushes should remove detail flag
+make timedemo a server connect thing
+ktest.reg bad model

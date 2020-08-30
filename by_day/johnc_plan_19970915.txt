@@ -1,0 +1,9 @@
++ cinematic paking!
++ r_dspeeds should include translucent time
++ alt key stuck donw after alt-enter
++ bonus flashes
+
+texture releasing from maps isn't uniqued
+scissor triangles
+faster z clip
+make autoexec.cfg work differently because of demos

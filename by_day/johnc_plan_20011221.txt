@@ -1,0 +1,7 @@
+The Quake 2 source code is now available for download, licensed under the GPL.
+
+ftp://ftp.idsoftware.com/idstuff/source/quake2.zip
+
+As with previous source code releases, the game data remains under the original copyright and license, and cannot be freely distributed. If you create a true total conversion, you can give (or sell) a complete package away, as long as you abide by the GPL source code license. If your projects use the original Quake 2 media, the media must come from a normal, purchased copy of the game.
+
+I'm sure I will catch some flack about increased cheating after the source release, but there are plenty of Q2 cheats already out there, so you are already in the position of having to trust the other players to a degree. The problem is really only solvable by relying on the community to police itself, because it is a fundamentally unwinnable technical battle to make a completely cheat proof game of this type. Play with your friends.

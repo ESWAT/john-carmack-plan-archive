@@ -1,0 +1,30 @@
+Version 3.10 patch is now out.
+
+ftp://ftp.idsoftware.com/idstuff/quake2/q2-310.exe
+
+A few more minor fixes since yesterday:
+
+* qhost support
+* made qport more random
+* fixed map reconnecting
+* removed s_sounddir
+* print out primary / secondary sound buffer status on init
+* abort game after a single net error if not dedicated
+* fixed sound loss when changing sound compatability
+* removed redundant reliable overflow print on servers
+* gl_lockpvs for map development checking
+* made s_primary 0 the default
+
+Christian will be updating the bug page tomorrow. So hold of on all reporting for 24 hours, then check the page to make sure the bug is not already known.
+
+http://www.idsoftware.com/cgi-win/bugs.exe
+
+All bug reports should go to Christian: xian@idsoftware.com.
+
+I have had several cases of people with lockup problems and decompression overreads having their problems fixed after they mentioned that they were overclocking either their CPU, their system bus (to 75mhz), or their 3DFX.
+
+It doesn't matter if "it works for everything else", it still may be the source of the problem.
+
+I know that some people are still having problems with vanilla systems, though. I have tried everything I can think of remotely, but if someone from the Dallas area wants to bring a system by our office, I can try some more serious investigations.
+
+Something that has shown to help with some 3dfx problems is to set "cl_maxfps 31", which will keep the console between level changes from rendering too fast, which has caused some cards to hang the system.

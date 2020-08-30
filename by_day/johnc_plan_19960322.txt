@@ -1,0 +1,20 @@
+* fixed bug with "alias" command that failed to add a newline
+* fixed bug in command execution that sometimes mashed commands together
+* added "impulse #" command to replace impulse0 impulse1, etc
+* allowed "bind" and "alias" to grab the rest of the line, not just arg(3)
+* don't clear impulse events every frame, so a weapon change will wait
+		for attack completion
+* added "wait" command.  These changes allow:
+	bind g "impulse 5 ; +attack ; wait ; -attack ; impulse 2"
+* got demos mostly working
+
++ worry about shutting down listen servers before connect / demo playback
++ remove item precache
++ finish switching lights
++ keyboard freelook
++ do clients need keepalives?
+
+spikes coming through walls
+explosive nails
+change thresholding on trimapper in higher res!!!!!
+muzzle flashes

@@ -1,0 +1,5 @@
+QuakeWorld went up, got to around 4000 users, then the master server exploded.
+
+Disrupter and cohorts are working on more robust code now.
+
+If anyone did it on purpose, how about letting us know... (It wasn't all the people that tried %s as a name)

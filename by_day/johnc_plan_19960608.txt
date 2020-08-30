@@ -1,0 +1,45 @@
+* teleport triggers UseTqargets
+* fixed once triggers
+* cleared static sounds between levels
+* right justify options menu text
+* cells became rockets on level cross
+* changed teleport humm attenuation
+* lookspring checkbox
+* lookstrafe checkbox
+* mouse y invert checkbox
+* allways run checkbox
+* made fov not a saved cvar
+* wizspike and knightspike t ents
+* take away stuff after completing an episode
+* end of episode text
+* head gib eye in floor bug
+* blink cursor after messageboxes
+
++ everyone goes through the return teleporter in episode 4 jrstart
++ is bgm volume not working for cd?
++ make zoom a default configuration?
+
+quad damage shotgun doesn't gib zombies
+bonus item flashes
+no menu sounds when disconnected
+teleport ambient sound is no good
+auto center when treading water
+monster drowning
+blaster mismatch warning is misformatted
+axe kill zombies
+new game loading plaque not showing
+change zombie knock down code
+reformat console on vid change
+grenade launcher kicks too much
+surface cache size in weird aspect ratio modes
+prevent vid from allocing a big enough buffer to cause the next load to
+fail
+deathmatch invis eyes
+monster reduced accuracy during invis
+push for red super spikes
+monster death bubbles underwater?
+change name back to quad damage
+disconnect from netgame isn't being sent
+remove coop cheating
+centerprint time reletive to length?
+centerprint "entering ..." on level entry

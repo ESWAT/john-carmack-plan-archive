@@ -1,0 +1,33 @@
+* coop is mostly working
+* made snd_show give a total count
+* combined static sounds of the same type
+* demo record is now reord [demoname] [map]
+* intermission takes all players in coop
+* all players are invisible for coop intermission
+* coop telefrag
+* dead players are respawned on level change in coop
+* don't bound clinet only systems to sys_ticrate
+* fixed bug with monsters not sighting players after some level changes
+* keys aren't picked up in coop
+* moved colon on intermission
+* cleared effects on player respawn
+* fixed players 2+ not saving stuff on entering level
+* coop colors follow from level to level
+
++ backspace / delete to remove bindings in options screen
++ coop quit doesn't send disconnect
++ super spike: s_spike
+
+deathmatch weapon switching rules
+blue sparks for lightning
+check for splash before playing thump
+center or scale menus in hi-res
+change "gamma" to something else because of name clash with new djgpp
+angle jump at demo start
+coop should use solo scoreboard
+alphabetize cvars / commands for tab completion
+look for "backup past 0"
+fix "gravity changed" message
+powerup blinking
+frozen demons?
+timer on monsters mad at other players

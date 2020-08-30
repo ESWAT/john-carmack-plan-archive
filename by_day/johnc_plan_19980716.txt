@@ -1,0 +1,27 @@
+I have spent the last two days working with Apple's Rhapsody DR2, and I like it a lot.
+
+I was dissapointed with the original DR1 release. It was very slow and seemed to have added the worst elements of the mac experience (who the hell came up with that windowshade minimizing?) while taking away some of the strengths of NEXTSTEP.
+
+Things are a whole lot better in the latest release. General speed is up, memory consumption is down, and the UI feels consistant and productive.
+
+Its still not as fast as windows, and probably never will be, but I think the tradeoffs are valid.
+
+There are so many things that are just fundamentally better in the rhapsody design than in windows: frameworks, the yellow box apis, fat binaries, buffered windows, strong multi user support, strong system / local seperation, netinfo, etc.
+
+Right now, I think WindowsNT is the best place to do graphics development work, but if the 3D acceleration issue was properly addressed on rhapsody, I think that I could be happy using it as my primary development platform.
+
+I ported the current Quake codebase to rhapsody to test out conix's beta OpenGL. The game isn't really playable with the software emulated OpenGL, but it functions properly, and it makes a fine dedicated server.
+
+We are going to try to stay on top of the portability a little better for QA. Quake 2 slid a bit because we did the development on NT instead of NEXTSTEP, and that made the irix port a lot more of a hassle than the original glquake port.
+
+I plan on using the rhapsody system as a dedicated server during development, and Brian will be using an Alpha-NT system for a lot of testing, which should give us pretty good coverage of the portability issues.
+
+I'm supposed to go out and have a bunch of meetings at apple next month to cover games, graphics, and hardware. Various parts of apple have scheduled meetings with me on three seperate occasions over the past couple years, but they have always been canceled for one reason or another (they laid off the people I was going to meet with once..).
+
+I have said some negative things about MacOs before, but my knowledge of the mac is five years old. There was certainly the possibility that things had improved since then, so I spent some time browsing mac documentation recently. I was pretty amused. A stack sniffer. Patching trap vectors. Cooperative multitasking. Application memory partitions. Heh.
+
+I'm scared of MacOS X. As far as I can tell, The basic plan is to take rhapsody and bolt all the MacOS APIs into the kernel. I understand that that may well be a sensible biz direction, but I fear it.
+
+In other operating system news, Be has glquake running hardware accelerated on their upcoming OpenGL driver architecture. I gave them access to the glquake and quake 2 codebases for development purposes, and I expect we will work out an agreement for distribution of the ports.
+
+Any X server vendors working on hardware accelerated OpenGL should get in touch with Zoid about interfacing and tuning with the Id OpenGL games on linux.

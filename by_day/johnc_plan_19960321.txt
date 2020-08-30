@@ -1,0 +1,9 @@
+* fixed quakeed bug to allow carrying selection to new map
+* fixed updated static bug
+
++ demons that fall through world
++ "wait" exec command
++ end of line exec bug
+
+do style lighting for alias models
+for release: Id Trademark graphic

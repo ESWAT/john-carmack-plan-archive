@@ -1,0 +1,19 @@
+I haven't been working on QuakeWorld for the past week, because Michael has been working on the rendition port, which backburnered the win32 native port, which is a prerequisite for the QuakeWorld release.
+
+Instead, I have been working on some better graphics code.
+
+I now have a radiosity replacement for ligting quake maps. This will have a good effect on our Quake 2 maps, but probably won't be feasable for homebrew use.
+
+I am finishing up a shadow volume pre-subdivision stage right now, and I need to do the resampling to quake light maps a bit better than I currently am, but I am very pleased with how it has turned out.  A lot of the work will play into the next generation (NOT quake 2) game technology, for things like colored radiosity and dynamic shadows, but it is still cool just for calculating quake light maps.
+
+Instead of placing lots of floating light entities, certain textures are tagged as being light emitters, so if you draw a flourecent light in the ceiling, it will automatically emit light from it's entire area.  Lava emits light from the entire surface.
+
+The simulation of the light is realistic now, instead of just hacked together.  Light reflects off of surfaces, so ceilings will get lit even if there is no light pointing directly at them.  The way light flows around corners looks eerily realistic.
+
+I fixed the sky volumes so missiles dissapear inside them again, which was necessary to implement a new lighting feature: you can specify the position of the sun (or moon) in degrees,  and the amount of light it will emit.  The light then comes out completely parallel and at a constant intensity, passing through sky volumes to light up all outdoor areas in a consistant way. (this could be retrofited onto light.exe for people unable to run qrad)
+
+Now for the bad news: a full size level takes several minutes to process on our quad alpha, and you MUST do a vis before running qrad (otherwise it would take about 1000 times longer).  This wouldn't be out of reach even on mortal pentium systems (you can ask for a rough aproximation instead of the full job), except for the working set size.  >100 megs.  I'm NOT being wasteful here, either.  I use a halved bit array for visibility interconnects, and sparse scaled shorts for energy transference.
+
+I will release the source after we have been using it in production for a while, in case anyone wants to take a shot at reformulating it to be less memory intensive.  It would be possible to get it down to 32 megs with some reduction in quality and a lot more wasted time, but then the run time would be obnoxious.  I expect homebrew levels are going to have to stick with light.exe.
+
+I am looking forward to doing a little more work on the other utilities as well.  I want to break qbsp up into three seperate programs, so it will be able to run on machines with <32 megs of memory.  Light can be sped up significantly if the PVS information is taken advantage of the way I did in qrad. I also have some theories on changing the algorithmic order of full vis processing time that I want to look into, especially now that the vis stage is put before production lighting.

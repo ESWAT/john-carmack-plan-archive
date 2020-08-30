@@ -1,0 +1,1 @@
+And the Q1 utilities are now also available under the GPL in source/q1tools_gpl.tgz.

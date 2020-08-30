@@ -1,0 +1,21 @@
+Bad news.
+
+It looks like this is when "unsupported" really becomes unsupported
+
+Glquake and QuakeWorld were fun to do, but keeping the datasets compatable with quake 1 really has held me back a lot. I badly wanted to get one more release out, but circumstances have forced me to finally ireversibly break with compatability, and I just don't have the time to devote any effort to a stagnant codebase. You probably wont see any more releases from Id until hexen 2 ships. Sorry.
+
+I have given Zoid and Jack Mathews free license to extend and upgrade the QuakeWorld codebase from the last released revision, so this may actually mean that QW receives more attention than I was able to give it.
+
+On the bright side, the new bsp format will offer some great new capabilities that will be apreciated by all:
+
+Greater robustness. Only one bsp tree is built, and no surfaces are generated that weren't part of the map brushes.
+
+No fixed clipping hull restrictions. You can now set any mins/maxs you like.
+
+You can tell the texture that a trace clips on in the game, so different surface attributes are now possible.
+
+Textures are no longer stored in the bsp file.
+
+Full color lightmaps for glquake. The "surprise" that I mentioned before was colored lighting hacked into glquake in a way that didn't require a change in the format, but this is better.
+
+If any hard-core add on hackers can present a serious case for additional modifications to the bsp file, now is the time to let me know.

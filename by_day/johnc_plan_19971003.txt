@@ -1,0 +1,47 @@
+* game pause
+* pain sounds
+* save health between levels
+* moved baselines to a parallel array
+* software screenshot directory
+* 1.4k packets only!
+* map command while paused?
+* pos sound overriding
+* sound area testing
+* seperate pvs / phs static arrays
+* cleared sound buffer when disabled for loading
+* PHS calculation bug
+
+sound improvements since q1
+respatializing on moving entities
+sub frame start commands
+looped sounds are deterministic
+sounds are removed by area and PHS
+looped sounds sum
+
+muzzle flashes!
+bullet impact puffa?
+why can't you fire a single machinegun bullet?
+avoid loading the map file twice for server and refresh
+option for multicast to PVS for effects instead of PHS?
+remove sbar2 sounds
+centralize all communication between client and server sides
+warnings for improperly looped sounds
+multiple speaker entities with the same looped sound
+will just increase the range
+target_speaker checkbox for player locals (voiceovers)
+base1 - base2 - base1 - base2 -death goes to base1
+paused level to level bugs
+yaw towards killer
+monsters not going to ideal yaw when shooting?
+blood jet muzzle flashes
+iventory update on level change
+keepalive messages while precaching
+no red flash on deaths?
+initial and final trail parts
+server quit doesn't get the disconnect message out
+option to have dlights backface cull
+extended sound bytes
+release mouse when paused?
+nver let server be connected without local client
+!!! possound needs to also take an entity number !!!
+slow water wading

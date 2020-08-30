@@ -1,0 +1,23 @@
+* tracked loadgame problem to stack overflow
+* removed console cursor if key_dest != key_console
+* ignore all autorepeat keys except backspace
+* removed the extra unit of padding around bmodels that caused them to
+clip
+* build entity list for refresh instead of pushing efrags
+* fixed cells not carrying from level to level
+* nightmare skill item spawning is fixed
+* old deathmatch rules by setting deathmatch 2
+* options menu sliders
+* moved gamma correction out of vid systems into view
+
++ shambler lightning needs pitch
+- stop demo when menu comes up?
++ nightmare skill
++ integrate spritegen with
++ lookspring checkbox
++ make sure all menu options get saved
++ clear notify lines when in menu
+
+increase surface cache size?
+do knight swords do meat chunks?
+centerspeed slider

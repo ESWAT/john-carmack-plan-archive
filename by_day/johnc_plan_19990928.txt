@@ -1,0 +1,45 @@
+Ok, obviously we didn't get a release out in the middle of the month...
+
+We are still hashing out the single player game, so it still isn't immediately immenent.
+
+* weapon switch animations at 20hz instead of 15hz, cuts switch time from 600 msec to 450 msec
+* initial spawn flag for single player
+* finished new fog code
+* fixed walking underwater friction problems
+* autosprite2 now selects the longest axis to pivot on, and allows any texture mapping, not just unity
+* fixed autosprite on entities
+* fixed lurching during low timescale
+* reduced machinegun damage
+* set clamp mode on 2D pics
+* take hostname off of single player connect
+* remvoed dlighting on skies and solid lava
+* fixed lower body twitch when copytobodyque with a motion
+* always show your score in second box if not in first
+* sarge as default model
+* com_blood 0 option for no gibs and no blood on hits
+* mouse click aborts cinematic
+* show tourney scores in all games, add fraglimit
+* removed tripple bunny-hop protection, it was too arbitrary and didn't accomplish it's goal
+* pump event loop during level loading
+* added pass count to shaderlist
+* default to CGEN_IDENTITY / CGEN_IDENTITY_LIGHTING based on blendSrc
+* optional simplified blendfuncs: blendfunc
+* new shader command: deformVertexes normal
+* new shader command: tcgen vector ( ) ( )
+* fixed fog on alpha tested surfaces
+* reduced com_maxfps to 85
+* defined shaders for menu and console backgrounds
+* reset players on clientinfo transitions
+* windows icons
+* fixed powerups on spinning barrels
+* removed some latency from lightning endpoint
+* fixed lightning bolt drawing too far
+* removed color clamping from entity lighting
+* moved all 2D drawing to shader pipeline
+* r_printShaders tool
+* moved dlighting into world node descent
+* pause when menu is up in single player
+* fixed double EV_FIRE_WEAPON
+* r_singleShader optimization tool
+* some renderer optimizations
+* better multitexture collapsing

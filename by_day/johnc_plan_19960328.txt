@@ -1,0 +1,16 @@
+* fixed efrag allocation on restart (really)
+* fixed static sprite placement
+* fixed light casting from torches
+* fixed spawning angles
+* fixed savegame and multi player baseline object startup
+* made QuakeEd go to info_playerstart at level load
+
++ fix damage trace through entities
++ keyboard freelook
+
+spinning gibs on floor
+very high framerates mess up
+extra back attack damage
+buffered IO problem on romero's machine
+stereo still isn't right
+partical puffs

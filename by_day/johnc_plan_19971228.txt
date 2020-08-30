@@ -1,0 +1,62 @@
+** Dec 28, 2:55 AM CST **
+
+There were a few problems with the 1.07 patch:
+
+Bodies stuck under doors caused a repeated explosion effect. Timedemo was broken. The servers crash about once an hour under full load.
+
+I have the first two fixed, and I hope the third. The four servers at Id are running a new executable.
+
+If the servers don't crash in the next hour or two, I'll put another release out.
+
+
+** Dec 28, 5:00 AM CST **
+
+Ok, two hours without a crash on four servers.
+
+Here is a new patch:
+
+ftp://ftp.idsoftware.com/idstuff/quake2/patch_08.zip
+
+3.07 and 3.08 can interoperate fine. All servers should upgrade to 3.08, but if you gravved the 3.07 earlier today and only play as a client and don't need timedemo, you don't nned to upgrade.
+
+
+** Dec 28, 5:00 PM CST **
+
+No crashes on any of the servers!
+
+A few comments on some reported problems:
+
+You have to press the "attack" button to respawn in deathmatch now. This allows you to chat and go into the menu. I have got several mails from people that are typing "kill" or reconnecting to servers after they die...
+
+Old savegames will NOT work with the patch. Just cheat yourself to aproximately the same place you were before. The game included config files for starting off at each unit. You can exec one of those to get you close, then do "give" commands if you want to be more precise. (bigguun.cfg, boss.cfg city.cfg, command.cfg, factory.cfg, hangar.cfg, jail.cfg, mine.cfg, power.cfg, space.cfg, warehouse.cfg).
+
+I think several people are failing to get the gamex86.dll into the baseq2 directory. if "fov 120" doesn't change your field of view, the server doesn't have the right gamex86.dll.
+
+
+** Dec 28, 9:30 PM CST **
+
+If Quake2 is crashing on you after upgrading, it is probably because you still have the gamex86.dll from q2test in your quake2 directory. The latest quake2.exe just started looking in the exe directory as well as the game directory to make debugging easier, and it brought out this problem. You should only have gamex86.dll in baseq2 unless you are doing specific development.
+
+I had a version check in there, but I never bumped the game api version, so it was ineffective.
+
+We are going to release yet another new version tonight.
+
+The big news is that the modem connection and level changing problems are fixed. They should have been fixed in 3.07, but a timing error kept it from functioning.
+
+I also found the "no such frame" warnings that scrolled by under some circumstances. BFG gibbing crouching people would cause it.
+
+There are several other fixes in the menu and renderers as well, so everyone should upgrade.
+
+We are testing with 3.09 on our servers now, but I want to make an incompatable change before releasing:
+
+Right now, any client can send a "connect" message to the server and grab a client slot. If they are the wrong version, they will tie that slot up until they time out ot abort the connection process.
+
+I am going to force clients to send their version number with the connection request, so that bad clients will never take up slots.
+
+That will require everyone to upgrade to 3.09 to play.
+
+I apologize for the flurry of versions, but this was a forced set of releases due to the server attacks, and lots of people are on vacation here. It certainly could have been tested better, but I thought it better to try and get something out ASAP.
+
+Check back in the morning for a new version...
+
+BTW, we will release the new gamex86 source code after we are convinced that we aren't going to be making another patch for a couple weeks.

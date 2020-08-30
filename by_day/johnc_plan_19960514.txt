@@ -1,0 +1,42 @@
+* fixed recursive barrel death
+* new characters
+* better ambient name parsing
+* con_dpritnf for developer messages
+* start messages out of maps
+* directional touch triggers
+* remove qtest license stuff
+* fixed off by one error with ambient leaf calc
+* level spawning messages
+* clear input line every time console goes up
+* moved all non-refresh vid.buffer access into draw.c
+* removed alphalumpy -- use qlumpy
+* automatic extension and dest file creation for qbsp
+* merged id1 and id1_ development hierarchies
+* Made QuakeEd projects directory independent
+
++ raven's bug map
++ static point ambients
++ hell knight smash
++ flameb1 - 11
++ explodes on manually going to bad map
++ play humm1 for teleport textures
++ parms for all + commands to identify source
+
+blood/chunk spray direction from claw attacks
+shootable base texture needs an off frame
+lint the utilities
+cache console background
+make all jump trigger targets have a land sound
+center menu in high res
+slipgate animations
+loading plaque, no console between levels
+supress input line
+fix timedemo with cycling demos
+gun jerking
+!cl.worldmodel is no longer valid?
+mike signon messages stay in notify lines
+break off anger at another monster if can't reach in ten seconds
+debounce all keys?
+center print level messages
+still dropping pack in single player?
+debug alpha modelgen

@@ -1,0 +1,35 @@
+WANTED: Independant OpenGL conformance nazi
+
+I think there is a strong need for a proactive, vendor-neutral OpenGL watchdog, or even a small group, especially in the linux space.
+
+I have been working on the utah-GLX team for quite a while now, and while I have been very pleased with the results, I would like to see more effort spent on doing things as right as possible. Because the developers (me included) are basically just doing the work in their spare time, testing usually only consists of running their favorite OpenGL application, and a few of the mesa demos, or some of the xscreensaver hacks.
+
+Recently I did the initial bringup of a RagePro driver on linux, and I was much more conscious of the large untested feature space, and the tunnel vision I was using to get it to the point of running Q3.
+
+What we need is someone, or a group of someones, who can really exercise different implementations through all corners of the OpenGL specification and provide detailed lists of faults with minimal test cases to reproduce the behavior.
+
+In most cases, the bugs could then be fixed, but even if it is decided that the incorrect behavior is going to stay (to avoid a software fallback in a common accelerated case), there would be clear documentation of it.
+
+I consider performance on the matrox driver right now to be "good enough". There is definately more performance oriented work going on, but given a choice of tasks to work on, I would rather improve quality and coverage instead of kicking a few more fps out of Q3.
+
+One of Alex St. John's valid points was that "The drivers are always broken". There are a lot of factors that contribute to it, including fierce benchmarking competition causing driver writers to do some debatable things and diminish focus on quality. With open source drivers, some of those factors go away. Sure, it is nice to beat windows drivers on some benchmarks, but I wouldn't let pursuit of that goal introduce dumb things into the code.
+
+Some of the windows IHVs have good testing proceedures and high quality drivers, but even there, it would be nice to have someone hounding them about things beyond how well quake releated games run.
+
+The same goes for Apple, especially now that there is both ATI and 3dfx support.
+
+Conformance would be my primary interest, but characterizing the performance of different drivers would also be usefull, especially for edge cases that may or may not be accelerated, like glDrawPixels.
+
+On linux right now, we have:
+
+The traditional fullscreen 3dfx mesa driver 
+The DRI-GLX based banshee/voodoo3 driver 
+The utah-GLX matrox G200/G400 driver 
+The temporary utah-GLX nvidia driver 
+The newly born utah-GLX ATI Rage Pro driver
+
+If anyone is interested, join the developer list off of: http://glx.on.openprojects.net/
+
+Doing a proper job would require a really good knowledge of the OpenGL specification, and a meticulous style, but it wouldn't require hardcore registers-and-dma driver writing skills, only basic glut programming.
+
+If someone does wind up developing a good suite of tools and procedures and gives one of the drivers a really good set of feedback, I would be happy to provide extra video cards so they could beat up all the implementations.

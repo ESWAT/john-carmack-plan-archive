@@ -1,0 +1,11 @@
+There is a BETA distribution of 1.05 up on our ftp site.
+
+ftp://ftp.idsoftware.com/idstuff/unsup/q105beta.exe
+
+It includes quake.exe winded.exe progs.dat, and a zip of the latest .qc files. Back up your current version before messing with this, in case something is broken.
+
+There is new source code available. ftp://ftp.idsoftware.com//idstuff/source/qutils.zip has win-32 compiled versions and VC++ projects for all of the quake command line utilities. The qbsp/light/vis programs have not been tested all that well here, because we still use a dec alpha running unix for most of our work, but it has been converted from doubles to floats, which should reduce the memory requirements quite a bit (and possibly cause more numeric instabilities...).
+
+I also uploaded the DOOM ipxsetup / sersetup source code, which we haven't had on our ftp site before.
+
+We are going to begin internal testing of a 1.05 Quake release tomorrow. When we upload for general release, we will also upload the current .qc source. The old qcc.tar.gz file is still present on the ftp site for the original .qc files for now. 

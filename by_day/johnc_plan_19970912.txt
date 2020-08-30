@@ -1,0 +1,18 @@
++ tag_game, tag_level
++ new game must clear
+- need to save game state at last level entered as well as exact current
++ save level on exit..
++ spawnpoint to game dll wrong?
++ collapse sv_phys into something else?
++ skip all pixelformat stuff on minidrivers?
+
+get rid of Com_SetServerState() ?
+ERR_DROP?
+status command that prints out server and client state?
+don't allow anything but CRC checked pak file access in a demo
+client userinfo change updates
+worry about cvar info string lengths
+make sure IP is visible to game
+track deaths as well as fregs?
+directmouse?
+view shaking from explosions?

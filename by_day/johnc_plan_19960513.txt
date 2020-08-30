@@ -1,0 +1,53 @@
+* weapon cuycling command
+* trapped bug with maps without textures
+* increase key/value size in QuakeEd
+* qcc -pak option
+* "flechettes" to nails
+* added "killtarget" on all SUB_UseTargets
+* secret doors do SUB_UseTargets
+* secret door touch messages
+* cycle entity allocation
+* versioning in savegames
+* save skill in savegame
+* don't set onground when standing on another monster
+* fixed loadgame during demo bug
+* put falling crunch on voice channel so it overrides pain sound
+* fopen demos inside packfile
+* automatic ambient sounds
+
++ bad recursive explobox?
++ ambient sounder tents
++ tab stats
++ center print sequence stuff
++ demo files in packfiles
++ powerups
++ underwater looping sound
++ pass source as parm for +defs
+
+coop start spot
+don't accept mouse view when paused
+"you got # shells" for item messags
+precache_ambient
+visbug.map
+seperate impact from damage
+create pak files with search path?
+tim5 drop item on monster bug
+texture animation speeds
+squash to paste
+doubled "clearing memory"
+parse /* */ comments in config files
+explosion has bad colors in it
+proof of purchase
+lightning gun
+treading water
+looking down towards ground bug
+deathmatch level transitions
+better lava balls
+is zbuffer precision maximized?
+alias subdivider used wrongly in zoomin mode
+permanently shifted view angle on restart
+optimized single channel ambient mixing
+are 0 volume sounds hanging around?
+jrbase3 old bsp explosion
+auto jump out of water
+demo file version numbers

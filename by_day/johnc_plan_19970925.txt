@@ -1,0 +1,14 @@
++ should loadgame allways unload and re-init game dll?
++ load level with spawnpoint is different than load game
++ good sound control instead of staic sounds
++ move use / drop into game code
++ texpaint autosave
++ noreadlevel cvar?
+
+localconnect sometimes needs to be reissued
+non-axial triggers
+rename and g_client to p_*?
+don't nextlevel from "you win"
+userinfo visible to progs
+too many edicts in an area for sv_world?
+spawn flashes are still wrong

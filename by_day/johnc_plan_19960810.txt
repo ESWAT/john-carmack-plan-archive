@@ -1,0 +1,17 @@
+QuakeWorld structural addendum:
+
+After hearing many arguments against the single master server, ranging  from coherent and well reasoned to paranoid whining, I now agree that  the single global master server isn't sufficient.
+
+During the R&D phase, there will still be only the single server, but  after all the kinks get worked out, I will allow a small number of  sites to run private master servers.  This will not be a general  release, but only to properly licensed third parties.  That will still  allow me to collect my 100% coverage data, and it will prevent a  single network/computer/software failure from preventing all QuakeWorld play.
+
+QuakeWorld technical addendum:
+
+I am reining in the client side prediction to a fairly minimal amount. It has too many negative effects in different circumstances.  The problem of running away from or in front of your missiles was so bad that I  considered simulating the missiles on the client side, but that is the  second step on a slippery slope.  If just the missiles were simulated,  then a missile would fire through an enemy until the server informed  you it exploded on them.  Then you consider simulating interactions,  but then you have to guess at other player inputs (which is hopeless)...
+
+Lesson learned: Simulating 300 ms on the client side in a Quake style  game is just out of the question.  It probably works fine for flight sim  or driving sims, but not in out twitch reaction games.
+
+I am currently using client side simulation to smooth out the beat  frequency interactions between server packet arrival and client frame  times.  In the shipping version of Quake, some latency was introduced  on purpose to keep the displayed frame simulation time between the last  two packets from the server so that the variability in arrival time  could be smoothed out.  In QuakeWorld, I am always starting with the  most current packet, and using simulation to smooth out the variability. This <100ms of client side motion seems to be very manageable, and cuts  out some real latency as well as doing the gueswork.
+
+It looks like I am going to split the QuakeWorld client into multiple  threads to reduce the avg 1/2 frame latency between input and packet  sending.  This is also a step towards building a multi-threaded Quake  renderer, which will let multi-cpu NT machines render twice as fast. Lets hope the windows thread scheduler is decent...
+
+I have been cutting down the message sizes a bit here and there as  well.  On a modem link, every couple bytes I save translates into a  millisecond of latency saved.  I cut an average of 17 bytes from the  server to client and 8 from the client to server today.

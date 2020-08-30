@@ -1,0 +1,41 @@
+* carry serverflags from level to level
+* items fire targets when picked up
+* different spikes for super, knight, and wiz
+* removed requirement that triggers have a target
+* removed all references to update_type
+* lightning gun underwater explosion removes currentammo
+* fixed bug in fat pvs that caused entire world to show on some frames
+*.5 trigger only teleporters
+* delete key bindings and prohibit tripple bindings
+* blured savegame line
+* don't allow cmd buffer sizebuf overflow
+* behind menu fade
+* seperate cursors for console and menu
+* changed entity spawning to spawn-as-loaded
+* move light entity hack to pogs
+* draw sigils on status bar
+
++ remove self.running?
++ portal creation bug
++ make lightning gun more damaging again
++ sigil things on status bar
++ signon1 when at 1
++ weapon nudges
++ player faces
++ put talk.wav back in
++ wait before allowing intermission exit
++ teleport ambient sound?
+
+quad damage liughtning explosion
+menu4.wav for slider
+make a generic signon stream and subdivide svs.signon more
+velocity through levels?
+all projectiles need a t ent
+finish axe up
+pickup weapons while firing bug
+tick sound when pressing an unbound key?
+escape back through menus
+loadgame removes enemy state?
+deathmatch intermission
+texture animation speeds variable
+use different exiting water sound

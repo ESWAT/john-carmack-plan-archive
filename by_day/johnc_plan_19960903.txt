@@ -1,0 +1,7 @@
+I have been cleaning up the utilities for another release (soon) where everything is in Visual C++ project format.  All of the common code is now included from the same place, so adding support for pcx or 3d studio files will only require changes in one file now for all utilities.
+
+I made a few simple changes to qcc, and it now compiles FOUR TIMES FASTER!  A recompile on my pp200 only takes 5 seconds now.  I knew the linear search for defs was hurting, but if I had realized it was that dominant (and easy to fix) I would have fixed it a long time ago.  All I had to do was move defs to the head of the search list each time they were looked for, so they would be found fast the next time.  A big hash table might be somewhat faster still, but this was trivial to add.
+
+Qbsp now uses floats instead of doubles by default, which makes it a good deal less of a memory pig, but it seems to give numerical accuracy problems in some cases.
+
+I am splitting qbsp up into three seperate programs, which will make the memory requirements much smaller than they are now, and will help me be more numerically rigorous.  This is going to take some time, so it won't be in the next code release.

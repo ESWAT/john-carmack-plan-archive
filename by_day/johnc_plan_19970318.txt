@@ -1,0 +1,47 @@
+I have gotten a significant amount of response on the Quake 2 extension mechanism. I do read everything that comes my way (I can't respond to all of it, though), and I have learned a few things from the mail.
+
+Nothing is set in stone yet, but it is still looking like a dll is going to be the primary interface. I have been seriously considering a java interface, but the tradeoffs (time spent implementing takes away from something else..) just don't quite add up. Other options, like enhancing qc or using other languages like perl have very remote chances.
+
+One of the primary reasons is that you can allways build UP - put more functionality on top of a dll, but you can't allways build DOWN - accessing the registry from java for instance.
+
+For Id Software to develop a game, a dll will be most efficient. We have more cpu power, and we can debug it more easily. We are directing significant effort towards making Quake 2 a better GAME, as well as just a better mutliplayer virtual world. Quake 1 was pretty messed up from a game standpoint, and we don't plan on doing that again.
+
+What I can offer the qc hacking crowd is a public release of the qc interface and interpreter code from Quake 1 when Quake 2 is released. The user community can then bolt things together so that there can be one publicly trusted DLL that executes an updated and modified qc language for portable, secure add ons.
+
+I really do care about portability, but it is just one factor that needs to be balanced against all the others. Things just aren't clear cut.
+
+Speaking of portability, to remove the guesswork that goes on, here are my current opinions on the various platforms:
+
+Win32 
+Win32 rules the world. You are sticking your head in the sand if you think otherwise. The upside is that windows really doesn't suck nowdays. Win 95 / NT 4.0 are pretty decent systems for what they are targeted at. I currently develop mostly on NT, and Quake 2 will almost certainly be delivered on win32 first. Our games should run as well as possible in NT, we won't require any '95 only features.
+
+Dos 
+We are not going to do another dos game. No amount of flaming hate mail is going to change my mind on this (PLEASE don't!). The advantages of good TCP/IP support, dynamic linking, powerfull virtual memory, device drivers, etc, are just too much to overcome. Yes, all of those can be provided under dos in various ways, but it just isn't worth it.
+
+Linux 
+I consider linux the second most important platform after win32 for id. From a biz standpoint it would be ludicrous to place it even on par with mac or os/2, but for our types of games that are designed to be hacked, linux has a big plus: the highest hacker to user ratio of any os. I don't personally develop on linux, because I do my unixy things with NEXTSTEP, but I have a lot of technical respect for it.
+
+MacOS 
+From a money making standpoint, the only OS other than win32 that matters, and it doesn't matter all that much. We have professional ports done to MacOS instead of unsupported hack ports, which is a mixed blessing. They come out a lot later (still waiting for quake..), but are more full featured. I have zero respect for the MacOS on a technical basis. They just stood still and let microsoft run right over them from waaay behind. I wouldn't develop on it.
+
+OS/2 
+A native OS/2 port of any of our products is unlikely. We just don't care enough, and we are unwilling to take time away from anything else.
+
+SGI 
+I don't particularly care for IRIX as a development environment (compared to NT or NEXTSTEP), but SGI has the coolest hardware to run GL apps on. Safe to assume future IRIX ports, but its not exactly a top priority.
+
+AIX / OSF / HPUX / SOLARIS 
+I wouldn't start a port to any of these, but if a trusted party (Zoid) wanted to do them, I probably wouldn't object.
+
+BeOS 
+I bought a BeBox because I am a solid believer in SMP, and I like clean, from-scratch systems. I was left fairly non plussed by it. Yes, it is lean and mean and does a couple things better than any other OS I have seen, but I just don't see any dramatic advantages to it over, say, NEXTSTEP. Lion (the company doing the mac quake port) has a BeOS port of quake sort of working, and have my full support in releasing it, but it will be strictly an act of charity on their part, so don't expect too much.
+
+Plan9 
+I spent a few months running Plan9. It has an achingly elegent internal structure, but a user interface that has been asleep for the past decade. I had an older version of quake dedicated server running on it (don't ask me for it - I lost it somewhere) and I was writing a civilized window manager for it in my spare time, but my spare time turned out to be only a couple hours a month, and it just got prioritized out of existance.
+
+NEXTSTEP 
+My faviorite environment. NT and linux both have advantages in some areas, but if they were on equal footing I would choose NEXTSTEP hands down. It has all the power of unix (there are lots of things I miss in NT), the best UI (IMHO, of cource), and it just makes sense on so many more levels than windows. Yes, you can make windows do anything you want to if you have enough time to beat on it, but you can come out of it feeling like you just walked through a sewer.
+
+In the real world, things aren't on equal footing, and I do most of my work on NT now. I hold out hope that it may not stay that way. If apple Does The Right Thing with rhapsody, I will be behind them as much as I can. NEXTSTEP needs a couple things to support games properly (video mode changing and low level sound access). If apple/next will provide them, I will personally port our current win32 products over.
+
+If I can convince apple to do a good hardware accelerated OpenGL in rhapsody, I would be very likely to give my win NT machine the cold shoulder and do future development on rhapsody. (I really don't need Quickdraw3D evangelists preaching to me right now, thank you)

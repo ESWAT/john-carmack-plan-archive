@@ -1,0 +1,9 @@
+* triggered trains
+* began work on sound code
+
++ edge friction jumping
++ edge friction in air?
+
+ambush guards
+temp ent precache
+does pacifier not work on net games?

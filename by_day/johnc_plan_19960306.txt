@@ -1,0 +1,30 @@
+* fixed all network play issues
+* better monster combat
+* monsters don't activate plats
+* shambler shoot up
+* stubbed enforcer
+* soldier standing frames
+* monster use function makes them hostile towards activator
+
++ drop ammo
++ monsters see farther
++ negative ammo
++ extra friction near edges
++ fracs aren't right in single player
++ use monsters = wake up
+
+set ideal yaw upon first sighting
+temp object updates
+check size on teleport destinations
+player only teleporters
+puff of smoke when shooters fire
+weird high look up on romero's level
+step on grenades
+flyers look down
+eagle eye checkbox
+monsters not trigger plat
+flying change height
+monster jumping
+make tents for shotgun puffs
+leave level running too long problem
+shambler range

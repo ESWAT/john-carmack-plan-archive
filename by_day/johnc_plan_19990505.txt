@@ -1,0 +1,3 @@
+* client side predict item pickups. running over items was one of the few remaining locally perceived signs of lag
+* new pont-in-patch test code
+* fixed pathname errors when mac users had slashes in their paths: "B/W mac". sigh.

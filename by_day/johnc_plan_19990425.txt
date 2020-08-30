@@ -1,0 +1,31 @@
+Some people seem to think that I just make up these performance comparison numbers. I don't. I measure things, and I understand control conditions.
+
+In this discussion, assume "wintel" is a 500 mhz PIII with either a agp rage128, or an agp TNT card, and "macos" is a 400 mhz G3 with the pci rage128.
+
+At the highest level, you can make application class comparisons between platforms. For instance, CodeWarrior on the mac compiles faster than VC++ on wintel, but stuffit is way slower than winzip. This is useful data, but says more about the application design than the relative merits of the platforms. CW uses a single object file repository, for instance.
+
+A better comparison is an identical app on both platforms.
+
+Photoshop is often faster on macos than wintel. There is certainly a lot of common code, but individual filters are optimized for each platform. Some of these hand optimized operations are significantly faster on the mac.
+
+Quake1 was the counterpoint to that. Quake1 had significant amounts of hand tuned asm code for intel, and the PPC version never got as much attention. The PPC version was noticeably slower (you would have to time at 640*480 to avoid unfairly penalizing the mac for lack of low res modes).
+
+So, clearly, hand tuned asm code can make either platform pull ahead. It also shows that the two platforms are at least fairly close in performance. I never said macs were SLOW, just not quite as fast as the best intel systems.
+
+Quake3 doesn't software rasterize, so there isn't any great place for lots of asm code (the great place is in the OpenGL driver). The code is essentially identical on all platforms.
+
+Q3 is definitely faster on a wintel system than a macos system. When the wintel version is released, everyone will be independantly repeating that measurement.
+
+Even this measurement isn't exactly an apples to apples comparison, because the OpenGL driver and 3D card are still a significant variance. The two can be broken out farther: Q3 can be run without 3D output to test just the identical compiled code. Wintel is still faster, although somewhat less so. The OpenGL + 3D card setup can be benchmarked separately on the axis of throughput and fill rate, which show the intel system being significantly faster. I can't break that apart into the two separate components, but I will guess that the OpenGL driver is probably as efficient as the wintel drivers and the performance delta is due to the system interface and the video card. The current mac rage128 cards run at 75 mhz, which is a third slower than the PC cards. AGP is also more than just a faster PCI, it can influence the structure of communication with the card.
+
+It has been my observation in the past that most of my code tracks just about midway between specint and specfp for performance comparisons. There is a lot of floating point, but it is all short vectors, rather than the massive vectors of scientific computing. If we discount the graphics subsystem, Q3 follows this reasonably well. The intel system does slightly better than projected.
+
+"Sucks" is a subjective description that can be dismissed as opinion. Note that I have NEVER said that the hardware sucks, or the user interface sucks, just that the mac OPERATING SYSTEM sucks.
+
+"Faster", when qualified with testing conditions, is objective, and all the wishing in the world doesn't change it.
+
+Objectivity and quantification are the paths to improvement.
+
+I will be very happy if Apple can produce a desktop system that is faster than anything else you can get. I respect good engineering from any source. Altivec should be better than the PIII extensions (trinary ops -- yeah!). The upcoming system architectures look good. They have a shot at it, but they won't make it if they complacently think "oh, we are already faster than any pc system".
+
+My twin turbo F50 can still be outrun at the dragstrip by much cheaper race cars. Many ferrari owners would not dare set foot at a drag strip, because they fear objective measurements that may not show their important possession in the best light. I would rather have the facts, so I can base future decisions on logical grounds.

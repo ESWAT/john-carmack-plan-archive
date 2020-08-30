@@ -1,0 +1,29 @@
+Ok, I'm overdue for an update.
+
+The research getaway went well. In the space of a week, I only left my hotel to buy diet coke. It seems to have spoiled me a bit, the little distractions in the office grate on me a bit more since. I will likely make week long research excursions a fairly regular thing during non- crunch time. Once a quarter sounds about right.
+
+I'm not ready to talk specifically about what I am working on for trinity. Quake went through many false starts (beam trees, portals, etc) before settling down on its final architecture, so I know that the odds are good that what I am doing now won't actually be used in the final product, and I don't want to mention anything that could be taken as an implied "promise" by some people.
+
+I'm very excited by all the prospects, though.
+
+Many game developers are in it only for the final product, and the process is just what they have to go through to get there. I respect that, but my motivation is a bit different.
+
+For me, while I do take a lot of pride in shipping a great product, the achievements along the way are more memorable. I don't remember any of our older product releases, but I remember the important insights all the way back to using CRTC wraparound for infinate smooth scrolling in Keen (actually, all the way back to understanding the virtues of structures over parallel arrays in apple II assembly language..). Knowledge builds on knowledge.
+
+I wind up catagorizing periods of my life by how rich my learning experiences were at the time.
+
+My basic skills built up during school on apple II computers, but lack of resources limited how far and fast I could go. The situation is so much better for programmers today - a cheap used PC, a linux CD, and an internet account, and you have all the tools and resources necessary to work your way to any level of programming skill you want to shoot for.
+
+My first six months at Softdisk, working on the PC, was an incredible learning experience. For the first time, I was around a couple of programmers with more experience than I had (Romero and Lane Roath), there were a lot of books and materials available, and I could devote my full and undivided attention to programming. I had a great time.
+
+The two years following, culminating in DOOM and the various video game console work I did, was a steady increase in skills and knowledge along several fronts - more graphics, networking, unix, compiler writing, cross development, risc architectures, etc.
+
+The first year of Quake's development was awesome. I got to try so many new things, and I had Michael Abrash as my sounding board. It would probably surprise many classically trained graphics programmers how little I new about conventional 3D when I wrote DOOM - hell, I had problems properly clipping wall polygons (which is where all the polar coordinate nonsense came from). Quake forced me to learn things right, as well as find some new innovations.
+
+The last six months of Quake's development was mostly pain and suffering trying to get the damn thing finished. It was all worth it in the end, but I don't look back at it all that fondly.
+
+The development cycle of Quake 2 had some moderate learning experiences for me (glquake, quakeworld, radiosity, openGL tool programming, win32, etc), but it also gave my mind time to sift through a lot of things before getting ready to really push ahead.
+
+I think that the upcoming development cycle for trinity is going to be at least as rewarding as Quake's was. I am reaching deep levels of understanding on some topics, and I am branching out into several completely new (non-graphics) areas for me, that should cross-polinate well with everything else I am doing.
+
+There should also be a killer game at the end of it. :)

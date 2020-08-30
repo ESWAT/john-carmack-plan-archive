@@ -1,0 +1,22 @@
+* fixed bmodel cluster overload
+* double areas for doors
+* drawworld 0
+* bmodel sound origins
+
++ rename "globals" in game to ge?
++ remove limits on max entities in packet?
++ better way of tracking static sounds, so they can be turned off?
++ object looping sounds?
++ machine sounds in fact2
++ fix look up / run back bug
++ add more packet buffers to avoid "dumped packet" warnings?
++ dll basing information for function pointers
+
+finish status bar and inventory
+use areas for multicast
+hint brushes
+eliminate baselines by allways tracking client's knowledge of all ents?
+qdata model frame auto-number issues
+snap stuck view when dead?
+set_ex command to set info status
+game dll version number?

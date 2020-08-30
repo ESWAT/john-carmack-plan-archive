@@ -1,0 +1,67 @@
+RAGE on iPhone/iPad/iPod
+
+Source: http://www.bethblog.com/index.php/2010/10/29/john-carmack-discusses-rage-on-iphoneipadipod-touch/
+
+@RAGE for iPhone@
+
+Our mobile development efforts at id took some twists and turns in the last year. The plan was always to do something RAGE-related on the iPhone/iPad/iPod touch next, but with all the big things going on at id, the mobile efforts weren’t front and center on the priority list. There had been a bit of background work going on, but it was only towards the end of July that I was able to sit down and write the core engine code that would drive the project.
+
+I was excited about how well it turned out, and since this was right before QuakeCon, I broke with tradition and did a live technology demo during my keynote. In hindsight, I probably introduced it poorly. I said something like “Its RAGE. On the iPhone. At 60 frames a second.”  Some people took that to mean that the entire PC/console game experience was going to be on the iPhone, which is definitely not the case.
+
+What I showed was a technology demo, written from scratch, but using the RAGE content creation pipeline and media. We do not have the full RAGE game running on iOS, and we do not plan to try. While it would (amazingly!) actually be possible to compile the full-blown PC/console RAGE game for an iPhone4 with some effort, it would be a hopelessly bad idea. Even the latest and greatest mobile devices are still a fraction of the power of a 360 or PS3, let alone a high end gaming PC, so none of the carefully made performance tradeoffs would be appropriate for the platform, to say nothing of the vast differences in controls.
+
+What we do have is something unlike anything ever seen on the iOS platforms. It is glorious, and a lot of fun. Development has been proceeding at high intensity since QuakeCon, and we hope to have the app out by the end of November.
+
+The technical decision to use our megatexture content creation pipeline for the game levels had consequences for its scope. The data required for the game is big. Really, really big. Seeing Myst do well on the iPhone with a 700 meg download gave me some confidence that users would still download huge apps, and that became the target size for our standard definition version, but the high definition version for iPad / iPhone 4 will be around twice that size. This is more like getting a movie than an app, so be prepared for a long download. Still, for perspective, the full scale RAGE game is around 20 gigs of data with JPEG-XR compression, so 0.7 gigs of non-transcoded data is obviously a tiny slice of it.
+
+Since we weren’t going to be able to have lots of hugely expansive levels, we knew that there would be some disappointment if we went out at a high price point, no matter how good it looked. We have experimented with a range of price points on the iPhone titles so far, but we had avoided the very low end. We decided that this would be a good opportunity to try a  $0.99 SD / $1.99 HD price point.  We need to stay focused on not letting the project creep out of control, but I think people will be very happy with the value.
+
+The little slice of RAGE that we decided to build the iPhone product around is “Mutant Bash TV”, a post apocalyptic combat game show in the RAGE wasteland. This is the perfect setup for a quintessential first person shooter game play experience — you pick your targets, aim your shots, time your reloads, dodge the bad guys, and try and make it through to the end of the level with a better score than last time. Beyond basic survival, there are pickups, head shots, and hit streak multipliers to add more options to the gameplay, and there is a broad range of skill levels available from keep-hitting-fire-and-you-should-make-it to almost-impossible.
+
+A large goal of the project has been to make sure that the levels can be replayed many times. The key is making the gamplay itself the rewarding aspect, rather than story progression, character development, or any kind of surprises. Many of the elements that made Doom Resurrection good the first time you played it hurt the replayability, for instance. RAGE iOS is all action, all the time. I have played the game dozens of times, and testing it is still fun instead of a chore.
+
+@Technical Geek Details@
+
+The id Tech 5 engine uses a uniform paged virtual texture system for basically everything in the game. While the algorithm would be possible on 3GS and later devices, it has a substantial per-fragment processing cost, and updating individual pages in a physical texture is not possible with PVRTC format textures. The approach used for mobile RAGE is to do the texture streaming based on variable sized contiguous “texture islands” in the world. This is much faster, but it forces geometric subdivision of large surfaces, and must be completely predictive instead of feedback reactive. Characters, items, and UI are traditionally textured.
+
+We build the levels and preview them in RAGE on the PC, then run a profiling / extraction tool to generate the map data for the iOS game. This tool takes the path through the game and determines which texture islands are going to be visible, and at what resolution and orientation. The pixels for the texture island are extracted from the big RAGE page file, then anisotropically filtered into as many different versions as needed, and packed into 1024×1024 textures that are PVRTC compressed for the device.
+
+The packing into the textures has conflicting goals – to minimize total app size you want to cram texture islands in everywhere they can fit, but you also don’t want to scatter the islands needed for a given view into a hundred different textures, or radically change your working set in nearby views. As with many NP complete problems, I wound up with a greedy value metric optimizing allocation strategy.
+
+Managing over a gig of media made dealing with flash memory IO and process memory management very important, and I did a lot of performance investigations to figure things out.
+
+Critically, almost all of the data is static, and can be freely discarded. iOS does not have a swapfile, so if you use too much dynamic memory, the OS gives you a warning or two, then kills your process. The bane of iOS developers is that “too much” is not defined, and in fact varies based on what other apps (Safari, Mail, iPod, etc) that are in memory have done. If you read all your game data into memory, the OS can’t do anything with it, and you are in danger. However, if all of your data is in a read-only memory mapped file, the OS can throw it out at will. This will cause a game hitch when you need it next, but it beats an abrupt termination. The low memory warning does still cause the frame rate to go to hell for a couple seconds as all the other apps try to discard things, even if the game doesn’t do much.
+
+Interestingly, you can only memory map about 700 megs of virtual address space, which is a bit surprising for a 32 bit OS. I expected at least twice that, if not close to 3 gigs. We sometimes have a decent fraction of this mapped.
+
+A page fault to a memory mapped file takes between 1.8 ms on an iPhone 4 and 2.2 ms on an iPod 2, and brings in 32k of data. There appears to be an optimization where if you fault at the very beginning of a file, it brings in 128k instead of 32k, which has implications for file headers.
+
+I am pleased to report that fcntl( fd, F_NOCACHE ) works exactly as desired on iOS – I always worry about behavior of historic unix flags on Apple OSs. Using this and page aligned target memory will bypass the file cache and give very repeatable performance ranging from the page fault bandwidth with 32k reads up to 30 mb/s for one meg reads (22 mb/s for the old iPod). This is fractionally faster than straight reads due to the zero copy, but the important point is that it won’t evict any other buffer data that may have better temporal locality. All the world megatexture data is managed with uncached reads, since I know what I need well ahead of time, and there is a clear case for eviction. When you are past a given area, those unique textures won’t be needed again, unlike, say monster animations and audio, which are likely to reappear later.
+
+I pre-touch the relevant world geometry in the uncached read thread after a texture read has completed, but in hindsight I should have bundled the world geometry directly with the textures and also gotten that with uncached reads.
+
+OpenAL appears to have a limit of 1024 sound buffers, which we bumped into. We could dynamically create and destroy the static buffer mappings without too much trouble, but that is a reasonable number for us to stay under.
+
+Another behavior of OpenAL that surprised me was finding (by looking at the disassembly) that it touches every 4k of the buffer on a Play() command. This makes some sense, forcing it to page the entire thing into ram so you don’t get broken sound mixing, but it does unpredictably stall the thread issuing the call. I had sort of hoped that they were just eating the page faults in the mixing thread with a decent sized mix ahead buffer, but I presume that they found pathological cases of a dozen sound buffers faulting while the GPU is sucking up all the bus bandwidth or some such. I may yet queue all OpenAL commands to a separate thread, so if it has to page stuff in, the audio will just be slightly delayed instead of hitching the framerate.
+
+I wish I could prioritize the queuing of flash reads – game thread CPU faults highest, sound samples medium, and textures lowest. I did find that breaking the big texture reads up into chunks helped with the worst case CPU stalls.
+
+There are two project technical decisions that I fretted over a lot:
+
+Because I knew that the basic rendering technology could be expressed with fixed function rendering, the game is written to OpenGL ES 1.1, and can run on the older MBX GPU platforms. While it is nice to support older platforms, all evidence is that they are a negligible part of the market, and I did give up some optimization and feature opportunities for the decision.
+
+It was sort of fun to dust off the old fixed function puzzle skills. For instance, getting monochrome dynamic lighting on top of the DOT3 normal mapping in a single pass involved sticking the lighting factor in the alpha channel of the texture environment color so it feeds through to the blender, where a GL_SRC_ALPHA, GL_ZERO blend mode effects the modulation on the opaque characters. This sort of fixed function trickery still makes me smile a bit, but it isn’t a relevant skill in the modern world of fragment shaders.
+
+The other big one is the codebase lineage.
+
+My personally written set of iPhone code includes the renderer for Wolfenstein RPG, all the iPhone specific code in Wolfenstein Classic and Doom Classic, and a few one-off test applications. At this point, I feel that I have a pretty good idea of what The Right Thing To Do on the platform is, but I don’t have a mature expression of that in a full game. There is some decent code in Doom Classic, but it is all C, and I would prefer to do new game development in (restrained) C++.
+
+What we did have was Doom Resurrection, which was developed for us by Escalation Studios, with only a few pointers here and there from me. The play style was a pretty close match (there is much more freedom to look around in RAGE), so it seemed like a sensible thing. This fits with the school of thought that says “never throw away the code” (http://www.joelonsoftware.com/articles/fog0000000069.html ). I take issue with various parts of that, and much of my success over the years has involved wadding things up and throwing it all away, but there is still some wisdom there.
+
+I have a good idea what the codebase would look like if I wrote it from scratch. It would have under 100k of mutable CPU data, there wouldn’t be a resource related character string in sight, and it would run at 60 fps on new platforms / 30 fps on old ones. I’m sure I could do it in four months or so (but I am probably wrong). Unfortunately, I can’t put four months into an iPhone project. I’m pushing it with two months –  I have the final big RAGE crunch and forward looking R&D to get back to.
+
+So we built on the Resurrection codebase, which traded expediency for various compromise in code efficiency. It was an interesting experience for me, since almost all the code that I normally deal with has my “coding DNA” on it, because the id Software coding standards were basically “program the way John does.”  The Escalation programmers come from a completely different background, and the codebase is all STL this, boost that, fill-up-the-property list, dispatch the event, and delegate that.
+
+I had been harboring some suspicions that our big codebases might benefit from the application of some more of the various “modern” C++ design patterns, despite seeing other large game codebases suffer under them. I have since recanted that suspicion.
+
+I whine a lot about it (occasionally on twitter), and I sometimes point out various object lessons to the other mobile programmers, but in the end, it works, and it was probably the right decision.

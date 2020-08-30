@@ -1,0 +1,22 @@
+* gate_boss, gate_episode
+* item_sigil
+* fixed demo transition forcing console and menu away
+* setup for server transitions with connected clients
+
++ grab new explosions
++ console screen isn't coming down in deathmatch
++ non-pickup nails again
++ console cursor
++ check tim21
++ coop player starts
++ flip mouse y as a checkbox option
+
+monsters aren't telefragged?
+aim lighting gun up/down
+connect while demo is running fucks up
+sound for quad damage attack
+accumulate damage
+shoot flying gibs?
+add new gibs
+deathmatch intermission screen
+talk message buffer doesn't erase with sized down screen

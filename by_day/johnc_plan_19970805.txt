@@ -1,0 +1,12 @@
+At siggraph
+
+* fix qe4 autosave
+* merged qlumpy into qdata, save seperate files
+* changed quaked to use texture directories
+
++ fix leaktest option
++ show texture directory on inspector window
++ show full texture name somewhere when clicked on
++ texture info overrides
+
+remap maps to share common textures?

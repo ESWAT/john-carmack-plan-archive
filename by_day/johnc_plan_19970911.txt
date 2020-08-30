@@ -1,0 +1,8 @@
+* cddir
+
++ must save status upon entering a level if it was a new spawn
+- each map has a unit number and a level number
+
+is changing skill/etc going to be a problem while demos are running?
+demos in pak file
+don't use virtual alloc!

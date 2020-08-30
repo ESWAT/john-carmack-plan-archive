@@ -1,0 +1,41 @@
+Quake 2 has mastered.
+
+Where we go from here:
+
+Point release.
+
+We should have a Quake 2 point release out shortly after the game gets in your hands. We intend to fix any bugs that turn up, improve the speed somewhat, and optimize for internet play in various ways. We will also be making several deathmatch only maps.
+
+Deathmatch in Q2 has gotten a lot of lan testing (Thresh, Redwood, and Vik Long helped quite a bit the last week with tuning), but not much internet testing. There are probably gaping holes in it, but we will address them soon.
+
+The deathmatch code in the shipping Q2 is also not designed to hold up against malicious users - there is no protection against clients being obnoxious and constantly changing skins, chat flooding, client-side cheating, or whatever.
+
+Q2 does checksum maps on the client side right now, so cheater maps won't work like they do in Q1, but cheater models and skins are still possible. I have some plans to combat that in the point release, but there are a lot of forms of cheating that can be implemented in proxies that are fundamentally not detectable. I can make it very painfully difficult for people to implement such things, but a very clever person with a dissasembler just can't be stopped completely.
+
+The server code and network protocol should be able to support ultra-large player counts, but I know I need to do some low-level work to get around operating system buffer limits before it will actually work. We will test at least a hundred players in a giant map for the point release, but we won't actually address the issues of making a rational game at that level (chat hierarchies, team spawning, etc). I am very much looking forward to seeing what the user community creates on that foundation.
+
+It is likely that the point release may have incompatable network protocols and savegames. Fair warning.
+
+Q2 Demo.
+
+After the point release, we will be making a new demo release. If you experienced compatability problems with q2test, or were unsatisfied with the quality in some way, you should look at the demo. The final product is much improved.
+
+Q2 Ports.
+
+We are commited to Win32 Alpha, Linux, irix, and rhapsody in that order. It is likely that a bunch of other ports will come later, but no promises. The presence of hardware-accelerated OpenGL on a platform will improve it's odds a lot. Zoid will probably prioritize Q2 CTF over other ports, so hold off on bugging him about ports for a while.
+
+Development tool release.
+
+I will basically be making publicly available a subset of the directory tree that we will deliver to our licensees. All the utility source code, the game dll source code, and probably some example source media - .map files, artwork, model source, etc.
+
+Q2 mission pack.
+
+Most of the company will be working on a mission pack while Brian and I write tools and technology for trinity.
+
+Trinity.
+
+I am going to rapidly wean myself off of working with quake so I can concentrate fully on new directions. The evolution of the Q2 codebase will be left to John Cash (until the mission pack ships) and Zoid.
+
+Everyone should keep in mind that any next-generation game that we produce is a LONG way off, so don't start getting all worked up over it, ok?
+
+For the curious, it does look like java is going to start playing a significant role in our future projects. All of the lightweight utilities will be java applications (some requiring OpenGL bindings). The heavy duty number crunching utilities will probably stay in C. It is still unclear how much of the game framework and the level editor we can get away with doing in java.

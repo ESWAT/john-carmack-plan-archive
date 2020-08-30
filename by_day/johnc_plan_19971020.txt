@@ -1,0 +1,21 @@
+Many of the comments about the Quake 2 test are already being addressed. We expected quite a few of them, but the test has served its purpose of bringing in some good feedback that we couldn't have predicted.
+
+The final game will definately be better as a result of the test.
+
+However, it certainly won't please everyone. I am confident that the majority will think that Quake 2 is significantly better than anything we have ever done before, but even if we please 80% of our potential customers, that will still leave a couple hundred thousand people thinking that we let them down.
+
+I suppose that I have it the easiest there - I can always defend my technical decisions with specific discussions of my evaluations of the tradeofs that led me to the paths I chose. In fact, in a large number of cases when someone suggests something, I can actually say "Tried it. Didn't work as well."
+
+Defending level design, artwork, or sounds is a lot harder. We can't even always agree here at id on many of these issues, so we know for sure that we can't please all the users simultaniously. All we can do is put talented people on the job and have confidence in their abilities.
+
+Note: Q2TEST DOES NOT INCLUDE ANY HIGH QUALITY SOUNDS! That would have added another 15 megs to the demo size. Selecting high quality sounds just upsamples the existing 11khz / 8 bit sounds. There is a significant quality increase (at a slight speed and memory cost) with the full production sounds.
+
+Quake 2's goal is to be the best first person shooter ever. We are trying to evolve a genre, not move to a different one. If you don't want a game that mostly consists of running around and killing things, you will be dissapointed. We are trying to be cohesive, but not deep. I have high hopes for the games that are atempting to aply our technology to other genres, but don't look for it in Quake 2.
+
+A quick plug:
+
+if you have any interest in programming, you should look at Michael Abrash's Graphics Programming Black Book Special Edition. It has just about everything he has written, from the ancient work on optimizing for the 8086 (still interesting to read) to the articles written during quake's development.
+
+I personally learned a lot from Michael's early articles, and I was proud to contribute to the later ones.
+
+http://www.amazon.com/exec/obidos/ISBN=1576101746/3226-6070174-877180

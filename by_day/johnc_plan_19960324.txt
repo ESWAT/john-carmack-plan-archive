@@ -1,0 +1,19 @@
+* level to level transitions
+* finished light modifications for switchables
+* fixed bug that caused some entities to not appear
+
++ weird field trashing bug
++ don't clear sound precache on non-progrestart
++ stuff not showing up in jccode
++ savegames
++ nail angles are wrong
++ cought on buttons in johnc99
++ is anything confused by sv.active on clients during a net game?
+
+stereo positioning is wrong
+nograv
+handle coop games
+make lightning a tent
+worry about security risks with pathnames for demos and savegames
+need to save lightstyles in savegames
+non-convex bsp output

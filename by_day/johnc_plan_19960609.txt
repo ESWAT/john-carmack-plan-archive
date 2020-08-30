@@ -1,0 +1,30 @@
+* boss damage only by lightning
+* enforcer bolt positioning
+* all gibs centered
+* lava splash
+* boss stop throwing when player is dead
+* fixed cl_backspeed for always run checkbox
+* fixed double talk sound on triggers
+* retain options menu cursor pos
+* nightmare mode: no attack_finished limits, and five second pain interval
+* triggered door message bug
+* weeded out the unused entities in misc
+* consolidated the four remaining sprite scripts into a single file
+* modified sprgen to allow multiple grabs in a single file
+* grabbed new explosions
+
++ level 1 gib needs work
++ is clipping detection for asm sound mixing working right?
++ items falling through other items bug
++ item on moving object respawn bug
++ models aren't checking dlight decay time
++ fix drop.map
++ status active/max is reversed
+
+coop against boss
+make qlumpy parse qc files as source?
+combine particals and temp entities
+fix gib rules
+slime burn down
+check edict return type
+flash weapon icons

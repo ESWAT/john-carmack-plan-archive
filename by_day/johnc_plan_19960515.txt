@@ -1,0 +1,39 @@
+* fixed bug with cl.disconnect not clearing worldmodel
+* linted and asnified qbsp/light/vis
+* changed sbar update model
+* powerup colors and icons
+* fixed console ] gets messed up with escape/escape
+* fixed weapon icon flash going from level to level
+* solo console
+* blob fly1-4
+
++ QuakeEd: don't allow retexture in wireframe mode
++ QuakeEd: clear wad on bad load
++ unfork qbsp
++ body que
+
+remove any remaining static limits in qbsp
+split client state into level - game - invocation
+eyes on status bar for invisibility
+accumulate damages so quad dmg shotgun can gib
+fix spit.map
+optional FOV cull for modem?
+super armor number
+server send prog checksum to clients
+fix hard coded location of status bar numbers in wad
+Cash's teleporter issue
+fake some angles to hide latency on movement
+faster mouse forward/backward
++ QuakeEd: clear brush heights on new level
+more edicts
++strafelook
+toughen up shambler
+no demon/demon blob/blob violence
+hell knight anims
+dopg death frames
+outside level plays all ambient sounds
+cl.active isn't good anymore
+demo loops crew multiplayer
+give for powerups
+make clip brush only models work
+fix bug_numpoints_on_hp.map

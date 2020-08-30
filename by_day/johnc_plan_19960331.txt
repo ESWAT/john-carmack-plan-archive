@@ -1,0 +1,32 @@
+* changed edicts from indexes to pointers
+* fixed byte order problem in qcc
+* fixed backward movement dies after many savegames
+* fixed bus error in edict linking after a model remove
+* cleared rotate flag on CL_SetModelFlags
+* made items move with pushers
+
++ animating textures
++ vis problems out of water in jrbase2
++ get trail characteristics from model name? (now a model flag)
++ switched lights don't work right after restart
++ aiming at fast moving entities
++ center view key
+
+light filter in quakeed is broken
+per-entity ambient light value
+don't play door trigger sounds if full up
+shoot over fallen zombies
+no changeup to grenades
+add targets to doors
+auto pause when console
+player gib packages
+null bobjmodel in singleplayer
+wizard bombs through walls
+drowning time?
+shambler lightning
+hang when starting a mistyped level (time based?)
+old deathmatch rules?
+lockup overnight
+don't hook keyboard on dos dedicated server
+cycle edict allocation so spikes aren't reused frequently
+make spikes rotate

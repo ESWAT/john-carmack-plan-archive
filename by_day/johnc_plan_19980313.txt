@@ -1,0 +1,49 @@
+The Old Plan:
+
+The rest of the team works on an aggressive Quake 2 expansion pack while Brian and I develop tools and code for the entirely new Trinity generation project to begin after the mission pack ships.
+
+The New Plan:
+
+Expand the mission pack into a complete game, and merge together a completely new graphics engine with the quake 2 game / client / server framework, giving us Quake 3.
+
+"Trinity" is basically being broken up into two phases: graphics and everything else. Towards the end of Quake 1's development I was thinking that we might have been better off splitting quake on those categories, but in reverse order. Doing client/server, the better modification framework, and qc, coupled with a spiced up DOOM engine (Duke style) for one game, then doing the full 3D renderer for the following game.
+
+We have no reason to believe that the next generation development would somehow go faster than the previous, so there is a real chance that doing all of the Trinity technology at once might push game development time to a full two years for us, which might be a bit more than the pressure-cooker work atmosphere here could handle.
+
+So, we are going to try an experiment.
+
+The non-graphics things that I was planning for Trinity will be held off until the following project - much java integration with client downloadable code being one of the more significant aspects. I hope to get to some next generation sound work, but the graphics engine is the only thing I am committing to.
+
+The graphics engine is going to be hardware accelerated ONLY. NO SOFTWARE RENDERER, and it won't work very well on a lot of current hardware. We understand fully that this is going to significantly cut into our potential customer base, but everyone was tired of working under the constraints of the software renderer. There are still going to be plenty of good quake derived games to play from other developers for people without appropriate hardware.
+
+There are some specific things that the graphics technology is leveraging that may influence your choice of a 3D accelerator.
+
+All source artwork is being created and delivered in 24 bit color. An accelerator that can perform all 3D work in 24 bit color will look substantially better than a 16 bit card. You will pay a speed cost for it, though.
+
+Most of the textures are going to be higher resolution. Larger amounts of texture memory will make a bigger difference than it does on Quake 2.
+
+Some key rendering effects require blending modes that some cards don't support.
+
+The fill rate requirements will be about 50% more than Quake 2, on average. Cards that are fill rate limited will slow down unless you go to a lower resolution.
+
+The triangle rate requirements will be at least double Quake 2, and scalable to much higher levels of detail on appropriate hardware.
+
+Here are my current GUESSES about how existing cards will perform.
+
+Voodoo 1 Performance will be a little slow, but it should look good and run acceptably. You will have to use somewhat condensed textures to avoid texture thrashing.
+
+Voodoo 2 Should run great. Getting the 12 mb board is probably a good idea if you want to use the high resolution textures. The main rendering mode won't be able to take advantage of the dual TMU the same way quake 2 does, so the extra TMU will be used for slightly higher quality rendering modes instead of greater speed: trilinear / detail texturing, or some full color effects where others get a mono channel.
+
+Permedia 2 Will be completely fill rate bound, so it will basically run 2/3 the speed that quake 2 does. Not very fast. It also doesn't have one of the needed blending modes, so it won't look very good, either. P2 does support 24 bit rendering, but it won't be fast enough to use it.
+
+ATI Rage Pro It looks like the rage pro has all the required blending modes, but the jury is still out on the performance.
+
+Intel I740 Should run good with all features, and because all of the textures come out of AGP memory, there will be no texture thrashing at all, even with the full resolution textures.
+
+Rendition 2100/2200 The 2100 should run about the speed of a voodoo 1, and the 2200 should be faster. They support all the necessary features, and an 8 mb 2200 should be able to use the high res textures without a problem. The renditions are the only current boards that can do 24 bit rendering with all the features. It will be a bit slow in 24 bit mode, but it will look the best.
+
+PVR PCX2 Probably won't run Quake 3. They don't have ANY of the necessary blending modes, so it can't look correct. Video Logic might decide to rev their minidriver to try to support it, but it is probably futile.
+
+RIVA 128 Riva puts us in a bad position. They are very fast, but they don't support an important feature. We can crutch it up by performing some extra drawing passes, but there is a bit of a quality loss, and it will impact their speed. They will probably be a bit faster than voodoo 1, but not to the degree that they are in Quake 2.
+
+Naturally, the best cards are yet to come (I won't comment on unreleased cards). The graphics engine is being designed to be scalable over the next few YEARS, so it might look like we are shooting a bit high for the first release, but by the time it actually ships, there will be a lot of people with brand new accelerators that won't be properly exploited by any other game.

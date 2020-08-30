@@ -1,0 +1,3 @@
+Brian Hook has been hired as our new programmer.
+
+Brian wrote the glide API for 3dfx, worked on CosmoGL, and wrote a book on 3d programming that he is now horribly embarrased about.

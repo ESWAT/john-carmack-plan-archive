@@ -1,0 +1,5 @@
+* increased max portals on edge in bsper
+* NT gl testing
+* fixed path walking
+
++ clear static objects for restarts

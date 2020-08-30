@@ -1,0 +1,9 @@
+We got 70 people on a base100 server, and it died after it wedged at 100% utilization for a while. Tomorrow we will find exactly what overflowed, and do some profiling.
+
+Base100 is really only good for 50 or so players without overcrowding, but we have another map being built that should hold 100 people reasonably well.
+
+I will look into which will be the easier path to more server performance: scalar optimization of whatever is critical now, or splitting it off into some more threads to run on multiple processors. Neither one is trivial.
+
+My goal is to be able to host stable 100 player games in a single map.
+
+I just added a "players" command that will dump the total number of players in the game, and as many frags/names as it can fit in a packet (around 50, I think).

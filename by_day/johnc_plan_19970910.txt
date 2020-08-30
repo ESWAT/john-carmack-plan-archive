@@ -1,0 +1,12 @@
+* don't precache player model in single player games
+* dynamically change maxplayers
+
++ move null files into a seperate directory?
++ alt sticking
++ maxmoveleafs error
+
+teleport in flash is still wrong on second level
+stuck on wall with low grav jumping
+allow minimize?
+win95 memory paging
+still have some tjunctions

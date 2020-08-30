@@ -1,0 +1,11 @@
+* finished box sweeping code
+* fix the automenu key problem on bad cinematic
+* blinking black screen palette set issues
+* send dowarp over from server
+* fixed color 0 grabbing
+* bonus flashes
+* Q_fabs
+
++ dedicated server
+
+drop stair climb in air height

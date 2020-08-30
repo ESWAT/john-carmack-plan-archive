@@ -1,0 +1,51 @@
+* changed grenade cores to MOVETYPE_NONE
+* set gravity in worldspawn
+* fixed host_framerate
+* stopped sounds before server shutdown
+* clear all controls on first client frame
+* view.map, viewmodel, viewframe, viewprev, viewnaext commands
+* dropped ogre backpack to 2 grenades
+* fail soft on video mode memory allocation
+* checked console resize in vid mode set, so size messages never get lost
+* shootable buttons
+
++ edge light seams
++ increase max packet size during development?
++ rotate dogs slower?
++ monsters drop to floor after teleport
++ need very obvious sound for sequence completion
++ model viewer inside quake
++ cache alias models, if only to help level to level change speeds
++ cache heap compaction
++ remove bsp->leaktest from QuakeEd
++ dog leaping
++ sight sound on monster use
++ allways switch to picked up weapons
++ blink weapon icons on status bar when picked up
++ climb out of water bug
++ water warp option in all vid modes
++ make qcc 64 bit clean by using doubles instead of floats on 64 bit
+archs?
+
+intermission levels
+spritegen has funny pathname determination
+demo fast forward
+seperate impact from damage
+combine some of the state flags in both client_t and server_t
+ambient light option on bmodels
+palette should be reset whenever console goes full creen
+should all +- binding have the keyname prepended to avoid the multiple
+downs?
+seperate mouse scaling for turning and moving
+make a "soundshot" option fortesting soundcode in ansi spec makefile?
+raise / lower weapons
+change weapon after firing last round
+flying fish
+change entity flags to effects
+should host_error try to cleanup aborted servers and clients?
+how many hunk allocs are there?  save memory by combining?
+QuakeEd: filter based on skill levels
+check trigger firing when spawned inside one
+remove input line completely when not accepting input
+data checksums for remote servers
+shrink net packet sizes

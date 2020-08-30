@@ -1,0 +1,30 @@
+* added hell knight
+* Hunk_ReportSurfaceCache() instead of automatic
+* fixed multiple touch on items riding plats
+* helped non-solid and trigger items push better
+* cleared pause on map restart
+* fixed level change parms
+* dynamic lights!
+* special wide box for missiles against monsters
+
++ larger rocket radius
++ slow motion screwups
++ nailgun stops rotating when riding a plat
++ stuck roll angle
+
+use knight kneeling frames
+zombie crucified frames
+looping sound while invisible
+make running direction changes smoother
+error check all file opens?
+load temp file on stack if possible?
+remove SOLID_SLIDEBOX
+put auto aiming back in?
+move rule checking to end of frame
+quicksave / quickload
+dissallow spawn parms on deathmatch
+make connect to server send version number
+make temp entities auto remove
+no body que?
+water up swim speed
+tim was getting stuck in deathmatch

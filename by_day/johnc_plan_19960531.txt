@@ -1,0 +1,32 @@
+* based load plaque removal on framecount instead of updates
+* fixed crash bug with zerod notify lines
+* load / save game menus converted to slots instead of file names
+* end1 / end2 shareware / registered end screens
+* triggered monsters no longer awake on invisible or notarget players
+* broke out default.cfg from quake.rc
+* fixed five way counter trigger message
+* fixed push triggers to be frame rate independent
+* translated spaces to _ in savegame comment to make stdio happy
+* escape in keygrab now justs turns it off
+* protected against recursive loop when Con_Printf inside
+SCR_UpdateScreen
+
+is model name caching being done correctly for the flushed world model
+name?
+centerprint message delay times
+fade screen behind menus
+gib big monsters
+cl itemgettimes aren't saved.  do they need to be?
+weapon nudges on different view sizes
+slime ambient sounds
+center everything in higher res modes
+got stuck by explosion near zombies
+return to jrstart stuff
+amtest98 needs new teleport textures
+reset defaults option
+reset to defaults option
+track down load failed comments
+why do menu sounds ometimes not work?
+combo look/strafe
+fix lightning
+push trigger directionality wierdness

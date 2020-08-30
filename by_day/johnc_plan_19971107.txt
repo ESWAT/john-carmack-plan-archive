@@ -1,0 +1,20 @@
+* flag reorg
+* teleporters
+* put holdangles into pmove.pm_type
+
++ pm.touchents holds duplicates
++ damage anything flag
++ precache chat sound
++ teleporters at player spawn points
++ remove rocket fragments in dm
+
+rename entity_t to rentity_t ?
+teleport sequence bit to make ef_teleport reliable?
+turn any event into a temp entity? (with or without angles)
+unify sound starting as temp entities?
+is time being over quantized by timegettime?
+order events by priority
+login / logout as events?
+all sound channels as extra events?
+
+trinity: objects should have enabler inputs as well as multiple impulse targets

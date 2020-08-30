@@ -1,0 +1,21 @@
+d:>mkdir research
+
+Ahhhh...
+
+I am very happy with how Q3 turned out. Probably more than any game we have done before, it's final form was very close to its initial envisioning.
+
+I will be getting all the Q3 code we are going to release together over the next week or so. I will write some overview documentation to give a little context, and since you can do game mods without needing a commercial compiler now, I will write a brief step-by-step to modifying the game code.
+
+I'm looking forward to what comes out of the community with Q3.
+
+The rough outline of what I am going to be working on now:
+
+We will be supporting Q3 for quite some time. Any problems we have will get fixed, and some new features my sneak in.
+
+I have two rendering technologies that I intend to write research engines for.
+
+I am going to spend some time on computer vision problems. I think the cheap little web cams have some interesting possibilities.
+
+I am going to explore some possibilities with generalizing 3D game engines into more powerful environments with broader uses. I think that a lot of trends are coming to the point where a "cyberspace" as it is often imagined is begining to be feasible.
+
+I am going to spend more time on some Free Software projects. I have been stealing a few hours here and there to work on the matrox glx project for a while now, and it has been pretty rewarding. People with an interest in the guts of a 3D driver might want to look at the project archives at http://glx.on.openprojects.net/. The web pages aren't very up to date, but the mailing list covers some good techie information.

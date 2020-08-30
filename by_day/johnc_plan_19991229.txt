@@ -1,0 +1,19 @@
+I have been playing a lot of Q3 on a 28.8 modem for the last several days.
+
+I finally found a case of the stuck-at-awaiting-gamestate problem that turned out to be a continuous case of a fragment of the gamestate getting dropped. I have changed the net code to space out the sending of the fragments based on rate.
+
+Note that there have been a few different things that result in stuck at gamestate or stuck at snapshot problems. We have fixed a few of them, but there may well still be other things that we haven't found yet.
+
+You can still have a fun game on a 28.8 modem. It is a significant disadvantage, no question about it, but you can still have a good game if you play smart. If there is someone that knows what they are doing on a server with a ping in the low 100s, there won't usually be much you can do, but a skilled modem player can still beat up on unskilled T1 players..
+
+Make sure your modem rate is set correctly. If you have it set too high, large amounts of data can get buffered up and you can wind up with multiple seconds of screwed up delays.
+
+Only play on servers with good pings. My connection gives me a couple dozen servers with mid 200 pings. 56k modems often see servers with sub 200 pings. If you ignore the ping and just look for your favorite map, you will probably have a crappy game.
+
+If you have a good basic connection to the server, the thing that will mess up your game is too much visible activity. This is a characteristic of the number of players, the openness of the level, and the weapons in use.
+
+Don't play on madhouse levels with tons of players. None of the normal Q3 maps were really designed for more than eight players, and many were only designed for four.
+
+Don't play in the wide open maps unless there are only a couple other players. Four very active players in a wide open area are enough to bog down a modem connection.
+
+I just implemented "sv_minPing" / "sv_maxPing" options so servers can restrict themselves to only low ping or high ping players. This is done based on the ping of the challenge response packet, rather than any in-game pings. There are a few issues with that - a LPB may occasionally get into a HPB server if they happen to get a network hiccup at just the right time, and the number used as a gate will be closer to the number shown in the server list, rather than the number seen in gameplay. I would reccomend "sv_minPing 200" as a reasonable breakpoint.

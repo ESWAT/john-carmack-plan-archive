@@ -1,0 +1,21 @@
+* exploded wizard bombs on death
+* server optimization
+* fixed angle on loadgame and coop
+* average monster velocity for aiming
+* made wizard fall properly
+
++ running into nails
++ can still get shot out of the world
++ dynamically allocate color translation tables
++ pause work
++ backpack dropping
+
+water stair climbing
+check door linking , regarding the partial closing
+restart level spawn parms
+dead player save que
+quakeed magnified texture view
+ambient + gravity attributes
+load fames
+restart without killing server
+no-aim option

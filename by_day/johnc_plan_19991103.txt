@@ -1,0 +1,19 @@
+* cd check in single player
+* removed drop shadow on console input line
+* swapped mynx pain sounds
+* fixed cleared music buffer on track loop again
+* force skins on spectators in team games to prevent having a default waste memory
+* only defer to a model with same team skin
+* fixed grenade-disappearing-at-floor bug when about to explode
+* draw reward medals during gameplay
+* added "humiliation" feedback for gauntlet kills
+* spread respawn times to prevent pattern running:
+[code]
+#define RESPAWN_ARMOR 25
+#define RESPAWN_TEAM_WEAPON 30
+#define RESPAWN_HEALTH 35
+#define RESPAWN_AMMO 40
+#define RESPAWN_HOLDABLE 60
+#define RESPAWN_MEGAHEALTH 120
+#define RESPAWN_POWERUP 120
+[/code]

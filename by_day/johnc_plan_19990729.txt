@@ -1,0 +1,18 @@
+* log all client transitions, item pickups, and kills
+* changed joystick axis to act just like arrow keys so they can be bound in the controls menu for strafing. Yes, this does remove slow walking from joystick movement, but it makes everything a lot cleaner.
+* fix up PantherXL trackball support
+* removed bad clear command from dedicated console clear button
+* tournement queuing of spectators to enter the game
+* track wins and losses as long as you stay on a tourney server
+* spectators are now in fly mode instead of noclip, and use teleporters
+* pass serverTime instead of msec for command timing, prevents timescale cheating
+* track dual eventParms on player state
+* draw crosshair and name in spectator mode
+* fixed rcon
+* r_colorMipLevels texture visualization tool
+* don't allow weapon select and cycle when in follow mode
+* archive cl_yawspeed and cl_pitchspeed
+* don't draw place line on scoreboard when spectating
+* fixed console chatting during intermission
+* better recursive error handling
+* fixed curve surface flags (no impact when landing on a curve bug)

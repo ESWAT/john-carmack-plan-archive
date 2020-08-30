@@ -1,0 +1,9 @@
+* fixed sink into plat bug
+* fixed scoreboard display between deathmatch levels
+* seperated game dll definitions
+
++ clamp low cin times
+
+clear angles on loadgame
+check client entering during intermission
+seperate headers for monsters and players

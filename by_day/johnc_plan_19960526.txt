@@ -1,0 +1,23 @@
+* flipped secret and kill plaques
+* finish solo scoreboard
+* finale
+* optimized CL_CalcAmbientSounds
+* optimized ResampleSfx
+* reduced index sizes in .bsp files
+* flood filled away outside sky fragments in bsp files
+
++ fix cache dir
+
+demo loop issues
+modify qbsp to allow entities only option to generate new triggers
+randomize intermission spots
+conditional bars in jrstart?
+teleport sprite
+fish
+registration key
+light bmodels
+different quad damage effect
+slipgate animations
+lightning gun
+general "no move" flag for player server C code
+scaled texture lighting still has bugs

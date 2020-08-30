@@ -1,0 +1,45 @@
+* fixed crash on machines with no sound card
+* made texmake grab new palette
+* removed tent generated soudns from progs
+* fixed enemy anger on damage
+* sound channel 0 never overrides another sound
+* basic blob
+* light styles in savegames
+* Cash's fix for savegame slowness
+* door messages
+* fixed door retriggering sound and mixed size letdowns
+* changed zombie pain / clipping code
+* enforcer backpacks and alt death frames
+* trigger monsters play awake sound
+* longer ogre aim time
+* fixed checkattacks crossing water
+* new bit coding on entity updates
+
++ lightstyles in savegames
++ broke multiple message triggers
++ key door sounds
++ messages on double doors
++ messages on secret doors
++ 3 digit frag bar
++ light edges
++ change weapon command
++ center print messages
++ hell knight slice
++ more wizard death frames
++ underwater noise
+
+make gib entity rotation client side only
+ambient level on doors
+decouple weapon animations from pain, etc
+light bmodels
+point blank rockets
+look at killer monster
+swing weapons down
+turn view when axe fighting
+grenade destroy bodies
+lightning/rocket shooter
+swimming frames
+teleport warping
+teleporter surface warp
+blow up corpses
+get all visible enttites into low 128 or 256

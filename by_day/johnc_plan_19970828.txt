@@ -1,0 +1,21 @@
+* fixed entity culling on gl
+* sorted axial and edge bevels on all brushes
+
++ entity culling in GL
++ imagelist should have the downsampled sizes
++ software should dump rgb lightmap data
+
+an origin brush will never change a texinfo?
+NO! the offsets can change
+are brush numbers messed up because of removed brushes?
+plat push into floor
+use textureisresident in imagelist?
+load mip levels seperately
+duplicate planes
+make set detail not work on entities
+trinity: pivot feet! general atmospherics!
+ray trace: texture+s/t for each sample, hardware reconstructs
+walk up stairs by slope hitches up
+animating textures
+QE4: use gentextures
+QE4: flush all textures option

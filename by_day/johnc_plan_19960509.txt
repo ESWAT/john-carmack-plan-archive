@@ -1,0 +1,31 @@
+* fixed door linking / messages / targeting
+* remove onground after teleport
+* fixed zombie pain and getting up inside players
+* hell knights don't anger each other
+* added source entity to prog traceline
+* fixed point blank rocket bug
+* new light sample point determination
+
++ no host_error on proper disconnect
++ change weapon
++ powerups
++ cell packs
++ fix pausing on menu / console
++ make key doors touch activated instead of triggered
++ lightning gun use ammo
++ word wrap consoke
++ monster jump triggers
+- blob spit attack
+
+is turning not happening when in contact with monsters?
+client side lightning
+lightning gun
+enforcer bolt
+more pain feedback
+setting up the vid mode then changing levels can cause out of memory
+give a spike when hit by spikeshooter
+monsters burning in slime
+hknight throw a spike occasionally when charging
+demon jump down from higher
+higher demon jumps
+enforcers still see underwater

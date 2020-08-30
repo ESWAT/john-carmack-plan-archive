@@ -1,0 +1,18 @@
+* rework versioning for architecture tracking
+* use a seperate endpoint for address resolves on mac
+* hide OTLook warnings if "developer" isn't set
+* defered mac renderer scanning until after mode set so 8 bit desktops don't confuse it
+* global motd/update server
+* fixed view model animations on models with custom anims
+
+technical note:
+
+Q3 can run networked player movement in either an asynchronous or synchronous manner. The default mode is to allow all client movement to be done asynchronously with the servers advancement of time.
+
+The primary reason is to allow player movement to be predicted on the client side. The primary drawback is that while your movement is smooth, the other players that you see running around in the world move with a jerkiness that is relative to their framerate and network connection quality. It is NOT necessarily relative to their ping - a player on a fast system with a clean modem connection can move smoothly. If you see a player stuttering around, either they have a bad framerate, or the network connection between them and the server or you and the server is poor. The amount of stuttering is sort of the sum of the dropped or variable packets on BOTH connections.
+
+You can force Q3 to run all clients synchronously by setting "g_synchronousClients 1" on the server. This will make Q3 behave similar to Q1 for networking. All movement will be lagged except view angles, which are still short-circuited immediately.
+
+Some people claim to prefer synchronous movement when everyone had a very good ping, but I don't personally think it is ever a play benefit. It makes leading players a bit easier, but I think the crisp movement control of client side prediction is a much better tradeoff.
+
+However, there is still a reason for using it: recorded demos come out a LOT smoother looking when running with sync. Note that q3test does not allow demo recording and playback, so this is just for future reference...

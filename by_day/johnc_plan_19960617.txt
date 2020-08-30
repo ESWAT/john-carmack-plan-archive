@@ -1,0 +1,42 @@
+* lighttning gun always activates secrets now
+* fixed coop level to level bug when player is dead
+* added final character animations
+* only server can changelevel or restart
+* fixed scoreboard color bars
+* fixed spawn death
+* changelevel from client faulted
+* pop verification
+* pak crc
+* min shells on level transition
+* voor spike
+* coop use solo scoreboard
+* teleport particals
+* menu sounds
+* frag.map
+*? view center snapping
+* scoreboard flags in higher res
+* dm weapon pickup rules
+* easier jump out of water
+* cd track change at finale boss
+* changed center print position for very long text messages
+* force cd track on demos
+
++ -14 cells????
+
+new sky filling
+client enter time
+end of e4 text crash
+deathmatch game exits should stay at intermission
+multiplayer boss ai
+axe impact sound
+rock ogre
+stuck spawn
+shambler recheck
+coop savegames
+talk message drawing
+broke teleport sounds
+stuck problem
+water stuck
+
+different pak naming structure
+combine mo strip build

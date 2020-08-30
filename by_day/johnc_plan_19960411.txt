@@ -1,0 +1,38 @@
+* fixed damage through walls
+* fixed gibbing downed zombies
+
++ KEY_SEMICOLON
+
+pointing?
+ten second max looping sound?
+integral sound stepping?
+the damage byte stream is what is causing packet overflows
+debounce jump
+is there a mouse call to find the number of buttons?
+fix palette after vid change...
+too many vid_palette calls
+DON'T FLUSH THE ENTIRE DAMN SCREEN!
+fix snd_next to be snd_none
+change sys_loadfile to com_loadfile
+"system is little endien" message as optional verbose debug
+sometimes shotgun sound doesn't play
+double doors independantly closing
+server speed went back up
+fix auto aiming
+no gun aiming
+no change to grenade launcher
+ogre grenades
+zombie gibs
+r_ambient
+fixed angle for grenades when stopped
+client side shambler lightning
+gravity on corpses pushed into blocking positions
+slime darkness value
+sky time problem
+integrate dirpack with qcc
+check precedence of test directories and pak files
+rocket auto aiming is not working right
+amtele2 teleport problem
+no save when dead
+memory fail to console, not dos
+still overrun nails

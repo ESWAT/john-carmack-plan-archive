@@ -1,0 +1,33 @@
+* server sounds parameter specifies soundtrack
+* fixed cursor bug when clearing input line on console raise
+* fixed problem with e4 ambient (32 bit overflow)
+* ambient teleporter sound
+* snd_show debugging tool
+* fixed underwater grenade sounds
+* fixed shambler hold attack until in range
+* ogre chainsaw on side swing
+* claw meat spray
+* f1 toggle help
+* no end of level stats on empty levels
+* fixed tilted head savegame bug
+* don't drop backpack in single player
+* wrote unpack utility
+
++ teleport static sound
++ refix rocket point blank
++ make fire animations non-syncronous
+
+make MAX_PACKNAME define and error check against it
+dissable qcache for release?
+death/restart from loadgame
+should mouse forward/backwards cause an auto-center?
+unpackdir
+load/save should not take full paths
+ambient val on bmodels
+dynamic lights on bmodels
+finale
+fix demo cycle problems
+player corner clipping can take too long
+option to report any unfilled pixels (jrmed2)
+QuakeEd: goto point in command window
+monsters shooting you underwater

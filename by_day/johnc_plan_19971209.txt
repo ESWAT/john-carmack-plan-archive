@@ -1,0 +1,33 @@
+BIG BUG IN Q2 NETWORKING!
+
+If you run multiplayer servers, download:
+
+ftp://ftp.idsoftware.com/idstuff/quake2/q2_306.zip
+
+A serious bug got through.. I thought the QuakeWorld master server code was completely disabled, because I was planning on putting a modified architecture in place in the point release. It turns out that the code is still in there, sending heartbeats to a unix machine here at id that isn't even running a master server.
+
+That wouldn't normally be an issue - a packet every five minutes from all the servers.
+
+Except...
+
+Cyrix has a new processor that is significantly faster at single precision floating point calculations if you don't do any double precision calculations anywhere.
+
+Quake had always kept its timebase as a double precision seconds value, but I agreed to change it over to an integer millisecond timer to allow the global setting of single precision mode.
+
+We went through and changed all the uses of it that we found, but the routine that sends heartbeats to the master servers was missed.
+
+So, instead of sending a packet every 300 seconds, it is sending one every 300 MILLISECONDS.
+
+Oops.
+
+To a server, it won't really make a difference. A tiny extra packet three times a second is a fraction of the bandwidth of a player.
+
+However, if there are thousands of network games in progress, that is a LOT of packets flooding idsoftware.com.
+
+So, please download the new executable if you are going to run any servers (even servers started through the menus).
+
+ftp://ftp.idsoftware.com/idstuff/quake2/q2_306.zip
+
+This isn't the real point release - there are no new features or bugfixes. I just went back to the release codebase and recompiled with one function commented out so we wouldn't have to worry about introducing new bugs with our current untested code.
+
+Btw, all bug reports should go to Christian (xian@idsoftware.com), NOT to me, Brian, or Cash! We need a central point to funnel things through. Hopefully we can set up a web page or something to make public what we know about, so we can cut down on email traffic.

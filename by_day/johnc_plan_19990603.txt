@@ -1,0 +1,47 @@
+Whee! Lots of hate mail from strafe-jupers!
+
+Some reasonable messages have convinced me that a single immediate jump after landing may be important to gameplay. I'll experiment with it.
+
+Strafe jumping is an exploitable bug. Just because people have practiced hard to allow themselves to take advantage of it does not justify it's existance. When I tried fixing the code so that it just didn't work, I thought it changed the normal running movement in an unfortunate way.
+
+In the absense of powerups or level features (wind tunnels, jump pads, etc), the game characters are supposed to be badasses with big guns. Arnold Schwartzenegger and Sigourney Weaver don't get down a hallway by hopping like a bunny rabbit.
+
+This is personal preference, but when I play online, I enjoy it more when people are running around dodging, rather than hopping.
+
+My personal preference just counts a lot. :-)
+
+btw, here are the current weapon effects:
+
+
+gauntlet: 50 pts, 400 msec / punch
+machinegun: 10 pts, 100 msec / shot
+shotgun: 11 pellets of 10 each, 1000 msec / shot
+rocket launcher: 100 pts direct hit, or 100 pts splash damage falling off
+over 120 world units, 800 msec / shot
+plasma gun: 20 pts direct hit or 15 pts splash damage over 15 units,
+100 msec / shot
+railgun: 100 pts, 1500 msec / shot
+lightning gun: 8 pts, 33 msec / trace, max range 768 units
+grenade launcher: 100 pts direct hit, or 100 pts splash over 150 units,
+800 msec / shot.
+bfg: 40 pts instant splash damage over 100 units, 100 msec / shot
+flamethrower: to be determined, but short range / wide angle
+
+Splash damage is calculated from the edge of the player's box, unlike
+quake1, where it was calculated froom the player's origin.
+
+
+* ignore cl_maxpackets on LAN
+* changed cl_packetdup to 1 by default, and archived
+* defaulted com_maxfps to 100 and archived, automatically disabling during timedemo. It was possible to lag out some client connections on ultra fast systems even with cl_maxpackets set fairly low due to a huge number of individual commands being created
+* 250 msec minimum time between landing and jumping again. I hate having players bouncing around all the time...
+* fixed bug with large r_picmip values (white shotgun sight bug)
+* new lightning and rail beam drawing
+* player torso twitches with pain sounds
+* r_drawstrips changed to r_primitives and archived, with changes: default "0" uses glDrawElements if compiled vertex arrays are present, or strips of glArrayElement if not. "1" forces strips, "2" forces drawElements, "-1" skips drawing
+* increased rocket speed to 900 from 800. decreased direct hit damage from 120 to 100. splash damage same as 1.05
+* removed sound-in-use dialog, auto skip after second try
+* made userinfo persistant on server across level changes
+* allow different servers to respond to a challenge, allowing redirecting server proxies
+* notice bad ip addresses for connection: 192.1234.123.122
+* removed neck length pivot to prevent view poking into low subdivided curves. Also make aiming when looking up or down more precise.

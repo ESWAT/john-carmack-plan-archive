@@ -1,0 +1,15 @@
+My last two .plan updates have described efforts that were not in our original plan for quake 3, which was "quake 2 game and network technology with a new graphics engine".
+
+We changed our minds.
+
+The new product is going to be called "Quake Arena", and will consist exclusively of deathmatch style gaming (including CTF and other derivatives). The single player game will just be a progression through a ranking ladder against bot AIs. We think that can still be made an enjoyable game, but it is definately a gamble.
+
+In the past, we have always been designing two games at once, the single player game and the multi player game, and they often had conflicting goals. For instance, the client-server communications channel discouraged massive quantities of moving entities that would have been interesting in single player, while the maps and weapons designed for single player were not ideal for multiplayer. The largest conflict was just raw development time. Time spent on monsters is time not spent on player movement. Time spent on unit goals is time not spent on game rules.
+
+There are many wonderful gaming experiences in single player FPS, but we are choosing to leave them behind to give us a purity of focus that will let us make significant advances in the multiplayer experience.
+
+The emphasis will be on making every aspect as robust and high quality as possible, rather than trying to add every conceivable option anyone could want. We will not be trying to take the place of every mod ever produced, but we hope to satisfy a large part of the network gaming audience with the out of box experience.
+
+There is a definite effect on graphics technology decisions. Much of the positive feedback in a single player FPS is the presentation of rich visual scenes, which are often at the expense of framerate. A multiplayer level still needs to make a good first impression, but after you have seen it a hundred times, the speed of the game is more important. This means that there are many aggressive graphics technologies that I will not pursue because they are not apropriate to the type of game we are creating.
+
+The graphics engine will still be OpenGL only, with significant new features not seen anywhere before, but it will also have fallback modes to render at roughly Quake-2 quality and speed.

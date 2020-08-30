@@ -1,0 +1,18 @@
+* got new alias stuff (mostly) debugged
+* optimized BoxOnPlaneSide
+* stoped generating backwards planes
+* demon jump higher, fixed melee attacks
+* made knight corpse non-solid
+* crunched progs.dat file structure
+* culled unused edict fields
+
++ shoot trigger
++ alias clipping still isn't right
++ reverse dmonly / not_dm?  combine with spawn only flags?
++ work on sound code!
++ fixed secret doors stop working
++ make objects fall when floor is removed
+
+make #ifdef PARANOID checks
+lightweight entities to save space?
+grenade / rocket damage to triggers

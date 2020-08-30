@@ -1,0 +1,288 @@
+-----------------------------------------
+John Carmack's .plan for Mar 26, 2009
+-----------------------------------------
+
+iPhone development: Wolfenstein 3D Classic
+
+Source: http://www.idsoftware.com/wolfenstein3dclassic/wolfdevelopment.htm
+
+I had been frustrated for over a year with the fact that we didn't have any iPhone development projects going internally at Id.  I love my iPhone, and I think the App Store is an extremely important model for the software business.  Unfortunately, things have conspired against us being out early on the platform.
+
+Robert Duffy and I spent a week early on starting to bring up the Orcs & Elves DS codebase on the iPhone, which would have been a nice project for a launch title, but it wasn't going to be a slam dunk.  The iPhone graphics hardware is a more capable superset of the DS hardware (the driver overhead is far, far worse, though), but the codebase was fairly DS specific, with lots of Nintendo API calls all over the place.  I got the basics drawing by converting things to OpenGL ES, but I was still on the fence as to whether the best approach to get all the picky little special effects working would be a complete GL conversion, or a DS graphics library emulation layer.  Coupled with the fact that the entire user interface would need to be re-thought and re-tested, it was clear that the project would take several months of development time, and need artists and designers as well as coding work.  I made the pitch that this would still be a good plan, but the idMobile team was already committed to the Wolfenstein RPG project for conventional Java and BREW mobile phones, and Anna didn't want to slip a scheduled milestone on the established, successful development directions there for a speculative iPhone project.
+
+After thinking about the platform's capabilities a bit more, I had a plan for an aggressive, iPhone specific project that we actually started putting some internal resources on, but the programmer tasked with it didn't work out and was let go.  In an odd coincidence, an outside development team came to us with a proposal for a similar project on the Wii, and we decided to have them work on the iPhone project with us instead.  We should be announcing this project soon, and it is cool.  It is also late, but that's software development...
+
+Late last year, the mobile team had finished up all the planned versions of Wolfenstein RPG, but EA had suggested that in addition to the hundreds of customized versions they normally produce for all the various mobile phones, they were interested in having another team do a significant media quality improvement on it for the iPhone.  While Wolf RPG is a very finely crafted product for traditional cell phones, it wasn't designed for the iPhone's interface or capabilities, so it wouldn't be an ideal project, but it should still be worth doing.  When we got the first build to test, I was pleased with how the high res artwork looked, but I was appalled at how slow it ran.  It felt like one of the mid range java versions, not better than the high end BREW as I expected.  I started to get a sinking feeling.  I searched around in the level for a view that would confirm my suspicion, and when I found a clear enough view of some angled geometry I saw the tell-tale mid-polygon affine swim in the texture as I rotated.  They were using the software rasterizer on the iPhone.  I patted myself on the back a bit for the fact that the combination of my updated mobile renderer, the intelligent level design / restricted movement, and the hi-res artwork made the software renderer almost visually indistinguishable from a hardware renderer, but I was very unhappy about the implementation.
+
+I told EA that we were NOT going to ship that as the first Id Software product on the iPhone.  Using the iPhone's hardware 3D acceleration was a requirement, and it should be easy -- when I did the second generation mobile renderer (written originally in java) it was layered on top of a class I named TinyGL that did the transform / clip / rasterize operations fairly close to OpenGL semantics, but in fixed point and with both horizontal and vertical rasterization options for perspective correction.  The developers came back and said it would take two months and exceed their budget.
+
+Rather than having a big confrontation over the issue, I told them to just send the project to me and I would do it myself.  Cass Everitt had been doing some personal work on the iPhone, so he helped me get everything set up for local iPhone development here, which is a lot more tortuous than you would expect from an Apple product.  As usual, my off the cuff estimate of "Two days!" was optimistic, but I did get it done in four, and the game is definitely more pleasant at 8x the frame rate. 
+
+And I had fun doing it.
+
+Since we now were doing something resembling "real work" on the iPhone at the office, we kept it going at a low priority.  One of the projects Cass was tinkering around with at home was a port of Quake 3, and we talked about different interface strategies every now and then. 
+
+Unfortunately, when we sat down to try a few things out, we found that Q3 wasn't really running fast enough to make good judgments on iPhone control systems.  The hardware should be capable enough, but it will take some architectural changes to the rendering code to get the most out of it.
+
+I was just starting to set up a framework to significantly revise Q3 when I considered the possibility of just going to an earlier codebase to experiment with initially.  If we wanted to factor performance out of the equation, we could go all the way back to Wolfenstein 3D, the grandfather of FPS games.  It had the basic run and gun play that has been built on for fifteen years, but it originally ran on 286 computers, so it should be pretty trivial to hold a good framerate on the iPhone.
+
+Wolfenstein was originally written in Borland C and TASM for DOS, but I had open sourced the code long ago, and there were several projects that had updated the original code to work on OpenGL and modern operating systems.  After a little looking around, I found Wolf3D Redux at http://wolf3dredux.sourceforge.net/.  One of the development comments about "removal of the gangrenous 16 bit code" made me smile.
+
+It was nice and simple to download, extract data from a commercial copy of Wolfenstein, and start playing on a PC at high resolution.  Things weren't as smooth as they should be at first, but two little changes made a huge difference -- going at VBL synced update rates with one tic per cycle instead of counting milliseconds to match 70 hz game tics, and fixing a bug with premature integralization in the angle update code that caused mouse movement to be notchier than it should be.  The game was still fun to play after all these years, and I began to think that it might be worthwhile to actually make a product out of Wolfenstein on the iPhone, rather than just using it as a testbed, assuming the controls worked out as fun to play.  The simple episodic nature of the game would make it easy to split up into a $0.99 version with just the first episode, a more expensive version with all sixty levels, and we could release Spear of Destiny if there was additional demand.  I was getting a little ahead of myself without a fun-to-play demonstration of feasibility on the iPhone, but the idea of moving the entire line of classic Id titles over -- Wolf, Doom, Quake, Quake 2, and Quake Arena, was starting to sound like a real good idea.
+
+I sent an email to the Wolf 3D Redux project maintainer to see if he might be interested in working on an iPhone project with us, but it had been over a year since the last update, and he must have moved on to other things.  I thought about it a bit, and decided that I would go ahead and do the project myself.  The "big projects" at Id are always top priority, but the systems programming work in Rage is largely completed, and the team hasn't been gated on me for anything in a while.  There is going to be memory and framerate optimization  work going on until it ships, but I decided that I could spend a couple weeks away from Rage to work on the iPhone exclusively.  Cass continued to help with iPhone system issues, I drafted Eric Will to create the few new art assets, and Christian Antkow did the audio work, but this was the first time I had taken full responsibility for an entire product in a very long time.
+
+@Design notes@
+
+The big question was how "classic" should we leave the game?  I have bought various incarnations of Super Mario Bros on at least four Nintendo platforms, so I think there is something to be said for the classics, but there were so many options for improvement.  The walls and sprites in the game were originally all 64 x 64 x 8 bit color, and the sound effects were either 8khz / 8 bit mono or (sometimes truly awful) FM synth sounds.  Changing these would be trivial from a coding standpoint.  In the end, I decided to leave the game media pretty much unchanged, but tweak the game play a little bit, and build a new user framework around the core play experience.  This decision was made a lot easier by the fact that we were right around the 10 meg over-the-air app download limit with the converted media.  This would probably be the only Id project to ever be within hailing distance of that mark, so we should try to fit it in.
+
+The original in-game status bar display had to go, because the user's thumbs were expected to cover much of that area.  We could have gone with just floating stats, but I thought that BJ's face added a lot of personality to the game, so I wanted to leave that in the middle of the screen.  Unfortunately, the way the weapon graphics were drawn, especially the knife, caused issues if they were just drawn above the existing face graphics.  I had a wider background created for the face, and used the extra space for directional damage indicators, which was a nice improvement in the gameplay.  It was a tough decision to stop there on damage feedback, because a lot of little things with view roll kicks, shaped screen blends, and even double vision or blurring effects, are all pretty easy to add and quite effective, but getting farther away from "classic".
+
+I started out with an explicit "open door" button like the original game, but I quickly decided to just make that automatic.  Wolf and Doom had explicit "use" buttons, but we did away with them on Quake with contact or proximity activation on everything.  Modern games have generally brought explicit activation back by situationally overriding attack, but hunting for push walls in Wolf by shooting every tile wouldn't work out.  There were some combat tactics involving explicitly shutting doors that are gone with automatic-use, and some secret push walls are trivially found when you pick up an item in front of them now, but this was definitely the right decision.
+
+You could switch weapons in Wolf, but almost nobody actually did, except for occasionally conserving ammo with the chain gun, or challenges like "beat the game with only the knife".  That functionality didn't justify the interface clutter.
+
+The concept of "lives" was still in wolf, with 1-ups and extras at certain scores.  We ditched that in Doom, which was actually sort of innovative at the time, since action games on computers and consoles were still very much take-the-quarter arcade oriented.  I miss the concept of "score" in a lot of games today, but I think the finite and granular nature of the enemies, tasks, and items in Wolf is better suited to end-of-level stats, so I removed both lives and score, but added persistent awards for par time, 100% kills, 100% secrets, and 100% treasures.  The award alone wasn't enough incentive to make treasures relevant, so I turned them into uncapped +1 health crumbs, which makes you always happy to find them.
+
+I increased the pickup radius for items, which avoided the mild frustration of having to sometimes make a couple passes at an item when you are cleaning up a room full of stuff.
+
+I doubled the starting ammo on a fresh level start.  If a player just got killed, it isn't good to frustrate them even more with a severe ammo conservation constraint.  There was some debate about the right way to handle death:  respawn with the level as is (good in that you can keep making progress if you just get one more shot off each time, bad in that weapon pickups are no longer available), respawn just as you entered the level (good -- keep your machinegun / chaingun, bad -- you might have 1 health), or, what I chose, restart the map with basic stats just as if you had started the map from the menu.
+
+There are 60 levels in the original Wolf dataset, and I wanted people to have the freedom to easily jump around between different levels and skills, so there is no enforcement of starting at the beginning.  The challenge is to /complete /a level, not /get to/ a level.  It is fun to start filling in the grid of level completions and awards, and it often feels better to try a different level after a death.  The only exception to the start-anywhere option is that you must find the entrance to the secret levels before you can start a new game there.
+
+In watching the early testers, the biggest issue I saw was people sliding off doors before they opened, and having to maneuver back around to go through.  In Wolf, as far as collision detection was concerned, everything was just a 64x64 tile map that was either solid or passable. 
+
+Doors changed the tile state when they completed opening or began closing.  There was discussion about magnetizing the view angle towards doors, or somehow beveling the areas around the doors, but it turned out to be pretty easy to make the door tiles only have a solid central core against the player, so players would slide into the "notch" with the door until it opened.  This made a huge improvement in playability.
+
+There is definitely something to be said for a game that loads in a few seconds, with automatic save of your position when you exit.  I did a lot of testing by playing the game, exiting to take notes in the iPhone notepad, then restarting Wolf to resume playing.  Not having to skip through animated logos at the start is nice.  We got this pretty much by accident with the very small and simple nature of Wolf, but I think it is worth specifically optimizing for in future titles.
+
+The original point of this project was to investigate FPS control schemes for the iPhone, and a lot of testing was done with different schemes and parameters.  I was sort of hoping that there would be one "obviously correct" way to control it, but it doesn't turn out to be the case.
+
+For a casual first time player, it is clearly best to have a single forward / back / turn control stick and a fire button.
+
+Tilt control is confusing for first exposure to the game, but I think it does add to the fun factor when you use it.  I like the tilt-to-move option, but people that play a lot of driving games on the iPhone seem to like tilt-to-turn, where you are sort of driving BJ through the levels.  Tilt needs a decent deadband, and a little bit of filtering is good.  I was surprised that the precision on the accelerometer was only a couple degrees, which makes it poorly suited for any direct mapped usage, but it works well enough as a relative speed control.
+
+Serious console gamers tend to take to the "dual stick" control modes easily for movement, but the placement of the fire button is problematic.  Using an index finger to fire is effective but uncomfortable.  I see many players just move the thumb to fire, using strafe movement for fine tuning aim.  It is almost tempting to try to hijack the side volume switch for fire, but the ergonomics aren't quite right, and it would be very un-Apple-like, and wouldn't be available on the iPod touch (plus I couldn't figure out how...).
+
+We tried a tilt-forward to fire to allow you to keep your thumbs on the dual control sticks, but it didn't work out very well.  Forward / back tilt has the inherent variable holding angle problem for anything, and a binary transition point is hard for people to hold without continuous feedback.  Better visual feedback on the current angle and trip point would help, but we didn't pursue it much.  For a game with just, say, a rocket launcher, shake/shove-to-fire might be interesting, but it isn't any good for wolf.
+
+It was critical for the control sticks to be analog, since digital direction pads have proven quite ineffective on touch screens due to progressive lack of registration during play.  With an analog stick, the player has continuous visual feedback of the stick position in most cases, so they can self correct.  Tuning the deadband and slide off behavior are important.
+
+Level design criteria has advanced a lot since Wolfenstein, but I wasn't going to open up the option of us modifying the levels, even though the start of the first level is painfully bad for a first time player, with the tiny, symmetric rooms for them to get their nose mashed into walls and turned around in.  The idea is that you started the game in a prison cell after bashing your guard over the head, but even with the exact same game tools, we would lead the player through the experience much better now.  Some of the levels are still great fun to play, and it is interesting to read Tom Hall and John Romero's designer notes in the old hint manuals, but the truth is that some levels were scrubbed out in only a couple hours, unlike the long process of testing and adjustment that goes on today.
+
+It was only after I thought I was basically done with the game that Tim Willits pointed out the elephant in the gameplay room -- for 95% of players, wandering around lost in a maze isn't very much fun. 
+
+Implementing an automap was pretty straightforward, and it probably added more to the enjoyment of the game than anything else.  Before adding this, I thought that only a truly negligible amount of people would actually finish all 60 levels, but now I think there might be enough people that get through them to justify bringing the Spear of Destiny levels over later.
+
+When I was first thinking about the project I sort of assumed that we wouldn't bother with music, but Wolf3D Redux already had code that converted the old id music format into ogg, so we would up with support at the beginning, and it turned out pretty good.  We wound up ripping the red book audio tracks from one of the later commercial Wolf releases and encoding at a different bitrate, but I probably wouldn't have bothered if not for the initial support.  It would have been nice to re-record the music with a high quality MIDI synth, but we didn't have the original MIDI source, and Christian said that the conversion back from the id music format to midi was a little spotty, and would take a fair amount of work to get right.  I emailed Bobby Prince, the original composer, to see if he had any high quality versions still around, but he didn't get back with me.
+
+The game is definitely simplistic by modern standards, but it still has its moments.  Getting the drop on a brown shirt just as he is pulling his pistol from the holster.  Making an SS do the "twitchy dance" with your machine gun.  Rounding a corner and unloading your weapon on ... a potted plant.  Simplistic plays well on the iPhone. 
+
+@Programming notes@
+
+Cass and I got the game running on the iPhone very quickly, but I was a little disappointed that various issues around the graphics driver, the input processing, and the process scheduling meant that doing a locked-at-60-hz game on the iPhone wasn't really possible.  I hope to take these up with Apple at some point in the future, but it meant that Wolf would be a roughly two tick game.  It is only "roughly" because there is no swapinterval support, and the timer scheduling has a lot of variability in it.  It doesn't seem to matter all that much, the play is still smooth and fun, but I would have liked to at least contrast it with the perfect limit case.
+
+It turns out that there were a couple issues that required work even at 30hz.  For a game like Wolf, any PC that is in use today is essentially infinitely fast, and the Wolf3D Redux code did some things that were convenient but wasteful.  That is often exactly the right thing to do, but the iPhone isn't quite as infinitely fast as a desktop PC.
+
+Wolfenstein (and Doom) originally drew the characters as sparse stretched columns of solid pixels (vertical instead of horizontal for efficiency in interleaved planar mode-X VGA), but OpenGL versions need to generate a square texture with transparent pixels.  Typically this is then drawn by either alpha blending or alpha testing a big quad that is mostly empty space.  You could play through several early levels of Wolf without this being a problem, but in later levels there are often large fields of dozens of items that stack up to enough overdraw to max out the GPU and drop the framerate to 20 fps.  The solution is to bound the solid pixels in the texture and only draw that restricted area, which solves the problem with most items, but Wolf has a few different heavily used ceiling lamp textures that have a small lamp at the top and a thin but full width shadow at the bottom.  A single bounds doesn't exclude many texels, so I wound up including two bounds, which made them render many times faster.
+
+The other problem was CPU related.  Wolf3d Redux used the original ray casting scheme to find out which walls were visible, then called a routine to draw each wall tile with OpenGL calls.  The code looked something like this:
+
+[code]DrawWall( int wallNum ) {
+   char   name[128];
+   texture_t   *tex;
+   sprintf( name, "walls/%d.tga", wallNum );
+   tex = FindTexture( name );
+   ...
+}
+texture_t FindTexture( const char *name ) {
+   int   i;
+   for ( i = 0 ; i < numTextures ; i++ ) {
+      if ( !strcmp( name, texture[name]->name ) ) {
+         return texture[name];
+      }
+   }
+   ...
+} [/code]
+
+I winced when I saw that at the top of the instruments profile, but again, you could play all the early levels that only had twenty or thirty visible tiles at a time without it actually being a problem.  However, some later levels with huge open areas could have over a hundred visible tiles, and that led to 20hz again.  The solution was a trivial change to something resembling:
+
+[code]DrawWall( int wallNum ) {
+   texture_t   *tex = wallTextures[wallNum];
+   ...
+} [/code]
+
+Wolf3D Redux included a utility that extracted the variously packed media from the original games and turned them into cleaner files with modern formats.  Unfortunately, an attempt at increasing the quality of the original art assets by using hq2x graphics scaling to turn the 64x64 art into better filtered 128x128 arts was causing lots of sprites to have fringes around them due to incorrect handling of alpha borders.  It wasn't possible to fix it up at load time, so I had to do the proper outline-with-color-but-0-alpha operations in a modified version of the extractor.  I also decided to do all the format conversion and mip generation there, so there was no significant CPU time spent during texture loading, helping to keep the load time down.  I experimented with the PVRTC formats, but while it would have been ok for the walls, unlike with DXT you can't get a lossless alpha mask out of it, so it wouldn't have worked for the sprites.  Besides, you really don't want to mess with the carefully chosen pixels in a 64x64 block very much when you scale it larger than the screen on occasion.
+
+I also had to make one last minute hack change to the original media -- the Red Cross organization had asserted their trademark rights over red crosses (sigh) some time after we released the original Wolfenstein 3D game, and all new game releases must not use red crosses on white backgrounds as health symbols.  One single, solitary sprite graphic got modified for this release.
+
+User interface code was the first thing I started making other programmers do at Id when I no longer had to write every line of code in a project, because I usually find it tedious and unrewarding.  This was such a small project that I went ahead and did it myself, and I learned an interesting little thing.  Traditionally, UI code has separate drawing and input processing code, but on a touchscreen device, it often works well to do a combined "immediate mode interface", with code like this: 
+
+[code]if ( DrawPicWithTouch( x, y, w, h, name ) ) {
+	menuState = newState;
+} [/code]
+
+Doing that for the floating user gameplay input controls would introduce a frame of response latency, but for menus and such, it works very well.
+
+One of the worst moments during the development was when I was getting ready to hook up the automatic savegame on app exit.  There wasn't any savegame code.  I went back and grabbed the original 16 bit dos code for load / save game, but when I compiled I found out that the Wolf3d Redux codebase had changed a lot more than just the near / far pointer issues, asm code, and comment blocks.  The changes were sensible things, like grouping more variables into structures and defining enums for more things, but it did mean that I wasn't dealing with the commercially tested core that I thought I was.  It also meant that I was a lot more concerned about a strange enemy lerping through the world bug I had seen a couple times.
+
+I seriously considered going back to the virgin codebase and reimplementing the OpenGL rendering from scratch.  The other thing that bothered me about the Redux codebase was that it was basically a graft of the Wolf3D code into the middle of a gutted Quake 2 codebase.  This was cool in some ways, because it gave us a console, cvars, and the system / OpenGL portable framework, and it was clear the original intention was to move towards multiplayer functionality, but it was a lot of bloat.  The original wolf code was only a few dozen C files, while the framework around it here was several times that.
+
+Looking through the original code brought back some memories.  I stopped signing code files years ago, but the top of WL_MAIN.C made me smile:
+
+[code]/*
+=============================================================================
+
+WOLFENSTEIN 3-D
+
+An Id Software production
+
+by John Carmack
+
+=============================================================================
+*/ [/code]
+
+It wasn't dated, but that would have been in 1991.
+
+In the end, I decided to stick with the Redux codebase, but I got a lot more free with hacking big chunks of it out.  I reimplemented load / save game (fixing the inevitable pointer bugs involved), and by littering asserts throughout the code, I tracked the other problem down to an issue with making a signed comparison against one of the new enum types that compare as unsigned.  I'm still not positive if this was the right call, since the codebase is sort of a mess with lots of vestigial code that doesn't really do anything, and I don't have time to clean it all up right now.
+
+Of course, someone else is welcome to do that.  The full source code for the commercial app is available on the web site.  There was a little thought given to the fact that if I had reverted to the virgin source, the project wouldn't be required to be under the GPL.  Wolf and the app store presents a sort of unique situation -- a user can't just compile the code and choose not to pay for the app, because most users aren't registered developers, and the data isn't readily available, but there is actually some level of commercial risk in the fast-moving iPhone development community.  It will not be hard to take the code that is already fun to play, pull a bunch of fun things off the net out of various projects people have done with the code over the years, dust off some old map editors, and load up with some modern quality art and sound.
+
+Everyone is perfectly within their rights to go do that, and they can aggressively try to bury the original game if they want.  However, I think there is actually a pretty good opportunity for cooperation.  If anyone makes a quality product and links to the original Wolf app, we can start having links to "wolf derived" or "wolf related" projects. 
+
+That should turn out to be a win for everyone.
+
+I'm going back to Rage for a while, but I do expect Classic Doom to come fairly soon for the iPhone.
+
+
+
+-----------------------------------------
+John Carmack's .plan for May 27, 2009
+-----------------------------------------
+
+iPhone development: Doom Classic Progress Report
+
+Source: http://www.idsoftware.com/iphone-doom-classic-progress/
+
+I have been spending the majority of my time working on iPhone Doom Classic for several weeks now, and the first beta build went out to some external testers a couple days ago. I am moving back on to Rage for a while, but I expect to be able to finish it up for submission to the App Store next month.
+
+Wolfenstein 3D Classic was a quickie project to satisfy my curiosity and test the iPhone waters, but Doom is a more serious effort. In addition to the millions of people with fond memories of the game, there is still an active gaming / development community surrounding the original Doom, and I don't want to disappoint any of them.
+
+One of the things I love about open sourcing the old games is that Doom has been ported to practically everything with a 32 bit processor, from toasters to supercomputers. We hear from a lot of companies that have moved the old games onto various set top boxes and PDAs, and want licenses to sell them. We generally come to some terms in the five figure range for obscure platforms, but it is always with a bit of a sigh. The game runs, and the demo playbacks look good, but there is a distinct lack of actually caring about the game play itself. Making Doom run on a new platform is only a couple days of work. Making it a really good game on a platform that doesn't have a keyboard and mouse or an excess of processing power is an honest development effort.
+
+To my surprise, Christian was able to dig up the original high quality source material for the Doom sounds, so we have 22khz 16 bit sound effects instead of the 11khz 8 bit ones from the original game. It turns out that I can barely tell the difference, which is a sign that we made good choices way back then about catering the sounds to the output device. If we were on the fence for any resource limits, I would have considered sticking with the originals, but the current OpenAL mixer code has errors with 8 bit source buffers, so I would have had to convert to 16 bit at load time anyway, and just referencing the high quality source media actually speeds up the load times.
+
+The music is all stored as mp3, performed on a high quality synthesizer. For Wolf, we used ogg, because that's what was in the Redux codebase that I started with, but I don't have all that CPU performance margin anymore, so it was necessary to use the iPhone's audio decompression hardware through the AudioQueue services. The music is the largest part of the application, but everything else is still well over the 10 meg cellular app transfer limit, so I'm not tempted to try and squeeze it under like we did with Wolfenstein. Maybe being able to get an app over 3G really isn't very important to its success. The fact that people are downloading Myst on the iPhone is heartening -- I have ideas for leveraging our high end idTech-5 content creation pipeline for a future iPhone game, if people will go for a few hundred meg download.
+
+The toughest question was the artwork. Since Wolf was selling well, I had planned on paying contractors to upscale all the Doom graphics to twice the original resolution. When I pulled all the graphics out and tallied it all up, it looked a lot more marginal than I had expected. There were over two thousand individual pieces of art, and it was over ten megatexels in exactly bounded area, let alone atlas fit or power of two inset. The PVRTC compressed formats would work great for the floors and ceilings, which are all nice 64x64 blocks, but it has issues for both the walls and floors.
+
+PVRTC textures must be power of two and, notably, square. If you want a 256 x 512 texture that needs to repeat in both axis, you need to resample it to 512 x 512 to use PVRTC, which means you lose half your compression benefit and get distorted filter kernels and mip level selections. Even worse, Doom had the concept of composited walls, where a surface was generated by adding, say, a switch texture on top of a wall texture. You can't do that sort of operation with PVRTC images. The clean sheet of paper solution to both problems is to design around textures that the hardware likes and use more geometry where you need to tile or combine them, but Doom wasn't well suited to that approach.
+
+Character sprites don't get repeated, so a lot of them can be packed into a nice square 1024 x 1024 texture to minimize waste, but the PVRTC texture formats aren't well suited to sprite graphics. The DXT1 compression format has an exact bit mask for the alpha channel, which is what you want for an application like this. PVRTC treats alpha like any other color channel, so you get coupling between the alpha and color channels that results in partially transparent pixels ringing outside the desired character boundary. It works fine for things like clouds or fireballs, but not so good for character sprites. It looks like it should be possible to get an exact binary mask with the 2 bit PVRTC mode, which could be combined with a 4 bit PVRTC color texture to get a 6 bpp perfectly outlined sprite, but the multitexture performance on the iPhone, even with PVRTC textures, is not fast enough to prevent missing 30 fps when you have a hoard of monsters in front of you.
+
+We started to do some internal samples of up-scaled artwork to use as reference for getting the contractor quotes, and it just wasn't looking all that spectacular. Doubling the art and smoothing out the edges wasn't buying much. There was certainly a lot of room for improvement, since Doom was designed around a 256 color palette with a limited selection of intensity ramps for lighting, but moving there from the starting point would be tricky. If I went to one of our artists today and asked them to draw a bad-ass Baron of Hell throwing a fireball in a 256 x 256 x 16 bit block, I would get something a LOT better than the original art, but it would look different, not just better.
+
+I was also a little taken aback by some of the backlash against the updated graphics that I put in for Wolf 1.1. I took the walls, guns, and decorative sprites from the Mac version of Wolfenstein, and had Eric use that as source to recreate some similar graphics that weren't present in the Mac version. After release, there were a number of reviews that complained, saying that it "ruined the classic feel". I have a couple thoughts abut this: Changing the look on a point release is going to cause some level of complaint, so it is probably a good idea to make any changes from " classic" you think you might want in version 1.0. I also believe most of the complaints were due to the view weapons. The original gun artwork wasn't great, but the double-res ones weren't very good either, and they were a bit different looking. I debated with myself a bit about using them at all, and it looks like I probably shouldn't have. I can't see any drawback whatsoever to the double res walls and sprites, since they are in the same style, just better looking when you jam your face up against them.
+
+In the end, I decided not to do anything with the DOOM source art. With the GPU accelerated filtering and 24 bit lighting it looks a lot better than it ever did, and with floors, ceilings, and lighting you don't seem to notice the low resolution as much as with Wolf.
+
+With the speed (a solid 30 fps, even in the more aggressive later levels), the audio, the resolution, and the rendering quality, it is Doom as you remember it, which is quite a bit better than it actually was. If you go back and play the original game on a 386 with a sound blaster, you will be surprised at the 15 fps, FM-synth music, "bathroom tile sized" 320 x 200 pixels, external network game setup utility, and external keyboard configuration. A lot of people remember it as "The best game EVER!", but "ever" has sure moved a lot in the last decade!
+
+Before I actually started coding on the project, I had visions of adding a lot of modern tuned effects to the core gameplay experience. It would certainly stay a sprite-and-sector based game, but there are many things that would be done differently with the benefit of a GPU and the wisdom of hindsight. Once I began actually working on it, it started to look like a bad idea for a number of reasons. I am trying to not be very disruptive in the main codebase, because I want it to stay a part of http://prboom.sourceforge.net/ instead of being another codebase fork. While I can certainly add a bunch of new features fairly quickly, iterating through a lot of user testing and checking for problems across the >100 commercial Doom levels would take a lot longer. There really is value in " classic" in this case, and there would be some degree of negative backlash to almost any "improvements" I made. There will still be a couple tiny tweaks, but nothing radical is changing in the basic play. It would be fun to take a small team, permanently fork it, and make a "Doom++" just for the iPhone, but that wouldn't be the best first move. Maybe later.
+
+The iPhone interface around the game is all done nicely. Wolf Classic got dinged a bit for the blocky look of the buttons and interface components. I didn't actually see any complaints about the crappy monospace font, but it deserved some. Everything looks good now.
+
+The initial release will be for OS 2.x, and support multiplayer over WiFi. A later release will be for 3.x only, and support bluetooth multiplayer. I looked into the possibility of 3G multiplayer, but the latencies just aren't good enough -- I see 380 or so pings from my phone to local servers. This was interesting, because I have talked to other hardware vendors that claim 3G latencies of half that. I'm not sure if there are issues with the iPhone, issues with AT&T's network in Dallas, or if the vendor was just mistaken about what they were getting. One anecdotal report is that iPhones work better in Japan than here, so it may be infrastructure.
+
+I will probably have another update later with more technical details about the logic behind the new rendering architecture (rewritten for > 2x the speed of the original prBoom GL renderer), touch control issues, and so on.
+
+
+
+-----------------------------------------
+John Carmack's .plan for Nov 03, 2009
+-----------------------------------------
+
+iPhone development: Doom Classic
+
+Source: http://www.idsoftware.com/doom-classic/doomdevelopment.htm
+
+Way back in March when I released the source for Wolfenstein 3D Classic, I said that Doom Classic would be coming "real soon", and on April 27, I gave a progress report: http://www.idsoftware.com/iphone-doom-classic-progress/
+
+I spent a while getting the multiplayer functionality up, and I figured I only had to spend a couple days more to polish things up for release. 
+
+However, we were finishing up the big iPhone Doom Resurrection project with Escalation Studios, and we didn't want to have two Doom games released right on top of each other, so I put Doom Classic aside for a while.  After Doom Resurrection had its time in the sun, I was prepared to put the rest of the work into Doom Classic, but we ran into another schedule conflict.  As I related in my Wolf Classic notes http://www.idsoftware.com/wolfenstein-3d-classic-platinum/wolfdevelopment.htm , Wolfenstein RPG for the iPhone was actually done before Wolfenstein Classic, but EA had decided to sit on it until the release of the big PC / console Wolfenstein game in August.
+
+I really thought I was going to go back and finish things up in September, but I got crushingly busy on other fronts.  In an odd little bit of serendipity, after re-immersing myself in the original Doom for the iPhone, I am now working downstairs at Id with the Doom 4 team.  I'm calling my time a 50/50 split between Rage and Doom 4, but the stress doesn't divide.  September was also the month that Armadillo Aerospace flew the level 2 Lunar Lander Challenge:
+
+http://www.armadilloaerospace.com/n.x/Armadillo/Home/News?news_id=368
+
+Finally, in October I SWORE I would finish it, and we aimed for a Halloween release.  We got it submitted in plenty of time, but we ran into a couple approval hiccups that caused it to run to the very last minute.  The first was someone incorrectly thinking that the "Demos" button that played back recorded demos from the game, was somehow providing demo content for other commercial products, which is prohibited.  The second issue was the use of an iPhone image in the multiplayer button, which we had to make a last minute patch for.
+
+@Release notes@
+
+Ok, the game is finally out (the GPL source code is being packaged up for release today).  Based on some review comments, there are a couple clarifications to be made:
+
+Multiplayer requires a WiFi connection that doesn't have UDP port 14666 blocked.  I'm quite happy with the simple and fast multiplayer setup, but it seems like many access points just dump the packets in the trash.  If the multiplayer button on the main menu doesn't start pulsing for additional players after the first player has hit it, you won't be able to connect.  I have also seen a network where the button would pulse, but the player would never get added to the player list, which meant that somehow the DNS packets were getting through, but the app packets weren't.  It works fine on a normal AirPort install...  More on networking below.
+
+I took out tilt-to-turn just to free up some interface screen space, because I didn't know anyone that liked that mode, and my query thread on Touch Arcade didn't turn up people that would miss it a lot. 
+
+Evidently there are a few people that do care a lot, so we will cram that back in on the next update.  The functionality is still there without a user interface, so you can enable it by four-finger-tapping to bring up the keyboard and typing "tiltturn 4000" or some number like that, and it will stay set.  Make sure you have tiltmove pulled down to 0.  I never got around to putting in a real console, but you can change a few parameters like that, as well as enter all the original doom cheat codes like IDDQD, IDKFA, etc.
+
+I think that the auto-centering control sticks in Doom Classic are a better control scheme than the fixed sticks from Wolf Classic.  The advice for wolf was to adjust the stick positions so that your thumbs naturally fell in the center point, so I just made that automatic for Doom.  Effective control always involved sliding your thumbs on the screen, rather than discretely tapping it, and this mode forces you to do that from the beginning. Still, even if the new mode is some fraction "better", there are a lot of people who have logged a lot of hours in Wolfenstein Classic, and any change at all will be a negative initially.  In the options->settings menu screen, there is a button labeled "Center sticks: ON" that can be toggled off to keep the sticks fixed in place like in Wolf.
+
+A subtle difference is that the turning sensitivity is now graded so that a given small movement will result in a specific percentage increase in speed, no matter where in the movement range it is.  With linear sensitivity, if you are 10 pixels off from the center and you move your thumb 10 pixels farther, then the speed exactly doubles.  If you are 50 pixels off from the center, the same 10 pixel move only increases your turning rate by 20%.  With ramped sensitivity, you would get a 20% (depending on the sensitivity scale) increase in speed in both cases, which tends to be better for most people.  You can disable this by toggling the "Ramp turn: ON" option off.
+
+In hindsight, I should have had a nice obvious button on the main options screen that said "Wolfenstein Style" and had the same options, but I have always had difficult motivating myself to do good backwards compatibility engineering.  Even then, the movement speeds are different between the games, so it wouldn't have felt exactly the same.
+
+It was a lot of fun to do this project, working on it essentially alone, as a contrast to the big teams on the major internal projects.  I was still quite pleased with how the look and feel of the game holds up after so long, especially the "base style" levels.  The "hell levels" show their age a lot more, where the designers were really reaching beyond what the technology could effectively provide.
+
+@Future iPhone work@
+
+We do read all the reviews in the App store, and we do plan on supporting Doom Classic with updates.  Everything is still an experiment for us on the iPhone, and we are learning lessons with each product.  At this point, we do not plan on making free lite versions of future products, since we didn't notice anything worth the effort with Wolfenstein, and other developers have reported similar findings.
+
+We have two people at Id that are going to be dedicated to iPhone work.  I doubt I will be able to personally open Xcode again for a few months, but I do plan on trying to work out a good touch interface for Quake Classic and the later 6DOF games.  I also very much want to make at least a tech demo that can run media created with a version of our idTech 5 megatexture content creation pipeline.  I'm not sure exactly what game I would like to do with it, so it might be a 500 mb free gee-whiz app...
+
+Wolfenstein Classic Platinum was a break-in opportunity for the new internal iPhone developers.  We were originally planning on making the Spear of Destiny levels available as in-app purchased content.  Then we decided to make it a separate "Platinum Edition" application at a reasonable price.  Finally, we decided that we would just make it a free update, but something has gone wrong during this process -- people who buy the app for the first time get everything working properly, but many people who upgrade the App from a previous purchase are seeing lots of things horribly broken.  We are working with Apple to try to debug and fix this, but the workaround is to uninstall the app completely, then reload it.  The exciting thing about Wolf Platinum is the support for downloadable levels, which is the beta test for future game capabilities.  Using a URL to specify downloadable content for apps is a very clean way to interface to the game through a web page or email message.
+
+The idMobile team is finishing up the last of the BREW versions of Doom 2 RPG, and work has started on an iPhone specific version, similar to the Wolfenstein RPG release.  The real-time FPS games are never going to be enjoyable for a lot of people, and the turn based RPG games are pretty neat in many regards.  If they are well received, we will probably bring over the Orcs&Elves games as well.
+
+I want to work on a Rage themed game to coincide with Rage's release, but we don't have a firm direction or team chosen for it.  I was very excited about doing a really-designed-for-the-iPhone first person shooter, but at this point I am positive that I don't have the time available for it.
+
+@Networking techie stuff@
+
+I doubt one customer in ten will actually play a network game of Doom Classic, but it was interesting working on it.
+
+Way back in March when I was first starting the work, I didn't want the game to require 3.0 to run, and I generally try to work with the lowest level interfaces possible for performance critical systems, so I wasn't looking at GameKit for multiplayer.  I was hoping that it was possible to use BSD sockets to allow both WiFi networking on 2.0 devices and WiFi or ad-hoc bluetooth on 3.0 devices.  It turns out that it is possible, but it wasn't documented as such anywhere I could find.
+
+I very much approve of Apple's strategy of layering Obj-C frameworks on top of Unix style C interfaces.  Bonjour is a layer over DNS, and GameKit uses sockets internally.  The only bit of obscure magic that goes on is that the bluetooth IP interface only comes into existence after you have asked DNS to resolve a service that was reported for it.  Given this, there is no getting around using DNS for initial setup. 
+
+With WiFi, you could still use your own broadcast packets to do player finding and stay completely within the base sockets interfaces, and this might even make some sense, considering that there appear to be some WiFi access points that will report a DNS service's existence that your app can't actually talk to.
+
+For every platform I have done networking on previously, you could pretty much just assume that you had the loopback interface and an Ethernet interface, and you could just use INADDR_ANY for pretty much everything.  Multiple interfaces used to just be an issue for big servers, but the iPhone can have a lot of active interfaces -- loopback, WiFi Ethernet, Bluetooth Ethernet, and several point to point interfaces for the cellular data networks.
+
+At first, I was excited about the possibility of multiplayer over 3G.  I had been told by someone at Intel that they were seeing ping times of 180 ms on 3G devices, which could certainly be made to work for gaming. 
+
+Unfortunately, my tests, here in Dallas at least, show about twice that, which isn't worth fighting.  I'm a bit curious whether they were mistaking one-way times, or if the infrastructure in California is really that much better.  In any case, that made my implementation choice clear -- local link networking only.
+
+A historical curiosity: the very first release of the original Doom game on the PC used broadcast IPX packets for LAN networking.  This seemed logical, because broadcast packets for a network game of N players has a packet count of just N packets on the network each tic, since everyone hears each packet.  The night after we released the game, I was woken up by a call from a college sysadmin yelling at me for crippling their entire network.  I didn't have an unlisted number at the time.  When I had decided to implement network gaming, I bought and read a few books, but I didn't have any practical experience, so I had thought that large networks were done like the books explained, with routers connecting independent segments.  I had no idea that there were many networks with thousands of nodes connected solely by bridges that forwarded all broadcast packets over lower bit rate links.  I quickly changed the networking to have each peer send addressed packets to the other peers.  More traffic on the local segment, but no chance of doing horrible things to bridged networks.
+
+WiFi is different from wired Ethernet in a few ways.  WiFi clients don't actually talk directly to each other, they talk to the access point, which rebroadcasts the packet to the destination, so every packet sent between two WiFi devices is actually at least two packets over the air. 
+
+An ad-hoc WiFi network would have twice the available peer to peer bandwidth and half the packet drop rate that an access point based one does.  Another point is that unlike wired Ethernet, the WiFi link level actually does packet retransmits if the destination doesn't acknowledge receipt.  They won't be retransmitted forever, and the buffer spaces are limited, so it can't be relied upon the way you do TCP, but packet drops are more rare than you would expect.  This also means that there are lots of tiny little ACK packets flying around, which contributes to reduced throughput.  Broadcast packets are in-between -- the broadcast packet is sent from the source to the access point with acknowledgment and retransmits, but since the access point can't know who it is going to, it just fires it out blind a single time.
+
+I experimentally brought the iPhone networking up initially using UDP broadcast packets, but the delivery was incredibly poor.  Very few packets were dropped, but hundreds of milliseconds could sometimes go by with no deliveries, then a huge batch would be delivered all at once.  I thought it might be a policy decision on our congested office access point, but it behaved the same way at my house on a quiet LAN, so I suspect there is an iPhone system software issue.  If I had a bit more time, I would have done comparisons with a WiFi laptop.  I had pretty much planned to use addressed packets anyway, but the broadcast behavior was interesting.
+
+Doom PC was truly peer to peer, and each client transmitted to every other client, for N * (N-1) packets every tic.  It also stalled until valid data had arrived from every other player, so adding more players hurts in two different ways -- more packets = more congestion = more likely to drop each individual packet.  The plus side of an arrangement like this is that it is truly fair, no client has any advantage over any other, even if one or more players are connected by a lower quality link.  Everyone gets the worst common denominator behavior.
+
+I settled on a packet server approach for the iPhone, since someone had to be designated a "server" anyway for DNS discovery, and it has the minimum non-broadcast packet count of 2N packets every tic.  Each client sends a command packet to the server each tic, the server combines all of them, then sends an addressed packet back to each client.  The remaining question was what the server should do when it hasn't received an updated command from a client.  When the server refused to send out a packet until it had received data from all clients, there was a lot more variability in the arrival rate.  It could be masked by intentionally adding some latency on each client side, but I found that it plays better to just have the server repeat the last valid command when it hasn't gotten an update.  This does mean that there is a slight performance advantage to being the server, because you will never drop an internal packet.
+
+The client always stalls until it receives a server packet, there was no way I had the time to develop any latency reducing / drop mitigating prediction mechanisms.  There are a couple full client / server, internet capable versions of Doom available on the PC, but I wanted to work from a more traditional codebase for this project.
+
+So, I had the game playing well over WiFi, but communication over the Bluetooth interface was significantly worse.  There was an entire frame of additional latency versus WiFi, and the user mode Bluetooth daemon was also sucking up 10% of the CPU.  That would have been livable, but there were regular surges in the packet delivery rate that made it basically unplayable.
+
+Surging implies a buffer somewhere backing up and then draining, and I had seen something similar but less damaging occasionally on WiFi as well, so I wondered if there might be some iPhone system communication going on.  I spent a little while with WireShark trying to see if the occasional latency pileup was due to actual congestion, and what was in the packets, but I couldn't get my Macbook into promiscuous WiFi mode, and I didn't have the time to configure a completely new system.
+
+In the end, I decided to just cut out the Bluetooth networking and leave it with WiFi.  There was a geek-neatness to having a net game with one client on WiFi and another on Bluetooth, but I wasn't going to have time to wring it all out.
+
+
+

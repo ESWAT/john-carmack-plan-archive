@@ -1,0 +1,35 @@
+I need to clear up a little bit of really flagrant misinformation here:
+
+Digital Sight and Sound, a dallas based system integrator, run a little blurb in their customer update newsletter that seriously misrepresents my experiences with intergraph and sgi hardware.
+
+The title was "Z-13 versus sgi maximum impact, Z-13 wins" and it included statements like "After two weeks of grueling tests, the z-13 finished 2.5 times faster overall than the Maximum IMPCT... and at less than 1/2 the price!!!". This just isn't true, in saveral ways.
+
+The last time I did side by side system testing involving SGI was pitting an SGI high impact against a intergraph GLZ1T. For heavy texture mapping applications like I was doing, the SGI high impact was three times faster than the intergraph. A realizm-13t is 2.5 times faster than the older GLZ1T, but a max impact is twice as fast as a high impact, so intergraph's best is still only half the speed of sgi's best workstation.
+
+For the record, here is my impression of the 3D hardware I have worked with, unedited. Prices are for configurations as we would use them, not minimum.
+
+Rendition Verite: ($150) It won't set any speed records, but it is an excellent value, the quake port is pretty good, and the risc architecture allows a lot of room for optimization.
+
+3DFX: ($300) The highest textured fill rate of anything short of high end SGI hardware. 50 mpix, almost irrespective of options. You can't run a desktop or high res display on it, but at 640*480 it will stomp any other consumer level board, given equal optimization effort.
+
+3dlabs permedia: ($300) Right now, this is the only well supported low end open GL card. and a good all around video card. The visual quality is hurt over most other 3d boards because the internal paths apear to be 15 bits, so you don't get dithered 24 bit color out of your blending operations. The fill rate is very sensitive to what options (z buffer, blending, color depth, etc) you have turned on. It peaks at over 40 mpix, but that is with no zbuffering and 4 bit textures. Realistic cases (16 bit textures, z buffering, perspective, bilinear) bring you down to around 10 mpix. There are some performance hangups in the drivers for heavy texturing applications, but 3dlabs is working on improving them.
+
+The remaining boards are pretty much for professional use, not gaming.
+
+Dynamic Pictures Oxygen: ($1500) I can't reccomend this to anyone doing texture mapping. It was slow and had rasterization errors.
+
+3dlabs glint-TX: ($1000 - $3000) A reletively low fill rate (15 mpix peak, often a bit lower), but fairly stable in performance. Good GL drivers. Capable of supporting very high resolutions and amounts of texture memory. Available from several vendors at various (professional) price points.
+
+Intergraph intense-3d: ($2000 - $5000). The fill rate still isn't very good (15 mpix), but it hardly cares when you turn on trilinear and blending. They rape you on the texture memory prices. I have gotten better performance (but not tons better) out of this than any glint card I have tested, but I have yet to use one of the dual TX boards. They are also incompatable with a lot of motherboards.
+
+Intergraph realizm: ($7000 - $12000) The best graphics card you can buy for NT. As far as I know, you can't even get these seperately, you have to buy them as part of an intergraph system. The systems we use list around $30k each. The fill rate is 33 mpix, and very insensitive to options. You can add an optional geometry board to get very high transform/light throughput. DEC resells these as their Powerstorm T series cards for alpha systems.
+
+SGI O2: ($10000, full system) The fill rate was better than intergraph's high end, but the triangle throughput was lower. I expect SGI will be able to optimize the porformance more in the coming months. It's not a knock-your-socks-off performer, but a real, fully configured system costs less than just the video option on a high end intergraph.
+
+SGI IMPACT: ($25000 - $50000, full system) excellent fill rate and geometry rate. A very balanced, high performace system. The texture memories are very small (one or four megs), so it would probably be possible to contruct a pathalogical case that probably puts an intergraph ahead of it, but you would have to stretch. The prices are higher than intergraph, but only by about 30%.
+
+SGI Infinite reality: ($100000+) Fill rate from hell. Polygons from hell. If you don't trip up on state changes, nothing will come within shouting distance of this system. You would expect that.
+
+Our decision to go intergraph/NT over SGI/IRIX had a lot more to do with the NT vs IRIX part of it. I wish I could buy SGI hardware for NT. The last two SGI systems I did serious work on were messes of instability, but the O2 we just got last week does actually seem stable.
+
+As far as the "which video card should I buy?" question from gamers, I'm afraid I can't give you a definitive answer. All of the first generation boards have some problem or another. The second generation, coming out within the next six months or so, will be more solidly positive.

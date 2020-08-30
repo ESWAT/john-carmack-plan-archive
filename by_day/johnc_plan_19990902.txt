@@ -1,0 +1,31 @@
+I have been getting a lot of requests for commentary on two subjects lately:
+
+Nvidia's new geometry accelerated card with the funny name.
+
+It is fast. Very, very fast. It has the highest fill rate of any card we have ever tested, has improved image quality over TNT2, and it gives timedemo scores 40% faster than the next closest score with extremely raw beta drivers.
+
+The throughput will definately improve even more as their drivers mature.
+
+For max framerates in OpenGL games, this card is going to be very hard to beat.
+
+Q3's target of about 10,000 triangles a frame doesn't stress this card at all. If you want more polygons out of Q3, you can do:
+
+r_lodBias -2 // don't use lower detail models 
+r_subdivisions 1 // lots more triangles in curves 
+r_lodCurveError 10000 // don't drop curve rows for a long time
+
+I haven't looked at the stencil shadow stuff in a long time, but it gives the largest increase in triangle use (and a lot of fill rate as well):
+
+cg_shadows 2 // turn on stencil shadows (if you have a stencil buffer)
+
+
+
+Apple's new G4 systems.
+
+The initial systems are just G4 processors in basically the same systems as the current G3. There will be some speedup in the normal C code from the faster floating point unit, and the Apple OpenGL has AltiVec optimizations, so framerates will improve somewhat. The limiting factor is going to be the fill rate on the rage128 and the bandwidth of the 66mhz pci bus and processor to main memory writes.
+
+The later G4 systems with the new memory controller and AGP will have better performance, but probably still limited by the new 3D card.
+
+After Apple gets all their driver tuning done, it will be interesting to try running timedemos at low resolution to factor the fill rate out. Apple has a shot at having the best non-geometry accelerated throughput, but it will still be tough to overcome a K7 with an extra hundred or so mhz.
+
+On a purely technical note, AltiVec is more flexible for computation than intel or AMD's extensions (trinary ops), but intel style write combining is better for filling command buffers than the G4's memory streaming operations.

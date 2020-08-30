@@ -1,0 +1,20 @@
+* fixed the vis portalization order problem!
+* allow attack to respawn as well as jump
+* fixed faulting
+* removed sprites directory and all references
+* new qcc code for damage, should fix statue monsters
+* new zombie pain code
+
+hang on laptop sound init
+boss needs to scan for coop players
+centerprint powerup messages
+change origin offset on fish for more fin
+fish move fail on tcross surface should still allow xy move
+fish should pull treading people underwater
+make good spot for weapon change rules
+8 bit sb output isn't using volume scale
+slider sounds (esp for sound volume)
+is e1m1 nailgun a trigger, or is it duplicated?
+play sound or something after intermission will allow exit?
+systems that translate blit need to update entire screen on palette
+changes

@@ -1,0 +1,12 @@
+* got new alias stuff sort of working
+
++ pause message needs to stay up
++ change level trigger
++ knight bodies are solid
+
+lighting hidden objects
+level loading pacifier
+weapon switch button
+doors that stay shut on some multi levels?
+mouse button stuck down
+monster shouldn't get key door messages

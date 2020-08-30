@@ -1,0 +1,19 @@
+* spinning machinegun barrel
+* changed q3data -origin option to -offset, defaulted to 0 0 24 for all player grabs
+* removed second parm from -lod in q3data
+* fixed 0 ping on last player killed before fraglimit
+* better ping calculation right after transitions
+* add time back to scoreboard
+* sv_maxRate option to force all clients to play with a max rate. This can be used to limit the advantage of LPB, or to cap bandwidth utilization for a server. Note that rate is ignored for clients that are on the same LAN.
+* fixed bad name vs name in tourney after first player left
+* added hitch warning messages to server console
+* new time clamping rules for net play
+* avoid sending usercmds during connection
+* send explicit heartbeats to the master server when a server transitions to or from empty or full
+* shaders that aren't found will return index 0, but still keep the allocated slot to prevent rescanning if registered again
+* use nextSnap for player prediction when available
+* removed teleport dest invisible objects
+* reduced client to server bandwidth by 35%
+* changed logging for chats to guarantee parsing properly with names that conflict with commands: 
+from: G_LogPrintf( "%s say: %s"
+to: G_LogPrintf( "say: %s: %s"

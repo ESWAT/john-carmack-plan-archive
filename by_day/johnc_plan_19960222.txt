@@ -1,0 +1,19 @@
+*	fix incorrectly updated origin bug
+*	added alias backpack and armor
+*	fixed weapons sticking into wall
+*	changed "connected to server" to "connected to map"
+*	fixed console
+*	armor skin numbers
+*	fixed "not shooting" bug
+*	changed sound back to origin based instead of entity based
+
++ swimming directions
++ quit scores are wrong
++ screen flicker crap
++ radius damage sight check
++ crushing issues
++ bodies stopping in midair 
+
+dimmed out weapons
+follow killer
+spin head inside gib

@@ -1,0 +1,7 @@
+I made significant improvements to the scalability of QuakeWorld.
+
+You have probably noticed how a 16 player game is a lot worse over a modem than a 4 player game, even when you aren't around the action. All of those factors are now gone, so big games play a lot better now, and I have bumped the maximum players to 32. There aren't really any levels that will be reasonable with that many players, but if someone wants to create one, it should be possible now. (obviously you are still going to go slow if all 32 people decide to congregate in the same room)
+
+The next release of QuakeWorld is going to be completely incompatable with the current release. Both the client and server have changed protocols, and the fate of the master server is still undecided.
+
+I have one more really significant thing to try with the network protocols that I should probably hold up the release for, because it would be yet another incompatable change.

@@ -1,0 +1,29 @@
+* serveronly semeaphor close check
+* error during initialization messagebox check
+* software rendering default wall image
+* unify slidestepmove
+
++ progress bar
++ roll angles are getting set on rotating models
++ blinking lights on bonus items
++ alpha test fix
+
+bug with loading a new map after an errored out map
+qe4: turn region off for new map
+
+gun should show vertical acceleration on lifts
+view angle turning based on impacts
+muzzle flashes
+trinity: fully compressed textures need to compress the mip levels as well, instead of generating them from the most detailed form.
+trinity: different packing options to layout all the texture blocks. Square, thin, individual, etc.
+trinity: investigate performance of background disk paging and clustering of texture blocks into disk allocation units
+trinity: texture connectivity graph for prepaging?
+trinity: speculatively upload things that might be seen next frame to balance uploading?
+max upload, use lower mip levels if needed?
+
+get rid of all the gl lightmaps in main memory!
+allow jump up off bottom of water floor to give more velocity
+merge net_udp and net_wins
+
+slippery slopes
+learned something: upload mip levels backwards

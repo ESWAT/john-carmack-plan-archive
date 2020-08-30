@@ -1,0 +1,45 @@
+I'm pretty damn pleased with things right now.
+
+We are just buttoning up the E3 demo stuff, and it looks really good. It is clearly way alpha meterial, but people should be able to project where it is going.
+
+The timing is a bit inconvenient for us, because we still aren't quite through with converting all the .qc work that Cash did over to straight C code in the new engine. The monsters are just barely functional enough to show, with none of the new behavior in. If E3 was a week or two later, the demos would almost be real playtesting.
+
+Q2 is going to be far and away the highest quality product id has ever done. There are new engine features, but the strength of the product is going to be how everything is fitted together with great care. (don't worry, next year will be radical new technology all over again)
+
+--
+
+Sound is being improved in a number of ways.
+
+All source samples are 22 khz / 16 bit, and you can restart the sound system for different quality levels without exiting the game. high quality sound will require more memory than the base 16 meg system. The system can automatically convert to 11 khz / 8 bit sounds, but we are probably going to include a seperate directory with offline converted versions, which should be slightly higher quality. Homebrew paatches don't need to bother.
+
+Sounds can now travel with a moving object. No dopler effects, but it positions properly. (well, spatialization is a bit fucked this very instant, but not for long)
+
+I finally got around to tracking down the little bug with looping sounds causing pops.
+
+I have intentions to do three more things with the sound engine, but the realistic odds are that they won't all make it in:
+
+Voice over network. I definately don't have time to do a super-compressed version, but I can probably hack something in that the T1 players would have fun with.
+
+Radiosity sound solution. Its obvious in retrospect, but it was a "eureka!" thought for me when I realized that the same functions that govern the transport of light for radiosity also apply to sound. I have research plans for next-generation technology that include surface reflection spectrums and modeling the speed of sound waves, but I think I can get a simplified solution into Q2 to provide an ambient soundscape with the same level of detail as the lightmaps. I'm a little concerned about the memory footprint of it, but I'm going to give it a shot.
+
+Syncronized, streaming sound from disk. Special events and movie demos won't need to precache gigantic sounds, and they can rely on the timing.
+
+--
+
+Q2 has a generalized inventory structure and status display that should be adaptable to just about anything anyone wants to do in a TC.
+
+--
+
+On saturday, I give my 328 away at E3. I know that there were lots of issues with the contest, and to be honest, I probably wouldn't have done the nationwide contest if I could have forseen all the hassle (I could have just given it away at #quakecon..), but the finals should still be really cool. It just wasn't possible to make the contest "completely fair". Not possible at all. In any case, I don't think anyone will deny that the finalists are some of the best quake players around.
+
+--
+
+I doubt I can convey just how well things are going here. Things probably look a little odd from the outside, but our work should speak for itself. I have been breaking into spontanious smiles lately just thinking about how cool things are (of course, that could just be a sleep deprivation effect..).
+
+We have a totally kick-ass team here.
+
+We are on schedule. (no shit!)
+
+We are doing a great product.
+
+Everyone watch out!

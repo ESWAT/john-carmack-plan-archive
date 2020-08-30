@@ -1,0 +1,19 @@
+Here is the real story on the movement physics changes.
+
+Zoid changed the movement code in a way that he felt improved gameplay in the 3.15 release.
+
+We don't directly supervise most of the work Zoid does. One of the main reasons we work with him is that I respect his judgment, and I feel that his work benefits the community quite a bit with almost no effort on my part. If I had to code review every change he made, it wouldn't be worth the effort.
+
+Zoid has "ownership" of the Quake, Glquake, and QuakeWorld codebases. We don't intend to do any more modifications at Id on those sources, so he has pretty free reign within his discretion.
+
+We passed over the Quake 2 codebase to him for the addition of new features like auto download, but it might have been a bit premature, because official mission packs were still in development, and unlike glquake and quakeworld, Q2 is a product that must remain official and supported, so the scope of his freedoms should have been spelled out a little more clearly.
+
+The air movement code wasn't a good thing to change in Quake 2, because the codebase still had to support all the commercial single player levels, and subtle physics changes can have lots of unintended effects.
+
+QuakeWorld didn't support single player maps, so it was a fine place to experiment with physics changes.
+
+QuakeArena is starting with fresh new data, so it is also a good place to experiment with physics changes.
+
+Quake 2 cannot be allowed to evolve in a way that detracts from the commercial single player levels.
+
+The old style movement should not be referred to as "real world physics". None of the quake physics are remotely close to real world physics, so I don't think one way is significantly more "real" than the other. In Q2, you accelerate from 0 to 27 mph in 1/30 of a second, which just as unrealistic as being able to accelerate in midair..

@@ -1,0 +1,52 @@
+Interpreting the lagometer (the graph in the lower right corner):
+
+The upper graph (blue/yellow) slides one pixel for every rendered frame. Blue lines below the baseline mean that the frame is interpolating between two valid snapshots. Yellow lines above the baseline mean the frame is extrapolating beyond the latest valid time. The length of the line is proportional to the time.
+
+The lower graph (green/yellow/red) slides one pixel for every received snapshot. By default, snapshots come 20 times a second, so if you are running >20 fps, the top graph will move faster, and vice versa. A red bar means the snapshot was dropped by the network. Green and yellow bars are properly received snapshots, with the height of the bar proportional to the ping. A yellow bar indicates that the previous snapshot was intentionally supressed to stay under the rate limit.
+
+The upper graph indicates the consistancy of your connection. Ideally, you should always have blue bars of only a pixel or two in height. If you are commonly getting big triangles of yellow on the graph, your connection is inconsistant.
+
+In a heavy firefight, it is normal for modem players to see yellow bars in the bottom graph, which should return to green when the action quiets down. If you are getting several red bars visible, you may want to look for a server that drops less packets.
+
+There are a few tuning variables for people trying to optimize their connection:
+
+The most important one is "rate", which is what the connection speed option in the menu sets.
+
+We are fairly conservative with the values we set for the given modem speeds: 2500 for 28.8, 3000 for 33, and 3500 for 56k.
+
+You may actually be connecting faster than that, and modem compression may be buying you something, so you might get a better play experience by increasing the values slightly.
+
+If you connect at 50000 bps, try a rate of 5000, etc.
+
+I err on the conservative side, because too low of a rate will only make the movement of other things in the world choppy, while too high of a rate can cause huge amounts of lag.
+
+Note that the optimal rate will be somewhat lower than a rate for QW or Q2, because I now include the UDP packet header length in the bandwidth estimate.
+
+You can ask for a different number of snapshots by changing the "snaps" variable, but there isn't a lot of benefit to that. Dedicated servers run at 40hz, so stick to divisors of that: 40, 20 (default), 10. A snaps of 40 will usually just cause you to hit your rate limit a lot faster. It may be usefull for tuning rate, if nothing else.
+
+You can adjust the local timing point with "cg_timenudge ", which effectively adds local lag to try to make sure you interpolate instead of extrapolate. If you really want to play on a server that is dropping a ton of packets, a timenudge of 100 or so might make the game smoother.
+
+------ 
+One more addition to net cvars:
+"cl_maxpackets" will restrict the maximum number of outgoing packets to prevent client to server rate problems. This does not limit the client framerate. This defaults to 20, which might actually be a bit low. You might try experimenting with raising this to 40.
+
+"cl_maxfps" still exists, but it will never need to be used for networking reasons.
+
+
+
+------- 
+* converted cvar allocation to indexes to allow range checking
+* cgame converted over to use vmCvar_t instead of cvar_t needed for interpreted cgame
+* fixed server crashing string bug
+* adjusted scoreboard for 8 players
+* show hostname on connection screen
+* fixed null model warning on startup
+* more space for hostname on local servers screen
+* fixed mac Open Transport memory buffer bug, this was causing most of the mac crashes
+* made Info_ValueForKey() case insensitive
+* sv_privateClients, sv_privatePassword. this allows you to reserve slots on a public server for password access while allowing most to be freely available
+* "server is full" message on connect screen
+* archive handicap in config file
+* cheat protect r_nocurves
+* byte order independent zip checksum
+* removed cl_stereo, use glConfig.stereoEnabled

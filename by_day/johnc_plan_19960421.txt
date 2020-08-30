@@ -1,0 +1,24 @@
+* fixed texture animation cycling roundoff bug
+* fixed up missile clipping
+* fixed super spike -1 ammo and use 3 ammo bugs
+* checked deathmatch before precache on monsters
+* jump out of water
+* debounced jump
+
++ check extranious messages on connect
++ continuous looping sounds
++ button texture changing
++ state textures for buttons?
++ remove the legless / headless player death frames
+
+why is shambler lightning funny colors under NS?
+extra point radius shoots through walls
+big sound cache for deathmatch
+abort load command?
+is max_health ever used in progs?
+don't go to frag scoreboard when single player dies
+clipping against surfaces causes multiple slime damages in multiplayer
+only?
+treading water less bouncy
+jetpack model is saved wrong
+super size boss

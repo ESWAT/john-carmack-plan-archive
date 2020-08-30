@@ -1,0 +1,27 @@
+The demo servers have general purpose flood-protection that has caused some confusion.
+
+Clients are only allowed to make one command a second of any kind. This prevents excessive flooding by chats, model / name changes, and any other command that could possibly be exploited. The command streams are stalled, so it doesn't have any effect on processing order or reliability.
+
+This means that if you issue two commands immediately after one another, there will be a one second stall before the second command and all movement clears. You see this on the lagometer as yellow spiking up for a second, then dropping away.
+
+Hitting tab for the scoreboard sends a command, so you trigger the flood protection if you bang tab a couple times. This has been fixed so that the scoreboard will never send more than one update request every two seconds, but you will need to watch out for it in the existing demo.
+
+The defered model loading has also caused some confusion, but that is a feature, not a bug. :)
+
+In previous tests, you hitched for a second or two whenever a client with a new model or skin joined a game.
+
+In the demo, when a client joins the game they will be given the model and skin of someone else temporarily, so there is no hitch. The only time it will hitch on entry is if it is a team game and there isn't anyone on the team they join. I make sure the skin color is correct, even if the model isn't.
+
+These "defered" clients will be loaded when you bring up the scoreboard. You can do this directly by hitting tab, or you can have it happen for you when you die.
+
+The point is: you died BEFORE it hitched, not as a result of the hitch.
+
+The scoreboard header is up, but it is still a bit easy to miss.
+
+* fixed high server idle cpu usage (it was spinning in place until maxfps was used!)
+* fixed g_password, which is crashing in the demo
+* moved svs.snapshotEntities to the hunk
+* enable lagometer whenever running a non-local game
+* cg_drawTeamOverlay cvar, set to 0 by default
+* finished authorize work
+* better reporting of unused highwater memory

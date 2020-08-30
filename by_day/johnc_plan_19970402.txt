@@ -1,0 +1,17 @@
+The second generation QuakeWorld is out and live now.
+
+We will probably release a couple bug fix versions over the next week or so as problems are reported.
+
+Overall, I'm pleased with the results - I think I have delivered very solid improvements in game play. I certainly learned a lot along the way. If you have anything resembling a decent connection, you should be able to play a good game. A server with a 400+ ms ping and 10% packet loss is still not going to play all that great, but you should just avoid those.
+
+The packet size is about as small as it is going to get for the general cases. Any more shrinkage will have to be game-specific compression, like the specialized nail update.
+
+I can make doors and plats move smoothly, but it will take a good chunk more development. This will probably be done for quake 2.
+
+I have it all set up to clip movement against other players during prediction, but I probably need a day or two to finish it. I'm not confidant that I'll get to that anytime soon, though.
+
+I really want to get client side demo recording and more spectator mode options (see through player's eyes, chase cam, etc), but I just don't have the time right now.
+
+The next major upgrade will be a quakeworld that can run in software and OpenGL modes. A verite module will come later.
+
+This combination (QW networking and switchable rendering) will be the base that we move all of our Quake 2 work over to.

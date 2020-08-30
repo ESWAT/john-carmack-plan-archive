@@ -1,0 +1,13 @@
+* fixed static object update bomb
+* fixed crazy speed guys
+* allow restart after objerror
+* fixed bug with restarting droped out of world messages
+* spread standing frames more for groups
+
++ remove precache_item
++ ogres that won't wake up
++ spawn flags
+
+pause turn speed
+army guys don't wake up by touch?
+jump velocity shouldn't make head bob

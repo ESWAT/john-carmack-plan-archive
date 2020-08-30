@@ -1,0 +1,27 @@
+It has been difficult to write .plan updates lately. Every time I start writing something, I realize that I'm not going to be able to cover it satisfactorily in the time I can spend on it. I have found that terse little comments either get misinterpreted, or I get deluged by email from people wanting me to expand upon it.
+
+I wanted to do a .plan about my evolving thoughts on code quality and lessons learned through quake and quake 2, but in the interest of actually completing an update, I decided to focus on one change that was intended to just clean things up, but had a surprising number of positive side effects.
+
+Since DOOM, our games have been defined with portability in mind. Porting to a new platform involves having a way to display output, and having the platform tell you about the various relevant inputs. There are four principle inputs to a game: keystrokes, mouse moves, network packets, and time. (If you don't consider time an input value, think about it until you do - it is an important concept)
+
+These inputs were taken in separate places, as seemed logical at the time. A function named Sys_SendKeyEvents() was called once a frame that would rummage through whatever it needed to on a system level, and call back into game functions like Key_Event( key, down ) and IN_MouseMoved( dx, dy ). The network system dropped into system specific code to check for the arrival of packets. Calls to Sys_Milliseconds() were littered all over the code for various reasons.
+
+I felt that I had slipped a bit on the portability front with Q2 because I had been developing natively on windows NT instead of cross developing from NEXTSTEP, so I was reevaluating all of the system interfaces for Q3.
+
+I settled on combining all forms of input into a single system event queue, similar to the windows message queue. My original intention was to just rigorously define where certain functions were called and cut down the number of required system entry points, but it turned out to have much stronger benefits.
+
+With all events coming through one point (The return values from system calls, including the filesystem contents, are "hidden" inputs that I make no attempt at capturing, ), it was easy to set up a journalling system that recorded everything the game received. This is very different than demo recording, which just simulates a network level connection and lets time move at its own rate. Realtime applications have a number of unique development difficulties because of the interaction of time with inputs and outputs.
+
+Transient flaw debugging. If a bug can be reproduced, it can be fixed. The nasty bugs are the ones that only happen every once in a while after playing randomly, like occasionally getting stuck on a corner. Often when you break in and investigate it, you find that something important happened the frame before the event, and you have no way of backing up. Even worse are realtime smoothness issues - was that jerk of his arm a bad animation frame, a network interpolation error, or my imagination?
+
+Accurate profiling. Using an intrusive profiler on Q2 doesn't give accurate results because of the realtime nature of the simulation. If the program is running half as fast as normal due to the instrumentation, it has to do twice as much server simulation as it would if it wasn't instrumented, which also goes slower, which compounds the problem. Aggressive instrumentation can slow it down to the point of being completely unplayable.
+
+Realistic bounds checker runs. Bounds checker is a great tool, but you just can't interact with a game built for final checking, its just waaaaay too slow. You can let a demo loop play back overnight, but that doesn't exercise any of the server or networking code.
+
+The key point: Journaling of time along with other inputs turns a realtime application into a batch process, with all the attendant benefits for quality control and debugging. These problems, and many more, just go away. With a full input trace, you can accurately restart the session and play back to any point (conditional breakpoint on a frame number), or let a session play back at an arbitrarily degraded speed, but cover exactly the same code paths..
+
+I'm sure lots of people realize that immediately, but it only truly sunk in for me recently. In thinking back over the years, I can see myself feeling around the problem, implementing partial journaling of network packets, and included the "fixedtime" cvar to eliminate most timing reproducibility issues, but I never hit on the proper global solution. I had always associated journaling with turning an interactive application into a batch application, but I never considered the small modification necessary to make it applicable to a realtime application.
+
+In fact, I was probably blinded to the obvious because of one of my very first successes: one of the important technical achievements of Commander Keen 1 was that, unlike most games of the day, it adapted its play rate based on the frame speed (remember all those old games that got unplayable when you got a faster computer?). I had just resigned myself to the non-deterministic timing of frames that resulted from adaptive simulation rates, and that probably influenced my perspective on it all the way until this project.
+
+Its nice to see a problem clearly in its entirety for the first time, and know exactly how to address it.

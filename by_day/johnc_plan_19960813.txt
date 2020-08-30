@@ -1,0 +1,5 @@
+I am considering increasing the default sv_friction value for  QuakeWorld from 4 to 6 or 8.
+
+It might take a little getting used to, but I think it gives more  precise control for wide area network play.
+
+If anyone wants to run some experiments with different friction  levels on a current Quake server, I would be interested in hearing  some feedback.

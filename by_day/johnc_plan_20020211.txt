@@ -1,0 +1,39 @@
+Last month I wrote the Radeon 8500 support for Doom.
+
+The bottom line is that it will be a fine card for the game, but the details are sort of interesting.
+
+I had a pre-production board before Siggraph last year, and we were discussing the possibility of letting ATI show a Doom demo behind closed doors on it. We were all very busy at the time, but I took a shot at bringing up support over a weekend. I hadn't coded any of the support for the custom ATI extensions yet, but I ran the game using only standard OpenGL calls (this is not a supported path, because without bump mapping everything looks horrible) to see how it would do. It didn't even draw the console correctly, because they had driver bugs with texGen. I thought the odds were very long against having all the new, untested extensions working properly, so I pushed off working on it until they had revved the drivers a few more times.
+
+My judgment was colored by the experience of bringing up Doom on the original Radeon card a year earlier, which involved chasing a lot of driver bugs. Note that ATI was very responsive, working closely with me on it, and we were able to get everything resolved, but I still had no expectation that things would work correctly the first time.
+
+Nvidia's OpenGL drivers are my "gold standard", and it has been quite a while since I have had to report a problem to them, and even their brand new extensions work as documented the first time I try them. When I have a problem on an Nvidia, I assume that it is my fault. With anyone else's drivers, I assume it is their fault. This has turned out correct almost all the time. I have heard more anecdotal reports of instability on some systems with Nivida drivers recently, but I track stability separately from correctness, because it can be influenced by so many outside factors.
+
+ATI had been patiently pestering me about support for a few months, so last month I finally took another stab at it. The standard OpenGL path worked flawlessly, so I set about taking advantage of all the 8500 specific features. As expected, I did run into more driver bugs, but ATI got me fixes rapidly, and we soon had everything working properly. It is interesting to contrast the Nvidia and ATI functionality:
+
+The vertex program extensions provide almost the same functionality. The ATI hardware is a little bit more capable, but not in any way that I care about. The ATI extension interface is massively more painful to use than the text parsing interface from nvidia. On the plus side, the ATI vertex programs are invariant with the normal OpenGL vertex processing, which allowed me to reuse a bunch of code. The Nvidia vertex programs can't be used in multipass algorithms with standard OpenGL passes, because they generate tiny differences in depth values, forcing you to implement EVERYTHING with vertex programs. Nvidia is planning on making this optional in the future, at a slight speed cost.
+
+I have mixed feelings about the vertex object / vertex array range extensions. ATI's extension seems more "right" in that it automatically handles synchronization by default, and could be implemented as a wire protocol, but there are advantages to the VAR extension being simply a hint. It is easy to have a VAR program just fall back to normal virtual memory by not setting the hint and using malloc, but ATI's extension requires different function calls for using vertex objects and normal vertex arrays.
+
+The fragment level processing is clearly way better on the 8500 than on the Nvidia products, including the latest GF4. You have six individual textures, but you can access the textures twice, giving up to eleven possible texture accesses in a single pass, and the dependent texture operation is much more sensible. This wound up being a perfect fit for Doom, because the standard path could be implemented with six unique textures, but required one texture (a normalization cube map) to be accessed twice. The vast majority of Doom light / surface interaction rendering will be a single pass on the 8500, in contrast to two or three passes, depending on the number of color components in a light, for GF3/GF4 (*note GF4 bitching later on).
+
+Initial performance testing was interesting. I set up three extreme cases to exercise different characteristics:
+
+A test of the non-textured stencil shadow speed showed a GF3 about 20% faster than the 8500. I believe that Nvidia has a slightly higher performance memory architecture.
+
+A test of light interaction speed initially had the 8500 significantly slower than the GF3, which was shocking due to the difference in pass count. ATI identified some driver issues, and the speed came around so that the 8500 was faster in all combinations of texture attributes, in some cases 30+% more. This was about what I expected, given the large savings in memory traffic by doing everything in a single pass.
+
+A high polygon count scene that was more representative of real game graphics under heavy load gave a surprising result. I was expecting ATI to clobber Nvidia here due to the much lower triangle count and MUCH lower state change functional overhead from the single pass interaction rendering, but they came out slower. ATI has identified an issue that is likely causing the unexpected performance, but it may not be something that can be worked around on current hardware.
+
+I can set up scenes and parameters where either card can win, but I think that current Nvidia cards are still a somewhat safer bet for consistent performance and quality.
+
+On the topic of current Nvidia cards:
+
+Do not buy a GeForce4-MX for Doom.
+
+Nvidia has really made a mess of the naming conventions here. I always thought it was bad enough that GF2 was just a speed bumped GF1, while GF3 had significant architectural improvements over GF2. I expected GF4 to be the speed bumped GF3, but calling the NV17 GF4-MX really sucks.
+
+GF4-MX will still run Doom properly, but it will be using the NV10 codepath with only two texture units and no vertex shaders. A GF3 or 8500 will be much better performers. The GF4-MX may still be the card of choice for many people depending on pricing, especially considering that many games won't use four textures and vertex programs, but damn, I wish they had named it something else.
+
+As usual, there will be better cards available from both Nvidia and ATI by the time we ship the game.
+
+8:50 pm addendum: Mark Kilgard at Nvidia said that the current drivers already support the vertex program option to be invarint with the fixed function path, and that it turned out to be one instruction FASTER, not slower.

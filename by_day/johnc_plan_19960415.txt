@@ -1,0 +1,32 @@
+* lowered slime cshift
+* wizard slide move
+* dog frames
+* fixed auto aiming when dead on
+* soldier less hp + tuning
+* various gibs
+* dynamically allocated scores structure
+* trigger_counter
+* door TOGGLE
+* fixed forking bug that trashed pointfiles
+* fixed sky fuckup
+
++ fix demon pop jump
++ zombie get up inside other
++ zombie gib throwing
++ lose onfloor when pushed
++ animating textures
++ schurch weirdness
+
+make light styles global prog vars
+base4 entrance door sucks
+back attack damage
+fix dynamic light values of players
+aim up at nearby monsters
+load pcxs in lbmlib
+text triggers
+swim slow straight up?
+temp entities
+client sound calls
+zombie heads bouncing
+bouncing monsters out of the world
+gib bodies between pushers

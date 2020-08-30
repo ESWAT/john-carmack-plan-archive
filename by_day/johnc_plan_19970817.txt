@@ -1,0 +1,10 @@
+* demo angles
+* fixed initial lightmap cache value
+* disconnect now does an ERR_DROP to kill server as well
+* button_any support
+* bad fov problem
+
+aliaslist
+never nextserver on finale
+blaster autorepeat problem
+end cinematic loading flicker

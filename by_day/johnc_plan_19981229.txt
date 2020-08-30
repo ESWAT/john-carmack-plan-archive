@@ -1,0 +1,17 @@
+I am considering taking a shortcut with my virtual machine implementation that would make the integration a bit easier, but I'm not sure that it doesn't compromise the integrity of the base system.
+
+I am considering allowing the interpreted code to live in the global address space, instead of a private 0 based address space of its own. Store instructions from the VM would be confined to the interpreter's address space, but loads could access any structures.
+
+On the positive side:
+
+This would allow full speed (well, full interpreted speed) access to variables shared between the main code and the interpreted modules. This allows system calls to return pointers, instead of filling in allocated space in the interpreter's address space.
+
+For most things, this is just a convenience that will cut some development time. Most of the shared accesses could be recast as "get" system calls, and it is certainly arguable that that would be a more robust programming style.
+
+The most prevelent change this would prevent is all the cvar_t uses. Things could stay in the same style as Q2, where cvar accesses are free and transparantly updated. If the interpreter lives only in its own address space, then cvar access would have to be like Q1, where looking up a variable is a potentially time consuming operation, and you wind up adding lots of little cvar caches that are updated every from or restart.
+
+On the negative side:
+
+A client game module with a bug could cause a bus error, which would not be possible with a pure local address space interpreter.
+
+I can't think of any exploitable security problems that read only access to the entire address space opens, but if anyone thinks of something, let me know.

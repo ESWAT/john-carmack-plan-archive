@@ -1,0 +1,12 @@
+* new trigger code with delay
+
++ jrbase3 spawn problem
+
+jump triggers
+dragon path
+uncache player on single player
+monster missile checking for race relations
+gib pack
+wizard partical trail
+multiple sky maps
+non-bleeding takedamage

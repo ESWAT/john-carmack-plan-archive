@@ -1,0 +1,27 @@
+Things are progressing reasonably well on the Quake 3 engine.
+
+Not being limited to supporting a 320*240 256 color screen is very, very nice, and will make everyone's lives a lot easier.
+
+All of our new source artwork is being done in 24 bit TGA files, but the engine will continue to load .wal files and .pcx files for developer's convenience. Each pcx can have its own palette now though, because it is just converted to 24 bit at load time.
+
+Q3 is going to have a fixed virtual screen coordinate system, independant of resolution. I tried that back in the original glquake, but the fixed coordinate system was only 320*200, which was excessively low. Q2 went with a dynamic layout at different resolutions, which was a pain, and won't scale to the high resolutions that very fast cards will be capable of running at next year.
+
+All screen drawing is now done assuming the screen is 640*480, and everything is just scaled as you go higher or lower. This makes laying out status bars and HUDs a ton easier, and will let us do a lot cooler looking screens.
+
+There will be an interface to let game dlls draw whatever they want on the screen, precisely where they want it. You can suck up a lot of network bandwidth doing that though, so some care will be needed.
+
+-
+
+Going to the completely opposite end of the hardware spectrum from quake 3..
+
+I have been very pleased with the fallout from the release of the DOOM source code.
+
+At any given spot in design space, there are different paths you can take to move forward. I have usually chosen to try to make a large step to a completely new area, but the temptation is there to just clean up and improve in the same area, continuously polishing the same program.
+
+I am enjoying seeing several groups pouring over DOOM, fixing it up and enhancing it. Cleaning up long standing bugs. Removing internal limitations. Orthogonalizing feature sets. Etc.
+
+The two that I have been following closest are Team TNT's BOOM engine project, which is a clear headed, well engineered improvement on the basic DOOM technical decisions, and Bruce Lewis' glDoom project.
+
+Any quakers feeling nostalgic should browse around:
+
+http://www.doomworld.com/

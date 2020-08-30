@@ -1,0 +1,37 @@
+This was the most significant thing I talked about at The Frag, so here it is for everyone else.
+
+The way the QA game architecture has been developed so far has been as two seperate binary dll's: one for the server side game logic, and one for the client side presentation logic.
+
+While it was easiest to begin development like that, there are two crucial problems with shipping the game that way: security and portability.
+
+It's one thing to ask the people who run dedicated servers to make informed decisions about the safety of a given mod, but its a completely different matter to auto-download a binary image to a first time user connecting to a server they found.
+
+The quake 2 server crashing attacks have certainly proven that there are hackers that enjoy attacking games, and shipping around binary code would be a very tempting opening for them to do some very nasty things.
+
+With quake and Quake 2, all game modifications were strictly server side, so any port of the game could connect to any server without problems. With Quake 2's binary server dll's not all ports could necessarily run a server, but they could all play.
+
+With significant chunks of code now running on the client side, if we stuck with binary dll's then the less popular systems would find that they could not connect to new servers because the mod code hadn't been ported. I considered having things set up in such a way that client game dll's could be sort of forwards-compatable, where they could always connect and play, but new commands and entity types just might now show up. We could also GPL the game code to force mod authors to release source with the binaries, but that would still be inconvenient to deal with all the porting.
+
+Related both issues is client side cheating. Certain cheats are easy to do if you can hack the code, so the server will need to verify which code the client is running. With multiple ported versions, it wouldn't be possible to do any binary verification.
+
+If we were willing to wed ourselves completely to the windows platform, we might have pushed ahead with some attempt at binary verification of dlls, but I ruled that option out. I want QuakeArena running on every platform that has hardware accelerated OpenGL and an internet connection.
+
+The only real solution to these problems is to use an interpreted language like Quake 1 did. I have reached the conclusion that the benefits of a standard language outweigh the benefits of a custom language for our purposes. I would not go back and extend QC, because that stretches the effort from simply system and interpreter design to include language design, and there is already plenty to do.
+
+I had been working under the assumption that Java was the right way to go, but recently I reached a better conclusion.
+
+The programming language for QuakeArena mods is interpreted ANSI C. (well, I am dropping the double data type, but otherwise it should be pretty conformant)
+
+The game will have an interpreter for a virtual RISC-like CPU. This should have a minor speed benefit over a byte-coded, stack based java interpreter. Loads and stores are confined to a preset block of memory, and access to all external system facilities is done with system traps to the main game code, so it is completely secure.
+
+The tools necessary for building mods will all be freely available: a modified version of LCC and a new program called q3asm. LCC is a wonderful project - a cross platform, cross compiling ANSI C compiler done in under 20K lines of code. Anyone interested in compilers should pick up a copy of "A retargetable C compiler: design and implementation" by Fraser and Hanson.
+
+You can't link against any libraries, so every function must be resolved. Things like strcmp, memcpy, rand, etc. must all be implemented directly. I have code for all the ones I use, but some people may have to modify their coding styles or provide implementations for other functions.
+
+It is a fair amount of work to restructure all the interfaces to not share pointers between the system and the games, but it is a whole lot easier than porting everything to a new language. The client game code is about 10k lines, and the server game code is about 20k lines.
+
+The drawback is performance. It will probably perform somewhat like QC. Most of the heavy lifting is still done in the builtin functions for path tracing and world sampling, but you could still hurt yourself by looping over tons of objects every frame. Yes, this does mean more load on servers, but I am making some improvements in other parts that I hope will balance things to about the way Q2 was on previous generation hardware.
+
+There is also the amusing avenue of writing hand tuned virtual assembly assembly language for critical functions..
+
+I think this is The Right Thing.

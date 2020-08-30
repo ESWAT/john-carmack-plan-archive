@@ -1,0 +1,18 @@
+* made func_wall and removed the dm_only / not_dm
+
++ sky fuckups
++ single pixel movement quantization?
++ falling out of world
+
+auto aiming sucks
+remove superscaling
+s->relasecount error
+.cfg default for exec
+frame too fast bug causing lockups
+last request/reply
+registration trademark!!!
+explosion cores
+check side to side movement for big attacks like the shamblers?
+change backpack content messages
+combine model and sound cache!
+better PVS with more leafs?

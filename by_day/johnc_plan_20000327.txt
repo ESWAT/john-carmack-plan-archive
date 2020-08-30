@@ -1,0 +1,33 @@
+Seumas McNally
+
+Two years ago, Id was contacted by the Startlight Foundation, an organization that tries to grant wishes to seriously ill kids. (www.starlight.org)
+
+There was a young man with Hodgkin's Lymphoma that, instead of wanting to go to Disneyland or other traditional wishes, wanted to visit Id and talk with me about programming.
+
+It turned out that Seumas McNally was already an accomplished developer. His family company, Longbow Digital Arts (www.longbowdigitalarts.com), had been doing quite respectably selling small games directly over the internet. It bore a strong resemblance to the early shareware days of Apogee and Id.
+
+We spent the evening talking about graphics programmer things - the relative merits of voxels and triangles, procedurally generated media, level of detail management, API and platforms.
+
+We talked at length about the balance between technology and design, and all the pitfalls that lie in the way of shipping a modern product.
+
+We also took a dash out in my ferrari, thinking "this is going to be the best excuse a cop will ever hear if we get pulled over".
+
+Longbow continued to be successful, and eventually the entire family was working full time on "Treadmarks", their new 3D tank game.
+
+Over email about finishing the technology in Treadmarks, Seumas once said "I hope I can make it". Not "be a huge success" or "beat the competition". Just "make it".
+
+That is a yardstick to measure oneself by.
+
+It is all too easy to lose your focus or give up with just the ordinary distractions and disappointments that life brings. This wasn't ordinary. Seumas had cancer. Whatever problems you may be dealing with in your life, they pale before having problems drawing your next breath.
+
+He made it.
+
+Treadmarks started shipping a couple months ago, and was entered in the Independent Games Festival at the Game Developer's Conference this last month. It came away with the awards for technical excellence, game design, and the grand prize.
+
+I went out to dinner with the McNally family the next day, and had the opportunity to introduce Anna to them. One of the projects at Anna's new company, Fountainhead Entertainment (www.fountainheadent.com), is a documentary covering gaming, and she had been looking forward to meeting Seumas after hearing me tell his story a few times. The McNallys invited her to bring a film crew up to Canada and talk with everyone whenever she could.
+
+Seumas died the next week.
+
+I am proud to have been considered an influence in Seumas' work, and I think his story should be a good example for others. Through talent and determination, he took something he loved and made a success out of it in many dimensions.
+
+http://www.gamedev.net/community/memorial/seumas/ for more information.

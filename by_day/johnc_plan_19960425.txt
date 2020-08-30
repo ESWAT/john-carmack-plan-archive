@@ -1,0 +1,12 @@
+* increased spread on super shotgun
+* rewrote sound loading and mixing
+* fixed sound refcounting bug
+* fixed sound not playing bug
+* fixed sound hanging bug
+
++ axe
+
+colored lighting sample
+lightning gun
+light bmodels
+don't let the view model go full dark

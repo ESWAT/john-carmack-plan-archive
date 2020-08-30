@@ -1,0 +1,39 @@
+* reduced rocket refire rate
+* removed ogre wait after awake
+* added shambler pain finished time
+* new caching code
+
++ staircase rail on tim6 needs to be taller
++ normal server disconnect is reported as a host_error
++ jrbase1 up arrow out of slime is near a step
++ bad changeup to green armor from yellow? level transition?
++ are demo playback speeds correct?
++ stair walking underwater
++ ogre explosions need cores
++ teleporting monsters left a statues
++ shootable buttons don't anger monters properly
++ cycle weapon command
++ pain channel is same as weapon channel
+- cut swimming speed some
+- go through more get up frames on zombie before failing
++ got stuck in a dropping zombie
++ wizads on paths drop to ground
++ torch models
++ remove keys on use
+- different keys on status bar for different levels
++ all items in inventory need to blink on pickup
++ soldiers seeing into water on tim6?
+
+savegames cause enemy items...
+different color console fonts
+monsters need to hear from farther away
+think about patch / update plan
+precache_ambient
+alternate surface warp
+killing ogre while on falling platform left him in the air
+better treading water
+better search path handling
+make a progs / models test directory for kevin
+blink key icons on doors
+default.cfg allways goes to knwon state
+animate key icon on doors when failing to open

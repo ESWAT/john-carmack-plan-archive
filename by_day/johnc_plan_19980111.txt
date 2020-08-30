@@ -1,0 +1,33 @@
+I AM GOING OUT OF TOWN NEXT WEEK, DON'T SEND ME ANY MAIL!
+
+Odds are that I will get back and just flush the 500 messages in my mailbox.
+
+No, I'm not taking a vacation. Quite the opposite, in fact.
+
+I'm getting a hotel room in a state where I don't know anyone, so I can do a bunch of research with no distractions.
+
+I bought a new computer specifically for this purpose - A Dolch portable pentium-II system. The significant thing is that it has full length PCI slots, so I was able to put an Evans & Sutherland OpenGL accelerator in it (not enough room for an intergraph Realizm, though), and still drive the internal LCD screen. It works out pretty well, but I'm sure there will be conventional laptops with good 3D acceleration available later this year.
+
+This will be an interesting experiment for me. I have always wondered how much of my time that isn't at peak productivity is a necessary rest break, and how much of it is just wasted.
+
+---
+
+The client's IP address is now added to the userinfo before calling ClientConnect(), so any IP filtering / banning rules can now be implemented in the game dll. This will also give some of you crazy types the ability to sync up with multiple programs on the client computers outside of Q2 itself.
+
+A new API entry point has been added to the game dll that gets called whenever an "sv" command is issued on the server console. This is to allow you to create commands for the server operator to type, as opposed to commands that a client would type (which are defined in g_cmds.c).
+
+---
+
+We did a bunch of profiling today, and finaly got the information I wanted. We weren't doing anything brain dead stupid in the server, and all of the time was pretty much where I expected it to be.
+
+I did found two things we can pursue for optimization.
+
+A moderately expensive catagorization function is called at both the beginning and end of client movement simulation. With some care, we should be able to avoid the first one most of the time. That alone should be good for a >10% server speedup.
+
+The other major thing is that the client movement simulation accounted for 60% of the total execution time, and because it was already compartmentalized for client side prediction, it would not be much work to make it thread safe. Unfortunately, it would require MAJOR rework of the server code (and some of the game dll) to allow multiple client commands to run in parallel.
+
+The potential is there to double the peak load that a server can carry if you have multiple processors. Note that you will definately get more players / system by just running multiple independent servers, rather than trying to get them all into a single large server.
+
+We are not going to pursue either of these optimizations right now, but they will both be looked at again later.
+
+All this optimizing of the single server is pushing the tail end of a paradigm. I expect trinity to be able to seamlessly hand off between clustered servers without the client even knowing it happened.

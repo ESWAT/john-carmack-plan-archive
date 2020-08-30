@@ -1,0 +1,21 @@
+* lots of cleanup in cl_ code
+* killed looping sounds at disconnect
+* faded palette back down at disconnect
+* fixed bobj miscount and added bobj count error check
+* interpolated angles and velocities for low update connections
+* finished demo code
+
++ sound caching....
++ looping sound still doesn't work on my system
++ can't throw out spawned sounds too far away, because of teleporters
++ ammo box on sbar doesn't allways update after death
++ two state door
++ allocate translations on the hunk to save single player memory
+
+remove headless / legless death frames
+swimming frames
+server viewpos problem
+relinking by size still isn't right
+explosion core
+precache_auxsound for non-essential
+don't cache player model in single player

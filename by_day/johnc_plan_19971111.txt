@@ -1,0 +1,49 @@
+* cinematic playback at variable sound rates
+* qdata multiple video in single file fix
+* only one token huffman bug
+* demowaiting
+* allowed individual reliable overflows
+* make all clients invisible at intermission point
+* mask high bits in client_t->name
+* full delta compression
+
+don't show paused plaque in dm
+check all serverinfo flags (skill, nomonsters)
+crunch the scoreboard data a lot
+dedicated net thread
+random-not-nearest option
+"public" variable
+check the "using previous_origin" notes
+echo chats to console?
+weapon icon when hand is centered
+game skills
+better console keyboard editing
+are demos broken with current delta compression?
+should client string commands be ties to usercmd_t, to fix drops?
+why is ref_gl.dll as large as it is?
+allow round up and >256 textures on gl
+mouse during cin
+echo chats to console
+is the dedicated server sleeping?
+get mins/maxs from pmove
+
+warn at startup if any spawn point is in a wall
+make teleport pads glow?
+never make water solid for entity cull purposes?
+get sound position needs to check the valid count on entities
+make secondary sound buffers the default?
+
+pak file sorting by traces?
+no colored lighting with mono lightmaps!!!
+
+option to make picking up items not select
+
+change stretch-raw to a dedicated full screen blit for better performance?
+
+bsp to do:
+=========
+robustness
+water problems
+increase MAX_MAP_ENTSTRNG
+allow any number of light styles
+MAX_MAP_AREAS when leaking?

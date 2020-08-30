@@ -1,0 +1,7 @@
+Until we release the new gamex86 source code, if you want to make mods work with 3.09, change GAME_API_VERSION to:
+
+#define GAME_API_VERSION 2
+
+and recompile the mod.
+
+This will let it run with the 3.09 servers. The API didn't actually change, I just had to bump that version number so that we could detect the old q2test dlls still hanging around.

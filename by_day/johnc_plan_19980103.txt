@@ -1,0 +1,30 @@
+New stuff fixed:
+
+* timeout based non-active packet streams
+* FS_Read with CD off checks
+* dedicated server not allocate client ports
+* qport proxy checking stuff
+* fixed mouse wheel control
+* forced newlines on several Cbuf_AddText ()
+* if no nextmap on a level, just stay on same one
+* chat maximums to prevent user forced overflows
+* limit stringcmds per frame to prevent malicious use
+* helped jumping down slopes
+* checksum client move messages to prevent proxy bots
+* challenge / response connection process
+* fixed rcon
+* made muzzle flash lights single frame, rather than 0.1 sec
+
+I still don't have an answer to the WAADRNOTAVAILABLE problem. I have made the packet stream as friendly as possible, but some computers are still choking.
+
+I managed to get fixes for address translating routers done without costing any bandwidth from the server, just a couple bytes from the client, which isn't usually a critical path.
+
+I have spent a fair amount of time trying to protect against "bad" users in this release. I'm sure there will be more things that come up, but I know I got a few of the ones that are currently being exploited.
+
+We will address any attack that can make a server crash. Other attacks will have to have the damage and prevelence weighed against the cost of defending against it.
+
+Client message overflows. The maximum number of commands that can be issued in a user packet has been limited. This prevents a client from doing enough "says" or "kills" to overflow the message buffers of other clients.
+
+Challenge on connection. A connection request to a server is now a two stage process of requesting a challenge, then using it to connect. This prevents denial of service attacks where connection packets with forged IPs are flooded at a server, preventing any other users from connecting until they timeout.
+
+Client packet checksumming. The packets are encoded in a way that will prevent proxies that muck with the packet contents, like the stoogebot, from working.
